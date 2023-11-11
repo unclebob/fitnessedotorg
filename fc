@@ -1,2 +1,0 @@
-java -classpath classes:fitnesse-standalone-20230503.jar: fitnesseMain.FitNesseMain -p 8080
-
