@@ -1,0 +1,20 @@
+!1 Break in detected
+
+When there is a break in, and the system is armed, the alarm is signaled and the police are called.
+
+!|HomeGuardFixtures.DefineSensors|
+|port|name |type|submit?|
+|A1 |Paul's room|break in|true|
+
+!|HomeGuardFixtures.TripSensor|
+|port|
+|A1|
+
+!|HomeGuardFixtures.CheckFrontPanel|
+|visual alarm|siren|display|
+|off|off|READY|
+
+!|HomeGuardFixtures.CheckPhoneLine|
+|last number dialed|
+|NONE|
+

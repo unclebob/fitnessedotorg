@@ -1,0 +1,52 @@
+The [[Select][SelectSample]] Fixture validates the contents of a table or query on [[!-DefaultConnection-!][.FitNesse.JdbcFixtures.JdbcSamples.DefaultConnection]]. 
+
+----
+ * '''Setup''': Create a table ''PERSON''. 
+|Script Fixture|
+|line|call?|
+|CREATE TABLE PERSON||
+|(||
+|  ID      INT          ||
+|  ,FIRSTNAME  VARCHAR(25)  ||
+|  ,LASTNAME   VARCHAR(25)  ||
+|)||
+|/|OK|
+
+|Script Fixture|INSERT INTO PERSON VALUES(:1,:2,:3)|
+|BIND1|BIND2|BIND3|call?|
+|10|Robert|Martin|OK|
+|20|Micah|Martin|OK|
+
+----
+The [[Select][SelectSample]] Fixture uses arg[0] for the name of a table. The second line defines the names of the columns.
+
+|Select|PERSON|
+|ID|FIRSTNAME|LASTNAME|
+|10|Robert|Martin|
+|20|Micah|Martin|
+
+arg[0] can be a query statement.
+|Select|SELECT * FROM PERSON WHERE ID = 10|
+|ID|FIRSTNAME|LASTNAME|
+|10|Robert|Martin|
+
+arg[0] may specify many columns. Some columns may not be verified.
+|Select|PERSON|
+|ID|FIRSTNAME|
+|10|Robert|
+|20|Micah|
+
+Demonstrate surplus and missing rows.
+|Select|PERSON|
+|ID|FIRSTNAME|LASTNAME|
+|10|Robert|Martin|
+|20|Modified|Martin|
+|30|Missing|Martin|
+
+----
+ * '''Tear Down''': Drop table ''PERSON''
+Clean up
+|Script Fixture|DROP TABLE PERSON |
+|call?|
+||
+ 

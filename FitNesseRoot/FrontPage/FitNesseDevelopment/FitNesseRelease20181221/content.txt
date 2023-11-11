@@ -1,0 +1,27 @@
+!release 20181221
+
+!3 FitNesse Release Notes 2018/12/21
+!note Uncle Bob Consulting LLC.
+
+!note !style_red(Requires Java 1.6)
+
+!4 Major Changes since [[20180127][FitNesseRelease20180127]]:
+
+ * Issues fixed:
+   * Allow plugins to contain Velocity templates (used when rendering pages) ([[1127][https://github.com/unclebob/fitnesse/pull/1127]])
+
+!4 Github ids of Contributors to this release:
+
+ * Arjan Molenaar
+ * Fried Hoeben
+ * Tom Heintzberger
+
+!meta Thanks to all of you!
+
+!3 Git History
+
+!|2018-12-21|Fried Hoeben|Update release notes to describe issue fixed|
+|2018-12-21|Fried Hoeben|Merge pull request #1127 from tcnh/fixVelocityTemplatesFromJar|
+|2018-12-21|Arjan Molenaar|Prepare release notes file for a new release|
+|2018-12-14|Tom Heintzberger|Brace to the right line|
+|2018-02-20|Tom Heintzberger|Fix velocity templates from jar by setting the current thread's context classloader to Fitnesse's extended classloader containing plugin Jars.|

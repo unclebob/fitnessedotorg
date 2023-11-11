@@ -1,0 +1,14 @@
+!3 Define sensors
+
+Id's and names must be unique.
+
+!|HomeGuardFixtures.DefineSensors|
+|id|name |submit?|reason?|
+|1 |Paul’s room|true ||
+|2 |Porch |true ||
+|3 |Front Door |true ||
+|4 |Back Door |true||
+|4 |Garage Door |false|duplicate id|
+|5 |Back Door |false|duplicate name|
+|5 |Garage Door |true||
+

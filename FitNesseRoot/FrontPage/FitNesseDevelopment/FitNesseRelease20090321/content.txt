@@ -1,0 +1,115 @@
+!release 20090321
+
+!3 FitNesse Release Notes 3/21/2009
+!note Uncle Bob, Object Mentor, Inc.
+
+!4 Contributors to this release:
+ * Clare !-McLennan-!
+ * Scott Pfister
+ * Brett Schuchert
+ * Scott Frederick
+ * Markus Gaertner
+ * Pal Brattberg
+
+!meta Thanks to all of you!
+
+|!4 Since:|[[20090214][FitNesseRelease20090214]]| 
+|!4 Expected Release Date:|20090320|!style_pass(RELEASED)|
+|!4 Theme:|Tree View, Ordered List, Stop Button, Test Tags|
+
+!3 Changes
+ * Tree View when you load /.  (!style_code{!-http://myServer:myPort-!})
+ * STOP button for test runs.  Causes test or suite to be aborted.
+ * Much better XML report for Slim tests.  Includes massive detail of all slim instructions.  See Restful Tests in User Guide
+ * PAGE_NAME bug fixed.  If you !include a page that references the PAGE_NAME symbol, it will resolve to the ''including'' page, rather than the ''included'' page.
+ * Decision Table functions are now called left to right instead of in random order.
+ * Added SLIM_PORT variable so that you can specify which ports SLIM uses.  It used to default to 8085-8094.
+ * !-!today-! widget.  This widget provides many different options for representing todays date.
+ * Setup/Teardown are collapsed by default.
+ * Searching for and testing pages marked by certain tags.  Tags are set in the properties page.  Searched for in the Search page.  
+ * Added ''Ordered Query'' Slim table.  Just like Query table except that rows must be in order.
+ * Build Json packets from tables.  See Restful Packets in User Guide.
+ 
+
+!3 Git History
+!|2009-03-21 10:08:51 -0500|unclebob|Merge branch 'master' of git://github.com/MarkusGaertner/fitnessebacklogfixes|
+|2009-03-21 10:04:34 -0500|unclebob|Merged Clare's Stop Button|
+|2009-03-21 07:49:14 -0500|unclebob|added -Xmx100M to docs|
+|2009-03-21 14:02:46 +1300|Clare|Added a test to make sure stopping a test gives a good output message|
+|2009-03-21 13:03:20 +1300|Clare|Useful results summary message now for when a test was stoped using the stop button.|
+|2009-03-19 17:19:07 +0100|Markus Gaertner|removed zip_src target from build.xml for ticket 70|
+|2009-03-19 17:15:22 +0100|Markus Gaertner|fixed ticket 57 PAGE_NAME inclusion for SetUp and TearDown tables|
+|2009-03-18 13:40:14 -0500|unclebob|Bumped memory on TestRunnerTask|
+|2009-03-18 12:52:02 -0500|unclebob|Added SLIM instructions to XML format for Tests and Suites|
+|2009-03-17 16:28:32 -0500|unclebob|record evaluation results in Evaluation|
+|2009-03-17 15:52:19 -0500|unclebob|clean up Expectation hierarchy|
+|2009-03-17 15:30:31 -0500|unclebob|fix AuthenticatorTest|
+|2009-03-17 11:10:47 -0500|Brett L. Schuchert|Removed warnings. Most relatd to using raw types. Since FitNesse is compiled with JDK 1.5 or later, the raw types |
+|2009-03-17 09:12:12 -0500|unclebob|Decision table functions and inputs called in left to right order|
+|2009-03-16 22:29:14 -0500|unclebob|clean out old pages|
+|2009-03-17 07:59:41 +1300|Clare|Tidied up the copyright so that all files are consistant|
+|2009-03-16 13:34:50 -0500|unclebob|SLIM_PORT variable|
+|2009-03-16 23:53:56 +1300|Clare|Fixed test that wasn't running|
+|2009-03-16 23:35:51 +1300|Clare|Merged master from Uncle Bob with stop button, and updating suite formatting|
+|2009-03-15 16:26:44 -0500|unclebob|Merge branch 'master' of git://github.com/MarkusGaertner/fitnessebacklogfixes|
+|2009-03-15 15:29:19 -0500|unclebob|Tests and Documentation for \!today|
+|2009-03-15 14:46:47 -0500|unclebob|Changed main to fitnesseMain.FitNesseMain in order to break dependencies|
+|2009-03-15 08:25:41 -0500|unclebob|Breaking dependency of fitnesse.Updater|
+|2009-03-14 16:39:38 -0500|unclebob|\!today widget and dependency breaking.|
+|2009-03-14 11:55:41 +0100|Markus Gaertner|fixed backlog item #85|
+|2009-03-12 18:17:25 -0500|unclebob|Searching and Testing Tags.|
+|2009-03-12 00:32:51 +1300|clare|Added stop button to tests and suites and fixed problems with refactor|
+|2009-03-11 02:52:15 -0500|unclebob|decoupled fit from fitnesse|
+|2009-03-08 17:58:57 -0500|unclebob|Moved property search form to regular search page.|
+|2009-03-06 17:09:50 -0600|unclebob|Merge branch 'master' of git://github.com/liberty/fitnesse into liberty|
+|2009-03-06 16:48:16 -0600|unclebob|some cleanup|
+|2009-03-05 21:16:12 -0600|sfred|Merge branch 'master' of git://github.com/unclebob/fitnesse|
+|2009-03-05 08:43:17 -0600|unclebob|Click on dial takes you to FrontPage not /|
+|2009-03-04 13:50:58 -0600|unclebob|Ordered Query Table|
+|2009-03-03 13:37:37 -0600|unknown|Added Search Properties feature|
+|2009-03-03 09:26:10 -0600|unclebob|move pal's json.jar change to pom.xml.template|
+|2009-03-03 09:17:02 -0600|unclebob|Merge branch 'master' of git://github.com/pal/fitnesse|
+|2009-03-03 14:54:21 +0100|Pal Brattberg|Added lib/json.jar to pom.xml|
+|2009-03-03 07:44:39 -0600|unclebob|Markus Gaertner's changes for lighthouse #74 and #83|
+|2009-03-03 07:28:18 -0600|unclebob|Merge branch 'master' of git://github.com/MarkusGaertner/fitnessebacklogfixes|
+|2009-03-03 06:27:50 -0600|unclebob|cleanup|
+|2009-03-02 23:55:50 +1300|clare|Suites now show test output as it is generated.  The suite summary at the top remains but is also updated as tests are finished|
+|2009-03-02 22:31:47 +1300|clare|Refactored formatters ready for new suite formatter|
+|2009-02-28 22:30:06 +0100|Markus Gaertner|Merge commit 'upstream/master'|
+|2009-02-28 11:57:37 -0600|unclebob|Merge branch 'master' of git@github.com:unclebob/fitnesse|
+|2009-02-28 11:54:21 -0600|unclebob|fiddled with CSS and got default to be treeview.|
+|2009-02-28 12:06:58 +0100|Markus Gaertner|finished work on ticket #83: error pages have the 'test' bit set|
+|2009-02-28 12:02:09 +0100|Markus Gaertner|Finished work on ticket 74: Test/Suite/Normal should be mutually exclusive radio|
+|2009-02-28 11:59:51 +0100|Markus Gaertner|updated .classpath to include the json library|
+|2009-02-25 16:54:36 -0600|unclebob|Tree Control Links to pages in FitNesse|
+|2009-02-25 15:46:50 -0600|unclebob|Tree control integrated with FitNesse|
+|2009-02-25 15:07:23 -0600|unclebob|cleaned up tree control|
+|2009-02-25 14:58:56 -0600|unclebob|Got multi-level tree working.|
+|2009-02-25 13:09:13 -0600|unclebob|json output from NameWikiPageResponder.|
+|2009-02-25 10:24:37 -0600|unclebob|got initial tree demo working|
+|2009-02-25 10:21:23 -0600|unclebob|Login Example for Scenario Table|
+|2009-02-25 23:51:19 +1300|clare|Refactor of test and suite runner complete except for two unit tests this time with the 3 extra files|
+|2009-02-25 23:48:27 +1300|clare|Refactor complete except for two unit tests|
+|2009-02-24 08:30:45 -0600|Brett L. Schuchert|Fixed typo.|
+|2009-02-24 20:27:13 +1300|unknown|Merge branch 'master' of git@github.com:clare/fitnesse|
+|2009-02-24 20:27:03 +1300|unknown|need to commit to pull my fitnesse|
+|2009-02-24 20:20:36 +1300|unknown|Test|
+|2009-02-23 23:03:45 +1300|unknown|Added javadoc to new classes|
+|2009-02-23 22:57:34 +1300|unknown|renamed for better understandability|
+|2009-02-23 22:55:13 +1300|unknown|Fitnesse tests now pass|
+|2009-02-23 22:44:49 +1300|unknown|Added json.jar to classpath for Eclipse|
+|2009-02-23 22:41:39 +1300|unknown|Pull from respository|
+|2009-02-23 22:35:09 +1300|unknown|Testrunner now working for testresponder class|
+|2009-02-23 17:32:07 +1300|unknown|New test runner now working for suites|
+|2009-02-20 10:53:03 -0600|Brett L. Schuchert|Fixed Spelling error.|
+|2009-02-20 09:09:06 -0600|unclebob|updated user guide for jsonp|
+|2009-02-20 08:58:12 -0600|unclebob|mend|
+|2009-02-20 08:57:58 -0600|unclebob|jsonp argument to PacketResponder|
+|2009-02-19 08:39:14 -0600|unclebob|pull out load_data in PacketResponder|
+|2009-02-19 06:42:28 -0600|unclebob|fix SystemPropertySetterFixture, I broke it for Fit when converting it to Slim.|
+|2009-02-18 13:38:48 -0600|unclebob|Extend timeout on testparsingManyLineBreaksIsFast, and cut testConcurrentAddWidgets from 25000 to 1000|
+|2009-02-17 15:16:06 -0600|unclebob|moved more crap4j stuff out of build.xml|
+|2009-02-16 21:13:50 -0600|Scott Pfister|add check for other processes running on port 1234; test will fail fast instead of hanging while awaiting reply|
+|2009-02-16 20:22:44 -0600|Scott Pfister|add support for suiteFilter to ExecuteFitnesseTests ant task - remove -nopath because it is no longer supported by Test|
+
+

@@ -1,0 +1,93 @@
+!release 20160618
+
+!3 FitNesse Release Notes 2016/06/18
+!note Uncle Bob Consulting LLC.
+
+!note !style_red(Requires Java 1.7)
+
+!4 Major Changes since [[20160515][FitNesseRelease20160515]]:
+
+ * Add ability to specify the locale used to format evaluated expressions
+ * FitNesse is more strict in propagating exceptions, instead of only logging them
+ * ''WikiPage'' interface now has a ''remove()'' method. This will replace the ''removeChild()'' method in the near future
+ * Updated ''FixtureInteraction'' interface
+ * Issues fixed:
+   * Display of Map results from fixtures should allow nested HTML
+   * Fix assignment of output parameters of scenarios with graceful names in decision tables
+   * Fix Where Used page for pages under a Symbolic Link
+
+!4 Github ids of Contributors to this release:
+
+ * Arjan Molenaar
+ * Florian Léger
+ * Fried Hoeben
+ * Hans Joachim Desserud
+ * LudovicVa
+ * Robert C. Martin
+
+!meta Thanks to all of you!
+
+!3 Git History
+
+!|2016-06-16|Arjan Molenaar|Merge pull request #930 from amolenaar/wiki-remove|
+|2016-06-16|Arjan Molenaar|Merge pull request #929 from Enovea/master|
+|2016-06-16|Arjan Molenaar|Merge pull request #923 from amolenaar/propagate-exceptions|
+|2016-06-16|Arjan Molenaar|Merge pull request #911 from LudovicVa/master|
+|2016-06-12|Robert C. Martin|refactoring|
+|2016-06-12|Robert C. Martin|improve testing of Binding, and refactor|
+|2016-06-08|Robert C. Martin|refactor ActionFixture and ColumnFixture|
+|2016-06-06|Arjan Molenaar|Processed remarks made by Fried Hoeben. And some indentation.|
+|2016-06-08|Robert C. Martin|added tests for ColumnFixture|
+|2016-06-08|Robert C. Martin|add mutation testing for fitnesse in parts|
+|2016-06-07|Robert C. Martin|Got mutation testing for fit working again|
+|2016-06-06|Robert C. Martin|Merge branch 'master' of github.com:unclebob/fitnesse|
+|2016-06-06|Robert C. Martin|final refactoring of Action Fixture and Tests|
+|2016-06-06|LudovicVa|Invoke via the interaction the around slim method|
+|2016-06-02|Arjan Molenaar|boyscouting.|
+|2016-06-06|LudovicVa|Update CachedInteraction.java|
+|2016-06-06|LudovicVa|Make fields final|
+|2016-06-06|LudovicVa|Update TestSlimInvocationAware.java|
+|2016-06-04|Robert C. Martin|move taskdef inside mutation testing|
+|2016-06-04|Robert C. Martin|pitest mutation testing|
+|2016-06-04|Arjan Molenaar|Use IllegalStateException on places where no exceptions should occur at all.|
+|2016-06-04|Arjan Molenaar|More specific exceptions|
+|2016-06-04|Robert C. Martin|added pitest to ivy and ant|
+|2016-06-04|Arjan Molenaar|WikiPageProperties should throw WikiPageLoadException|
+|2016-06-04|Robert C. Martin|mend|
+|2016-06-04|Robert C. Martin|Action Fixture Covered|
+|2016-06-04|Arjan Molenaar|SlimTableFactory throws specific exeption on error.|
+|2016-06-04|Arjan Molenaar|Clean up RuntimeException in the wiki package.|
+|2016-06-04|Arjan Molenaar|MockSocket can throw exceptions.|
+|2016-06-04|Arjan Molenaar|No need for exception handling in wiki.refactoring|
+|2016-06-03|Arjan Molenaar|DateTimeUtil should propagate ParseException.|
+|2016-06-03|Arjan Molenaar|Remove RuntimeException from history and formatter code.|
+|2016-06-03|Arjan Molenaar|Remove a couple of occurrences where RuntimeException was thrown. Some places caught exceptions in vain, other places could benefit from more specific exceptions.|
+|2016-06-03|Arjan Molenaar|Test system related code does no longer throw IOException. Where needed custom exceptions are thrown.|
+|2016-06-01|Arjan Molenaar|Fix maven url, so IDE's can pick it up.|
+|2016-06-01|Arjan Molenaar|Implement default remove() in BaseWikiPage. Ensure backwards compatibility for now.|
+|2016-06-01|Arjan Molenaar|Use WikiPage.remove() everywhere|
+|2016-06-01|Arjan Molenaar|Deprecate WikiPage.removeChildPage in favor of WikiPage.remove().|
+|2016-06-01|Florian Léger|Add FORMAT_LOCALE variable to specify locale for formatted expression evaluation|
+|2016-05-27|Arjan Molenaar|Merge pull request #917 from amolenaar/refactoring|
+|2016-05-27|Arjan Molenaar|Merge pull request #928 from Enovea/master|
+|2016-05-27|Arjan Molenaar|Update SymbolicPage equality algorithm.|
+|2016-05-27|Florian Léger|Fix assignation of output parameters of scenarios with graceful names in decision tables|
+|2016-05-21|Arjan Molenaar|Merge pull request #924 from hansjoachim/readme|
+|2016-05-21|Hans Joachim Desserud|Now that Java7 is required, update instructions for setting up IDEA|
+|2016-05-19|Arjan Molenaar|Merge pull request #921 from fhoeben/ImproveMapConvertorsEscaping|
+|2016-05-18|Fried Hoeben|Allow same nested content when converting Maps as in HtmlTables (except slim variables) Fixes #920|
+|2016-05-15|Arjan Molenaar|Moved FixtureInteraction to SlimExecutionContext.|
+|2016-05-14|Arjan Molenaar|Replace static SocketFactory by interface+implementations.|
+|2016-05-07|Arjan Molenaar|Add deprecation warnings. Should pass a SocketFactory around instead of SSL properties.|
+|2016-05-06|LudovicVa|Change interface for compatibility with InteractionAwareFixtures|
+|2016-05-06|LudovicVa|Moving method finding to Fixture Interaction|
+|2016-04-30|LudovicVa|Merge remote-tracking branch 'refs/remotes/unclebob/master'|
+|2016-04-09|Arjan Molenaar|Improve exception propagation.|
+|2016-04-06|Arjan Molenaar|Use FileUtil.close(), instead of it's own try/catch block|
+|2016-04-06|Arjan Molenaar|CompositeTestSystemListener will remove listeners that throw IOException.|
+|2016-04-03|Arjan Molenaar|Housekeeping: whitespace.|
+|2016-04-03|Arjan Molenaar|Simplify FileUtil.close(), log exception (do not throw).|
+|2016-04-03|Arjan Molenaar|Propagate IOException in FileUtil.|
+|2016-04-03|Arjan Molenaar|Ensure all (test system) handlers are invoked, even if exceptions occur.|
+|2016-04-01|Arjan Molenaar|Housekeeping: white space|
+|2016-04-01|Arjan Molenaar|FitNesseExpedited.send() propagates IO exception. Same with Response.getEncodedBytes()|

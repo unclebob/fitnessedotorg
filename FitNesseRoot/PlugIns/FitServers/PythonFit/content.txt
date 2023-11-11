@@ -1,0 +1,24 @@
+Current Version: 0.8a2
+Download: http://www.python.org/pypi/PyFit
+
+more to come
+
+----
+
+A PyFIT tutorial is available.
+
+Part 1 talks about installing and configuring PyFIT and !-FitNesse-!, and writing !-ColumnFixture-!-style fixtures. See it at http://agiletesting.blogspot.com/2004/11/writing-fitnesse-tests-in-python.html 
+
+Part 2 talks about writing !-RowFixture-!-style fixtures. See it at http://agiletesting.blogspot.com/2004/12/pyfit-tutorial-part-2.html
+
+Part 3 talks about using !-SetUp-! pages. See it at http://agiletesting.blogspot.com/2005/01/pyfit-tutorial-part-3.html
+
+See also http://agiletesting.blogspot.com/2006/02/running-fitnesse-tests-from-command.html for a short tutorial on running !-FitNesse-! tests from the command line using PyFIT.
+
+Comments/suggestions/additions are welcome.
+
+Grig Gheorghiu
+
+----
+
+Thanks, Grig, for all your documentation and your presentations at PyCon! Just trying to get started with some testing here. ;)

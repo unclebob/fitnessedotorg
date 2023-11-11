@@ -1,0 +1,139 @@
+
+These instruction assume you cygwin, but should work for linux or unix.
+
+From a cygwin prompt
+{{{
+cd !-c:/tools/CppTestTools-!
+make all
+}}}
+You will see something like the following.  If you are on some system that gets unit test failures in the Concurrency package you use the unit test harness any way.  Try "make unit"
+{{{
+$ make all
+make -C Concurrency all
+make[1]: Entering directory `/cygdrive/c/tools/CppTestTools/Concurrency
+'
+gcc -c -I.. -I.  -o Action.o Action.cpp
+gcc -c -I.. -I.  -o ActiveObject.o ActiveObject.cpp
+gcc -c -I.. -I.  -o ActiveObjectTest.o ActiveObjectTest.cpp
+gcc -c -I.. -I.  -o DelayTest.o DelayTest.cpp
+gcc -c -I.. -I.  -o EventTest.o EventTest.cpp
+gcc -c -I.. -I.  -o FlagSettingActionTest.o FlagSettingActionTest.cpp
+gcc -c -I.. -I.  -o MutexTest.o MutexTest.cpp
+gcc -c -I.. -I.  -o NullAction.o NullAction.cpp
+gcc -c -I.. -I.  -o Runnable.o Runnable.cpp
+gcc -c -I.. -I.  -o ScopeLockTest.o ScopeLockTest.cpp
+gcc -c -I.. -I.  -o Socket.o Socket.cpp
+gcc -c -I.. -I.  -o SocketServer.o SocketServer.cpp
+gcc -c -I.. -I.  -o SocketTest.o SocketTest.cpp
+gcc -c -I.. -I.  -o ThreadTest.o ThreadTest.cpp
+gcc -c -I.. -I.  -o Timer.o Timer.cpp
+gcc -c -I.. -I.  -o TimerTest.o TimerTest.cpp
+ar -rc libConcurrency.a Action.o ActiveObject.o ActiveObjectTest.o DelayTest.o E
+ventTest.o FlagSettingActionTest.o MutexTest.o NullAction.o Runnable.o ScopeLock
+Test.o Socket.o SocketServer.o SocketTest.o ThreadTest.o Timer.o TimerTest.o
+ranlib libConcurrency.a
+cp libConcurrency.a ../lib
+make[1]: Leaving directory `/cygdrive/c/tools/CppTestTools/Concurrency'
+
+make -C Platforms/Gcc all
+make[1]: Entering directory `/cygdrive/c/tools/CppTestTools/Platforms/G
+cc'
+gcc -c -I../.. -I.  -o Delay.o Delay.cpp
+gcc -c -I../.. -I.  -o Event.o Event.cpp
+gcc -c -I../.. -I.  -o GccFixtureMaker.o GccFixtureMaker.cpp
+gcc -c -I../.. -I.  -o GccMemoryLeakWarning.o GccMemoryLeakWarning.cpp
+gcc -c -I../.. -I.  -o GccSocket.o GccSocket.cpp
+gcc -c -I../.. -I.  -o Mutex.o Mutex.cpp
+gcc -c -I../.. -I.  -o Thread.o Thread.cpp
+ar -rc libGccPlatform.a Delay.o Event.o GccFixtureMaker.o GccMemoryLeakWarning.o
+ GccSocket.o Mutex.o Thread.o
+ranlib libGccPlatform.a
+cp libGccPlatform.a ../../lib
+make[1]: Leaving directory `/cygdrive/c/tools/CppTestTools/Platforms/Gc
+c'
+make -C UnitTestHarness all
+make[1]: Entering directory `/cygdrive/c/tools/CppTestTools/UnitTestHar
+ness'
+gcc -c -I../Platforms/Gcc -I.. -I.  -o NullTest.o NullTest.cpp
+gcc -c -I../Platforms/Gcc -I.. -I.  -o NullTestTest.o NullTestTest.cpp
+gcc -c -I../Platforms/Gcc -I.. -I.  -o TestInstaller.o TestInstaller.cpp
+gcc -c -I../Platforms/Gcc -I.. -I.  -o TestInstallerTest.o TestInstallerTest.cpp
+
+gcc -c -I../Platforms/Gcc -I.. -I.  -o Printer.o Printer.cpp
+gcc -c -I../Platforms/Gcc -I.. -I.  -o PrinterTest.o PrinterTest.cpp
+gcc -c -I../Platforms/Gcc -I.. -I.  -o CommandLineTestRunner.o CommandLineTestRu
+nner.cpp
+gcc -c -I../Platforms/Gcc -I.. -I.  -o EqualsFailure.o EqualsFailure.cpp
+gcc -c -I../Platforms/Gcc -I.. -I.  -o Failure.o Failure.cpp
+gcc -c -I../Platforms/Gcc -I.. -I.  -o FailureTest.o FailureTest.cpp
+gcc -c -I../Platforms/Gcc -I.. -I.  -o SimpleString.o SimpleString.cpp
+gcc -c -I../Platforms/Gcc -I.. -I.  -o SimpleStringTest.o SimpleStringTest.cpp
+gcc -c -I../Platforms/Gcc -I.. -I.  -o Test.o Test.cpp
+gcc -c -I../Platforms/Gcc -I.. -I.  -o TestTest.o TestTest.cpp
+gcc -c -I../Platforms/Gcc -I.. -I.  -o TestRegistry.o TestRegistry.cpp
+gcc -c -I../Platforms/Gcc -I.. -I.  -o TestResult.o TestResult.cpp
+ar -rc libUnitTestHarness.a NullTest.o NullTestTest.o TestInstaller.o TestInstal
+lerTest.o Printer.o PrinterTest.o CommandLineTestRunner.o EqualsFailure.o Failur
+e.o FailureTest.o SimpleString.o SimpleStringTest.o Test.o TestTest.o TestRegist
+ry.o TestResult.o
+ranlib libUnitTestHarness.a
+cp libUnitTestHarness.a ../lib
+make[1]: Leaving directory `/cygdrive/c/tools/CppTestTools/UnitTestHarn
+ess'
+make -C Fit/FitLib all
+make[1]: Entering directory `/cygdrive/c/Projects/tools/CppTestTools/Fit/FitLib'
+
+gcc -c -I.. -I../.. -I../../Platforms/Gcc -I.  -o ActionFixture.o ActionFixture.
+cpp
+gcc -c -I.. -I../.. -I../../Platforms/Gcc -I.  -o ActionFixtureTest.o ActionFixt
+ureTest.cpp
+gcc -c -I.. -I../.. -I../../Platforms/Gcc -I.  -o ColumnFixture.o ColumnFixture.
+cpp
+gcc -c -I.. -I../.. -I../../Platforms/Gcc -I.  -o FitnesseServer.o FitnesseServe
+r.cpp
+gcc -c -I.. -I../.. -I../../Platforms/Gcc -I.  -o FitnesseServerTest.o FitnesseS
+erverTest.cpp
+gcc -c -I.. -I../.. -I../../Platforms/Gcc -I.  -o Fixture.o Fixture.cpp
+gcc -c -I.. -I../.. -I../../Platforms/Gcc -I.  -o FixtureMaker.o FixtureMaker.cp
+p
+gcc -c -I.. -I../.. -I../../Platforms/Gcc -I.  -o FixtureMakerTest.o FixtureMake
+rTest.cpp
+gcc -c -I.. -I../.. -I../../Platforms/Gcc -I.  -o FixtureTest.o FixtureTest.cpp
+gcc -c -I.. -I../.. -I../../Platforms/Gcc -I.  -o FrameworkTest.o FrameworkTest.
+cpp
+gcc -c -I.. -I../.. -I../../Platforms/Gcc -I.  -o Parse.o Parse.cpp
+gcc -c -I.. -I../.. -I../../Platforms/Gcc -I.  -o PrimitiveFixture.o PrimitiveFi
+xture.cpp
+gcc -c -I.. -I../.. -I../../Platforms/Gcc -I.  -o RowFixture.o RowFixture.cpp
+gcc -c -I.. -I../.. -I../../Platforms/Gcc -I.  -o RowFixtureTest.o RowFixtureTes
+t.cpp
+gcc -c -I.. -I../.. -I../../Platforms/Gcc -I.  -o Summary.o Summary.cpp
+gcc -c -I.. -I../.. -I../../Platforms/Gcc -I.  -o SummaryTest.o SummaryTest.cpp
+gcc -c -I.. -I../.. -I../../Platforms/Gcc -I.  -o TestFixtureMaker.o TestFixture
+Maker.cpp
+gcc -c -I.. -I../.. -I../../Platforms/Gcc -I.  -o TestRowFixture.o TestRowFixtur
+e.cpp
+gcc -c -I.. -I../.. -I../../Platforms/Gcc -I.  -o TypeAdapter.o TypeAdapter.cpp
+ar -rc libFitLib.a ActionFixture.o ActionFixtureTest.o ColumnFixture.o FitnesseS
+erver.o FitnesseServerTest.o Fixture.o FixtureMaker.o FixtureMakerTest.o Fixture
+Test.o FrameworkTest.o Parse.o PrimitiveFixture.o RowFixture.o RowFixtureTest.o
+Summary.o SummaryTest.o TestFixtureMaker.o TestRowFixture.o TypeAdapter.o
+ranlib libFitLib.a
+cp libFitLib.a ../../lib
+make[1]: Leaving directory `/cygdrive/c/tools/CppTestTools/Fit/FitLib'
+make -C AllTests all
+make[1]: Entering directory `/cygdrive/c/tools/CppTestTools/AllTests'
+gcc -c -I.. -I../Platforms/Gcc -I.  -o AppFixtureMaker.o AppFixtureMaker.cpp
+gcc -c -I.. -I../Platforms/Gcc -I.  -o AllTests.o AllTests.cpp
+gcc -o AllTests -L../lib  AllTests.o AppFixtureMaker.o ../lib/libConcurrency.a .
+./lib/libUnitTestHarness.a ../lib/libFitLib.a ../lib/libGccPlatform.a -lFitLib -
+lUnitTestHarness -lConcurrency -lGccPlatform -lConcurrency -lstdc++
+./AllTests
+..................................................
+......................................
+OK (88 tests, 87 ran, 165 checks, 1 ignored, 0 filtered out)
+No leaks detected
+make[1]: Leaving directory `/cygdrive/c/tools/CppTestTools/AllTests'
+
+
+}}}

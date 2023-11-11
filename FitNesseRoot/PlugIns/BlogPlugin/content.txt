@@ -1,0 +1,21 @@
+!c !2 Blog Plugin
+!c Gives !-FitNesse-! some blog-like behavior.
+!c by [[Micah Martin][.MicahMartin]]
+
+!3 Download
+[[blog.jar][http://fitnesse.org/files/plugins/blogPlugin/blog.jar]] - This is all you need to install the plugin
+[[blogPlugin.zip][http://fitnesse.org/files/plugins/blogPlugin/blogPlugin.zip]] - The source code.
+
+
+!3 Installation
+Make sure ''blog.jar'' is included in the classpath when !-FitNesse-! boots.
+Add the floowing to ''plugins.properties''
+{{{Responders = addBlogComment:com.objectmentor.fitnesse.AddBlogCommentResponder
+WikiWidgets = com.objectmentor.fitnesse.BlogCommentFormWidget}}}
+
+!3 Usage
+This plugin provides a new wiki widget that is used like so:
+{{{!commentForm [taget page name]}}}
+When rendered the widget will show a form like the image below.  When the form is submitted, content will be added to the current page as a collapsable section.  Optionally, a alternative page can be specified as the target page where content will be saved.
+
+!img http://files/plugins/blogPlugin/commentForm.tiff

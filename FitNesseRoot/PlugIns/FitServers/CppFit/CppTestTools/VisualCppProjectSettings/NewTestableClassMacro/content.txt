@@ -1,0 +1,23 @@
+!3 MS Visual C++ V6 Instructions to setup the new testable class macro
+'''Load the macro'''
+ 1 Follow this command chain: tools/macro/options/loaded files/browse
+ 1 Navigate to C:\tools\fitnesse\cpp\CppSourceTemplates (standard path)
+ 1 Select ClassFileGenerator.DSM
+ 1 OK
+
+'''Make sure the path points to the code template'''
+''This is needed only if you are not using the standard path''
+ 1 Tools/Macro/Macro file:ClassFileGenerator/NewTestableCppClass
+ 1 Press Edit
+ 1 Modify the TemplatesDirectory macro as needed
+
+'''Add a button for the macro'''
+
+ 1 Follow the command chain tools/customize/command/Category:Macros
+ 1 Drag NewTestableCppClass to your toolbar
+ 1 Select an icon - I like the smiley face
+ 1 Close
+ 1 Exit VC++ and restart
+ 1 Open a workspace and try out the button
+ 
+Unfortunately if there is an error in the macro (like a bad file path or name, the macro will crash VC++.  If any of you know how to catch an error in a maco, please let James Grenning know.

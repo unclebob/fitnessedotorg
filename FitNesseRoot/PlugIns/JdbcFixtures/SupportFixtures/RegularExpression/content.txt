@@ -1,0 +1,125 @@
+[[java.util.regex.Matcher][http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Matcher.html]]
+[[java.util.regex.Pattern][http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Pattern.html]]
+
+|Comment|'''Pattern Fixture's fields and methods'''|
+|regularExpression|input |replacement|ith|group()|replaceAll()|compile()|matcher()|find()|result()|appendReplacement()|appendTail()|groupi()|
+|String           |String|String     |int|String |String      |String   |String   |String|String  |String             |String      |String  |
+
+ * '''regularExpression''' A set of optional and required characters that form a pattern. The pattern may use parentheses to create '''groups'''.
+ * '''compile()''' generates a [[java.util.regex.Pattern][http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Pattern.html]] from ''regularExpression''.
+ * '''input''' A string that may contain a regular expression.
+ * '''matcher()''' generates a [[java.util.regex.Matcher][http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Matcher.html]] from ''input'' using the ''java.util.regex.Pattern'' from ''compile()''.
+ * '''find()''' Searches ''input'' for a ''regularExpression'' using a ''java.util.regex.Matcher'' from ''matcher()''. It sets ''ith'' to 0, so that ''groupi()'' starts at the first sub-group. It returns true if the search succeeds. If the match succeeds then more information can be obtained via ''group()'' and ''groupi()''. 
+ * '''group()'''  Returns the entire input subsequence matched by the previous ''find()''.
+ * '''groupi()'''  Returns the ''ith'' input subsequence matched by the previous ''find()''. It increments ''ith''. 
+ * '''replacement''' ''appendReplacement()'' and ''replaceAll()'' generate a ''result()'', which is a copy of ''input'' with the ''replacement'' substituted for the ''regularExpression''.
+ * '''appendReplacement()''' Implements a non-terminal append-and-replace step. Attempts to ''find()''. If successful, it appends ''replacement'' to the ''result()'' and returns ''true''.
+ * '''appendTail()''' Implements a terminal append-and-replace step.
+ * '''replaceAll()''' Replaces every occurrence of the ''regularExpression'' in the ''input'' with '' replacement''.
+ * '''result()''' returns the resulting string from ''appendReplacement()'' and ''appendTail()''
+----
+!1 Searching for expressions
+!3 Using group() and group(int) 
+ * Define a pattern for an apple, orange, or peach.
+|Pattern Fixture|
+|regularExpression|
+|!-(apple)|(orange)|(peach)-!|
+ 
+|Pattern Fixture|
+|compile?|
+|        |
+ * Match against a string
+|Pattern Fixture|
+|input|
+|An apple, orange or peach a day will keep the doctor away. |
+
+
+|Pattern Fixture|
+|matcher?|
+||
+ * Find each match. The group() and group(int index) functions return information about the match. group() and group(0) return the entire matching input sequence. The index corresponds to the number of left parenthesis from the beginning of the string, so
+group(1) denotes ''apple''. group(4) is undefined because the string has only 3 left parenthesis, so it throws an exception.
+
+|Pattern Fixture|
+|find?|group?|groupi?|groupi?|groupi?|groupi?|groupi?||
+|true|apple|apple|apple||||1|
+|true|orange|orange||orange|||2|
+|true|peach|peach|||peach||3|
+|false|||||||4|
+||||||||5|
+ * Note that the fourth row fails to find any more expressions, but the fifth row starts back over at the beginning.
+
+
+----
+!1 Replacing expressions
+!3 Using appendReplacement() and appendTail()
+|Pattern Fixture|
+|regularExpression|input|replacement||
+|cat|one cat two cats in the yard|dog| Repace ''cat'' with ''dog''|
+ 
+|Pattern Fixture|
+|compile?|matcher?|
+|        |        |
+
+|Pattern Fixture|
+|appendReplacement?|appendReplacement?|appendReplacement?|appendTail?|
+|one dog           |                  |                  |           |
+----
+!1 Regular Expression Constructs
+This example uses shows how to use regular expressions to find parameters in a SQL script. The syntax for a parameter is 
+ * a colon
+ * whitespace ''optional''
+ * '''in''', '''out''' or '''inout''' ''optional''
+ * and a single digit
+
+[[java.util.regex.Pattern][http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Pattern.html]] contains a full list of constructs for defining regular expressions. 
+
+
+|Comment|:\s*(((in)?(out)?\s+)?(\d))\b|
+|'''Characters'''|'''Matches'''|'''Example                                 '''|
+|:|:|: |
+|\s*|Any number of whitespace characters: |[ \t\n\x0B\f\r]|
+|(|Expression 1| '''in 1''' or ''' inout 2''' or ''' out 3 ''' or ''' 4'''|
+|(|Expression 2 - within Expression 1|  '''in ''' or '''inout ''' or '''out '''|
+|(|Expression 3 - within Expression 2|  '''in''' |
+|)?|''')''' -End ofExpression 3.'''?''' optional|see above|
+|(|Expression 4 - within Expression 2|  '''out''' |
+|)?|''')''' -End ofExpression 4.'''?''' optional|see above|
+|\s+|There must be at least one space following ''in''/''out''|[ \t\n\x0B\f\r]|
+|)?|''')''' -End ofExpression 2 (the ''in''/''out'' expression).'''?''' optional|see above|
+|(\d)|Expression 5| 0 1 2 3 ... 9|
+|\b| Word Boundary - Followed by '''whitespace''' or '''end of string''' || '''''Not ''123''' or '''1ABC'''|
+
+
+
+|Pattern Fixture|
+|regularExpression|input|compile?|matcher?|
+|:\s*(((in)?(out)?\s+)?(\d))\b|Begin  :   out 1 : = : 2 :in 3 :inout 4;  end; :inin 5 :outout 6  :77 :8|||
+
+':inin 5', ':outout6' and ':77' do not have the correct syntax.
+
+|Pattern Fixture|
+|find?|groupi?|groupi?|groupi?|groupi?|groupi?|groupi?|
+||||||||
+||||||||
+||||||||
+||||||||
+||||||||
+||||||||
+||||||||
+||||||||
+||||||||
+
+!1 Replacing with a Group Reference
+!3 Using replaceAll() and $''G''
+'''replacemenent''' can refer to the original capturing group with a $''G'', where ''G'' is between 0 and 9.
+
+Call '''replaceAll()''' with same Expression
+|Pattern Fixture|
+|matcher?|replacement|replaceAll()||
+|        |$0         |Begin  :   out 1 : = : 2 :in 3 :inout 4;  end; :inin 5 :outout 6  :77 :8|''Output matches input''|
+|        |:$1       |Begin  :out 1 : = :2 :in 3 :inout 4;  end; :inin 5 :outout 6  :77 :8|''Strip spaces after colon ''|
+|        |:$5        |Begin  :1 : = :2 :3 :4;  end; :inin 5 :outout 6  :77 :8 |''Strip spaces and '''''in/out/inout''' |
+
+
+

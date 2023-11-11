@@ -1,0 +1,20 @@
+CppTestTools2005 provides a unit test harness and an implementation of FIT for c++.  It also has a starter implementation for a concurrency library.  This library is used by the FitServer.  Implementations are provided for gcc and visual c++ v6. (see .FitServers.CppFit for latest download)
+
+!3 !-CppTestTools includes-! 
+ * !-UnitTestHarness-! A C++ Unit Test HArness
+ * !-CppFit-! A C++ port of Ward Cunningham's Framework for Integration Test (FIT)
+
+!3 Installation and set up
+ * Download current version for your environment
+ * Unzip into some directory like !-c:/tools/CppTestTools-!
+ * Set up an environment variable CPP_TEST_TOOLS and point it at !-c:/tools/CppTestTools-!
+ * Follow one fo these links: ^SetUpForVisualCppV6  or ^SetUpForGcc
+
+!3 Unit test harness
+ * ^UnitTestHarness
+
+!3 C++ version of FIT
+ * ^CppFit
+
+!3 Example Cpp Fit Project Test Pages (see .FitServers.CppFit for latest download)
+ * ^HomeGuard

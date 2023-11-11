@@ -1,0 +1,26 @@
+!1 Flood detected
+
+When there is flood, and the system is armed, the alarm is signaled and the attention number is called.
+
+|!-HomeGuardFixtures.CheckFrontPanel-!|
+|armed|visual alarm|siren|display|
+|off|off|off|READY|
+
+
+!|HomeGuardFixtures.DefineSensors|
+|port|name |Type|submit?|
+|A1 |Sump full|attention|true|
+|A2 |Lift station full|attention|true|
+
+!|HomeGuardFixtures.TripSensor|
+|port|
+|A1|
+
+!|HomeGuardFixtures.CheckFrontPanel|
+|visual alarm|siren|display|
+|on|off|Sump full|
+
+!|HomeGuardFixtures.CheckPhoneLine|
+|last number dialed|
+|attention number|
+

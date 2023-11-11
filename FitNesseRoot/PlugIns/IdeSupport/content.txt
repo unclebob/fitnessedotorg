@@ -1,0 +1,17 @@
+Here you can find plugins for your favorite IDE.
+
+!1 !-IntelliJ-! IDEA
+
+!2 [[!-FitNesse-! (custom language)][https://plugins.jetbrains.com/plugin/7908]]
+
+ * Editing of FitNesse pages with completion
+ * Running and debugging FitNesse pages and fixtures
+
+
+!1 Eclipse
+
+!2 [[!-FitNesse-! Eclipse][https://marketplace.eclipse.org/content/fitnesse-eclipse]]
+ 
+ * Editing of FitNesse wiki pages
+ 
+ 

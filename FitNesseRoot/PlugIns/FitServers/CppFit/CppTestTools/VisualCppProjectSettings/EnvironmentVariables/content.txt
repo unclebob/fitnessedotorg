@@ -1,0 +1,5 @@
+!|Environement variable|	Example value|
+|CPP_PLATFORM_ROOT|C:\tools\fitnesse\cpp\Platforms\VisualCpp|
+|CPPFIT_ROOT|C:\tools\fitnesse\cpp\Fit\include|
+|CPPTEST_LIB	|C:\tools\fitnesse\cpp\lib|
+|CPPUNIT_ROOT|	C:\tools\fitnesse\cpp\CppUnitLite\include|

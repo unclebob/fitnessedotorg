@@ -1,0 +1,59 @@
+
+!3 Use Cases
+|Script Fixture|CREATE TABLE T ( NAME CHAR(25)     NULL)|
+|statement?|parseCode|count|
+||||
+
+|Script Fixture|
+|line|parseCode|count|checkLines?|linecount|
+|insert into t|||||
+|values(:1)|||||
+|/|||||
+
+
+
+|Script Fixture|
+|parseCode|count|statementTxt|checkLines?|
+|||||
+
+|Script Fixture|
+|BIND1|EXECUTE|checkLines?|statementTxt|error|statement?|checkLines?|statementTxt|
+|call1|true|||||||
+|call1|true|||||||
+
+|Comment|
+|Script Fixture|
+|BIND1|call?|statementTxt|statement?|
+|call2|true|||
+|call3|true|||
+
+|Script Fixture|
+|EXECUTE|line|BIND1|statement?|
+|false|insert into t|||
+|false|values(:1)|||
+|true|/|call4||
+
+
+|Select|T|
+|NAME|
+|call1|
+|call2|
+
+|Script Fixture|
+|statement?|
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

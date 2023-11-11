@@ -1,0 +1,83 @@
+!release 20090112
+
+!3 FitNesse Release Notes 1/12/2009
+!note Uncle Bob, Object Mentor, Inc.
+
+|!4 Since:|20081201| 
+|!4 Exepcted Release Date:|20090112|!style_pass(RELEASED)|
+|!4 Theme:|Scenario Tables|
+
+|!2 Changes|
+|reset() in Decision Table added to User Guide|
+|Scenario Table added to User Guide|
+|Symbols work with scenario tables.  (big architectural change.  Expectations evaluated in sequence.|
+|Script tables can call scenario tables.|
+|Composed Decision Table works!  Removed fitlibraryGeneric due to collision with SetUp.|
+|Added new version of fitlibrary.jar, fitlibraryGeneric.jar.  Also got Composed decision table working initially.|
+|fixed out of memory error in testConcurrentAddWidgets|
+|Added pom.xml and fixed some Windows compatibility issues|
+|FileResponder won't print exception if Is-Last-Modified date is unparseable.|
+|Removed !fixture feature.|
+|Added crap4j to the build|
+|Added reset() to DecisionTable|
+|Speed up processing of line breaks.  Eliminate LineBreakWidget|
+|Much improved SLIM table processing.  HTML parsing instead of Wiki Parsing.|
+|Fixed Gareth Powell's Bug.  Variables defined in included pages were not being evaluated.|
+|Changed Default Responder email address.|
+|Tweaks for RubySlim|
+|Reformat all source files to fitnesse standard,  Added README and bylawsForCommitters|
+
+
+!3 Git History
+!|2009-01-12 11:08:01 -0600|unclebob|changed manifest so that java -jar fitnesse.jar will work.  Also changed UserGuide.  Added 'code' style.|
+|2009-01-11 10:55:03 -0600|unclebob|Added ScenarioTable to user guide|
+|2009-01-11 10:00:20 -0600|unclebob|Moved the simple wiki widget acceptance tests into the composed test SimplWidgets|
+|2009-01-10 11:46:15 -0600|unclebob|Scenario tables work properly when called with wrong number of arguments.|
+|2009-01-04 12:48:31 -0600|unclebob|fixed a 'harmless' NullPointerException for Expectations that don't process return values.|
+|2009-01-04 12:39:13 -0600|unclebob|Symbols work with scenario tables.  (big architectural change.  Expectations evaluated in sequence.|
+|2009-01-04 09:29:03 -0600|unclebob|Script tables can call scenario tables.|
+|2008-12-30 22:26:07 -0600|unclebob|Composed Decision Table works!  Removed fitlibraryGeneric due to collision with SetUp.|
+|2008-12-29 15:46:19 -0600|unclebob|Added new version of fitlibrary.jar, fitlibraryGeneric.jar.  Also got Composed decision table working initially.|
+|2008-12-29 11:54:56 -0600|unclebob|Decision Table can now call ScenarioTable, but not generate output|
+|2008-12-29 07:39:19 -0600|unclebob|ScenarioTable parses it's header and registers with TestSystem|
+|2008-12-29 05:41:02 -0600|unclebob|more cleanup getting idea files out of git.|
+|2008-12-28 10:33:19 -0600|unclebob|removed .iws and added FitNesseVersion.  Generally cleaned up git a bit.|
+|2008-12-27 19:05:03 -0600|unclebob|fit out of memory error in testConcurrentAddWidgets|
+|2008-12-27 18:54:17 -0600|unclebob|Merge branch 'master' of git@github.com:unclebob/fitnesse|
+|2008-12-27 18:54:04 -0600|unclebob|getting ready for a pull|
+|2008-12-26 10:19:55 -0600|unclebob|call widget and composed table description|
+|2008-12-26 07:33:26 -0600|unclebob|Some ideas about composed tests|
+|2008-12-21 20:34:29 -0500|Johannes Brodwall|Added pom.xml and fixed some Windows compatibility issues|
+|2008-12-21 20:32:19 -0500|Johannes Brodwall|Added pom.xml and fixed some Windows compatibility issues|
+|2008-12-21 06:36:33 -0600|unclebob|FileResponder won't print exception if Is-Last-Modified date is unparseable.|
+|2008-12-18 20:56:07 -0600|unclebob|Yanked all the horrible \!fixture code out, and cleaned up a bit more crap.|
+|2008-12-18 18:32:19 -0600|unclebob|De-Crap the Response.java class.  It has the highest crap metric.|
+|2008-12-18 11:38:05 -0600|Brett L. Schuchert|Updated test to no longer used piped streams but instead a byte array input stream.|
+|2008-12-17 21:58:42 -0600|unclebob|Added crap4j to the build|
+|2008-12-17 20:04:26 -0600|unclebob|Kludge wait in MockResponseSender.send to simulate real socket behavior.  If this works I don't know why...|
+|2008-12-17 17:58:01 -0600|unclebob|AtomicBoolean in MockResponseSender|
+|2008-12-15 23:36:26 -0600|unclebob|Removed MockResponseSender(response) constructor because calling functions on partially constructed objects from different threads is probably a bad idea|
+|2008-12-15 17:48:47 -0600|unclebob|Fixed another timing error in ResponseRequester, added some debugging prints|
+|2008-12-15 13:26:08 -0600|unclebob|Fixed timing and logic flaw in FitClientTest|
+|2008-12-15 13:00:52 -0600|unclebob|added debug to TestNoDefaultContructor acceptance tests to see why it sometimes fails hudson build|
+|2008-12-15 11:09:33 -0600|unclebob|Put in prints to debug exceptionOcurred messages in hudson build|
+|2008-12-14 08:28:13 -0600|unclebob|Added reset() to DecisionTable|
+|2008-12-14 07:13:19 -0600|unclebob|Speed up processing of line breaks.  Eliminate LineBreakWidget|
+|2008-12-13 18:00:29 -0600|unclebob|Don't push a commit until you are sure the build script passes.|
+|2008-12-13 09:02:49 -0600|unclebob|Literalization has been expunged.|
+|2008-12-13 08:45:39 -0600|unclebob|all WikiSlimTestSystem artifacts are gone.  All tests pass.|
+|2008-12-13 07:54:58 -0600|unclebob|Killed WikiSlimTestSystem!  All tests pass|
+|2008-12-13 07:40:09 -0600|unclebob|All acceptance tests are working again in HTMLization|
+|2008-12-12 11:17:06 -0600|unclebob|Htmlization seems to work. Time to clean up left-over cruft|
+|2008-12-09 13:52:21 -0600|unclebob|Added HtmlTableScanner and HtmlTable in preparation for HTMLization of SLIM.|
+|2008-12-09 09:00:26 -0600|unclebob|Fixed Gareth Powell's Bug.  Variables defined in included pages were not being evaluated.|
+|2008-12-08 08:11:19 -0600|unclebob|Added the iws file to satisfy intelliJ git plugin.|
+|2008-12-08 08:08:06 -0600|unclebob|Changed Default Responder email address.|
+|2008-12-08 07:48:39 -0600|unclebob|sync unclebob's changes since github creation|
+|2008-12-08 06:46:41 -0600|unclebob|gitignore|
+|2008-12-08 06:27:14 -0600|unclebob|Gathering unclebob's subversion library|
+|2008-12-06 19:35:34 +0000|robertmartin|Added iml file to be in compliance with respository|
+|2008-12-06 19:32:27 +0000|robertmartin|get RubySlim test out of the main line.  Moved it to srcSlimPortTests|
+|2008-12-05 21:36:07 +0000|robertmartin|Tweaks for RubySlim|
+|2008-12-01 22:13:22 +0000|robertmartin|Reformat all source files to fitnesse standard,  Added README and bylawsForCommitters|
+|2008-12-01 06:00:29 +0000|jacmorel|Make SuiteResponderTest and TestResponderTest more reliable using a random socket port instead of a fixed one.|

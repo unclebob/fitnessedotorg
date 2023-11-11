@@ -1,0 +1,245 @@
+!release 20161106
+
+!3 FitNesse Release Notes 2016/11/06
+!note Uncle Bob Consulting LLC.
+
+!note !style_red(Requires Java 1.7)
+
+!4 Major Changes since [[20160618][FitNesseRelease20160618]]:
+
+ * Add ability to specify the locale used to format evaluated expressions ([[#929][https://github.com/unclebob/fitnesse/pull/929]])
+ * New Slim table type: [[Baseline decision table][!-SuiteAcceptanceTests.SuiteSlimTests.BaseLineDecisionTable-!]] ([[965][https://github.com/unclebob/fitnesse/pull/965]])
+ * Add base folder for plugin documentation ([[971][https://github.com/unclebob/fitnesse/pull/971]])
+ * !-FitNesse-! and Slim can now communicate over stdin/stdout. This removes the hassle with network ports ([[977][https://github.com/unclebob/fitnesse/pull/977]], see UserGuide.WritingAcceptanceTests.SliM.SlimProtocol.PortManagement)
+ * API changes:
+   * FitNesse is more strictly propagating exceptions, instead of only logging them ([[#923][https://github.com/unclebob/fitnesse/pull/923]])
+   * Updated ''!-FixtureInteraction-!'' interface ([[#911][https://github.com/unclebob/fitnesse/pull/911]])
+   * To improve extensibility, scenario resolution has been moved to ``!-SlimtestContext-!'' ([[974][https://github.com/unclebob/fitnesse/pull/974]])
+   * ''!-WikiPage-!'' interface now has a ''remove()'' method. This will replace the ''removeChild()'' method in the near future ([[#930][https://github.com/unclebob/fitnesse/pull/930]])
+ * Issues fixed:
+   * Display of Map results from fixtures should allow nested HTML ([[#921][https://github.com/unclebob/fitnesse/pull/921]])
+   * Fix assignment of output parameters of scenarios with graceful names in decision tables ([[#928][https://github.com/unclebob/fitnesse/pull/928]])
+   * Fix Where Used page for pages under a Symbolic Link ([[#925][https://github.com/unclebob/fitnesse/issues/925]])
+   * Fixed issues in ''!-CachedInteraction-!'' ([[973][https://github.com/unclebob/fitnesse/pull/973]])
+
+For a complete list of closed issues and merged pull requests see https://github.com/unclebob/fitnesse/issues?milestone=15&state=closed.
+
+!4 Github ids of Contributors to this release:
+
+ * Aaron Wallentine
+ * Arjan Molenaar
+ * Etienne Charignon
+ * Felix Riemann
+ * Fried Hoeben
+ * Hans Joachim Desserud
+ * Mykola Gurov
+ * six42
+ * the-noob
+
+!meta Thanks to all of you!
+
+!3 Git History
+
+!|2016-11-06|Arjan Molenaar|Update pom file creation to match Maven Central rules|
+|2016-11-05|Arjan Molenaar|Fix release process|
+|2016-11-05|Arjan Molenaar|Upgrade to Gradle 3.1|
+|2016-11-05|Arjan Molenaar|Update release notes|
+|2016-10-30|Arjan Molenaar|Use one external suite page check|
+|2016-10-20|Arjan Molenaar|Merge pull request #965 from six42/baselinetable|
+|2016-10-17|Arjan Molenaar|Update release notes|
+|2016-10-17|Arjan Molenaar|Merge pull request #971 from six42/plugins|
+|2016-10-17|Arjan Molenaar|Merge pull request #977 from six42/slimslave|
+|2016-10-17|six42|Merge branch 'amolenaar-socketless' into slimslave|
+|2016-10-17|six42|Fixed multiline stdout and stderr handling|
+|2016-10-17|six42|Extended test case to verify multiline stdout and stderr messages; add html result extractor|
+|2016-10-17|six42|Extended test case to verify multiline stdout and stderr messages|
+|2016-10-15|six42|Update content.txt|
+|2016-10-15|six42|Update content.txt|
+|2016-10-15|six42|Update content.txt|
+|2016-10-13|Arjan Molenaar|Rename constant SLIM_SLAVE_PORT to SLIM_USE_PIPE_PORT|
+|2016-10-13|Arjan Molenaar|Use the term Pipe, instead of Slave|
+|2016-10-12|Arjan Molenaar|Move pipe behaviour out of default command runner|
+|2016-10-12|Arjan Molenaar|Fix small issue in acceptance test|
+|2016-10-12|Arjan Molenaar|Replace SlimSlaveC.R.Client with PipeBasedSocketFactory|
+|2016-10-12|Arjan Molenaar|Simplify command runner test|
+|2016-10-09|Arjan Molenaar|Merge pull request #974 from fhoeben/allScenarioResolutionInTestContext|
+|2016-10-09|Arjan Molenaar|Merge pull request #976 from six42/wpt2|
+|2016-10-09|Arjan Molenaar|Merge pull request #973 from fhoeben/CachedInteractionFix|
+|2016-10-04|six42|Simplified running a distributed slim service which is started manual|
+|2016-09-28|six42|Increased slim version to 0.5|
+|2016-09-28|six42|Updated user manual and cleanup of code|
+|2016-09-27|six42|Port 1 is now the slim slave indicator and the default port|
+|2016-09-19|six42|Added SlimSlave - A Port free SlimService this removes all hasles with port conflicts|
+|2016-08-20|six42|Added Baseline Decision Table See FitNesse.SuiteAcceptanceTests.SuiteSlimTests.BaseLineDecisionTable for details|
+|2016-09-13|six42|Added Fitnesse Version to request|
+|2016-09-13|six42|Add base folder for plugin documentation Add information about plugins and contacts to page footer|
+|2016-09-13|six42|Add base folder for plugin documentation Add information about plugins and contacts to page footer|
+|2016-09-19|six42|Fix unit test under Windows|
+|2016-09-18|Fried Hoeben|No need to extract arguments to determine whether they can be extracted|
+|2016-09-18|Fried Hoeben|Extract method to do 'simple' determination of scenario name, by just looking at all odd cells in the row|
+|2016-09-18|Fried Hoeben|customComparatorRegistry is only needed before the scenario is called, not to determine what the arguments are|
+|2016-09-18|Fried Hoeben|Single code location add scenario table to list|
+|2016-09-18|Fried Hoeben|Only maintain list of scenarios with inputs after the first time it is needed (i.e. the first time a single cell script table row is encountered)|
+|2016-09-18|Fried Hoeben|Initial collections should have larger sizes than Java defaults (16 for hashmap and 8 for list) since the number of scenarios could be much larger and resizing collections is much more expensive than having/allocating larger ones for each test.|
+|2016-09-18|Fried Hoeben|Only scenarios with inputs need to be in the list to find scenarios based on single cell parsing (the ones without arguments are found based on their name alone)|
+|2016-09-17|Fried Hoeben|Simplify class definition|
+|2016-09-17|Fried Hoeben|Sorting should be more efficient (according to the javadoc) when only a few of the elements must be re-ordered. In this case only the scenarios added since the last time we sorted.|
+|2016-09-17|Fried Hoeben|Once we've figured out the order to look for scenarios we don't need to re-sort unless the list has changed.|
+|2016-09-17|Arjan Molenaar|Merge pull request #968 from dubaaron/patch-1|
+|2016-09-17|Fried Hoeben|Rename method as suggested|
+|2016-09-17|Fried Hoeben|Make method easier to read|
+|2016-09-17|Fried Hoeben|Format line|
+|2016-09-17|Fried Hoeben|Create pattern to match scenario arguments only once, instead of on each match|
+|2016-09-17|Fried Hoeben|Ensure we do all initialization before we pass a reference to this to the test context|
+|2016-09-17|Fried Hoeben|Move logic to find scenario by parsing a single cell's content to the test context (where basic scenario finding was already)|
+|2016-09-15|Fried Hoeben|Ensure no cache hit for method of different class, just if their simple name and method name matches|
+|2016-09-15|Fried Hoeben|Make test more robust|
+|2016-09-15|Fried Hoeben|Remove non-test method only used in tests (in 2 places)|
+|2016-09-15|Fried Hoeben|Single location to define how to create an interaction|
+|2016-09-14|Fried Hoeben|Correct formatting|
+|2016-09-14|Fried Hoeben|I do not see why calling the same method twice should render a different result the second time...|
+|2016-09-14|Fried Hoeben|Allow subclasses of CachedInteraction (actually all subclasses of DefaultInteraction) to select the method to be invoked based on the actual parameters and not just the number of parameters (similar to what is done for constructors)|
+|2016-09-14|Fried Hoeben|Allow subclasses of CachedInteraction (actually all subclasses of DefaultInteraction) to select the method to be invoked based on the actual instance and not only on the instance's class|
+|2016-09-14|Fried Hoeben|Extract constructor key generation to separate method, and use simple string concatenation (which compiler will optimize) instead of string formatting|
+|2016-09-14|Fried Hoeben|Same use of local variables when finding class as used for constructors and methods|
+|2016-09-14|Fried Hoeben|Formatted again|
+|2016-09-14|Fried Hoeben|Optimized MethodKey implementation|
+|2016-09-14|Fried Hoeben|Remove unneeded import|
+|2016-09-14|Fried Hoeben|Remove unneeded this.|
+|2016-09-14|Fried Hoeben|Move private static NonExisting class to bottom of file|
+|2016-09-14|Fried Hoeben|Ensure method cache miss is also cached|
+|2016-09-14|Fried Hoeben|integer compare before String.equals() as I expect it to be faster|
+|2016-09-14|Fried Hoeben|move private class to bottom of file|
+|2016-09-14|Fried Hoeben|Ensure cache actually works|
+|2016-09-14|Fried Hoeben|Add test for class that can not be found|
+|2016-09-14|Fried Hoeben|Add some whitespace|
+|2016-09-14|Fried Hoeben|Fix creation of CachedInteraction and add tests to ensure its behavior is hit (could use better assertions for cache hit/miss)|
+|2016-09-14|Fried Hoeben|Add test to show CachedInteraction cannot be created|
+|2016-09-02|Aaron Wallentine|Fix a few typos|
+|2016-08-31|Arjan Molenaar|Fix issue in javadoc and file upload|
+|2016-08-25|Arjan Molenaar|Merge pull request #952 from amolenaar/single-file-wiki|
+|2016-08-25|Arjan Molenaar|Update external editors documentation|
+|2016-08-25|Arjan Molenaar|Fix issue with multiline text in wiki page|
+|2016-08-23|Arjan Molenaar|Add a little documentation on the file format|
+|2016-08-23|Arjan Molenaar|Merge pull request #959 from the-noob/typos|
+|2016-08-23|Arjan Molenaar|Merge pull request #960 from FelixRiemann/master|
+|2016-08-23|Arjan Molenaar|Remove outdated comment|
+|2016-08-15|Felix Riemann|Fixed one typo in each of README.md and CONTRIBUTING.md|
+|2016-08-12|the-noob|fixing missing space typo|
+|2016-08-06|Arjan Molenaar|Update reference to Test button|
+|2016-08-05|Arjan Molenaar|Merge pull request #956 from six42/version_date|
+|2016-08-05|six42|As a Wiki User To understand the flow of changes I need to see the "last changed date" of a wiki page when comparing versions or when looking at the properties of a single page|
+|2016-08-03|Arjan Molenaar|Allow to set statement timeout when running Slim in process.|
+|2016-08-03|Arjan Molenaar|Merge pull request #954 from etienneCharignon/patch-1|
+|2016-08-02|Etienne Charignon|Juste a spelling mistake|
+|2016-07-29|Arjan Molenaar|Fix typos pointed out by @HenryDev|
+|2016-07-28|Arjan Molenaar|Download gradle -all distro|
+|2016-07-28|Arjan Molenaar|Externalize bintray upload properties.|
+|2016-07-28|Arjan Molenaar|Make sure escaped tables also switch table type on colon|
+|2016-07-28|Arjan Molenaar|fix javadoc|
+|2016-07-28|Arjan Molenaar|Merge pull request #953 from hansjoachim/loggers|
+|2016-07-28|Hans Joachim Desserud|Add missing Override annotation|
+|2016-07-28|Hans Joachim Desserud|Remove some more unused imports|
+|2016-07-27|Hans Joachim Desserud|Remove unused Loggers|
+|2016-07-27|Arjan Molenaar|Merge pull request #940 from six42/focusedtable|
+|2016-07-27|Arjan Molenaar|Ignore RecentChanges as new style .wiki page|
+|2016-07-27|Arjan Molenaar|Add test for yaml sub field with lots of space|
+|2016-07-27|Arjan Molenaar|Make WikiFilePage format the default for new pages|
+|2016-07-26|Arjan Molenaar|Merge pull request #950 from hansjoachim/warnings|
+|2016-07-25|Hans Joachim Desserud|Remove unused import|
+|2016-07-25|Hans Joachim Desserud|Merge branch 'master' into warnings|
+|2016-07-12|Arjan Molenaar|Also decode request key|
+|2016-07-12|Arjan Molenaar|Make WikiFilePage the default page type|
+|2016-07-10|Arjan Molenaar|Exclude _root.wiki files in sub wiki listing|
+|2016-07-09|Arjan Molenaar|Make properties handling more generic|
+|2016-07-07|Arjan Molenaar|Use interfaces where possible|
+|2016-07-07|Arjan Molenaar|clearify naming in page factory|
+|2016-07-07|Arjan Molenaar|Store last modifying user|
+|2016-07-07|Arjan Molenaar|Front matter should deal colon in values|
+|2016-07-07|Arjan Molenaar|Let wiki file pages be loaded in a variaty of ways|
+|2016-07-04|Arjan Molenaar|WikiFilePage can create it's own child pages|
+|2016-07-04|Arjan Molenaar|MemoryFileSystem should care about parent directories|
+|2016-07-04|Arjan Molenaar|Ensure we do not traverse "empty" subFiles|
+|2016-07-04|Arjan Molenaar|boyscouting|
+|2016-07-04|Arjan Molenaar|Move WikiPage.hasChildPage to BaseWikiPage|
+|2016-07-01|Arjan Molenaar|Store properties in wiki file page|
+|2016-07-01|Arjan Molenaar|Make versioning work for WikiPageFile|
+|2016-07-01|Arjan Molenaar|Can commit new page content, no properties yet|
+|2016-07-01|Arjan Molenaar|Remove extends construct from VersionsController interface.|
+|2016-07-01|Arjan Molenaar|Remove generic type from WikiPageFactory|
+|2016-07-01|Arjan Molenaar|Wiki pages are found.|
+|2016-07-01|Arjan Molenaar|New style wiki pages can now be removed|
+|2016-06-30|Arjan Molenaar|Read page properties based on Front matter|
+|2016-06-30|Arjan Molenaar|Read wiki page content from file|
+|2016-06-30|Arjan Molenaar|Remove FrontMatter from wiki parser.|
+|2016-06-28|Arjan Molenaar|Replaced a couple of obsolete page properties|
+|2016-06-28|Arjan Molenaar|Can load .wiki file as root file (or in a directory)|
+|2016-06-28|Arjan Molenaar|Can load page content from .wiki file|
+|2016-06-16|Arjan Molenaar|cleanup.|
+|2016-06-12|Arjan Molenaar|Cleanup: rename new page class to WikiFilePage.|
+|2016-06-12|Arjan Molenaar|Can nest old style page in new style page.|
+|2016-06-11|Arjan Molenaar|Can traverse new style wiki pages, nested in old style pages.|
+|2016-06-11|Arjan Molenaar|Cleanup|
+|2016-06-11|Arjan Molenaar|Check page validity via WikiPageFactory.|
+|2016-06-11|Arjan Molenaar|Separate SubWikiPageFactory from FileSystemPageFactory.|
+|2016-06-11|Arjan Molenaar|Change VersionsContoller interface: simplified delete(File...).|
+|2016-06-11|Arjan Molenaar|Fix unit tests.|
+|2016-06-10|Arjan Molenaar|Boyscouting property names|
+|2016-06-10|Arjan Molenaar|Move PageXmlizer and WikiPageProperties to fitnesse.wiki.fs.|
+|2016-06-06|Arjan Molenaar|Move properties to WikiPageProperty class.|
+|2016-06-05|Arjan Molenaar|Use WikiPageProperty instead of WikiPageProperties wherever possible.|
+|2016-06-02|Arjan Molenaar|Add Front matter symbol.|
+|2016-07-19|Arjan Molenaar|Use default gradle compile path|
+|2016-07-18|Arjan Molenaar|Update build to make it easier to use in IDE's.|
+|2016-07-16|six42|removed unused constructor which is called incorrectly under Windows.|
+|2016-07-13|Arjan Molenaar|Refactor SaveResponder: get rid of instance variables|
+|2016-07-11|Arjan Molenaar|Merge pull request #948 from fhoeben/exposePageToJUnit|
+|2016-07-11|Arjan Molenaar|Merge pull request #939 from mgurov/tearDownNicelyAfterStopTestOrSuiteException|
+|2016-07-09|six42|Added warning that hybrid table is beta|
+|2016-07-08|Fried Hoeben|Simplify code|
+|2016-07-08|Fried Hoeben|Create helper to deal with annotated descriptions easily|
+|2016-07-08|Fried Hoeben|Make description include annotation allowing access to test page|
+|2016-07-08|Fried Hoeben|Introduce factory to create jUnit descriptions|
+|2016-07-06|Hans Joachim Desserud|Remove redundant semicolon|
+|2016-07-06|Hans Joachim Desserud|Remove redundant explicit type arguments|
+|2016-07-06|Hans Joachim Desserud|Add missing @Overrides|
+|2016-07-06|Hans Joachim Desserud|Remove unused method in test suite|
+|2016-07-01|Mykola Gurov|Added unit test to the table processing method of the slim test system.|
+|2016-07-03|Hans Joachim Desserud|Remove unused method in testsuite|
+|2016-07-02|Arjan Molenaar|Merge pull request #947 from hansjoachim/warnings|
+|2016-07-02|Arjan Molenaar|Merge pull request #945 from hansjoachim/readme|
+|2016-07-02|Hans Joachim Desserud|Update build instructions|
+|2016-07-02|Hans Joachim Desserud|Add missing @Overrides|
+|2016-07-02|Hans Joachim Desserud|Removed unused imports|
+|2016-06-30|Mykola Gurov|put Node as first argument, and the class second|
+|2016-06-25|Arjan Molenaar|Ignore .gradletasknamecache|
+|2016-06-24|Arjan Molenaar|Merge pull request #916 from amolenaar/gradle|
+|2016-06-21|six42|removed commented code and formatting issues|
+|2016-06-21|six42|Rebase with master|
+|2016-06-20|six42|Added HybridTable|
+|2016-06-20|six42|Added HybridTable|
+|2016-06-19|Arjan Molenaar|Trying to debug failures on Travis-CI|
+|2016-06-19|Arjan Molenaar|Fix travis.yml|
+|2016-06-18|Mykola Gurov|Slim: run TearDown after StopText exception and SuiteTeardown after StopSuite|
+|2016-06-19|Arjan Molenaar|Merge branch 'master' into gradle|
+|2016-06-18|Arjan Molenaar|Determine total run time on availability in report instead of FitNesse version.|
+|2016-06-18|Arjan Molenaar|Update readme.|
+|2016-06-18|Arjan Molenaar|Add basic pitest support. This will take time...|
+|2016-06-17|Arjan Molenaar|Update release notes|
+|2016-05-04|Arjan Molenaar|Do nor create javadoc and sources jar during normal build.|
+|2016-05-04|Arjan Molenaar|Fix javadoc creation.|
+|2016-05-04|Arjan Molenaar|Cleanup .gitignore. Remove unused files.|
+|2016-05-04|Arjan Molenaar|integration tests use standalone jar. Copy libs.|
+|2016-05-02|Arjan Molenaar|Properly build standalone jar.|
+|2016-05-02|Arjan Molenaar|Update fitnesse bundle. Use gradle defaulr test results location. remove obsolete clojure script.|
+|2016-05-02|Arjan Molenaar|Process resources the correct way|
+|2016-05-02|Arjan Molenaar|Remove old build scripts|
+|2016-04-29|Arjan Molenaar|update gradle wrapper properties.|
+|2016-04-29|Arjan Molenaar|Move task to separate class, so logic can still be tested.|
+|2016-04-28|Arjan Molenaar|Move UpdateList code to a Gradle plugin|
+|2016-04-28|Arjan Molenaar|Create separate task for less compiler|
+|2016-04-27|Arjan Molenaar|Fix project name.|
+|2016-04-27|Arjan Molenaar|pom generation matches the old pom version.|
+|2016-04-27|Arjan Molenaar|aFix deployment to bintray.|
+|2016-04-27|Arjan Molenaar|WIP build normal and standalone jar|
+|2016-04-26|Arjan Molenaar|Add Gradle build basics.|

@@ -1,0 +1,45 @@
+This makefile is setup to build !-TestMain.exe-!
+
+{{{
+TARGET = TestMain
+
+DEPENDENCY_FILE = .dependencies
+
+LOADLIBS =\
+ -lUnitTestHarness\
+ -lGccPlatform\
+ -lstdc++ 
+
+LIBDIRS =\
+ -L$(CPP_TEST_TOOLS)/lib\
+
+
+INCLUDE = -I$(CPP_TEST_TOOLS)\
+ -I.
+
+CPPFLAGS = $(INCLUDE)
+
+.cpp.o : 
+	gcc -c $(CPPFLAGS) -o $@ $<
+
+DOTO = 
+
+all: 	$(DOTO) $(TARGET) test
+
+test: $(TARGET)
+	./$(TARGET)
+
+
+$(TARGET): $(TARGET).o $(DOTO) ../HomeGuardLib/libHomeGuardLib.a
+	$(CC) -o $(TARGET) $(LIBDIRS) $^ $(LOADLIBS)
+
+clean:	
+	rm -f *.o $(TARGET).exe
+
+depend:
+	gcc -MM -c $(CPPFLAGS) *.cpp >$(DEPENDENCY_FILE)
+	
+ifeq ($(DEPENDENCY_FILE), $(wildcard $(DEPENDENCY_FILE)))
+include $(DEPENDENCY_FILE)
+endif
+}}}

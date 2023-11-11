@@ -1,0 +1,10 @@
+!3 C++ FIT
+
+C++ FIT is part of ^CppTestTools.
+
+!3 See ^CppTestTools documentation
+
+Maintained by Micahel Feathers (mfeathers at objectmentor.com) and James Grenning.  (james at objectmentor.com). 
+
+Old version ^CppTestTools2005
+^KnownIssues

@@ -1,0 +1,867 @@
+!release 20130530
+
+!3 FitNesse Release Notes 05/30/2013
+!note Uncle Bob Consulting LLC.
+
+!note !style_red(Requires Java 1.6)
+
+!4 Github ids of Contributors to this release:
+
+ * Abhijit
+ * Arjan Molenaar
+ * Arjan Wulder
+ * Arnout Engelen
+ * Barre Dijkstra
+ * Bas Benning
+ * Cirilo Wortel
+ * Daniel Woodward
+ * Frode Carlsen
+ * Gregor Gramlich
+ * Jake Benilov
+ * Josh Pordon
+ * Mark Hopkins
+ * Markus Gärtner
+ * Mike Stockdale
+ * Robert C. Martin
+ * Stanimir Stamenkov
+
+
+!meta Thanks to all of you!
+
+|!4 Since:                |[[20121220][FitNesseRelease20121220]]|
+|!4 Expected Release Date:|<none>     |!style_pass(RELEASED)    |
+
+!3 Major Changes
+ * Many improvements in the JUnit test runner
+ * New: version comparator
+ * Wiki: can set image width with -w option, border with -b and margin with -m: {{{ !img -b 2 -m 10 -w 600 http://files/someImage.png }}}
+ * FitNesse loads well with both fitnesse.jar and fitnesse-standalone.jar
+ * Virtual Wiki functionality has finally been removed
+ * Big refactoring of SLiM test system. Output is now XML compliant, introduction of domain classes and caching of set up/tear down pages
+ * Many fixes in the rich text editor: full-screen editing, more lenient parsing of wiki text, improved cut-and-paste
+ * Optimized wiki page parser performance
+ * Fixed issue with setting/reading the same field multiple times in a SLiM decision table
+
+!3 Git History
+
+!|2013-05-30 08:19:00 +0200|Arjan Molenaar|Update release notes.|
+|2013-05-30 16:48:48 +0200|Stanimir Stamenkov|Avoid possible issue when using CachingPage under heavy memory load.|
+|2013-05-29 14:53:12 +0200|Arjan Molenaar|Merge pull request #256 from barredijkstra/fitnesse_issue_250|
+|2013-05-29 14:08:38 +0200|Barre Dijkstra|Fixed test checking for OS specific exception message.|
+|2013-05-28 23:49:14 -0700|Arjan Molenaar|Merge pull request #243 from amolenaar/fix/243-hash-table-rendering|
+|2013-05-29 08:43:55 +0200|Arjan Molenaar|Do not escape unchanged content in decision table (except for value substitution).|
+|2013-05-29 08:21:57 +0200|Arjan Molenaar|Merge branch 'master' of github.com:unclebob/fitnesse|
+|2013-05-28 12:38:45 -0500|Robert C. Martin|got rid of @ParameterizedClass.  It doesn't work in Idea's fork mode.|
+|2013-05-18 21:24:01 +0200|Arjan Molenaar|Unify system time code through Clock abstraction. Drop TimeKeeper.|
+|2013-05-15 18:25:18 +0200|Arjan Molenaar|Replace deprecated classes from JUnit with non-deprecated counterparts.|
+|2013-05-15 07:55:42 +0200|Arjan Molenaar|Make StackTraceEnricher tests a little more robust.|
+|2013-05-13 13:14:38 +0200|Arjan Molenaar|Get rid of version number in stack trace enricher tests.|
+|2013-05-13 13:14:04 +0200|Arjan Molenaar|Ignore fitserverSentinel*|
+|2013-05-11 18:16:24 -0700|Mike Stockdale|Merge pull request #258 from jediwhale/master|
+|2013-05-11 19:13:50 -0600|Mike Stockdale|update !define docs|
+|2013-05-11 16:58:27 -0600|Mike Stockdale|add copy symbol function to !define|
+|2013-05-09 22:09:13 +0200|Arjan Molenaar|Merge pull request #253 from ggramlich/master|
+|2013-05-09 21:46:06 +0200|Arjan Molenaar|Merge branch 'fix/249'|
+|2013-05-09 21:45:35 +0200|Arjan Molenaar|Ignore fitserverSentinel* files.|
+|2013-05-09 12:47:55 -0400|Robert C. Martin|add test and default to retrieve task so that Mockito loads in IntelliJ compiles.|
+|2013-05-08 18:47:22 +0200|Arjan Molenaar|Fix Issue #249: Defines from SetUp should be visible in test page as well.|
+|2013-05-08 15:41:09 +0200|Arjan Molenaar|Update documentation wrt IDE setup.|
+|2013-05-08 15:31:38 +0200|Arjan Molenaar|Filter FitNesseSuite "children".|
+|2013-05-08 09:41:26 +0200|Arjan Molenaar|fixed typo.|
+|2013-05-08 08:18:17 +0200|Arjan Molenaar|Read support libraries from lib/ folder for acceptance tests.|
+|2013-05-06 07:35:59 +0200|Arjan Molenaar|Fixed ignored CachingSuiteXmlFormatter test.|
+|2013-05-06 07:35:32 +0200|Arjan Molenaar|Cleaned up ignored test from UpdaterImplementation.|
+|2013-04-29 19:00:08 -0700|Mike Stockdale|Merge pull request #255 from stanio/master|
+|2013-04-29 14:08:24 +0200|Barre Dijkstra|Added rendering of cause exceptions. Fix for unclebob/fitnesse#250|
+|2013-04-29 11:57:18 +0300|Stanimir Stamenkov|Pre-allocate bigger SymbolList 'children' list when at the start of input|
+|2013-04-29 11:56:33 +0300|Stanimir Stamenkov|Enable constructing Symbol with specified 'children' capacity|
+|2013-04-29 11:55:18 +0300|Stanimir Stamenkov|Use unsynchronized HashMap instead of synchronized Properties|
+|2013-04-29 11:54:21 +0300|Stanimir Stamenkov|Don't allocate a new 'children' list by default (use singleton empty list)|
+|2013-04-29 11:53:40 +0300|Stanimir Stamenkov|Optimize 'matches' and 'first' allocation|
+|2013-04-29 11:52:43 +0300|Stanimir Stamenkov|Prevent 'defaultList' from run-time modifications|
+|2013-04-29 11:52:12 +0300|Stanimir Stamenkov|Allocate single element matcher list for 'SymbolType's by default|
+|2013-04-29 11:51:09 +0300|Stanimir Stamenkov|Allocate exact peek capacity list|
+|2013-04-29 10:20:34 +0200|Arjan Molenaar|Remove html parser source jars. Got committed by accident.|
+|2013-04-26 11:51:47 +0200|gramlich|removed unnecessary import|
+|2013-04-26 10:40:18 +0200|gramlich|multiple coulmns with same var name rename FuncStore to ColumnHeaderStore, use it for vars as well|
+|2013-04-26 10:19:55 +0200|gramlich|renames in FuncStore and changed visibility|
+|2013-04-25 17:39:49 +0200|gramlich|remove duplication|
+|2013-04-25 17:37:52 +0200|gramlich|DecisionTables with multiple func columns with same name work now.|
+|2013-04-25 17:22:12 +0200|gramlich|First refactoring towards allowing DecisionTables with multiple func columns with same name.|
+|2013-04-25 17:19:36 +0200|gramlich|New tests for DecisionTables with multiple func columns with same name. (One ignored)|
+|2013-02-07 21:03:14 +0100|Arjan Molenaar|WYSIWYG editor - avoid adding an extra column to the first row of a table when adding a column via the menu. Fixes #185.|
+|2013-04-16 18:14:27 +0200|Arjan Molenaar|Merge pull request #239 from barredijkstra/stacktrace_enrichment|
+|2013-04-16 17:52:06 +0200|Arjan Molenaar|Merge pull request #245 from barredijkstra/global_static_removal|
+|2013-04-15 15:15:47 +0200|Barre Dijkstra|Merge branch 'master' of https://github.com/unclebob/fitnesse into global_static_removal|
+|2013-04-15 10:58:17 +0200|Arjan Molenaar|Add acceptance test for symbol substitution.|
+|2013-04-15 09:12:10 +0200|Arjan Molenaar|No need to unescape original content in HtmlTable|
+|2013-04-15 09:10:03 +0200|Arjan Molenaar|Cleanup. Unused comments, redundant modifiers.|
+|2013-04-14 22:36:42 +0200|Arjan Molenaar|Do some more clean up on Slim Table interface: remove getUnescapedCellContents()|
+|2013-04-14 21:40:16 +0200|Arjan Molenaar|Fixed unintended html escaping in HtmlTable. See #243|
+|2013-04-12 14:39:02 +0200|Stanimir Stamenkov|Expand all detail rows (e.g. for exceptions)|
+|2013-04-11 13:17:18 -0700|Arjan Molenaar|Merge pull request #240 from benilovj/patch-1|
+|2013-04-11 20:31:03 +0200|Jake Benilov|fix for typos in FitNesse.UserGuide.PasswordFile|
+|2013-04-11 09:40:26 +0200|Barre Dijkstra|Added initial version of the fitnesse.slim.StackTraceEnricher that can enrich stacktraces with the source location and version.|
+|2013-04-11 08:29:35 +0200|Barre Dijkstra|Merge branch 'master' of https://github.com/unclebob/fitnesse into global_static_removal|
+|2013-04-10 21:52:28 +0200|Arjan Molenaar|Condensed error navigator code|
+|2013-04-10 17:25:01 +0200|Arjan Molenaar|Fix failure counter for scenario's and errors|
+|2013-04-10 17:18:08 +0200|Arjan Molenaar|Fix open/close of sections expanded on error.|
+|2013-04-10 07:41:16 +0200|Arjan Molenaar|Do not increment exception count for NO_INSTANCE exceptions on silent return expectations.|
+|2013-04-09 13:04:03 +0200|Barre Dijkstra|Merge branch 'master' of https://github.com/unclebob/fitnesse into global_static_removal|
+|2013-04-09 12:55:58 +0200|Barre Dijkstra|- First step in refactoring public static variables.|
+|2013-04-07 22:05:20 +0200|Arjan Molenaar|Add acceptance tests for showing exceptions.|
+|2013-04-07 22:02:34 +0200|Arjan Molenaar|Make exception recognition more precise by only checking for lines starting with __EXCEPTION__.|
+|2013-04-07 21:58:56 +0200|Arjan Molenaar|Add stack traces back to exception results.|
+|2013-04-05 11:27:06 +0200|Arjan Molenaar|Updated release notes|
+|2013-04-05 11:26:41 +0200|Arjan Molenaar|Remove bottom margin from breadcrumb in bootstrap theme.|
+|2013-04-04 22:04:52 +0200|Arjan Molenaar|Update theming page|
+|2013-04-04 22:04:41 +0200|Arjan Molenaar|Add previous/next buttons to bootstrap theme as well.|
+|2013-04-04 21:30:15 +0200|Arjan Molenaar|Removed extra/installer. Fixes #138.|
+|2013-04-04 21:17:45 +0200|Arjan Molenaar|TestHostory page shows execution result now. Fixes #237|
+|2013-04-04 19:23:05 +0200|Arjan Molenaar|Updated user guide. Added note on wiki text in links.|
+|2013-04-04 18:42:22 +0200|Arjan Molenaar|Update .gitignore|
+|2013-04-04 18:39:23 +0200|Arjan Molenaar|Add test case (ignored) for suite xml rendering|
+|2013-04-04 18:38:34 +0200|Arjan Molenaar|Escape content in suite and history xml.|
+|2013-04-04 07:27:10 +0200|Arjan Molenaar|Load wysiwyg editor script in editPage template, not in main skeleton template.|
+|2013-04-01 23:19:33 +0200|Markus Gärtner|updated to JUnit 4.11 and hamcrest 1.3|
+|2013-04-01 22:09:18 +0200|Markus Gärtner|java SlimClient now prevents System.exit calls, and throws an exception instead|
+|2013-04-01 21:56:54 +0200|Markus Gärtner|some warning cleanup|
+|2013-04-01 11:12:26 -0700|Dan Woodward|Merge pull request #236 from benilovj/bugfix_collapsable_sections_on_ios|
+|2013-04-01 06:34:01 -0700|Dan Woodward|Merge pull request #235 from benilovj/patch-2|
+|2013-03-31 23:12:39 +0200|Markus Gärtner|removed unnecessary unchecked suppress warning|
+|2013-03-31 22:20:32 +0200|Markus Gärtner|applied code formatter for FitNesse|
+|2013-03-31 22:17:45 +0200|Markus Gärtner|added a SecurityManager that prevents System exit calls and wraps them in SystemExitExceptions|
+|2013-03-31 21:07:30 +0200|Markus Gärtner|remove template argument to list() method invocation|
+|2013-03-31 20:32:39 +0200|Markus Gärtner|removed ambiguous assertion imports and removed unused code|
+|2013-03-30 09:48:43 -0700|Jake Benilov|fix for collapsable page sections on iOS|
+|2013-03-30 07:57:51 -0700|Jake Benilov|typos and grammatical improvements to WikiStyling|
+|2013-03-30 15:32:57 +0100|Arjan Molenaar|Updated release notes.|
+|2013-03-29 21:26:56 +0100|Arjan Molenaar|Merge pull request #221 from abhijit154/master|
+|2013-03-29 13:25:27 -0700|Arjan Molenaar|Merge pull request #231 from amolenaar/suppress-http-headers|
+|2013-03-29 07:19:05 +0100|Arjan Molenaar|Merge branch 'master' of github.com:unclebob/fitnesse|
+|2013-03-29 07:18:11 +0100|Arjan Molenaar|Merge pull request #226 from raboof/nochunk|
+|2013-03-28 23:12:43 -0700|Arjan Molenaar|Merge pull request #234 from amolenaar/tags|
+|2013-03-28 22:35:15 +0100|Arjan Molenaar|Also add tags logic to properties page|
+|2013-03-28 22:30:40 +0100|Arjan Molenaar|Ensure nice formatting when tags are saved.|
+|2013-03-28 22:26:15 +0100|Arjan Molenaar|Added style for bootstrap.|
+|2013-03-28 21:44:09 +0100|Arjan Molenaar|Added tag style for default theme|
+|2013-03-28 19:42:14 +0100|Arjan Molenaar|Added jquery.tagsinput|
+|2013-03-28 17:57:34 +0100|Arjan Molenaar|Move path definition one level up, so it also works for the UserGuide.|
+|2013-03-28 17:56:38 +0100|Arjan Molenaar|Fix issue where surplus items are not counted as wrong|
+|2013-03-28 00:44:56 -0700|Arjan Molenaar|Merge pull request #205 from amolenaar/editor-paste|
+|2013-03-28 07:33:02 +0100|Arjan Molenaar|Do not print HTTP headers when running suite on command line.|
+|2013-03-28 07:26:52 +0100|Arjan Molenaar|fix typo|
+|2013-03-27 22:09:49 +0100|Arjan Molenaar|Do not send trailing headers if content is not chunked.|
+|2013-03-27 17:09:47 +0100|Arjan Molenaar|Move Response.addStandardHeaders to makeHttpHeaders().|
+|2013-03-28 07:35:47 +0100|Arjan Molenaar|Merge branch 'master' of github.com:unclebob/fitnesse|
+|2013-03-27 23:34:51 -0700|Arjan Molenaar|Merge pull request #228 from raboof/outputtofile|
+|2013-03-27 16:57:44 +0100|Arjan Molenaar|Fix issue with chunked reponse from command line execution.|
+|2013-03-27 15:31:31 +0100|Arjan Molenaar|Ensure no nested tables are pasted.|
+|2013-03-27 13:39:36 +0100|Arjan Molenaar|Formatting for plain text works nicely|
+|2013-03-27 13:32:21 +0100|Arjan Molenaar|Update <base> construction, so it plays nice with the test page.|
+|2013-03-27 13:25:45 +0100|Arjan Molenaar|stylesheet cleanup|
+|2013-03-25 21:17:22 +0100|Arjan Molenaar|Rewrote cut-n-paste postprocessing|
+|2013-03-25 21:16:20 +0100|Arjan Molenaar|Remvoe console logging in edit page|
+|2013-03-24 13:20:36 +0100|Arnout Engelen|Add -b output redirection flag to the documentation.|
+|2013-03-23 21:31:12 +0100|Arjan Molenaar|Added wysiwyg cut-and-paste test boilerplate.|
+|2013-03-23 21:30:31 +0100|Arjan Molenaar|Add Jasmine|
+|2013-03-22 15:42:02 +0100|Arnout Engelen|Add support for outputting to a file|
+|2013-03-22 16:51:49 +0100|Arnout Engelen|When chunking is turned off, don't emit the final '0' chunk|
+|2013-03-22 15:35:51 +0100|Arnout Engelen|Consistently spell 'nochunk' request input key|
+|2013-03-21 22:24:52 +0100|Arjan Molenaar|Removed abandoned extra/util folder.|
+|2013-03-21 22:05:25 +0100|Arjan Molenaar|Remove VirtualWiki tests reference from SuiteAcceptanceTests|
+|2013-03-21 21:46:04 +0100|Arjan Molenaar|Exceptions are now shown as collapsed rows in the table, instead of a list above the table.|
+|2013-03-14 11:23:40 +0100|Arjan Molenaar|Add classes directory to classpath, so tests can be run from the source repo as well.|
+|2013-03-18 13:12:27 +0530|Abhijit|#145|
+|2013-03-16 12:37:46 -0700|Arjan Molenaar|Merge pull request #225 from benilovj/patch-1|
+|2013-03-16 12:10:16 +0000|Jake Benilov|typo fix in UserGuide.MarkupPageInclude|
+|2013-03-12 15:49:05 +0530|Abhijit|Issue#145|
+|2012-12-25 16:13:19 +0100|Arjan Wulder|Ant build file uses variable and reformatting|
+|2013-03-09 15:02:05 +0100|Arjan Molenaar|Missed edited FitNesse wiki page from cfcc9b6.|
+|2013-03-09 14:50:38 +0100|Arjan Molenaar|Reenstated CONTRIBUTING.md|
+|2013-03-08 16:31:04 +0100|Arjan Molenaar|Reenstated code from #197 and #200.|
+|2013-03-08 16:05:54 +0100|Arjan Molenaar|Merge branch 'master' into slim_refactoring -- override previous errorous merge. Fix #217 for real.|
+|2013-03-08 16:05:00 +0100|Arjan Molenaar|Merge branch 'master' into slim_refactoring - the right way.|
+|2013-03-08 13:17:48 +0100|Arjan Molenaar|Removed Virtual wiki test reference from acceptance test ToC|
+|2013-03-08 08:09:25 +0100|Arjan Molenaar|Merge branch 'slim_refactoring' into merge|
+|2013-03-07 13:17:13 -0800|Arjan Molenaar|Merge pull request #203 from frodecarlsen/master|
+|2013-03-07 22:04:07 +0100|Arjan Molenaar|Updated TestVersionsInPage test to pass. Have to figure out why 4 revisions are created now.|
+|2013-03-07 21:10:30 +0100|Arjan Molenaar|Merge branch 'master' into slim_refactoring|
+|2013-03-07 16:43:24 +0100|Arjan Molenaar|Added test that tests pages included in scenario library.|
+|2013-03-07 16:37:45 +0100|Arjan Molenaar|Revert "Include content directly in page, instead of using !include"|
+|2013-03-06 23:08:34 +0100|Barre Dijkstra|Fixed a really silly bug that caused slim server to not spawn out-of-process in unit tests.|
+|2013-03-06 17:21:16 +0100|Barre Dijkstra|- Fixed some issues with incorrect exception strings being sent by the Slim server - Removed the public static username/password from the WikiImporter|
+|2013-03-06 17:17:27 +0100|Barre Dijkstra|- Resolved some issues with exception messages coming from the Slim server and corresponding unit tests. - Removed public static userName/passWord from the WikiImporter|
+|2013-03-04 10:00:02 +0100|Arjan Molenaar|Merge branch 'last-modified'|
+|2013-03-04 09:58:39 +0100|Arjan Molenaar|Send HTTP 304 (Not Modified) responses also for classpath resources.|
+|2013-03-03 21:25:25 +0100|Arjan Molenaar|Merge branch 'fitnessedotorg' -- updates for the website|
+|2013-03-03 21:24:19 +0100|Arjan Molenaar|Removed unused class HtmlTableListingBuilder.|
+|2013-03-02 13:08:29 +0100|Arjan Molenaar|Added symlinkDiagram image back. Fixed #210.|
+|2013-03-01 11:23:27 +0100|Arjan Molenaar|Fixed issue with translating links back and forth|
+|2013-02-07 21:17:52 +0100|Arjan Molenaar|-VersionNavigable properties are not needed.|
+|2013-03-01 10:48:01 +0100|Arjan Molenaar|Merge branch 'remove-unused-files'|
+|2013-02-28 23:00:44 +0100|Arjan Molenaar|Merge branch 'java_formatter_refactoring' of git://github.com/benilovj/fitnesse into fix/#204|
+|2013-02-28 13:44:09 -0800|Arjan Molenaar|Merge pull request #165 from awulder/testresultpage-fixes|
+|2013-02-28 22:23:22 +0100|Arjan Molenaar|Merge remote-tracking branch 'markhop/version_diffs'|
+|2013-02-28 21:31:13 +0100|Arjan Molenaar|Merge branch 'drop-virtual-wiki'|
+|2013-02-28 21:30:38 +0100|Arjan Molenaar|Cleaned up WikiPage. Removed unused methods.|
+|2013-02-28 20:37:55 +0100|Arjan Molenaar|Updated copyright.|
+|2013-02-27 15:14:53 +0100|Barre Dijkstra|Merge remote-tracking branch 'origin/slim_refactoring' into slim_refactoring|
+|2013-02-27 15:13:59 +0100|Barre Dijkstra|Added the InstructionResult for returning results. Some further refactorings on Slim.|
+|2013-02-27 15:13:33 +0100|Barre Dijkstra|Added the InstructionResult for returning results. Some further refactorings on Slim.|
+|2013-02-27 08:43:06 +0100|Arjan Molenaar|Include content directly in page, instead of using !include Fix issue with expanding tear down page introduced in 7496cecd.|
+|2013-02-27 08:26:53 +0100|Arjan Molenaar|Set execution log as soon as possible.|
+|2013-02-27 07:20:50 +0100|Arjan Molenaar|Cleanup HtmlTableScanner|
+|2013-02-26 18:26:38 +0100|Arjan Molenaar|Merge back:|
+|2013-02-26 18:25:08 +0100|Arjan Molenaar|No need for _TABLENUMBER attribute on tables anymore|
+|2013-02-26 18:16:33 +0100|Arjan Molenaar|Squash with: Let HtmlTableScanner store the Html nodes instead of only the tables|
+|2013-02-26 18:06:58 +0100|Arjan Molenaar|Cache the NodeList, instead of Html string.|
+|2013-02-26 18:01:15 +0100|Arjan Molenaar|Let HtmlTableScanner store the Html nodes instead of only the tables|
+|2013-02-26 17:59:21 +0100|Arjan Molenaar|Do not cache the test page.|
+|2013-02-26 10:58:25 +0100|Arjan Molenaar|Added HtmlParserTools. Deals with cloning HtmlParser nodes.|
+|2013-02-26 10:39:34 +0100|Arjan Molenaar|Remove dead code.|
+|2013-02-26 10:16:33 +0100|Arjan Molenaar|HtmlSlimTestSystem can deal with individual pages from which the test is assembled|
+|2013-02-26 10:14:42 +0100|Arjan Molenaar|remove HtmlTableScanner.toWikiText(). Not used|
+|2013-02-26 07:08:27 +0100|Arjan Molenaar|Let TestPage expose its page path.|
+|2013-02-26 07:07:43 +0100|Arjan Molenaar|Remove unused abstract method from SlimTestSystem|
+|2013-02-25 22:16:57 +0100|Arjan Molenaar|Moved remaining logic from SetupTearDownAndLibraryIncluder to TestPage|
+|2013-02-24 21:26:15 +0100|Arjan Molenaar|Remove preparsed scenario stuff, since it does not improve performance.|
+|2013-02-23 12:04:57 +0100|Arjan Molenaar|Let CommandRunner use BufferedInputStream. Fixed runnable class name|
+|2013-02-23 11:29:21 +0100|Arjan Molenaar|Merge SlimTestSystem.NestedSlimTestContext and MockSlimTestContext|
+|2013-02-23 11:04:32 +0100|Arjan Molenaar|Handle ExecutionLog as an artifact of a test, not as a prerequisite for starting a test system|
+|2013-02-23 10:56:02 +0100|Arjan Molenaar|Use String.replaceAll in replace method.|
+|2013-02-22 11:52:38 +0000|Jake Benilov|extracting summary table printing into separate classes|
+|2013-02-22 11:16:49 +0000|Jake Benilov|creating NullListener to avoid null check|
+|2013-02-22 11:05:45 +0000|Jake Benilov|inlining unnecessary local variable|
+|2013-02-22 11:04:48 +0000|Jake Benilov|JavaFormatter: split results page printing out into own class|
+|2013-02-20 10:48:29 +0100|Arjan Molenaar|Merge branch 'slim_refactoring' into testcontext|
+|2013-02-20 09:59:46 +0100|Arjan Molenaar|Moved last bit of escaping from SlimTable to HtmlTable.|
+|2013-02-20 07:44:14 +0100|Arjan Molenaar|Removed SlimTestSystem.getTestResults|
+|2013-02-20 07:42:03 +0100|Arjan Molenaar|SlimTestSystem cleanup: less instance variables.|
+|2013-02-19 17:30:54 +0100|Arjan Molenaar|Renamed TestSystemListener.acceptOutputFirst to testOutputChunk|
+|2013-02-18 22:14:41 +0100|Arjan Molenaar|Removed SetupTeardownAndLibraryIncluder.includeSetupsTeardownsAndLibrariesBelowTheSuite|
+|2013-02-18 22:08:11 +0100|Arjan Molenaar|Squash! fix include arg|
+|2013-02-18 21:38:23 +0100|Arjan Molenaar|Removed bit f bi-directionality between fitnesse.testsystems and fitnesse.responders.run packages.|
+|2013-02-18 21:23:40 +0100|Arjan Molenaar|Let TestPage know about the individual pages needed to run the test.|
+|2013-02-18 18:40:52 +0100|Arjan Molenaar|TestPage: SetupTeardownAndLibraryIncluder takes only TestPage as input.|
+|2013-02-18 07:45:25 +0100|Arjan Molenaar|WikiImportProperty cleanup.|
+|2013-02-18 07:43:52 +0100|Arjan Molenaar|reformat TestPage|
+|2013-02-18 07:43:30 +0100|Arjan Molenaar|WikiPageResponder cleanup|
+|2013-02-16 14:29:33 -0600|Daniel Woodward|Increased time for a single row in each of these to execute.  This is a temporary fix for our CI server.  Eventually we would like a better solution.|
+|2013-02-16 14:50:32 +0100|frodecarlsen|better shutdown when run inprocess|
+|2013-02-16 09:13:11 +0100|Arjan Molenaar|Indentation fix.|
+|2013-02-16 01:48:15 -0800|Arjan Molenaar|Merge pull request #200 from markhop/code_improvement_197|
+|2013-02-16 09:38:08 +0000|Mark Hopkins|Code improvement for #197|
+|2013-02-16 08:38:59 +0100|frodecarlsen|fix for SuiteSetUp reported as Unrooted test in junit|
+|2013-02-16 07:35:45 +0100|frodecarlsen|minor updates for tests|
+|2013-02-15 22:49:18 +0100|Arjan Molenaar|only keep PageCrawler.setDeadEndStrategy where needed.|
+|2013-02-15 21:53:54 +0100|Arjan Molenaar|removed Extension et al|
+|2013-02-15 21:46:12 +0100|Arjan Molenaar|Removed VirtualCouplingExtension and VirtualCouplingPage.|
+|2013-02-15 20:39:11 +0100|frodecarlsen|reapplied changes for #179 on latest version of fitnesse|
+|2013-02-15 16:37:17 +0100|Arjan Molenaar|Removed VirtualEnabledPageCrawler.|
+|2013-02-15 13:15:10 +0100|Arjan Molenaar|Remove virtual page dependency from FitNesseUtil.|
+|2013-02-15 11:50:33 +0100|Arjan Molenaar|Remove virtual wiki code from (save-) properties responder|
+|2013-02-15 11:47:04 +0100|Arjan Molenaar|Removed references of Virtual Wiki from the User guide and acceptance tests.|
+|2013-02-15 11:34:27 +0100|Arjan Molenaar|Move CommandRunner to fitnesse.testsystems package, since that's what it's used from|
+|2013-02-15 11:25:47 +0100|Arjan Molenaar|Move Base64.java to fitnesse.util package|
+|2013-02-14 14:48:51 +0100|Arjan Molenaar|Remove old intellij iws file.|
+|2013-02-14 14:48:19 +0100|Arjan Molenaar|Removed ChangeLog file. Use FitNesse.ReleaseNotes wiki page instead.|
+|2013-02-14 14:47:43 +0100|Arjan Molenaar|Remove antf file. Not used.|
+|2013-02-14 05:28:09 -0800|Arjan Molenaar|Merge pull request #197 from markhop/fix_windows_build|
+|2013-02-14 09:19:18 +0000|Mark Hopkins|Fix build on Windows|
+|2013-02-13 22:26:41 +0000|Mark Hopkins|Merge remote-tracking branch 'upstream/master'|
+|2013-02-13 18:39:17 +0100|Arjan Molenaar|Cleaned up Download pages, won't start pages. Everything related to downloading should point to the online site.|
+|2013-02-11 14:06:01 -0800|Markus Gärtner|Merge pull request #169 from benilovj/adding_contributing_md|
+|2012-12-25 16:13:19 +0100|Arjan Wulder|Ant build file uses variable and reformatting|
+|2013-02-11 22:35:07 +0100|Markus Gärtner|fixed problem with FitNesse not executing tests due to missing fitnesse-standalone.jar. Now we parse the java classpath for an appropriate jar, and pass that on|
+|2013-02-11 19:24:50 +0000|Mark Hopkins|Merge remote-tracking branch 'upstream/master'|
+|2013-02-10 14:24:38 +0100|Arjan Molenaar|Make Ant an optional dependency in POM file.|
+|2013-02-10 13:53:21 +0100|Arjan Molenaar|Upgraded Ivy dependency to 2.3.0.|
+|2013-02-08 09:02:52 +0000|Mark Hopkins|Add navigation to compare page|
+|2013-02-08 08:26:55 +0000|Mark Hopkins|Merge branch 'work' into version_diffs|
+|2013-02-08 08:10:52 +0000|Mark Hopkins|Merge remote-tracking branch 'upstream/master'|
+|2013-02-07 21:03:14 +0100|Arjan Molenaar|WYSIWYG editor - avoid adding an extra column to the first row of a table when adding a column via the menu. Fixes #185.|
+|2013-02-04 07:43:06 +0100|Arjan Molenaar|Removed FitNesseRoot/properties. This is a generated file.|
+|2013-02-03 16:12:55 -0700|Mike Stockdale|parser: comment only at start of line|
+|2013-02-02 14:39:33 +0000|Mark Hopkins|Further acceptance tests for version responder|
+|2013-02-02 13:18:23 +0000|Mark Hopkins|Add version navigation to view version page|
+|2013-02-01 17:17:18 +0000|Mark Hopkins|Initial attempt to add version navigation|
+|2013-01-01 14:57:55 +0000|Jake Benilov|JUnit results printer now consistent for exceptions|
+|2012-12-30 12:52:33 +0100|frodecarlsen|fix #177 better listing of individual tests and ability to rerun selected test after first run of suite.|
+|2013-02-07 21:43:04 +0100|Arjan Molenaar|Merge remote-tracking branch 'markhop/version_navigation'. Fixes #190.|
+|2013-02-07 21:42:06 +0100|Arjan Molenaar|Merge branch 'frodocarlsen/master'. Fixes #179.|
+|2013-02-07 12:06:42 -0800|Arjan Molenaar|Merge pull request #181 from benilovj/junit_results_printer_fix|
+|2013-02-07 21:03:14 +0100|Arjan Molenaar|WYSIWYG editor - avoid adding an extra column to the first row of a table when adding a column via the menu. Fixes #185.|
+|2013-02-07 11:11:47 +0100|Arjan Molenaar|Merge: Moved HTML generation out of the (slim) test system.|
+|2013-02-07 07:51:11 +0100|Arjan Molenaar|Merge branch 'master' of github.com:unclebob/fitnesse|
+|2013-02-07 07:48:12 +0100|Arjan Molenaar|Provide TestPage to test system to test on, not PageData only.|
+|2013-02-07 07:12:00 +0100|Arjan Molenaar|reformat code|
+|2013-02-07 07:07:03 +0100|Arjan Molenaar|Little cleanup on the Fit side|
+|2013-02-06 21:34:33 +0100|Arjan Molenaar|Updated TODO's|
+|2013-02-06 21:34:14 +0100|Arjan Molenaar|Do not return html string content unnecessarely.|
+|2013-02-06 21:24:34 +0100|Arjan Molenaar|Changed TestSystem.runTestsAndGenerateHtml to runTests. (no more html)|
+|2013-02-06 21:18:37 +0100|Arjan Molenaar|Let SlimResponder use the callback, like the real thing|
+|2013-02-06 21:00:47 +0100|Arjan Molenaar|Allow SlimService tests to close in slim thread before next test is executed.|
+|2013-02-06 20:59:32 +0100|Arjan Molenaar|Ensure test system close command is sent after error.|
+|2013-02-06 20:58:39 +0100|Arjan Molenaar|Do not let errors pass silently.|
+|2013-02-06 20:22:32 +0100|Arjan Molenaar|Added few tests for Utils class.|
+|2013-02-06 20:21:07 +0100|Arjan Molenaar|MultipleTestRunner stop flag should be volatile.|
+|2013-02-06 18:50:27 +0100|Arjan Molenaar|Remove synchronised blocks from MultipleTestsRunner. Everything is working through callbacks now|
+|2013-02-06 18:44:23 +0100|Arjan Molenaar|Improved error reporting from Slim server|
+|2013-02-04 18:19:38 +0100|Arjan Molenaar|Missed one test where & was not replaced by &amp;|
+|2013-02-04 07:46:47 +0100|Arjan Molenaar|Merge branch 'master' into testresult|
+|2013-02-04 07:43:06 +0100|Arjan Molenaar|Removed FitNesseRoot/properties. This is a generated file.|
+|2013-02-03 19:36:53 -0800|Mike Stockdale|Merge pull request #191 from jediwhale/master|
+|2013-02-03 16:12:55 -0700|Mike Stockdale|parser: comment only at start of line|
+|2013-02-03 20:40:42 +0000|Mark Hopkins|More improvements to diff look|
+|2013-02-03 18:16:11 +0000|Mark Hopkins|Improve layout|
+|2013-02-03 14:49:49 +0000|Mark Hopkins|Working version comparer|
+|2013-02-02 22:51:23 +0100|Arjan Molenaar|escape &-symbol in urls|
+|2013-02-02 21:47:31 +0100|Arjan Molenaar|Escape XML content in XML page results|
+|2013-02-02 16:51:28 +0100|Arjan Molenaar|Fixed output for [actual|excepted] + message|
+|2013-02-02 11:45:41 +0100|Arjan Molenaar|Clean up unused methods from HtmlTable|
+|2013-02-02 10:47:46 +0100|Arjan Molenaar|remove tests that are no longer applicable|
+|2013-02-01 21:07:24 +0100|Arjan Molenaar|Added comment to current exception handling solution.|
+|2013-02-01 20:52:17 +0100|Arjan Molenaar|Put quotes on _tablenumber attribute|
+|2013-02-01 20:51:24 +0100|Arjan Molenaar|Let HtmlTable render the exceptions as well.|
+|2013-02-01 20:50:47 +0100|Arjan Molenaar|Handle exceptions more gracefully.|
+|2013-02-03 12:10:42 +0000|Mark Hopkins|Addition of VersionComparerResponder|
+|2013-02-02 17:26:16 +0000|Mark Hopkins|Beginnings of version compare|
+|2013-02-02 14:39:33 +0000|Mark Hopkins|Further acceptance tests for version responder|
+|2013-02-02 13:18:23 +0000|Mark Hopkins|Add version navigation to view version page|
+|2013-02-01 17:17:18 +0000|Mark Hopkins|Initial attempt to add version navigation|
+|2013-02-01 17:11:45 +0100|Arjan Molenaar|Handle exceptions through Expectations|
+|2013-02-01 17:09:24 +0100|Arjan Molenaar|Make stopTestCalled a SlimTestSystem variable.|
+|2013-02-01 13:14:12 +0100|Arjan Molenaar|Cleanup on RowExpectation class|
+|2013-02-01 13:11:43 +0100|Arjan Molenaar|Make xml formatting simpler.|
+|2013-02-01 11:52:20 +0100|Arjan Molenaar|Cleanup: Assertion|
+|2013-02-01 11:44:44 +0100|Arjan Molenaar|Removed overall lists from test system.|
+|2013-02-01 11:31:32 +0100|Arjan Molenaar|Fixed Table Comparer for new style scenario tables.|
+|2013-02-01 10:50:42 +0100|Arjan Molenaar|More fixes on test result, send out notifications on assertion results via listener.|
+|2013-01-30 22:38:36 +0100|Arjan Molenaar|Fixed counting|
+|2013-01-30 15:03:19 -0800|Mike Stockdale|Merge pull request #187 from markhop/image-attributes|
+|2013-01-30 22:23:56 +0100|Arjan Molenaar|* Fixed HTML escaping in HTMLTable * Added back counters, needs more work * interface cleanup|
+|2013-01-30 22:20:00 +0100|Arjan Molenaar|Remove println|
+|2013-01-30 17:30:49 +0100|Arjan Molenaar|Table unit tests work, except for the test summary counts.|
+|2013-01-30 14:16:49 +0100|Arjan Molenaar|Fixed TableTable tests|
+|2013-01-30 14:16:34 +0100|Arjan Molenaar|fixed query table tests|
+|2013-01-30 14:16:16 +0100|Arjan Molenaar|Fixed decision table tests|
+|2013-01-30 14:16:04 +0100|Arjan Molenaar|Big reorganization: Move HTML content generation out of the test system|
+|2013-01-27 23:09:45 +0100|Arjan Molenaar|Refactorings on Table. Handle exceptions separately in Expectations.|
+|2013-01-27 21:52:21 +0000|Mark Hopkins|Add border and margin attributes|
+|2013-01-27 22:33:22 +0100|Arjan Molenaar|Make queryResults a method variable, instead of an instance variable.|
+|2013-01-27 22:17:30 +0100|Arjan Molenaar|Move content (expected result) detection to constructors for Expectations|
+|2013-01-27 21:36:40 +0100|Arjan Molenaar|Added @Overrides for Expectation to easy future refactorings|
+|2013-01-27 20:30:52 +0000|Mark Hopkins|Change syntax to !img -w nnn url|
+|2013-01-27 17:31:10 +0100|Arjan Molenaar|Made TableTable message handling less redundant|
+|2013-01-27 15:46:40 +0000|Mark Hopkins|Add acceptance test and documentation for !img-w|
+|2013-01-27 10:54:04 +0000|Mark Hopkins|Allow an images width to be set|
+|2013-01-27 08:42:49 +0000|Mark Hopkins|Merge remote-tracking branch 'upstream/master'|
+|2013-01-26 16:50:32 -0800|Mike Stockdale|Merge pull request #186 from jediwhale/master|
+|2013-01-26 17:47:16 -0700|Mike Stockdale|parser: render non-existent link correctly|
+|2013-01-25 16:28:44 +0100|Arjan Molenaar|Managed to get HtmlTable dependency out of ScenarioTable.|
+|2013-01-25 11:55:47 +0100|Arjan Molenaar|For Expectations, define expected result at construction time.|
+|2013-01-25 11:28:43 +0100|Arjan Molenaar|Generic fixes for Java7|
+|2013-01-24 23:37:44 +0100|Arjan Molenaar|Cleaned up TableScanner interface|
+|2013-01-24 23:35:09 +0100|Arjan Molenaar|Updated Table interface|
+|2013-01-24 23:31:52 +0100|Arjan Molenaar|Removed Table.setName()|
+|2013-01-24 23:33:07 +0100|Arjan Molenaar|Add exception to exceptions list.|
+|2013-01-24 23:35:50 +0100|Arjan Molenaar|Remove constructor only used in tests. Slimtable.table can be made final. Yey!|
+|2013-01-23 16:38:58 +0100|Arjan Molenaar|More effort in generalizing ExceptionResult handling.|
+|2013-01-23 07:37:36 +0100|Arjan Molenaar|Created ExceptionResult class for exception messages|
+|2013-01-23 07:29:53 +0100|Arjan Molenaar|Little cleanup in SlimTable|
+|2013-01-24 18:29:26 +0000|Mark Hopkins|Merge remote-tracking branch 'upstream/master'|
+|2013-01-23 21:33:54 +0100|Arjan Molenaar|Disable ScenarioLibraryShouldIncludeVariables test. It breaks the build in IntelliJ.|
+|2013-01-22 13:24:14 +0000|Robert C. Martin|A little refactoring|
+|2013-01-22 12:22:09 +0000|Robert C. Martin|housekeeping|
+|2013-01-22 07:35:13 +0100|Arjan Molenaar|Introduce Assertion class in SlimTestSystem|
+|2013-01-19 20:22:48 +0100|Arjan Molenaar|Added few comments|
+|2013-01-18 16:34:29 +0100|Arjan Molenaar|remove one-line method|
+|2013-01-18 16:33:43 +0100|Arjan Molenaar|Fixed cast errors on Java 7|
+|2013-01-18 16:27:56 +0100|Arjan Molenaar|Updated SlimTestContext. Return Collection for getScenarios()|
+|2013-01-18 16:25:18 +0100|Arjan Molenaar|Removed IDE generated comment|
+|2013-01-18 14:49:05 +0100|Arjan Molenaar|Use Instruction on client side. Changes all over the place!|
+|2013-01-18 14:47:10 +0100|Arjan Molenaar|swuash with instructions|
+|2013-01-18 14:32:17 +0100|Arjan Molenaar|Extend Instructions with functionality needed on client|
+|2013-01-17 21:08:29 +0100|Arjan Molenaar|Reenstated "ant retrieve"|
+|2013-01-17 20:35:06 +0100|Arjan Molenaar|Fixed class path generation again by moving all classpath stuff to the ClassPathBuilder|
+|2013-01-17 16:46:01 +0100|Arjan Molenaar|Moved all system configuration to Descriptor class|
+|2013-01-16 18:07:05 +0100|Arjan Molenaar|Merge branch 'slim_refactoring' of github.com:barredijkstra/fitnesse into slim_refactoring|
+|2013-01-16 16:58:43 +0100|Barre Dijkstra|Removed cyclic dependency between StatementExceutor and SlimExecutionContext.|
+|2013-01-16 15:10:06 +0100|Arjan Molenaar|Moved test summary counts to contexts.|
+|2013-01-16 15:08:48 +0100|Arjan Molenaar|make Slimtable child tables a linked list|
+|2013-01-16 07:31:26 +0100|Arjan Molenaar|Move MockSocket to util package|
+|2013-01-15 10:09:09 +0100|Arjan Molenaar|Moved descriptor logic into descriptor.|
+|2013-01-14 22:27:21 +0100|Arjan Molenaar|Moved code out of SlimTestSystem.|
+|2013-01-14 16:13:57 +0100|Arjan Molenaar|Simplified SlimErrorTable.|
+|2013-01-13 11:40:04 +0100|Arjan Molenaar|Added few comments for future refactorings.|
+|2013-01-14 17:08:44 +0100|Arjan Molenaar|Fixed RestfulServices documentation|
+|2013-01-14 16:34:23 +0100|Arjan Molenaar|Define a page name for the root page.|
+|2013-01-14 12:30:44 +0100|Arjan Molenaar|Added backwards compatibility for opening older test results.|
+|2013-01-07 17:29:44 +0100|Arjan Molenaar|Reformatted UserGuide pages with rich text editor.|
+|2013-01-07 13:16:23 +0100|Arjan Molenaar|Add trailing newline for wiki text|
+|2013-01-07 07:14:07 +0100|Arjan Molenaar|Added back support for ordered lists.|
+|2013-01-06 23:03:06 +0100|Arjan Molenaar|Fixed issue with multi-line code blocks with empty lines.|
+|2013-01-06 22:42:06 +0100|Arjan Molenaar|Use paragraphs for notes (!note).|
+|2013-01-07 16:54:51 +0100|bbenning|Bugfix, themes and defaultNewPage settings were not correctly put into context|
+|2013-01-06 22:32:07 +0100|Arjan Molenaar|Restore false fix. Handle links gracefully.|
+|2013-01-06 21:39:22 +0100|Arjan Molenaar|Reformatted few UserGuide pages with Rich text editor|
+|2013-01-06 21:37:21 +0100|Arjan Molenaar|Allow headers in collapsible sections.|
+|2013-01-06 21:00:03 +0100|Arjan Molenaar|Updated Quick Reference content.|
+|2013-01-06 19:53:11 +0100|Arjan Molenaar|Fixed rich editor rendering of comment with table-ish content.|
+|2013-01-06 19:06:24 +0100|Arjan Molenaar|Change line style to pre-line, so user guide lines line out properly|
+|2013-01-14 17:27:41 +0100|Barre Dijkstra|Fixed some errors introduced with the refactoring of StatementExecutor.|
+|2013-01-14 17:08:44 +0100|Arjan Molenaar|Fixed RestfulServices documentation|
+|2013-01-14 16:34:23 +0100|Arjan Molenaar|Define a page name for the root page.|
+|2013-01-14 13:46:02 +0100|Barre Dijkstra|Added the SlimException for handling slim execution errors. Refactored the Slim Instruction to an abstract class, moving id parsing and list construction logic, as well as exception handling, to it.|
+|2013-01-14 13:44:59 +0100|Barre Dijkstra|Refactored StatementExecutor, moving all variable/library state and logic to the SlimExecutionContext.|
+|2013-01-14 12:30:44 +0100|Arjan Molenaar|Added backwards compatibility for opening older test results.|
+|2013-01-14 12:14:54 +0100|Barre Dijkstra|Added the SlimException for handling slim execution errors. Refactored the Slim Instruction to an abstract class, moving id parsing and list construction logic, as well as exception handling, to it.|
+|2013-01-12 22:29:33 +0100|Arjan Molenaar|cleanup|
+|2013-01-12 22:29:14 +0100|Arjan Molenaar|Make SlimErrorTable set an expectation for the error results.|
+|2013-01-12 22:27:36 +0100|Arjan Molenaar|Expectations: evaluate only one return value|
+|2013-01-12 21:50:03 +0100|Arjan Molenaar|Expectations: Do not put data in returns values hash.|
+|2013-01-12 20:52:30 +0100|Arjan Molenaar|Expectations: expose instrument-tag.|
+|2013-01-11 22:48:13 +0100|Arjan Molenaar|Removed SlimTable.evaluateReturnValues()|
+|2013-01-11 22:16:11 +0100|Arjan Molenaar|Made an Expectation interface.|
+|2013-01-11 21:47:13 +0100|Arjan Molenaar|Moved default messages to constants. Use those instead of plain text.|
+|2013-01-11 19:35:46 +0100|Arjan Molenaar|Merge "move test systems" back to branch.|
+|2013-01-11 09:15:45 +0100|Arjan Molenaar|Removed unneeded "throws Exception" from SlimTable.evaluateReturnValues()|
+|2013-01-10 22:52:11 +0100|Arjan Molenaar|Make waiting for a connection a little smarter|
+|2013-01-10 21:58:47 +0100|Arjan Molenaar|Renamed slim Response interface to Result|
+|2013-01-10 21:49:05 +0100|Arjan Molenaar|Remove redundant test case|
+|2013-01-10 21:43:08 +0100|Arjan Molenaar|Remove unused class HtmlFormatterClient|
+|2013-01-10 21:42:11 +0100|Arjan Molenaar|Move replaceExceptions call to SlimTestSystem|
+|2013-01-10 17:48:14 +0100|Barre Dijkstra|Merge remote-tracking branch 'origin/slim_refactoring' into slim_refactoring|
+|2013-01-10 17:46:12 +0100|Barre Dijkstra|Added additional unit tests for the instructions.|
+|2013-01-10 17:29:08 +0100|Arjan Molenaar|Fixed unittest broken in #cad4900da|
+|2013-01-10 17:18:30 +0100|Arjan Molenaar|Moved fitnesse.slimTables to fitnesse.testsystems.slim.tables|
+|2013-01-10 16:52:29 +0100|Arjan Molenaar|Moved Slim test system to testsystems.slim package.|
+|2013-01-10 15:49:51 +0100|Arjan Molenaar|Move Fit test system in it's own package.|
+|2013-01-10 14:40:39 +0100|Arjan Molenaar|Removed pass-through dependency on PageFactory for test systems|
+|2013-01-10 14:02:48 +0100|Arjan Molenaar|Move TestSystem to it's own package|
+|2013-01-10 17:15:42 +0100|Barre Dijkstra|Added some unit tests, removed old IntelliJ IDEA workspace files and updated Mockito to version 1.9.5 to allow proper mocking of methods with varargs (amongst other things).|
+|2013-01-10 13:20:56 +0100|Arjan Molenaar|Remove HtmlComment class. Not used.|
+|2013-01-10 09:36:28 +0100|Arjan Molenaar|Response.toHtml is deprecated by design|
+|2013-01-10 08:24:36 +0100|Arjan Molenaar|Added setResponse to HtmlTable.Cell|
+|2013-01-10 08:23:15 +0100|Arjan Molenaar|Use evaluation message Response objects|
+|2013-01-10 08:22:29 +0100|Arjan Molenaar|More functionality in PlainResponse|
+|2013-01-10 08:22:00 +0100|Arjan Molenaar|Moved colorize()|
+|2013-01-09 21:58:26 +0100|Arjan Molenaar|Use Reponse objects instead of plain, formatted text. Needs more work, just put the interface in place.|
+|2013-01-09 18:09:00 +0100|Arjan Molenaar|Move comparator function to -Util class|
+|2013-01-09 18:02:21 +0100|Arjan Molenaar|Move specific SlimTable.callAndAssign down.|
+|2013-01-09 17:56:09 +0100|Arjan Molenaar|Removed unused annotation from SlimSerializer|
+|2013-01-09 17:55:49 +0100|Arjan Molenaar|Removed SlimTable.getChild().|
+|2013-01-09 16:52:06 +0100|Arjan Molenaar|added todo comments|
+|2013-01-09 16:51:42 +0100|Arjan Molenaar|Remove unneeded method SlimTable.makeReturnedValueExpectation()|
+|2013-01-09 16:41:22 +0100|Arjan Molenaar|remove SlimTable.constructFixture() (no args)|
+|2013-01-09 16:07:42 +0100|Arjan Molenaar|Enhance table error formatting|
+|2013-01-09 16:51:12 +0100|Barre Dijkstra|Refactoring of statements into instructions and execution/(de)serialization|
+|2013-01-09 15:38:25 +0100|Arjan Molenaar|Removed SlimTable.appendInstructions().|
+|2013-01-09 12:18:48 +0100|Arjan Molenaar|Merge branch 'slim2' into slim_refactoring|
+|2013-01-09 03:11:15 -0800|Barre Dijkstra|Merge pull request #1 from amolenaar/slim2|
+|2013-01-09 12:06:52 +0100|Arjan Molenaar|Cleanup in symbol assignment.|
+|2013-01-09 11:15:51 +0100|Barre Dijkstra|Extract the factory from Statement.|
+|2013-01-09 09:48:59 +0100|Arjan Molenaar|script table: clean up scenario search code.|
+|2013-01-09 09:48:33 +0100|Arjan Molenaar|Added extra scenario test for placeholder scenario's (no content)|
+|2013-01-09 09:10:46 +0100|Barre Dijkstra|Initial refactoring of the slim statement.|
+|2013-01-09 09:07:57 +0100|Arjan Molenaar|Do not use a single list for slim instruction creation|
+|2013-01-08 13:40:06 +0100|Arjan Molenaar|Merge branch 'master' of github.com:unclebob/fitnesse|
+|2013-01-07 11:15:50 -0800|Arjan Molenaar|Merge pull request #182 from bbenning/master|
+|2013-01-07 17:29:44 +0100|Arjan Molenaar|Reformatted UserGuide pages with rich text editor.|
+|2013-01-07 13:16:23 +0100|Arjan Molenaar|Add trailing newline for wiki text|
+|2013-01-07 07:14:07 +0100|Arjan Molenaar|Added back support for ordered lists.|
+|2013-01-06 23:03:06 +0100|Arjan Molenaar|Fixed issue with multi-line code blocks with empty lines.|
+|2013-01-06 22:42:06 +0100|Arjan Molenaar|Use paragraphs for notes (!note).|
+|2013-01-07 16:54:51 +0100|bbenning|Bugfix, themes and defaultNewPage settings were not correctly put into context|
+|2013-01-06 22:32:07 +0100|Arjan Molenaar|Restore false fix. Handle links gracefully.|
+|2013-01-06 21:39:22 +0100|Arjan Molenaar|Reformatted few UserGuide pages with Rich text editor|
+|2013-01-06 21:37:21 +0100|Arjan Molenaar|Allow headers in collapsible sections.|
+|2013-01-06 21:00:03 +0100|Arjan Molenaar|Updated Quick Reference content.|
+|2013-01-06 19:53:11 +0100|Arjan Molenaar|Fixed rich editor rendering of comment with table-ish content.|
+|2013-01-06 19:06:24 +0100|Arjan Molenaar|Change line style to pre-line, so user guide lines line out properly|
+|2013-01-03 14:25:08 +0100|Arjan Molenaar|Make sure Rhino is not packaged with the standalone fitnesse jar. Fixes finding on #180.|
+|2013-01-01 21:45:56 +0100|Arjan Molenaar|Adjusted build script to use a fixed Rhino version. Fixes #180.|
+|2013-01-01 21:56:05 +0100|Arjan Molenaar|Removed retrieve target from build.xml. No longer needed.|
+|2013-01-01 14:57:55 +0000|Jake Benilov|JUnit results printer now consistent for exceptions|
+|2012-12-30 12:52:33 +0100|frodecarlsen|fix #177 better listing of individual tests and ability to rerun selected test after first run of suite.|
+|2012-12-29 15:42:21 -0800|Arjan Molenaar|Merge pull request #170 from benilovj/more_useful_readme|
+|2012-12-30 00:38:45 +0100|Arjan Molenaar|Fixed formatting in tables. Fixes #173.|
+|2012-12-29 13:07:09 -0800|Arjan Molenaar|Merge pull request #161 from amolenaar/fullscreen-edit|
+|2012-12-29 22:05:07 +0100|Arjan Molenaar|Fix naming for fitnesse-standalone.jar pubished to maven repo. Fixes #175.|
+|2012-12-28 15:14:29 +0100|Arjan Molenaar|Fix paths for file-responders same way as for DeleteFileResponderTest.|
+|2012-12-28 15:06:38 +0100|Arjan Molenaar|Fixed DeleteFileResponderTest. Fricken Mac HFS type preserving stuff makes tests fail on a real FS.|
+|2012-12-28 09:12:38 +0000|Jake Benilov|updated to use markdown list indentation|
+|2012-12-28 09:03:10 +0000|Jake Benilov|extra spaces to indent code example|
+|2012-12-27 20:23:11 +0100|Arjan Molenaar|Merge branch 'fitnesse-context'|
+|2012-12-23 23:28:05 +0000|Jake Benilov|fixing link to the fitnesse.xml|
+|2012-12-23 18:24:33 +0000|Jake Benilov|Added acceptance tests command|
+|2012-12-23 17:30:56 +0000|Jake Benilov|A more useful, up-to-date README|
+|2012-12-23 16:13:31 +0000|Jake Benilov|renaming 'bylawsForCommitters' => CONTRIBUTING.md|
+|2012-12-23 12:05:46 +0100|Arjan Wulder|2-space indent fix|
+|2012-12-20 08:04:57 +0100|Arjan Molenaar|Should not have 'v' in version number.|
+|2012-12-22 06:53:16 -0800|Arjan Molenaar|Merge pull request #168 from bbenning/master|
+|2012-12-22 13:33:01 +0100|Bas|removed obsolete call to htmltree.toHtml() basically doubling the speed of creation of html tables|
+|2012-12-22 13:13:40 +0100|Bas|fixed error in RssResponderTest. Default locale was set too late.|
+|2012-12-21 15:55:56 +0100|Arjan Wulder|Moved static files to folders|
+|2012-12-21 11:55:06 +0100|Arjan Molenaar|Restore authentication settings on test teardown.|
+|2012-12-21 11:43:31 +0100|Arjan Molenaar|Made FitNesseContext.authenticator final|
+|2012-12-21 11:10:15 +0100|Arjan Wulder|HTML fixes for JavaFormatter|
+|2012-12-21 11:00:14 +0100|Arjan Wulder|HTML fixes for JavaFormatter|
+|2012-12-20 07:38:32 +0100|Arjan Molenaar|Fixed error navigator for Fit tests.|
+|2012-12-19 23:27:01 +0100|Arjan Molenaar|Fixed styling in tables: no icons here, we're kinda overdoing it.|
+|2012-12-19 17:49:44 +0100|Arjan Molenaar|Make authentication (partly) final(-ish).|
+|2012-12-19 15:11:47 +0100|Arjan Molenaar|Made a getter for FitNesse.context.|
+|2012-12-19 12:57:05 +0100|Arjan Molenaar|Make FitNesseContext constructor private.|
+|2012-12-19 12:56:18 +0100|Arjan Molenaar|Moved last use of FitNesseContext constructor to use FitNesseUtil.makeTestContext().|
+|2012-12-19 12:40:38 +0100|Arjan Molenaar|Use FitNesseUtil.makeTestContext instead of new FitNesseContext(root).|
+|2012-12-19 12:33:25 +0100|Arjan Molenaar|Removed FitNesseContext default constructor.|
+|2012-12-19 11:44:52 +0100|Arjan Molenaar|Build contexts through a builder.|
+|2012-12-19 11:10:32 +0100|Arjan Molenaar|Remove context attribute from FitNesseUtil.|
+|2012-12-18 12:11:44 +0100|Arjan Molenaar|Removed noChunk property from FitNesseContext|
+|2012-12-17 18:06:01 +0100|Arjan Molenaar|Do not show Versions in menu when prune days is se to 0.|
+|2012-12-17 16:05:54 +0100|Arjan Molenaar|Check for console in wysiwyg editor.|
+|2012-12-17 15:59:25 +0100|Arjan Molenaar|Fix loading issue in IE8|
+|2012-12-17 15:09:17 +0100|Arjan Molenaar|Use bootstrap style in editor.|
+|2012-12-17 14:55:29 +0100|Arjan Molenaar|Updated css links for bootstrap theme.|
+|2012-12-17 14:43:47 +0100|Arjan Molenaar|Updated build.xml to generate fitnesse-bootstrap.css|
+|2012-12-17 14:43:28 +0100|Arjan Molenaar|Fixed less-rhino so it works with ant.|
+|2012-12-17 14:41:42 +0100|Arjan Molenaar|Updated bootstrap less header|
+|2012-12-17 13:00:34 +0100|Arjan Molenaar|Added less-rhino|
+|2012-12-17 12:28:44 +0100|Arjan Molenaar|Remove unused css files.|
+|2012-12-17 12:28:28 +0100|Arjan Molenaar|fixed styling for default (non-bootstrap) themes.|
+|2012-11-05 22:38:20 +0100|Arjan Molenaar|Added TODO comment|
+|2012-12-16 19:50:31 -0800|Dan Woodward|Merge pull request #160 from woodybrood/visually_impaired_friendly|
+|2012-12-16 21:32:25 -0600|Daniel Woodward|Merge branch 'master' of https://github.com/woodybrood/fitnesse into visually_impaired_friendly|
+|2012-12-16 19:15:01 -0800|Dan Woodward|Merge pull request #3 from amolenaar/visually_impaired_friendly|
+|2012-12-16 15:49:12 +0100|Arjan Molenaar|fixed html and style|
+|2012-12-16 15:34:27 +0100|Arjan Molenaar|Use ExecutionResult to calculation test outcome for test history page.|
+|2012-12-16 13:42:49 +0100|Arjan Molenaar|Style update for bootstrap theme.|
+|2012-12-16 13:38:50 +0100|Arjan Molenaar|Merge branch 'master' into visually_impaired_friendly|
+|2012-12-16 13:33:12 +0100|Arjan Molenaar|(partially) fixed Suite Overview page (#152).|
+|2012-12-16 12:55:39 +0100|Arjan Molenaar|Fixed background position for test results line.|
+|2012-12-15 01:00:45 +0100|Arjan Molenaar|Made responderFactory a final property. Made PageFactory final.|
+|2012-12-15 00:51:58 +0100|Arjan Molenaar|Made FitNesseContext.{rootPath,rootDirectoryName} final fields.|
+|2012-12-15 00:31:05 +0100|Arjan Molenaar|Made FitNesseContext.port a final field.|
+|2012-12-14 20:29:39 +0100|Arjan Molenaar|Removed cyclic dependency between FitNesse and FitNesseContext class.|
+|2012-12-14 19:40:56 +0100|Arjan Molenaar|Make FitNesseContext.root a final field.|
+|2012-12-14 19:18:25 +0100|Arjan Molenaar|Made ResponderFactory a read-only context property.|
+|2012-12-14 13:25:30 +0100|Arjan Molenaar|Small cleanup: use method instead of member var.|
+|2012-12-14 11:13:19 +0100|Arjan Molenaar|Removed property pageRootPath from FitNesseContext|
+|2012-12-13 23:27:56 +0100|Arjan Molenaar|Cleaned up page titles.|
+|2012-12-13 09:18:01 +0100|Arjan Molenaar|Updated styles for full screen page editing.|
+|2012-12-13 09:25:16 +0100|Arjan Molenaar|Adjust page name and help text input size for bootstrap.|
+|2012-12-12 18:59:49 +0100|Arjan Molenaar|fix warning in build.xml|
+|2012-12-12 18:59:36 +0100|Arjan Molenaar|Throw understandable error if renaming symlinked page with symlinked parent|
+|2012-12-12 08:21:48 +0100|Arjan Molenaar|Updated installing page.|
+|2012-12-11 10:59:06 +0100|Arjan Molenaar|Removed GettingStarted page. It's obsolete.|
+|2012-12-11 10:50:33 +0100|Arjan Molenaar|Define classpath only once.|
+|2012-12-11 09:55:32 +0100|Arjan Molenaar|Use java classpath instead of fixed classpath|
+|2012-12-11 09:41:01 +0100|Arjan Molenaar|Preserve line ending formatting in tables as much as possible.|
+|2012-12-10 17:13:08 -0600|Daniel Woodward|Missing the images|
+|2012-12-10 13:46:53 +0100|Arjan Molenaar|Merge remote-tracking branch 'raboof/master'|
+|2012-12-10 01:28:29 +0100|Arnout Engelen|Reduce visibility of static fields used for CLI parameters|
+|2012-12-10 01:17:55 +0100|Arnout Engelen|Refactor: SlimService no longer needs to be a singleton|
+|2012-12-10 01:12:41 +0100|Arnout Engelen|SlimService now exits after handling its first and only connection (#155)|
+|2012-12-08 19:06:17 -0800|Mike Stockdale|Merge pull request #156 from jediwhale/unicode-wikiword|
+|2012-12-08 20:01:16 -0700|Mike Stockdale|handle unicode in wikiwords|
+|2012-12-08 18:42:14 -0700|Mike Stockdale|merge unclebob|
+|2012-12-08 22:55:37 +0100|Arjan Molenaar|Added notice of boostrap theme on theming page. Content stored as commited by RTE.|
+|2012-12-08 21:10:09 +0100|Arjan Molenaar|Added basic implementation for Suite overview page (#152)|
+|2012-12-08 21:55:30 +0100|Arjan Molenaar|Set display to none for hidden error navigator. So it won't take up space.|
+|2012-12-04 12:53:47 +0100|Arjan Molenaar|Remove FitNesseRoot/properties. It's a generated file.|
+|2012-12-06 16:49:18 -0600|Daniel Woodward|Tweaked styling to fit test-summary section better.|
+|2012-12-06 13:58:24 -0600|Daniel Woodward|Merge branch 'master' of https://github.com/unclebob/fitnesse into visually_impaired_friendly|
+|2012-12-06 13:20:43 -0600|Daniel Woodward|Added documentation for the new fitter arguments.|
+|2012-12-06 12:08:03 -0600|Daniel Woodward|Merge branch 'master' of https://github.com/unclebob/fitnesse|
+|2012-12-06 12:07:52 -0600|Daniel Woodward|Merge branch 'filter-strat' of https://github.com/pordonj/fitnesse|
+|2012-12-06 11:27:15 -0600|Daniel Woodward|Merge branch 'master' of https://github.com/unclebob/fitnesse into format_button_fixes|
+|2012-12-06 11:26:35 -0600|Daniel Woodward|Improved code a little bit more.  Defended against row with missing closing literal.  This was preventing entire table to process.|
+|2012-12-04 12:48:57 +0100|Arjan Molenaar|Fixed #151|
+|2012-12-03 08:57:10 +0100|Arjan Molenaar|Show hidden column in editor, kind of grayed out.|
+|2012-12-03 09:22:47 -0600|jpordon|Merge branch 'master' of https://github.com/unclebob/fitnesse|
+|2012-12-03 09:21:58 -0600|jpordon|Merge branch 'master' of https://github.com/unclebob/fitnesse into filter-strat|
+|2012-12-03 09:20:29 -0600|jpordon|Forgot to commit the error navigator template!|
+|2012-12-03 09:19:44 -0600|jpordon|Changed keywords for the suite responder suite filter and added acceptance tests.|
+|2012-12-02 23:40:24 +0100|Markus Gärtner|fixed problem with java 6 builds|
+|2012-12-02 20:16:10 +0100|Markus Gärtner|some warnings during compile removed|
+|2012-12-02 20:08:55 +0100|Markus Gärtner|moved this file to the converters package)|
+|2012-12-02 20:08:16 +0100|Markus Gärtner|moved the complete responsibility for Converter to the ConverterRegistry and inlined the remaining code from ConverterSupport|
+|2012-12-02 19:57:46 +0100|Markus Gärtner|fixed a bug where an existing EnumEditor was not used|
+|2012-11-29 21:36:16 +0100|Arjan Molenaar|Added hidden top row formatting for tables to rich text editor.|
+|2012-11-29 12:30:54 -0600|jpordon|Merge branch 'master' of https://github.com/unclebob/fitnesse|
+|2012-11-29 12:24:21 -0600|jpordon|Made changes to put the error navigator in its own template, as well as fixed the problem of the navigator not existing on history pages.|
+|2012-11-28 16:20:06 -0600|Daniel Woodward|Fixed problem where escaped pipe inside a table gets formatted like a normal pipe.  This would break the table for most users.|
+|2012-11-28 07:25:30 +0100|Arjan Molenaar|Also show hidden table rows on error/fail. Refactor code.|
+|2012-11-28 11:14:25 -0600|jpordon|remerging in all filter strat changes to fix my git setup|
+|2012-11-27 16:33:26 -0600|Daniel Woodward|Fixing merge issue.|
+|2012-11-27 15:25:05 -0600|Dan Woodward|Setting the theme back to default|
+|2012-11-27 14:39:43 -0600|Daniel Woodward|Restored test to passing that I used to test getting a failing page.|
+|2012-11-27 14:36:23 -0600|Daniel Woodward|Formatting cleanup.|
+|2012-11-27 14:35:45 -0600|Daniel Woodward|Restored the navigator javascript after a merge conflict.|
+|2012-11-27 14:19:59 -0600|Daniel Woodward|Merge branch 'master' of https://github.com/unclebob/fitnesse into new_failure_navigator|
+|2012-11-26 21:37:04 +0100|Arjan Molenaar|Merge branch 'version-generation'|
+|2012-11-26 13:53:51 +0100|Arjan Molenaar|Moved bootstrap style customizations to a separate file|
+|2012-11-26 10:06:38 +0100|Arjan Molenaar|Merge branch 'master' of github.com:unclebob/fitnesse|
+|2012-11-26 10:02:54 +0100|Arjan Molenaar|Created separate ivy settings file for sonatype Nexus upload.|
+|2012-11-25 20:37:54 +0100|Arjan Molenaar|Reverted bootstrap icon sprite|
+|2012-11-25 20:37:11 +0100|Arjan Molenaar|Simplify creation of collapsible sections.|
+|2012-11-25 20:36:51 +0100|Arjan Molenaar|fix unit tests|
+|2012-11-24 15:18:00 +0100|Arjan Molenaar|Fix style dropdown.|
+|2012-11-22 21:50:37 -0600|Daniel Woodward|Revert "Fixed Unicode Wiki Word issue. Github issue #144"|
+|2012-11-22 10:03:42 +0100|Arjan Molenaar|Rename #template-map back to #templateMap|
+|2012-11-22 10:02:34 +0100|Arjan Molenaar|Remove check for -support.js files.|
+|2012-11-22 08:22:47 +0100|Arjan Molenaar|Fixed style menu.|
+|2012-11-20 22:49:49 +0100|Arjan Molenaar|Only render footer if there is any content|
+|2012-11-20 22:45:24 +0100|Arjan Molenaar|Open tables and collapsed sections if there are any errors inside|
+|2012-11-20 07:24:02 +0100|Arjan Molenaar|Show textarea button bar in case of RTE error|
+|2012-11-20 07:22:08 +0100|Arjan Molenaar|Move wrap button to textarea button bar|
+|2012-11-20 07:21:43 +0100|Arjan Molenaar|Declare variable local|
+|2012-11-19 21:28:30 +0100|Arjan Molenaar|Incorporate textarea edit buttons with wysiwyg editor|
+|2012-11-19 21:24:41 +0100|Arjan Molenaar|Wysiwyg editor should use display style property to change between textarea and wysiwyg editor|
+|2012-11-19 21:21:05 +0100|Arjan Molenaar|Remove unused javascript (tree control)|
+|2012-11-19 11:10:48 +0100|Arjan Molenaar|Removed unneeded "throws Exception" from TestResponder and friends.|
+|2012-11-21 12:25:06 -0600|Daniel Woodward|Revert "Fixed Unicode Wiki Word issue. Github issue #144"|
+|2012-11-21 08:36:31 -0800|Dan Woodward|Merge pull request #147 from woodybrood/unicode_wiki_page_fix|
+|2012-11-21 09:55:44 -0600|Daniel Woodward|Fixed Unicode Wiki Word issue. Github issue #144|
+|2012-11-19 10:18:45 -0600|Daniel Woodward|Merge branch 'master' of https://github.com/unclebob/fitnesse into new_failure_navigator|
+|2012-11-19 11:09:29 +0100|Arjan Molenaar|Made pass/error/fail color scheme more in line with bootstrap.|
+|2012-11-17 21:51:15 +0100|Stanimir Stamenkov|Fix malformed exception anchor markup. Fixes #140.|
+|2012-11-17 21:45:45 +0100|Arjan Molenaar|Modified bootstrap style so colors work in line with fitnesse defaults|
+|2012-11-17 20:49:56 +0100|Arjan Molenaar|Edi page text area should have monospace font|
+|2012-11-16 11:02:02 -0600|Daniel Woodward|Added Release Note|
+|2012-11-16 10:59:40 -0600|Daniel Woodward|Committing new failure navigator functionality for Josh Pordon (aka pordonj).  Now possible to navigate quickly to failures in test and suite results (including failures in collapsed sections and scenario tables).|
+|2012-11-16 14:01:02 +0100|Arjan Molenaar|Added link-button transformer to individual themes|
+|2012-11-15 21:53:57 +0100|Arjan Molenaar|Refined edit page style|
+|2012-11-15 21:53:28 +0100|Arjan Molenaar|Added plain-text-table style|
+|2012-11-15 21:53:00 +0100|Arjan Molenaar|Removed h*+br style|
+|2012-11-15 21:52:20 +0100|Arjan Molenaar|help text should only be shown in bootstrap theme if page name is shown|
+|2012-11-15 08:51:29 +0100|Arjan Molenaar|Created more uniform layout for forms.|
+|2012-11-14 23:20:51 +0100|Arjan Molenaar|Removed redundant suites tag|
+|2012-11-14 23:20:21 +0100|Arjan Molenaar|Added tags in fitnesse wiki page for bootstrap theme|
+|2012-11-14 16:56:39 +0100|Arjan Molenaar|Removed files that do not need to be under version control|
+|2012-11-14 16:56:16 +0100|Arjan Molenaar|Added comment to Java formatter|
+|2012-11-13 10:04:33 -0800|Dan Woodward|Merge pull request #139 from mwarhaftig/displaytesttags|
+|2012-11-12 21:37:07 -0500|mwarhaftig|Removed edit and other properties from new acceptance test page.|
+|2012-11-12 21:24:51 -0500|mwarhaftig|Pivotal Story #1893269 - Added page tag unit and acceptance tests.|
+|2012-09-05 09:10:59 +0200|Arnout Engelen|Log exceptions to STDERR instead of completely ignoring them|
+|2012-08-24 08:32:49 +0200|Arnout Engelen|unused import|
+|2012-11-10 17:30:11 -0500|mwarhaftig|Added release notes for Pivotal Story #1893269.|
+|2012-11-10 17:17:40 -0500|mwarhaftig|Merge remote-tracking branch 'upstream/master'|
+|2012-11-10 15:26:09 -0500|mwarhaftig|FitNesse Pivotal Story 1893269 - Additional tweaks and support for all css styles.|
+|2012-11-09 10:05:43 -0600|Daniel Woodward|Changed FileUtilTest to use a unique temporary directory for each test.  Minimizes risk of intermittent failures due to timing.|
+|2012-11-07 16:20:10 -0600|Daniel Woodward|Removed the Fixture Interaction related tests.  They need more work.|
+|2012-11-07 16:16:51 -0600|Daniel Woodward|Merge branch 'master' of https://github.com/unclebob/fitnesse into wrap_sut_pull_req|
+|2012-11-06 10:52:20 +0100|Arjan Molenaar|Use default theme again.|
+|2012-11-06 10:49:11 +0100|Arjan Molenaar|Merge branch 'bootstrap'|
+|2012-11-06 09:39:32 +0100|Arjan Molenaar|Fixed progress bar style for tests with errors.|
+|2012-11-05 22:58:27 +0100|Arjan Molenaar|Put exception in <pre> block|
+|2012-11-05 22:34:49 +0100|Arjan Molenaar|Escape stacktrace HTML|
+|2012-11-05 16:26:10 +0100|Arjan Molenaar|Merge branch 'raboof/master' into master|
+|2012-11-05 15:37:14 +0100|Arjan Molenaar|Revert "Allow for responses larger than 999999 characters"|
+|2012-11-05 14:27:40 +0100|Stanimir Stamenkov|Do not escape error message when storing variable.|
+|2012-11-05 14:21:41 +0100|Arjan Molenaar|Remove .classpath and .project from repo.|
+|2012-11-05 11:18:33 +0100|Arjan Molenaar|Only remove FitNesseVersion.java.template|
+|2012-11-05 11:18:10 +0100|Arjan Molenaar|Revert "Removed obsolete templates/ folder."|
+|2012-11-05 11:15:54 +0100|Arjan Molenaar|Use Properties instead of HasMap in Symbol.java for readability.|
+|2012-11-04 22:24:07 -0500|mwarhaftig|FitNesse Pivotal Story 1893269 - Display tags in header.|
+|2012-11-02 11:11:55 +0100|Arjan Molenaar|Also implement wiki menu change in bootstrap template|
+|2012-11-02 11:11:07 +0100|Arjan Molenaar|Merge branch 'master' into bootstrap|
+|2012-11-02 11:10:27 +0100|Arjan Molenaar|show test and page history only on suite and test pages.|
+|2012-11-01 21:26:10 +0100|Arjan Molenaar|Fix properties page unit tests|
+|2012-11-01 21:08:00 +0100|Arjan Molenaar|Do not escape exception messages in variable substitution. Moved TableTable.isExceptionFailureMessage() up to ScriptTable, so it can be used by Expectations.|
+|2012-11-01 21:03:23 +0100|Arjan Molenaar|Moved instance variable to local variable.|
+|2012-11-01 12:52:29 -0700|Dan Woodward|Merge pull request #2 from amolenaar/wrap_sut_pull_req|
+|2012-11-01 14:43:52 -0500|Daniel Woodward|Merge branch 'master' of https://github.com/unclebob/fitnesse into wrap_sut_pull_req|
+|2012-10-31 08:44:30 +0100|Arjan Molenaar|Merge branch 'master' into bootstrap|
+|2012-10-31 08:33:40 +0100|Arjan Molenaar|Little more styling on properties, search and directory page|
+|2012-10-31 08:32:29 +0100|Arjan Molenaar|Reenstated help text field in properties page|
+|2012-10-29 22:04:11 +0100|Arjan Molenaar|Fixed html fot pageHistory template|
+|2012-10-29 21:51:55 +0100|Arjan Molenaar|Added missing close tag for wikiNav template|
+|2012-10-29 21:51:20 +0100|Arjan Molenaar|Added cancel buttons to the various pages accessed via the menu|
+|2012-10-28 22:34:16 +0100|Arjan Molenaar|Merge branch 'master' into wrap_sut_pull_req|
+|2012-10-28 22:33:12 +0100|Arjan Molenaar|Make sure unit tests has all dependencies at hand.|
+|2012-10-28 21:44:46 +0100|Arjan Molenaar|Merge remote-tracking branch 'awulder/violation-fixes'|
+|2012-10-28 21:25:08 +0100|Arjan Molenaar|Set custom slim port for Scenario table results test|
+|2012-10-28 21:24:21 +0100|Arjan Molenaar|Use custom SLIM port to run Fixture Interaction tests|
+|2012-10-28 20:20:18 +0100|Arjan Molenaar|Added acceptance test for FixtureInteraction|
+|2012-10-28 13:00:53 +0100|Arjan Molenaar|Revert use of git-describe to determine version|
+|2012-10-27 11:57:59 +0200|Arjan Molenaar|Load bootstrap theme by default.|
+|2012-10-27 11:57:30 +0200|Arjan Molenaar|Fixed indentation on edit page template|
+|2012-10-21 11:52:13 +0200|Arjan Molenaar|Removed line of dead code form wysiwyg editor|
+|2012-10-21 11:51:57 +0200|Arjan Molenaar|Fixed rich text editor styling|
+|2012-10-21 11:16:22 +0200|Arjan Molenaar|Styled normal buttons|
+|2012-10-20 22:43:01 +0200|Arjan Molenaar|Updated style for suite progress bar|
+|2012-10-20 22:00:31 +0200|Arjan Molenaar|Merge branch 'master' into bootstrap-less|
+|2012-10-20 21:58:25 +0200|Arjan Molenaar|Make sure dependencies are locally available when starting FitNesse from Ant|
+|2012-10-20 21:56:25 +0200|Arjan Molenaar|Escape values SLIM vatiables are substituted with|
+|2012-10-20 20:55:29 +0200|Arjan Molenaar|Expose help text and tags to velocity templates.|
+|2012-10-20 20:46:12 +0200|Arjan Molenaar|Use less-css bootstrap code for FitNesse|
+|2012-10-19 10:32:55 +0200|Arjan Molenaar|Style updates table + collapsible section|
+|2012-10-18 15:18:58 -0700|Dan Woodward|Merge pull request #1 from amolenaar/wrap_sut_pull_req|
+|2012-10-18 11:13:33 +0200|Arjan Molenaar|Fixed basic table style, no test output|
+|2012-10-18 11:08:50 +0200|Arjan Molenaar|Fixed dropdown menu divider|
+|2012-10-18 09:47:35 +0200|Arjan Molenaar|Updated templates|
+|2012-10-18 09:07:10 +0200|Arjan Molenaar|Added styling for body and submit button|
+|2012-10-18 09:05:54 +0200|Arjan Molenaar|Add vanilla Twitter Bootstrap|
+|2012-10-17 21:07:38 +0200|Arjan Molenaar|Renamed pageTitle.vm to header.vm|
+|2012-10-17 09:51:44 +0200|Arjan Molenaar|Do not take special measures to deal with mock output in slim tables.|
+|2012-10-17 09:40:05 +0200|Arjan Molenaar|made BooleanConverter little more robust|
+|2012-10-16 14:02:13 -0500|Daniel Woodward|Merge branch 'master' of https://github.com/unclebob/fitnesse into wrap_sut_pull_req|
+|2012-10-16 14:02:04 -0500|Daniel Woodward|Merge branch 'master' of https://github.com/duckweed/fitnesse into wrap_sut_pull_req|
+|2012-09-17 21:57:24 +0200|Arjan Molenaar|Allow per theme templates.|
+|2012-10-15 10:59:23 +0200|Arjan Molenaar|Fallback on timestamp, instead of "unknown"|
+|2012-10-13 15:42:19 +0200|Arjan Molenaar|Removed obsolete templates/ folder.|
+|2012-10-13 15:39:14 +0200|Arjan Molenaar|Load FitNesse version from (generated) resource file.|
+|2012-10-13 15:53:42 +0200|Arjan Molenaar|Cleanup unused imports.|
+|2012-10-13 14:44:35 +0200|Arjan Molenaar|Small style update: indentation + no font size for .code style.|
+|2012-10-05 11:46:07 +0200|Arjan Molenaar|Removed <ins> style. No longer used.|
+|2012-10-13 15:37:58 +0200|Arjan Molenaar|Simplified saving FitNesseRoot/properties file.|
+|2012-10-13 14:55:51 +0200|Arjan Molenaar|Removed FitNesseRoot/properties from repo. It's a generated file.|
+|2012-10-11 21:57:03 -0700|Gregor Gramlich|Merge pull request #129 from ggramlich/unclebob|
+|2012-10-12 06:52:09 +0200|Gregor Gramlich|Fixed documentation: fitnesse.slim.Slim.addConverter -> fitnesse.slim.converters.ConverterRegistry.addConverter|
+|2012-10-05 11:46:07 +0200|Arjan Molenaar|Removed <ins> style. No longer used.|
+|2012-10-05 10:53:55 +0200|Arjan Molenaar|Merge branch 'issue-124'|
+|2012-10-05 10:35:40 +0200|Arjan Molenaar|Updated styles to give a visual queue on what type of text we're dealing with|
+|2012-10-05 10:07:42 +0200|Arjan Molenaar|Cleanup on wysiwyg unit test's index.html|
+|2012-10-05 10:07:18 +0200|Arjan Molenaar|Added escaping for hashtable, plain text table and nested. Fixes #124.|
+|2012-10-03 07:47:46 +0200|Arjan Molenaar|Do not override global PageHeader/Footer when deploying a new release.|
+|2012-09-29 18:12:44 +0200|Arjan Molenaar|Make fitnesse port configurable|
+|2012-10-02 11:33:03 -0500|Daniel Woodward|Merge branch 'stream_issues' of https://github.com/woodybrood/fitnesse|
+|2012-10-01 15:39:06 -0500|Daniel Woodward|Housekeeping|
+|2012-10-01 15:35:41 -0500|Daniel Woodward|Merge branch 'templatelibrary' of https://github.com/pordonj/fitnesse|
+|2012-10-01 15:23:05 -0500|Daniel Woodward|Revert "Added a e.printStackTrace to the catch in serve(socket).  Thinking is"|
+|2012-09-28 14:29:29 -0500|Daniel Woodward|Merge branch 'master' of https://github.com/unclebob/fitnesse into stream_issues|
+|2012-09-28 14:27:59 -0500|Daniel Woodward|Merge branch 'templatelibrary' of https://github.com/pordonj/fitnesse into stream_issues|
+|2012-09-28 14:27:43 -0500|Daniel Woodward|Merged in Josh's TemplateLibrary Changes.|
+|2012-09-28 11:41:26 -0500|jpordon|Remove unused test page, clarified getParentWikiPage in NewPageResponder|
+|2012-09-28 09:10:18 -0500|Robert C. Martin|minor refactoring|
+|2012-09-21 15:55:31 -0500|jpordon|Undid some jQuery stuff that broke the WYSIWYG editor|
+|2012-09-21 15:11:50 -0500|jpordon|Added new page responder test|
+|2012-09-21 14:58:15 -0500|jpordon|Fixed new pages not collecting templates properly.|
+|2012-09-21 12:39:37 -0500|jpordon|Simplified template map request|
+|2012-09-21 12:14:45 -0500|jpordon|Refactored AJAX into jQuery.|
+|2012-09-20 10:24:30 -0500|jpordon|Made some fixes identified by jslint.|
+|2012-09-18 14:31:06 -0500|pordonj|Update FitNesseRoot/FitNesse/ReleaseNotes/content.txt|
+|2012-09-18 14:28:18 -0500|jpordon|Added documentation for TemplateLibrary and templates to the proper pages.|
+|2012-09-18 13:06:19 -0500|jpordon|Added template insertion for plain text. A lot of experimentation to try to get it working for WYSIWYG but unsuccessful so far.|
+|2012-09-17 22:31:03 +0200|Arjan Molenaar|Added on-unload handler when canceling editing a page|
+|2012-09-17 22:20:12 +0200|Arjan Molenaar|wysiwyg editor: added isModified()|
+|2012-09-17 21:58:29 +0200|Arjan Molenaar|Moved onbeforeunload logic for suite page to suite page.|
+|2012-09-17 12:18:31 -0500|jpordon|TemplateLibrary implementation similar to ScenarioLibrary. Right now a template menu in the edit responder and can replace the page text with the data from the template.|
+|2012-09-17 09:21:36 -0500|Daniel Woodward|Merge branch 'master' of https://github.com/unclebob/fitnesse into stream_issues|
+|2012-09-12 12:59:45 -0500|jpordon|UI elements in edit screen, backbone for handling the dropdown and button.|
+|2012-09-11 15:21:05 -0500|Daniel Woodward|Added a e.printStackTrace to the catch in serve(socket).  Thinking is that this should almost never happen, but maybe we want to see it if it does. We can remove later, but I need it now for testing itermitent failures.|
+|2012-09-11 15:19:19 -0500|Daniel Woodward|Removed reference to the exception that I removed.|
+|2012-09-07 23:40:21 +0200|Arjan Molenaar|Added multi-line escaped text in rich text editor.|
+|2012-09-07 11:28:30 -0500|Daniel Woodward|Added a space after the period in the testing interrupted message. Looks better.|
+|2012-09-07 10:20:11 -0500|Daniel Woodward|Changed the SlimServerBadResponseException stuff to a new RuntimeException, but with a helpful error message.  This might do the trick without complicating other code. I'm sure there is a better solution using a named exception, but I need to understand the right way to catch and manage the exception.|
+|2012-09-07 09:08:08 -0500|Daniel Woodward|Changed the bad version number used to indicate no server connected to be a public static member of SlimClient.  This way it is easier to keep consistent. Also changed the number to -32000 to be clearly wrong.|
+|2012-09-07 09:06:05 -0500|Daniel Woodward|Adding support to catch exception when reading input without a length indicator.|
+|2012-09-07 08:56:36 -0500|Daniel Woodward|Changed the version check to watch for slim server version number being flagged as not connected.|
+|2012-09-06 16:40:04 -0500|Daniel Woodward|Modified invokeAndGetResponse to test the parsing of the read count and throw an exception if it doesn't parse.  This might provide better feedback in the case of the NumberFormatExceptions we see sometimes when test is stopped.|
+|2012-09-06 14:40:48 -0500|Daniel Woodward|Tweaked the way connection is validated so that if there is a version match problem the following is true:|
+|2012-09-06 12:48:20 -0500|Daniel Woodward|Changed the no connection flag version number to 1000 to be more obvious.|
+|2012-08-09 10:05:06 +0200|Arjan Molenaar|Added run target for starting fitnesse from within the project.|
+|2012-08-23 09:19:30 +0200|Arnout Engelen|Merge commit 'db949860133675cc7996b8030d445acac86c4a0d'|
+|2012-08-23 09:02:37 +0200|Arnout Engelen|Also convert Enum values by their 'toString'|
+|2012-08-22 10:16:28 -0400|Robert C. Martin|housekeeping|
+|2012-08-22 09:45:47 -0400|Robert C. Martin|Merge branch 'master' of github.com:unclebob/fitnesse|
+|2012-08-22 09:45:19 -0400|Robert C. Martin|a little refactoring|
+|2012-08-06 17:18:20 +0200|Arnout Engelen|typo|
+|2012-08-03 07:38:48 +0200|Arjan Wulder|Used StringBuilder instead String concatenation|
+|2012-08-02 23:33:02 +0200|Arjan Wulder|Fixes for returning mutable objects that may expose internal representation|
+|2012-08-02 23:04:28 +0200|Arjan Wulder|Refactored inefficient map iterator|
+|2012-08-02 23:02:44 +0200|Arjan Wulder|Added argument null check and class type check where possible|
+|2012-08-02 22:05:41 +0200|Arjan Wulder|(micro) performance fixes - method uses toArray() with zero-length array argument|
+|2012-08-01 23:12:33 +0200|Arjan Wulder|Merge remote-tracking branch 'unclebob/master' into violation-fixes|
+|2012-08-01 22:55:13 +0200|Arjan Wulder|Improved readabilty by replacing <STRING>.indexOf(<STRING>) for <STRING>.contains(<STRING>) where possible|
+|2012-08-01 21:17:40 +0200|Arjan Wulder|Removed some empty else blocks and some array security fixes|
+|2012-08-01 11:48:43 -0700|Mike Stockdale|Merge pull request #119 from jediwhale/master|
+|2012-08-01 12:47:19 -0600|Mike Stockdale|document: parser tokens quick reference|
+|2012-07-31 12:05:32 +0200|Arnout Engelen|Merge branch 'master' of https://github.com/unclebob/fitnesse into HEAD|
+|2012-07-30 17:30:40 +0200|Arnout Engelen|Deserialize non-sublist list items starting with '[', fast|
+|2012-07-30 22:15:46 +0200|Arjan Molenaar|Merge branch 'slimtables'. Fixes #110; fixes #117.|
+|2012-07-29 22:08:46 +0200|Arjan Molenaar|put table names in lowercase|
+|2012-07-29 22:07:03 +0200|Arjan Molenaar|Forgot to load slim tables on startup|
+|2012-07-29 11:51:50 +0200|Arjan Molenaar|Revert "Minor performance improvement in deserializing lists"|
+|2012-07-28 17:34:11 +0200|Arjan Molenaar|Open SlimTableFactory for custom table types. Allow table types to be configured via plugins.properties.|
+|2012-07-30 14:34:45 -0500|Robert C. Martin|Got IntelliJ tests to pass again using a horrible hack.  See comment in JUnitXmlTestListenerIntegrationTest|
+|2012-07-30 17:30:40 +0200|Arnout Engelen|Deserialize non-sublist list items starting with '[', fast|
+|2012-07-30 17:28:34 +0200|Arnout Engelen|Performancetest for list deserialization|
+|2012-07-30 16:18:29 +0200|Arnout Engelen|Merge commit 'da9bf793bc1d4b01551e6f94ecacfb14f3e23835'|
+|2012-07-30 16:14:25 +0200|Arnout Engelen|Merge branch 'master' of https://github.com/unclebob/fitnesse|
+|2012-07-30 16:03:34 +0200|Arnout Engelen|Unused imports|
+|2012-07-30 16:02:27 +0200|Arnout Engelen|Generics for Traverser(Listener)s|
+|2012-07-30 15:28:58 +0200|Arjan Molenaar|Added favicon. Fixes #89.|
+|2012-07-28 08:18:53 +0200|Arjan Molenaar|Increase text box sizes for symlinks table|
+|2012-07-28 08:18:35 +0200|Arjan Molenaar|Only check for selected properties when performing search on properties|
+|2012-07-28 08:17:56 +0200|Arjan Molenaar|Fix NPE when searching for tags only.|
+|2012-07-30 00:39:29 -0700|Arjan Molenaar|Merge pull request #61 from idcmp/master|
+|2012-07-29 12:47:44 -0500|George Shakhnazaryan|Adding test for list serialization of element with []s.|
+|2012-07-28 08:18:53 +0200|Arjan Molenaar|Increase text box sizes for symlinks table|
+|2012-07-28 08:18:35 +0200|Arjan Molenaar|Only check for selected properties when performing search on properties|
+|2012-07-28 08:17:56 +0200|Arjan Molenaar|Fix NPE when searching for tags only.|
+|2012-07-26 19:01:53 +0200|Arnout Engelen|Remove some unused fields/variables|
+|2012-07-26 18:04:39 +0200|Arnout Engelen|Handle null enum values|
+|2012-07-26 17:26:35 +0200|Arnout Engelen|Generics warnings|
+|2012-07-26 12:07:00 +0200|Arnout Engelen|Removing unused imports|
+|2012-07-26 11:53:56 +0200|Arnout Engelen|dead code|
+|2012-07-26 11:47:25 +0200|Arnout Engelen|Clean up generics and map iteration|
+|2012-07-26 11:40:28 +0200|Arnout Engelen|By default also allow converting any enum|
+|2012-07-26 11:06:03 +0200|Arnout Engelen|Adding generics to converters|
+|2012-07-26 08:35:01 +0200|Arnout Engelen|Generics|
+|2012-07-26 08:33:07 +0200|Arnout Engelen|Merge branch 'master' of https://github.com/unclebob/fitnesse|
+|2012-07-25 10:23:59 +0200|Arnout Engelen|Allow for responses larger than 999999 characters|
+|2012-07-24 16:21:30 -0700|Mike Stockdale|Merge pull request #114 from raboof/master|
+|2012-07-24 19:25:05 +0200|Arnout Engelen|Minor performance improvement in deserializing lists|
+|2012-07-25 00:05:26 +0200|Arnout Engelen|Make PageData accept page content with carriage returns again|
+|2012-07-24 09:25:26 +0200|Arjan Molenaar|Fixed issue with list in collapsable section.|
+|2012-07-23 21:31:32 +0200|Arjan Molenaar|Also allow lists starting with '-' and starting at start of line.|
+|2012-07-17 18:40:20 -0700|Mike Stockdale|Merge pull request #112 from jediwhale/master|
+|2012-07-17 19:35:26 -0600|Mike Stockdale|use custom types inside tables|
+|2012-07-13 19:53:01 -0700|Mike Stockdale|Merge pull request #110 from jediwhale/master|
+|2012-07-13 20:51:24 -0600|Mike Stockdale|!today -t (and some other symbols) not parsed correctly when inside a table cell|
+|2012-07-13 16:46:50 +0200|Arjan Molenaar|Merge branch 'ux'|
+|2012-07-12 18:49:16 +0200|Arjan Molenaar|Fix renaming for symbolic pages.|
+|2012-07-12 18:21:08 +0200|Arjan Molenaar|Merge branch 'move'|
+|2012-07-12 05:33:49 -0700|Arjan Molenaar|Merge pull request #107 from amolenaar/825a1a4a210684ce148e02dcbb23fb4486bef9d8|
+|2012-07-12 07:09:34 +0200|Arjan Molenaar|Move page responder plays nice with symlinks now.|
+|2012-07-12 07:13:08 +0200|Arjan Molenaar|Fixed editor loading in IE.|
+|2012-07-12 07:09:17 +0200|Arjan Molenaar|Removed redundant abstract method definition.|
+|2012-07-10 23:06:54 +0200|Arjan Molenaar|Changed MovePage contract.|
+|2012-07-10 07:19:48 +0200|Arjan Molenaar|Do not copy symlinked pages.|
+|2012-07-10 07:23:06 +0200|Arjan Molenaar|Added acceptance test for #103.|
+|2012-07-09 20:37:21 -0700|Mike Stockdale|Merge pull request #106 from jediwhale/master|
+|2012-07-09 21:35:25 -0600|Mike Stockdale|preparsed scenarios not using suite variable definitions|
+|2012-07-08 20:59:34 +0200|Arjan Molenaar|Fixed typo in FixtureCode Page. Fixes #93.|
+|2012-07-07 13:36:25 +0200|Arjan Molenaar|Can now set Suite property with PageDriver.|
+|2012-07-07 13:35:47 +0200|Arjan Molenaar|Removed unused instance variable from MultipleTestsRunner.|
+|2012-07-04 21:55:07 +0200|Arjan Molenaar|extend scenario table result style with ignore/error|
+|2012-07-04 08:36:17 +0200|Arjan Molenaar|added htmllexer module to classpath|
+|2012-07-04 08:15:28 +0200|Arjan Molenaar|handle WikiPages somewhat more gracefully.|
+|2012-06-27 06:43:52 +0200|Arjan Molenaar|Fixed issue when rendering multiple tables in a collapsible section|
+|2012-06-25 14:36:41 +0200|Arjan Molenaar|Exclude com.sun.tools from htmlparser dependencies.|
+|2012-06-25 14:36:41 +0200|Arjan Molenaar|Exclude com.sun.tools from htmlparser dependencies.|
+|2012-06-20 16:42:03 +0200|Arjan Molenaar|Merge branch 'master' into ux|
+|2012-06-14 16:22:40 +0200|Arjan Molenaar|Cancel button was secretly submitting. Fixed.|
+|2012-06-05 10:19:21 +0200|Robert C. Martin|Fix spelling error in user guide that broke a link in linux|
+|2012-06-05 05:54:59 +0200|Robert C. Martin|improve slim error message for script tables when scriptactor is missing.|
+|2012-06-01 11:26:43 +0200|Arjan Molenaar|Merge branch 'master' into ux|
+|2012-06-01 11:20:41 +0200|Arjan Molenaar|Tests in progress (lock files) are now placed in the configured FitNesseRoot (based on FitNesseContext), Fixes #96.|
+|2012-05-31 14:48:18 +0200|Arjan Molenaar|Reference fitnesse-standalone.jar as the standalone binary|
+|2012-05-31 07:40:42 +0200|Arjan Molenaar|Can set output directory in updateList generator.|
+|2012-05-31 07:17:47 +0200|Arjan Molenaar|Do not add .zip (backup) files to updateList|
+|2012-05-29 18:17:11 +0200|Arjan Molenaar|Deal with text formatted tables after paste action|
+|2012-05-25 22:38:55 +0200|Arjan Molenaar|Added developer to pom.xml, so oss.sonatype.org will publish it.|
+|2012-05-24 21:26:05 +0200|Arjan Molenaar|Okay, missed one.|
+|2012-05-24 20:32:56 +0200|Arjan Molenaar|Okay, now it works with Ant 1.7.1.|
+|2012-05-24 18:52:31 +0200|Arjan Molenaar|Make build.xml work with ant 1.7.1 (used for CI)|
+|2012-05-24 13:33:33 +0200|Arjan Molenaar|Merge branch 'ivy'|
+|2012-05-24 13:32:45 +0200|Arjan Molenaar|Ensure acceptance tests work.|
+|2012-05-24 08:26:43 +0200|Arjan Molenaar|Fixes class mismatch for test history pages.|
+|2012-05-23 22:56:24 +0200|Arjan Molenaar|Count pages based on the ExecutionResult.|
+|2012-05-23 17:17:19 +0200|Arjan Molenaar|Removed dummy test from suite setup/teardown in acceptance test|
+|2012-05-23 17:16:23 +0200|Arjan Molenaar|Unified test result status calculation.|
+|2012-05-09 18:08:14 +0200|Arjan Molenaar|Removed .settings. This is Eclipse specific.|
+|2012-05-14 18:48:43 +0200|Arjan Molenaar|Updated release notes|

@@ -1,0 +1,111 @@
+!-FitNesse-! is an extensible system. The core is written in Java, but it allows for testing in many different languages.
+
+
+ * [[SLiM servers for different languages/environments][PlugIns#slim]]
+ * [[Dependency management][PlugIns#depman]]
+ * [[Behaviour driven][PlugIns#bdd]]
+ * [[Source control][PlugIns#scm]]
+ * [[Markup language extensions][PlugIns#markup]]
+ * [[SLiM Fixtures][PlugIns#slimfixtures]]
+ * [[FIT Fixtures][PlugIns#fitfixtures]]
+ * [[FIT server implementations][>FitServers]] ''(obsolete)''
+ * [[IDE support][>IdeSupport]]
+
+!2 SLiM servers for different languages/environments !anchor slim
+|!meta Plugin or Accessory          |!meta Author                                   |!meta URL                                       |!meta Docs                                                                                                                                                          |
+|!-RubySlim-!                       |''by Uncle Bob, Corey Haines, Doug Bradbury''  |http://github.com/unclebob/RubySlim             |[[video][http://vimeo.com/2454710]]   Now at Slim version 0.3!                                                                                                      |
+|!-RubySlim-! for Ruby 1.9.3        |''by Lar Vonk''                                |https://github.com/lvonk/rubyslim               |Slim version 0.3!                                                                                                                                                   |
+|.Net slim                          |''by Mike Stockdale''                          |http://github.com/jediwhale/fitsharp/downloads  |[[docs][http://fitsharp.github.com/Slim.html]]                                                                                                                      |
+|Python Slim                        |''by Tim Bacon''                               |http://pypi.python.org/pypi/waferslim           |''It's a "0.9" release: while the code is believed to be "feature complete" (tested against fitnesse-20090214) more feedback from wider usage would be welcome ;-)''|
+|Transactional Spring Slim Runner   |''by Gojko Adzic''                             |http://github.com/unclebob/springslim           |[[docs][http://gojko.net/2009/01/14/transactional-springslim-test-runner]]                                                                                          |
+|!-PhpSlim-!                        |''by Gregor Gramlich''                         |http://github.com/ggramlich/phpslim             |[[Video Tutorials][http://ggramlich.github.com/phpslim/tutorials.html]]                                                                                             |
+|'''!-CSlim-!''': Slim for C and C++|''by Doug Bradbury, James Grenning, Uncle Bob''|http://github.com/dougbradbury/cslim/tree/master|See README in the repository                                                                                                                                        |
+|Objective-C Slim                   |''by Eric Meyer''                              |https://github.com/ericmeyer/ObjectiveCSlim     |[[docs][https://github.com/ericmeyer/ObjectiveCSlim/wiki]]                                                                                                          |
+|!-CocoaPod-! for Swift, Obj-C |''by Paul Stringer, Eric Meyer''  |https://github.com/paulstringer/OCSlimProject     |!-CocoaPod-! for iOS and macOS Xcode Projects (wraps Objective-C Slim). See README in the repository.                                                                                                          |
+|Grails !-FitNesse-! plugin         |[[Erik Pragt][http://www.jworks.nl/]]          |http://www.grails.org/plugin/fitnesse           |[[docs][http://bodiam.github.com/grails-fitnesse-plugin/docs/manual/]]                                                                                              |
+|.NET Fit                           |''by Mike Stockdale''                          |http://github.com/jediwhale/fitsharp/downloads  |[[docs][http://fitsharp.github.com/]]                                                                                                                               |
+|Coffee Script Slim                 |Mike Suarez                                    |https://github.com/limadelic/decaf              |                                                                                                                                                                    |
+|Power Shell Slim                   |Konstantin Vlasenko                            |https://github.com/konstantinvlasenko/PowerSlim |[[docs][http://vlasenko.org/powerslim/]]                                                                                                                            |
+|!-SmalltalkFit-!                   |Randy Coulman                                  |https://github.com/randycoulman/SmalltalkFit    |See README in the repository                                                                                                                                        |
+
+!2 Dependency management !anchor depman
+|!meta Plugin or Accessory|!meta Author                                  |!meta URL                                           |!meta Docs                         |
+|Maven Classpath Plugin   |''by Lars Vonk, maintained by Arjan Molenaar''|http://github.com/amolenaar/fitnesse-maven-classpath|&bang;pomFile /path/to/pom.xml     |
+|Ivy Classpath Plugin     |''by Arjan Molenaar''                         |http://github.com/amolenaar/fitnesse-ivy-classpath  |&bang;resolve                      |
+|Gradle Classpath Plugin  |''by Andrey Myatlyuk''                        |http://github.com/kukido/fitnesse-gradle-classpath  |&bang;gradle /path/to/<gradle file>|
+
+!2 Behavioural driven !anchor bdd
+|!meta Plugin or Accessory|!meta Author                                      |!meta URL                          |!meta Docs                |
+|!-GivWenZen-!            |[[Wes Williams][http://weswilliamz.blogspot.com/]]|http://code.google.com/p/givwenzen/|BDD Framework for FitNesse|
+| JBehave Plugin          |''by Arjan Molenaar''                             |https://github.com/amolenaar/fitnesse-jbehave-test-system| Execute JBehave tests through FitNesse|
+
+!2 Source control !anchor scm
+|!meta Plugin or Accessory|!meta Author            |!meta URL                                      |!meta Docs                                                                  |
+|Git Plugin|''by Arjan Molenaar''  |https://github.com/amolenaar/fitnesse-git-plugin|For !-FitNesse-! version [[20151230][.FrontPage.FitNesseDevelopment.FitNesseRelease20151230]] and newer. [[docs][https://github.com/amolenaar/fitnesse-git-plugin/blob/master/README.md]]|
+
+
+For !-FitNesse-! 20130530 and older.
+|!meta Plugin or Accessory|!meta Author            |!meta URL                                      |!meta Docs                                                                  |
+|TFS Source Control Plugin|Lars-Erik Aabech @bleedo|http://sourceforge.net/projects/fitnessetfs/   |[[docs][http://fitnessetfs.sourceforge.net/]]                               |
+|Git Source Control Plugin|Tim Andersen @timander  |https://github.com/timander/fitnesse-git-plugin|[[docs][https://github.com/timander/fitnesse-git-plugin/blob/master/README]]|
+|SVN Source Control Plugin|Attila Sragli, Gergely Filip, Zoltan Matyas  |https://bitbucket.org/clibre44/svnfileversionscontroller|[[docs][https://bitbucket.org/clibre44/svnfileversionscontroller/wiki/Home]]|
+
+!2 Security !anchor scm
+|!meta Plugin or Accessory      |!meta Author          |!meta URL                                              |!meta Docs             |
+|!-FitNesse LDAP Authenticator-!|Tim Andersen @timander|https://github.com/timander/fitnesse-ldap-authenticator|[[docs][https://github.com/timander/fitnesse-ldap-authenticator/blob/master/README]] (for use with !-ActiveDirectory-! or LDAP)|
+|!-FitNesse JDBC Authenticator-!|six42 |https://github.com/six42/jdbcslim|[[docs][https://rawgit.com/six42/jdbcslim/master/JdbcSlim.htm#JdbcSlim.UserGuide.JdbcAuthenticator]] (for use with any database)|
+
+!2 Markup language extensions !anchor markup
+|!meta Plugin or Accessory|!meta Author            |!meta URL                                      |!meta Docs                                                                  |
+|HSAC Plugin|Fried Hoeben|https://github.com/fhoeben/hsac-fitnesse-plugin   |Adds symbols for random values and relative dates. ([[docs][https://github.com/fhoeben/hsac-fitnesse-plugin/wiki]])|
+| Graphviz plugin | Stefan Bellus | https://github.com/sbellus/fitnesse-graphviz-plugin | Adds Dot drawing to your wiki page. ([[docs][https://github.com/sbellus/fitnesse-graphviz-plugin]])|
+| PlantUML plugin | Stefan Bellus | https://github.com/sbellus/fitnesse-plantuml-plugin | Adds UML diagram drawing to your wiki page. ([[docs][https://github.com/sbellus/fitnesse-plantuml-plugin]])|
+
+!2 SLiM fixtures !anchor slimfixtures
+|[[HSAC Plugin][https://github.com/fhoeben/hsac-fitnesse-plugin]]   |Adds !-ScenarioTable-! subclasses that: do not require all parameters in header row, and take a 'screenshot' after each row. ([[docs][https://github.com/fhoeben/hsac-fitnesse-plugin/wiki]])|
+|[[Jdbc Slim][https://github.com/six42/jdbcslim]]|!-
+JdbcSlim is the framework to easily integrate database queries and commands into Slim FitNesse testing.
+The design focuses to keep configuration data, test data and SQL code separate.
+This ensures that requirements are written independent of the implementation and understandable by business users.
+
+The framework can be used by Developers, Testers and Business Users with SQL knowledge.-!|
+|[[Appium Fixture][https://github.com/fhoeben/hsac-fitnesse-appium]]|Fixtures for testing mobile applications, based on [[appium][http://appium.io]] and [[!-BrowserTest-!][https://github.com/fhoeben/hsac-fitnesse-fixtures/wiki/2.-Slim-Fixtures#browsertest]].|
+|[[Pdf Fixture][https://github.com/fhoeben/hsac-fitnesse-pdf]]|Fixture to check the contents of PDF documents.|
+|[[Email Fixture][https://github.com/fhoeben/hsac-fitnesse-email]]|Fixture to retrieve e-mails from a mailbox so their content may be checked.|
+
+!3 Web application fixtures
+|[[!-Xebium-!][https://xebia.github.com/Xebium]]              |Driver for Selenium with [[Selenium-IDE][http://seleniumhq.org]] roundtrip support ([[Xebium SeIDE plugin][https://addons.mozilla.org/en-US/firefox/addon/selenium-xebium-formatter/]])|
+|[[!-SeleNesse-!][https://github.com/marisaseal/selenesse]]   |Driver for Selenium                                                                                                                                                                    |
+|[[!-Sulfur-!][https://github.com/helmbold/sulfur]]           |Driver for Selenium, support for all Selenium selectors, simple installation as single .jar file including all dependencies                                                            |
+|[[!-RestFixture-!][https://github.com/smartrics/RestFixture]]|A fixture for testing services exposing a REST API                                                                                                                                     |
+|[[!-OASIS-!][https://github.com/jguglielmi/OASIS]]              |Open Automation Source Integrated Suite with fixtures for [[!-Xebium-!][https://xebia.github.com/Xebium]], [[!-Sikuli-!][https://www.sikuli.org]], [[!-SynthUse-!][https://github.com/Synthuse/synthuse-src]], [[!-JMeterBundle-!][https://github.com/Synthuse/JmeterBundle-src]], and a slew of other features for back end and front end testing with credits to [[!-FitNesseSikuli-!][https://github.com/xebia/FitnesseSikuli]] |
+|[[!-BrowserTest-!][https://github.com/fhoeben/hsac-fitnesse-fixtures/wiki/2.-Slim-Fixtures#browsertest]]|An extensible fixture for testing using Selenium in end user terms, so tests describe functionality, not HTML structure.|
+|[[!-(Xml/Json)HttpTest-!][https://github.com/fhoeben/hsac-fitnesse-fixtures/wiki/2.-Slim-Fixtures#httptest]]|A fixture to interact with a server via HTTP requests (allowing SOAP (and REST) services to be tested) with (almost) no Java coding.|
+
+
+!2 Fit Fixtures !anchor fitfixtures
+|>JdbcFixtures                                                            |A set of Fixtures that provide simple database access                                                                                              |
+|>FitLibrary                                                              |Home of the [[!-DoFixture-!][.FitNesse.UserGuide.FixtureGallery.FitLibraryFixtures.DoFixture]], as well as many other helpful fixtures and add-ons.|
+|>JfcFixtures                                                             |A set of Fixtures to test through Swing GUIs                                                                                                       |
+|[[!-CommandLineFixture-!][http://fit.c2.com/wiki.cgi?CommandLineFixture]]|This fixture launches commands as if they were run from a shell's command line input.                                                              |
+|[[!-ServiceFixture-!][http://servicefixture.sourceforge.net]]            |This fixture library can be used to test service oriented or distributed systems. It also provides fixtures to access database.                    |
+|[[!-RestFixture-!][https://github.com/smartrics/RestFixture]]            |A fixture for testing services exposing a REST API.                                                                                                |
+|[[!-easyFit-!][https://github.com/nikoudel/easyfit]]                     |A library for testing applications over HTTP(S) protocol (SLiM server is not needed)                                                               |
+|[[!-SoapCallMapColumnFixture-!][https://github.com/fhoeben/hsac-fitnesse-fixtures/wiki/6.-SoapCallMapColumnFixture-Examples]]|A (column) fixture for testing SOAP services, including asynchronous ones, with minimal Java coding.|
+|[[Generic Fixture][https://github.com/anubhavas/generic-fixture]]|!- With Generic Fixture you just drop your class in FitNesse's class path, write your test stories on FitNesse wiki and be ready to test without having to write a single line of Java code.
+
+Detailes of Generic Fixture, setup and various use-cases can be found on -![[Generic Fixture Blog][https://anubhava.wordpress.com/2008/02/09/introducing-generic-fixture-for-fitnesse/]]|
+
+!3 Web application fixtures
+|[[Webfixture][https://opensvn.csie.org/traccgi/webfixture/trac.cgi/wiki/]]|HtmlUnit-based ([[author's blog entry][http://ischenko.blogspot.com/2004/09/testing-web-based-applications-with.html]] on that)|
+|[[jWebFit / jWebFixture][http://jwebunit.sourceforge.net/index.html]]     |Part of JWebUnit; only available in CVS tree. Simpler to use                                                                   |
+
+
+!2 Old (out of date) plugins
+Just for reference.
+(If you would like to develope a Plugin, see [[this][.FitNesse.UserGuide.PluginUsage]].)
+
+|^DatabasePlugin       |Store your wiki pages in a database to significantly improve seach and refactoring performance.|
+|^WikiMailPlugin       |Send email to your wiki.  Create and update pages with email messages.                         |
+|^LinuxPamAuthenticator|Allow !-FitNesse-! to authenticate users based on the Linux system users.                      |
+|^BlogPlugin           |Give !-FitNesse-! some blog-like behavior.                                                     |

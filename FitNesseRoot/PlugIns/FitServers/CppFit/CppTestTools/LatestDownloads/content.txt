@@ -1,0 +1,5 @@
+http://files/CppTestTools/CppTestTools-gcc-200602131015.zip
+http://files/CppTestTools/CppTestTools-ms-200602111320.zip
+http://files/CppTestTools/HomeGuard-gcc-200602110939.zip
+http://files/CppTestTools/HomeGuard-ms-200602111223.zip
+http://files/CppTestTools/StarterUnitTestProject-gcc-200602111320.zip

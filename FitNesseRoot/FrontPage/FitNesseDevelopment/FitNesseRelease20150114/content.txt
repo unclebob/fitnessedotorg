@@ -1,0 +1,196 @@
+!release 20150114
+
+!3 FitNesse Release Notes 2015/01/14
+!note Uncle Bob Consulting LLC.
+
+!note !style_red(Requires Java 1.6)
+
+!4 Major Changes since [[20140901][FitNesseRelease20140901]]:
+
+ * Big cleanup. Removed classes:
+   * !-util.StringUtil-!, use !-org.apache.commons.lang.StringUtils-! instead.
+   * !-util.ListUtility-!, use java.util.Arrays instead.
+   * fitnesse.wikitext.Utils, use !-fitnesse.html.HtmlUtil-! instead.
+   * !-fitnesse.FitFilter-!.
+ * Page names do no longer have to follow !-WikiWord-! syntax ([[513][https://github.com/unclebob/fitnesse/pull/513]])
+ * Implemented Slim !-StopSuiteException-! - stops whole suite from executing
+ * More flexible filter definitions for JUnit runner ([[555][https://github.com/unclebob/fitnesse/pull/555]])
+ * Can customize property characters used in !-!contents-! ([[541][https://github.com/unclebob/fitnesse/pull/541]])
+ * Deal more nicely with Slim scenario output parameters ([[536][https://github.com/unclebob/fitnesse/pull/536]])
+ * Allow for url parameters as variables in wiki pages ([[531][https://github.com/unclebob/fitnesse/pull/531]])
+ * Raise an error if a new page will override an existing page ([[459][https://github.com/unclebob/fitnesse/pull/459]])
+ * Issues fixed:
+   * Reverted old test behavior: only the current page will be tested (previously also test sub-pages were executed) ([[538][https://github.com/unclebob/fitnesse/pull/538]])
+   * Fix !-SimpleFileVersionsController-! so it can be configured in ''plugins.properties''.
+   * Remember Wrap and Auto-format options in Safari ([[521][https://github.com/unclebob/fitnesse/pull/521]])
+   * ?properties responder is now returning more properties when asked for json output ([[517][https://github.com/unclebob/fitnesse/pull/517]])
+
+For a complete list of closed issues and merged pull requests see https://github.com/unclebob/fitnesse/issues?milestone=9&state=closed.
+
+!4 Github ids of Contributors to this release:
+
+ * Arjan Molenaar
+ * Fried Hoeben
+ * Hans Joachim Desserud
+ * Jeroen Ruijgers
+ * Nicole Rauch
+ * Robert C. Martin
+ * Antoine Aumjaud
+ * Matt Warhaftig
+ * Serge Zukov
+ * six42
+
+!meta Thanks to all of you!
+
+!3 Git History
+
+!|2015-01-14|Arjan Molenaar|Updated release notes.|
+|2015-01-14|Arjan Molenaar|Merge pull request #577 from hansjoachim/junit4.12|
+|2015-01-14|Arjan Molenaar|Merge pull request #576 from salandur/issue_575|
+|2015-01-13|Hans Joachim Desserud|Switch from junit-dep to junit and upgrade to latest version (4.12)|
+|2015-01-12|Jeroen Ruijgers|fixes 575: When using a Query decission table, not all wrongs are reported in the JUnitRunNotifierResultsListener|
+|2015-01-07|Jeroen Ruijgers|fixes 575: When using a Query decission table, not all wrongs are reported in the JUnitRunNotifierResultsListener|
+|2015-01-05|Arjan Molenaar|Merge pull request #573 from salandur/master|
+|2015-01-05|Arjan Molenaar|Merge pull request #574 from mwarhaftig/issue537|
+|2015-01-01|mwarhaftig|Ignore ';' when script table looking up scenario name.|
+|2014-12-30|Jeroen Ruijgers|fixes #572: When running tests with 'runTestsMatchingAllTags' and 'excludeSuiteFilter', the exclude filter behaves AND-like|
+|2014-12-24|Arjan Molenaar|Revert 563e87f, added extra acceptance test. Fixes #570.|
+|2014-12-22|Arjan Molenaar|Merge pull request #571 from hansjoachim/dependencies|
+|2014-12-19|Hans Joachim Desserud|Upgraded dependencies|
+|2014-12-10|Arjan Molenaar|Try to solve compile issue on Jenkins. Can't reproduce it locally.|
+|2014-12-08|Arjan Molenaar|Format wiki text when switching from rich to text area when auto format is on.|
+|2014-12-07|Arjan Molenaar|Fixed typo Occured -> Occurred.|
+|2014-12-06|Arjan Molenaar|Escape (!- -!) new lines defined in table cells. Fixes #471.|
+|2014-12-06|Arjan Molenaar|Update release notes.|
+|2014-12-06|Arjan Molenaar|Merge pull request #554 from amolenaar/xml-transformer|
+|2014-10-21|Arjan Molenaar|Use java.xml.transform to produce XML. This should prevent encoding issues.|
+|2014-12-06|Arjan Molenaar|Change badge to refer to latest release.|
+|2014-12-05|Arjan Molenaar|Merge pull request #563 from sergebug/master|
+|2014-12-05|Arjan Molenaar|Merge pull request #561 from NicoleRauch/master|
+|2014-12-03|unknown|Added CSS for print media.|
+|2014-12-01|Arjan Molenaar|Merge pull request #562 from hansjoachim/mockito|
+|2014-11-08|Nicole Rauch|Removed an unused field.|
+|2014-11-08|Nicole Rauch|Static fields and methods should be accessed in a static way.|
+|2014-11-08|Nicole Rauch|Removed unused methods.|
+|2014-11-08|Nicole Rauch|Removed unused imports.|
+|2014-11-29|Hans Joachim Desserud|Upgrade Mockito dependency|
+|2014-11-26|Arjan Molenaar|Remove VersionsController.setHistoryDepth(). When needed use the ComponentFactory facilities to configure history depth.|
+|2014-11-26|Arjan Molenaar|Create components created via a property/parameter only once.|
+|2014-11-19|Arjan Molenaar|Merge pull request #557 from mwarhaftig/master|
+|2014-11-19|mwarhaftig|Issue 553 - Undid unnecessary changes to TestExecutionReportTest.|
+|2014-11-19|mwarhaftig|Merge branch 'master' of https://github.com/mwarhaftig/fitnesse|
+|2014-11-19|mwarhaftig|Issue 553 - Remove invalid control characters via velocity directive.|
+|2014-11-13|unknown|eclipse insists on excluding folder|
+|2014-11-13|mwarhaftig|Issue 553 - Added testcase to TestExecutionReportTest.|
+|2014-11-13|Arjan Molenaar|Merge pull request #555 from salandur/configurable_fitnesse_runner|
+|2014-11-11|Jeroen Ruijgers|added system property to @Suite and @SuiteFilter annotations|
+|2014-11-11|Jeroen Ruijgers|added the AND strategy for the SuiteFilter to the FitNesseRunner|
+|2014-11-09|Arjan Molenaar|Merge pull request #552 from mwarhaftig/master|
+|2014-11-09|mwarhaftig|Issue #541 - Added SymLinks & PROPERTY_CHARACTERS variable to !contents.|
+|2014-11-09|Arjan Molenaar|Merge pull request #551 from NicoleRauch/master|
+|2014-11-08|Nicole Rauch|Fixed a broken link.|
+|2014-11-07|Arjan Molenaar|Fix tests and styling issue in bootstrap theme.|
+|2014-11-07|Arjan Molenaar|Merge pull request #549 from six42/keyboard|
+|2014-11-07|Arjan Molenaar|Merge branch 'ignored-scenario'|
+|2014-11-04|six42|Revert "Slim Query/Table Table: manage variables assignment in VariableStore"|
+|2014-11-04|six42|Revert "removed dead code"|
+|2014-11-04|six42|additional keyboard shortcuts|
+|2014-11-02|Arjan Molenaar|Scenario's are marked as "ignored" if they contain no checks.|
+|2014-11-01|Arjan Molenaar|Merge pull request #492 from amolenaar/stopsuite|
+|2014-11-01|Arjan Molenaar|Remove offending test (stalls unit tests on windows for me).|
+|2014-11-01|Arjan Molenaar|The Acceptance tests use a different port number. Slim servers started from tests use the default ports.|
+|2014-11-01|Arjan Molenaar|Be more verbose on SlimService errors. Port cycling starts at SLIM_PORT.|
+|2014-10-31|Arjan Molenaar|Merge pull request #538 from amolenaar/testresponder|
+|2014-10-31|Arjan Molenaar|Raise an error if trying to create a new page for an already existing page. Fixes #459.|
+|2014-10-31|Arjan Molenaar|Remove unused listener.|
+|2014-10-31|Arjan Molenaar|Make sure slim servers spawned in acceptance tests of not use conflicting port numbers.|
+|2014-10-31|Arjan Molenaar|Query tables should play well when not run.|
+|2014-10-31|Arjan Molenaar|Implemented SuiteSuite(Exception) feature. Now the whole suite execution can be stopped due to a StopSuite exception.|
+|2014-10-31|Arjan Molenaar|Remove port from command line execution. We do not start a server at all.|
+|2014-10-30|Arjan Molenaar|Add (single) test responder as specialization of suitereponder.|
+|2014-10-30|Arjan Molenaar|Rename TestResponder to SuiteResponder. Next, we'll create a specialised TestResponder.|
+|2014-10-30|Arjan Molenaar|Merge pull request #513 from amolenaar/wikiword|
+|2014-10-30|Arjan Molenaar|Merge pull request #525 from antoine-aumjaud/features/FIT-SetSymbolInStoreFromExpectation with protocol change addition.|
+|2014-10-30|Arjan Molenaar|Small protocol update (wiki) and cleanup in code.|
+|2014-10-30|Arjan Molenaar|Increment Slim server version. Raise exception if assign instruction is called for slim server version < 0.4.|
+|2014-10-29|Arjan Molenaar|Merge pull request #525 from antoine-aumjaud/features/FIT-SetSymbolInStoreFromExpectation|
+|2014-10-29|Arjan Molenaar|Merge pull request #544 from amolenaar/fix/544|
+|2014-10-26|Arjan Molenaar|Remove UrlPathVariableSource dependency from ParsingPage.|
+|2014-10-26|Arjan Molenaar|Merge pull request #531 from mwarhaftig/master|
+|2014-10-26|Arjan Molenaar|Provide a special callback in case a test system can not start.|
+|2014-10-26|Arjan Molenaar|Fix test for custom comparator. It now works when executed from fitnesse-standalone.jar as well.|
+|2014-10-26|Arjan Molenaar|Move getValuefrom{Query|Table}ResultSymbol() to a separate helper class.|
+|2014-10-23|Arjan Molenaar|Updated README|
+|2014-10-21|Arjan Molenaar|Merge pull request #536 from six42/scenario_with_output|
+|2014-10-21|Arjan Molenaar|Update JGit to 3.5.0|
+|2014-10-21|Arjan Molenaar|Standalone zip should not contain META-INF stuff from dependencies.|
+|2014-10-18|six42|removed dead code|
+|2014-10-18|six42|Slim Query/Table Table: manage variables assignment in VariableStore|
+|2014-10-17|six42|Scenario with output parameters (alpha)|
+|2014-10-16|Arjan Molenaar|Merge pull request #534 from hansjoachim/upgrade-jgit|
+|2014-10-16|Arjan Molenaar|Remove architecture image from OneMinuteDescription page. It's confusing for newcomers.|
+|2014-10-16|Arjan Molenaar|Update client side page name validation.|
+|2014-10-16|Arjan Molenaar|Forbid pages names root and files to be created.|
+|2014-10-13|mwarhaftig|Issue #529 - Cleaned up unused Java imports.|
+|2014-10-13|mwarhaftig|Issue #529 - Passed UrlVariableSource to ParsingPage so no urlParams field.|
+|2014-10-13|Arjan Molenaar|Merge pull request #535 from hansjoachim/path|
+|2014-10-12|mwarhaftig|Issue #529 - Kept SystemVariableSource immutable. Passed request to ParsingPage.|
+|2014-10-12|Hans Joachim Desserud|Mark Linux path|
+|2014-10-11|Hans Joachim Desserud|Upgrade JGit to version 3.0|
+|2014-10-10|Arjan Molenaar|Removed BaseWikiPageResponder.|
+|2014-10-10|Arjan Molenaar|Redirect to symbolics section of properties page after modifying symlinks.|
+|2014-10-10|Arjan Molenaar|Fix aliases to support lower case wiki words.|
+|2014-10-09|Arjan Molenaar|Removed class fitnesse.wikitext.parser.WikiWordPath.|
+|2014-10-09|Arjan Molenaar|Now I can create and view a wikipage.|
+|2014-10-08|Arjan Molenaar|update release notes.|
+|2014-10-08|Arjan Molenaar|Fix SimpleFileVersionsController so it can be configured in plugins.properties.|
+|2014-10-07|Arjan Molenaar|Merge pull request #532 from sergebug/master|
+|2014-10-06|mwarhaftig|Issue 529 - Gave URL params precedence over markup variables.|
+|2014-10-06|Arjan Molenaar|Merge pull request #530 from six42/master|
+|2014-10-05|mwarhaftig|Issue #529 - Added url key value pairs to test and page responders.|
+|2014-10-06|six42|Extended SlimHelperLibrary|
+|2014-10-06|six42|Scenario with output parameters (beta)|
+|2014-10-05|six42|Bug fix: A newly added page was not added to the recent changes page|
+|2014-10-05|six42|A practical example of the usage of smbolic links|
+|2014-10-02|Arjan Molenaar|Remove InMemoryPage.createChildPage().|
+|2014-10-02|Arjan Molenaar|Clean up VariableStore and SlimExecutionContext a little.|
+|2014-09-30|szukov|If classpath contained folders with spaces wrap string representation of full classpath into doublequotes otherwise class path split into few commandline parameters and external runners could not load classes.|
+|2014-09-19|antoine-aumjaud|format|
+|2014-09-19|antoine-aumjaud|merge|
+|2014-09-19|antoine-aumjaud|fix acceptance tests|
+|2014-09-19|antoine-aumjaud|fix tests|
+|2014-09-19|antoine-aumjaud|Remove java compilation warning|
+|2014-09-19|antoine-aumjaud|Add acceptance tests|
+|2014-09-18|antoine-aumjaud|Create assign instruction and return variables in result|
+|2014-09-16|Arjan Molenaar|Partially revert cf5381f after discussion on #519.|
+|2014-09-15|Arjan Molenaar|Merge pull request #520 from mwarhaftig/master|
+|2014-09-15|Arjan Molenaar|Fix cookies in Safari. Path component was malformed according to Safari (and rightly so). Now use default path ('/') and domain. Fixes #521.|
+|2014-09-15|Arjan Molenaar|Loosen use of symbols to `\w+`. Assignment and utilisation of symbols is not consistent for slim.|
+|2014-09-15|Arjan Molenaar|Fix symbol assignment. Make sure HTML escaping is done according to spec. Fixes #519.|
+|2014-09-11|Arjan Molenaar|Remove bottom padding from hash table.|
+|2014-09-11|Arjan Molenaar|Also present $var->[<html/>] properly, mainly for hash tables. Does not work if the symbol is used in a larger text.|
+|2014-09-15|mwarhaftig|Issue 251 - Added spacing between range comparison parts.|
+|2014-09-11|mwarhaftig|Fitnesse Issue #461 - Have !today option work if arguments followed by other text.|
+|2014-09-10|Arjan Molenaar|Merge pull request "Clean up package dependencies #518".|
+|2014-09-06|Arjan Molenaar|Move ClassPathBuilder to TestRunner package.|
+|2014-09-06|Arjan Molenaar|Moved VariableSource out of MultipleTestSystems. TestPage's can tell their class path. Introduce ClassPath class, so elements and separator can be kept separator.|
+|2014-09-05|Arjan Molenaar|Send test ticket as header with a test run. Now you can start/stop tests remotely via the API. Hopefully fixes #503.|
+|2014-09-05|Arjan Molenaar|Remove RunningTestingTracker from FitNesseContext. Put it directly on TestResponder. MultipleTestsRunner no longer takes RunningTestingTracker as argument.|
+|2014-09-05|Arjan Molenaar|Little cleanup in BaseFormatter.|
+|2014-09-05|Arjan Molenaar|Fix timestamp used to store the page reference in tests. Should avoid errors like #514 from reoccurring.|
+|2014-09-05|Arjan Molenaar|Support spaces in link names (mainly url's). Fixes #502.|
+|2014-09-05|Arjan Molenaar|Link should also render PNG images, like it does with JPG and GIF.|
+|2014-09-05|Arjan Molenaar|Add properties Help, Suites and Files to JSON output. Fixes #517.|
+|2014-09-03|Arjan Molenaar|Get dependencies on fit, slim and server straight.|
+|2014-09-03|Arjan Molenaar|Emptied util package. Moved most of it to fitnesse.util. Only dependencies used from the fit package are left (also used from fitnesse).|
+|2014-09-02|Arjan Molenaar|Replace ListUtility implementations with JDK classes.|
+|2014-08-31|Arjan Molenaar|Replace all usages of util.StringUtil by commons-lang StringUtils.|
+|2014-09-03|Robert C. Martin|removed TestHistoryXml/properties.xml|
+|2014-09-03|Robert C. Martin|Merge branch 'master' of github.com:unclebob/fitnesse|
+|2014-09-03|Robert C. Martin|fix line-counts|
+|2014-09-03|Arjan Molenaar|Merge pull request #516 from fhoeben/FixScenarioTableExtensibility|
+|2014-09-03|Fried Hoeben|Fix visibility to allow createChild to be overridden in other package|
+|2014-08-31|Arjan Molenaar|Merged fitnese.wiki.mem with fitnesse.wiki.fs. The relation was cyclic.|
+|2014-08-31|Arjan Molenaar|Remove dependency from fitnesse.wiki on fitnesse.testrunner.|
+|2014-08-31|Arjan Molenaar|Move code from fitnesse.wikitext.Utils to fitnesse.html.HtmlUtil. Resolves cycle between fitnesse.html and -.wikitext.|
+|2014-08-31|Arjan Molenaar|Move WikiPageActions to fitnesse.responders.|

@@ -1,0 +1,14 @@
+!* !3 Project Directories
+It is likely you will need more than one project.  One project to build your unit test main, one project to build your real main, and one or more projects to build your applicaiton code library(ies).  If you are just experimenting with unit testing, you can get by with a single make file.  It would create an executable file and link with all the o files.
+
+If you are using eclipse, open eclipse, create a workspace, set the perspective to C++, and create the projects you need.  This example uses "Standard Make C++".  You will need eclipse and the CDT plug-in
+
+The simplest project is a simgle project with a main, all the tests and the code to test.
+
+The simplest realistic example has a test main and a library that contains your tests and application code.  You can find C and C++ examples in the !-fitnesse/CppTestTools-! bundle
+*!!* !3 Eclipse C/C++ Development Tooling - CDT
+CDT can be found here:
+
+http://www.eclipse.org/cdt/downloads.php
+
+*!

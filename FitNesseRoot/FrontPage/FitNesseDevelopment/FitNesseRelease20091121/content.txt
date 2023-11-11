@@ -1,0 +1,115 @@
+!release 20091121
+
+!3 FitNesse Release Notes 11/21/2009
+!note Uncle Bob, Object Mentor, Inc.
+
+!note !style_red(Requires Java 1.6)
+
+!4 Contributors to this release:
+ * Uncle Bob
+ * Gregor Gramlich
+ * Johannes Brodwall
+ * Lars Vonk
+ * Llewellyn Falco
+ * Markus Gaertner
+ * Tim Andersen
+ * Edward Glowaki
+ * Gael Falez
+ * Erik Pragt
+ * Jonathan Barrett
+ * Dan Woodward
+ 
+!meta Thanks to all of you!
+
+|!4 Since:                |[[20090818][FitNesseRelease20090818]]|
+|!4 Expected Release Date:|20091031    |!style_pass(RELEASED)   |
+|!4 Theme:                |Command Line Test Running with -c            |
+
+!3 Major Changes
+ * The -c command line argument allows you to run tests or suites (or any other Restful command) from the command line without starting the server.  This is perfect for ant tasks!  Check the User Guide for examples.
+ * Suites XML reports are much more compact (and don't blow memory!).  Instead of containing all the test results, the XML is now a summary of the results that contains links to the test history.
+ * New Widget: !-!{name:bob, addr:here}-! creates a special table called a "hash" (for lack of a better term).  If a hash is contained in a test table cell, the HTML will be sent to the Test System.  The Java slim implementation has an automatic converter that will convert this HTML to a HashMap.
+ * -i command line argument for 'install only'.  This will cause the initial installation stuff to run, copying files etc, and fitnesse will quit instead of starting up.
+ * New variable:  FITNESSE_ROOTPATH.  (See User Guide).
+ * New Slim Table: SubsetQueryTable (See User Guide).
+ * New Plugin for Maven classpath generation.  See Downloads Page.
+ * Plugins will automatically be found if placed in the ''plugins'' folder.  No need for -cp arguments anymore.  java -jar fitnesse.jar works for all situations.
+ * Tables can start with a hidden row by using !-#|some row|-!.  This allows you to get rid of the ugly first rows in Script tables.
+ * The ugly tree panel is gone!  (yay!)
+
+!3 Git History
+!|2009-11-21 16:23:43 +0100|unclebob         |housekeeping                                                                                                                          |
+|2009-11-21 15:19:18 +0100 |unclebob         |Edward Glowaki:  Added cmPreDelete to the CmSystem.                                                                                   |
+|2009-11-21 13:18:24 +0100 |unclebob         |Gael Falez: Added page to TestHistoryResponder, allows you to see history for suites instead of everything.  Makes things much faster.|
+|2009-11-19 14:11:17 +0100 |unclebob         |Changed build.xml to use new command line REST execution for acceptance tests.                                                        |
+|2009-11-19 08:10:13 +0100 |unclebob         |-c command line argument to execute any REST command, and ?format=text for tests and suites.                                          |
+|2009-11-16 12:33:11 -0600 |unclebob         |-c argument to execute a single command                                                                                               |
+|2009-11-13 13:22:53 -0600 |unclebob         |Added MapEditor so that fixtures that take Maps will translate from tables created by HashWidgets                                     |
+|2009-11-10 15:45:02 -0600 |unclebob         |Fix Erik Pragt's variable bug.  Get rid of tree panel.                                                                                |
+|2009-11-04 15:36:35 -0600 |unclebob         |Changed sort order for Page History to Latest First                                                                                   |
+|2009-11-03 18:11:59 -0600 |unclebob         |Fix bug in variable replacement.                                                                                                      |
+|2009-11-02 12:16:06 -0600 |unclebob         |housekeeping                                                                                                                          |
+|2009-10-26 10:04:48 +0100 |Gregor Gramlich  |Tables may start with a hidden row by adding a # at the beginning                                                                     |
+|2009-10-25 21:56:13 +0100 |Gregor Gramlich  |Evaluate variables within variables for PageData                                                                                      |
+|2009-10-24 22:47:11 +0200 |Gregor Gramlich  |Merge branch 'master' of git://github.com/unclebob/fitnesse.git                                                                       |
+|2009-10-24 10:55:44 -0500 |unclebob         |added -i to Usage message.                                                                                                            |
+|2009-10-24 07:28:07 -0500 |unclebob         |Added fitnesse.jar to the default COMMAND_PATTERN so that newbies have an easier time getting tests to run.                           |
+|2009-10-23 13:00:00 -0500 |unclebob         |Lighthouse #163: !include-ing a parent page throws exceptions.  Added error message.                                                  |
+|2009-10-19 18:22:42 +0200 |Gregor Gramlich  |Store rendered variables, so that variables within variable definitions can are evaluated for PageData                                |
+|2009-10-18 16:00:24 +0200 |unclebob         |Fixed #161, simple scenario name with unnamed argument not recognized as scenario                                                     |
+|2009-10-17 16:29:57 +0200 |unclebob         |Merge branch 'master' of git://github.com/ggramlich/fitnesse                                                                          |
+|2009-10-17 16:29:47 +0200 |unclebob         |housekeeping                                                                                                                          |
+|2009-10-17 13:46:08 +0200 |Lars Vonk        |removed maven lib from classpath                                                                                                      |
+|2009-10-17 13:42:58 +0200 |Lars Vonk        |removed maven classpath support to separate plugin                                                                                    |
+|2009-10-16 09:35:00 +0200 |Gregor Gramlich  |Merge branch 'master' of git://github.com/unclebob/fitnesse.git                                                                       |
+|2009-10-14 00:16:38 +0200 |unclebob         |housekeeping                                                                                                                          |
+|2009-10-13 23:12:39 +0200 |Lars Vonk        |fixed endless loop in running tests with trinidad in case the slimport is already in use                                              |
+|2009-10-13 21:58:37 +0200 |Lars Vonk        |merged with master fitnesse                                                                                                           |
+|2009-10-10 18:10:03 -0500 |unclebob         |Symbols in TableTable are reported properly                                                                                           |
+|2009-10-10 22:15:18 +0200 |Gregor Gramlich  |Javascript Table Formatter: Do not remove table prefixes and suffixes                                                                 |
+|2009-10-10 12:07:16 -0500 |unclebob         |PluginsClassLoader now uses util.FileUtil                                                                                             |
+|2009-10-10 11:43:26 -0500 |unclebob         |Merge branch 'master' of git://github.com/timander/fitnesse                                                                           |
+|2009-10-10 07:11:14 -0500 |unclebob         |Moved classpath management code to FileUtil                                                                                           |
+|2009-10-09 18:15:13 -0500 |Tim Andersen     |applied the code style using fitnesse.xml and wrote a test for plugins directory not existing                                         |
+|2009-10-09 18:00:01 -0500 |Tim Andersen     |used URLClassLoader instead of changing java.class.path to dynamically load plugin jars (Lighthouse #63)                              |
+|2009-10-09 13:53:14 -0500 |Tim Andersen     |created PluginClasspathLoader to dynamically add jars in the plugins folder to the classpath at runtime (Lighthouse #63)              |
+|2009-10-07 02:19:01 +0200 |Lars Vonk        |forgot to add new stuff... still learning git.                                                                                        |
+|2009-10-07 02:05:40 +0200 |Lars Vonk        |added maven classpath generation support from pom file. currently only supports the compile scope.                                    |
+|2009-10-06 08:46:43 -0500 |unclebob         |housekeeping                                                                                                                          |
+|2009-10-06 08:36:57 -0500 |unclebob         |Merge branch 'master' of git://github.com/ggramlich/fitnesse                                                                          |
+|2009-10-06 08:36:39 -0500 |unclebob         |housekeeping                                                                                                                          |
+|2009-10-06 11:57:31 +0200 |Gregor Gramlich  |Subset query documentation                                                                                                            |
+|2009-10-06 10:35:26 +0200 |Gregor Gramlich  |Merge branch 'master' of git://github.com/unclebob/fitnesse.git                                                                       |
+|2009-10-05 21:55:51 +0200 |Gregor Gramlich  |Slim Subset Query table                                                                                                               |
+|2009-10-05 14:49:04 -0500 |unclebob         |Merge branch 'master' of git://github.com/MarkusGaertner/fitnessebacklogfixes                                                         |
+|2009-10-05 14:45:43 -0500 |unclebob         |housekeeping                                                                                                                          |
+|2009-10-05 14:37:13 -0500 |unclebob         |Merge branch 'dans_changes' of git://github.com/woodybrood/fitnesse                                                                   |
+|2009-10-01 23:06:57 +0200 |Markus Gaertner  |some refactoring regarding textarea handling in the css definitions to avoid                                                          |
+|2009-09-30 20:43:44 -0500 |unknown          |Updates based on my last build and fixes for the junits                                                                               |
+|2009-09-30 15:03:37 -0500 |unclebob         |merge                                                                                                                                 |
+|2009-09-30 14:48:28 -0500 |unclebob         |jcbarrett@internode.on.net Jonathan Barrett, FITNESSE_ROOTPATH variable                                                               |
+|2009-09-30 08:38:00 -0500 |unknown          |Merge branch 'HEAD' of http://github.com/unclebob/fitnesse.git into dans_changes                                                      |
+|2009-09-30 07:04:17 -0500 |unknown          |My changes                                                                                                                            |
+|2009-09-22 02:04:56 +0200 |Johannes Brodwall|Updated pom.xml and pom.xml.template with newest dependencies:                                                                        |
+|2009-09-18 10:08:16 -0500 |unclebob         |housekeeping                                                                                                                          |
+|2009-09-18 07:13:41 -0700 |Llewellyn Falco  |Merge branch 'master' into LatestChangesAAA                                                                                           |
+|2009-09-14 10:44:24 -0500 |unclebob         |Merge branch 'master' of git://github.com/ggramlich/fitnesse                                                                          |
+|2009-09-14 10:30:10 -0500 |unclebob         |Dan Woodward fixed OS dependency in UpdateFileList.                                                                                   |
+|2009-09-12 08:26:33 -0700 |Llewellyn Falco  |added -i command line (install only)                                                                                                  |
+|2009-09-11 21:39:27 +0200 |Gregor Gramlich  |Merge branch 'master' of git://github.com/unclebob/fitnesse.git                                                                       |
+|2009-09-11 11:01:02 -0500 |unclebob         |Dan Woodward's fix for multiple symbols in a cell.                                                                                    |
+|2009-09-08 05:56:11 -0500 |unclebob         |Added hash tables to user guide.                                                                                                      |
+|2009-09-07 12:17:56 -0500 |unclebob         |Added HashWidget                                                                                                                      |
+|2009-09-04 04:28:45 -0500 |unclebob         |Fixed bug that did not allow more than one colon in a TableTable response                                                             |
+|2009-09-03 21:23:24 +0200 |Gregor Gramlich  |Merge branch 'master' of git://github.com/unclebob/fitnesse.git                                                                       |
+|2009-09-03 21:17:51 +0200 |Gregor Gramlich  |Adapted Jsr223 signatures to work with Rhino                                                                                          |
+|2009-08-27 17:58:26 -0500 |unclebob         |Added PageHeader and PageFooter to automatic update list.                                                                             |
+|2009-08-27 16:41:56 -0500 |unclebob         |Fix test compare when -d switch is used.                                                                                              |
+|2009-08-20 22:24:31 +0200 |Gregor Gramlich  |Merge branch 'master' of git://github.com/unclebob/fitnesse                                                                           |
+|2009-08-20 15:00:16 -0500 |unclebob         |Made Suite XML a LOT smaller and included pageHistoryLinks                                                                            |
+|2009-08-20 13:30:07 -0500 |unclebob         |housekeeping                                                                                                                          |
+|2009-08-19 22:06:47 +0200 |Gregor Gramlich  |Merge branch 'master' of git://github.com/unclebob/fitnesse.git                                                                       |
+|2009-08-19 21:26:53 +0200 |Gregor Gramlich  |extracted Slim JUnit test base classes                                                                                                |
+|2009-08-18 16:10:16 -0500 |unclebob         |Update User Guide                                                                                                                     |
+|2009-08-18 14:30:43 -0500 |unclebob         |More acceptance tests to Slim                                                                                                         |
+|2009-08-18 12:40:35 -0500 |unclebob         |housekeeping                                                                                                                          |

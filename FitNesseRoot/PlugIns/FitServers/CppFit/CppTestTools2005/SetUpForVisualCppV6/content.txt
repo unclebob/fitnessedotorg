@@ -1,0 +1,3 @@
+!3 Build
+ * Double click !-TestTools.dsw-!
+ * Run the unit tests

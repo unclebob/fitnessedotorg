@@ -1,0 +1,24 @@
+!3 Define sensors
+
+Id's and names must be unique.
+
+!|HomeGuardFixtures.DefineSensors|
+|port|name |Type|submit?|reason?|
+|A1 |Paul’s|window|true |OK|
+|A2 |Porch |door|true |OK|
+|A3 |Front |door|true |OK|
+|A4 |Back |door|true|OK|
+|A4 |Back |door|false|duplicate id|
+|A4 |Garage |door|false|duplicate id|
+|A5 |Back |door|false|duplicate name|
+|A5 |Garage |door|true|OK|
+|-1|Basement sump pump|attention|false|invalid id|
+|0|Basement sump pump|attention|false|invalid id|
+|A33|Basement sump pump|attention|false|buy upgrade for 64 sensor system|
+|A6 |House Flood|attention|true|OK|
+|A7 |Backyard Flood|attention|true|OK|
+|A8 |Attic|smoke|false|OK|
+|A9|Fridge|temperature|false|Invalid sensor type|
+
+
+

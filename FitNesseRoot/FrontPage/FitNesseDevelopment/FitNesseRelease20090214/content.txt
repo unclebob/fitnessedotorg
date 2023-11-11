@@ -1,0 +1,69 @@
+!release 20090214
+
+!3 FitNesse Release Notes 2/14/2009
+!note Uncle Bob, Object Mentor, Inc.
+
+|!4 Since:|[[20090112][FitNesseRelease20090112]]| 
+|!4 Exepcted Release Date:|20090214|!style_pass(RELEASED)|
+|!4 Theme:|Improvements|
+
+!3 Changes
+ * CM system integration.  It's easy to integrate your favorite CM system with FitNesse.  See User Guide.
+ * Three different versions of !style widget, and many new CSS classes to use with it.
+ * Format button on edit page makes wiki tables more readable.
+ * Improved Table table.  Allows you to return tables of different geometries.  Lots of new stuff.  See User Guide.
+ * Query table and Decision table have new !style_code{table(List<List<String>>)} method which is passed the table itself.  See User Guide.
+ * !-FitNesseVersion-! added to XML reports
+ * Packet Responder allows you to get JSON packets from tables on a page.  See RESTfulServices in User Guide.
+
+!3 Git History
+!|2009-02-14 17:59:58 -0600|unclebob|Release 20090214|
+|2009-02-13 11:49:52 -0600|unclebob|PacketResponder works|
+|2009-02-12 10:48:12 -0600|unclebob|Add FitNesseVersion to xml test and suite reports|
+|2009-02-12 10:33:03 -0600|unclebob|Better fix to HtmlParser bug|
+|2009-02-12 10:13:34 -0600|unclebob|Fixed HtmlParser bug with first line of page is not blank|
+|2009-02-11 15:22:08 -0600|unclebob|refactored TestContents AT|
+|2009-02-11 13:19:49 -0600|unclebob|Added table method to Decision table.  Updated user guide.|
+|2009-02-11 09:13:04 -0600|unclebob|call table() method in QueryFixture passing whole table|
+|2009-02-05 17:06:47 -0600|unclebob|More ATs to BDD|
+|2009-02-04 17:46:25 -0600|unclebob|Refactored some ATs to BDD style|
+|2009-01-29 19:11:16 -0600|unclebob|Merge branch 'master' of git://github.com/darrinholst/fitnesse|
+|2009-01-29 19:09:30 -0600|unclebob|Refactored PropertiesResponderTest|
+|2009-01-29 18:14:10 -0600|Darrin|Merge branch 'master' of git://github.com/unclebob/fitnesse|
+|2009-01-29 12:01:41 -0600|unclebob|added json format to properties responder|
+|2009-01-25 20:19:16 -0600|Darrin|Merge branch 'master' of git://github.com/unclebob/fitnesse|
+|2009-01-24 20:35:26 -0600|unclebob|decrap the bowling fixture in slim test|
+|2009-01-23 20:48:22 -0600|Darrin Holst|change wiki formatter to emulate html table rendering format and add a word wrap toggler|
+|2009-01-23 17:19:00 -0600|unclebob|Composed TestBackwardsSearchWidget|
+|2009-01-23 15:35:59 -0600|unclebob|PropertyEditor support for Slim|
+|2009-01-23 12:24:35 -0600|unclebob|Decrap bowling fixtures|
+|2009-01-23 11:52:45 -0600|unclebob|Added Tore Bastiansen's changes to TableTable and then added lots of other goodies to it.  Added UserGuide docs to explain it.|
+|2009-01-23 10:15:37 -0600|unclebob|Improved rendering of symbols passed into constructors in slim tables.|
+|2009-01-23 09:30:27 -0600|unclebob|Move slim tables into slimTables package|
+|2009-01-23 08:37:38 -0600|unclebob|Removed crap4j target from build.xml because some folks don't have the crap4j libraries and Ant isn't very|
+|2009-01-22 22:50:33 -0600|unclebob|forkmode='once' in build.xml junit, speeds junit tests up a lot|
+|2009-01-22 17:52:04 -0600|unclebob|FitNesseRoot/properties|
+|2009-01-22 15:32:19 -0600|unclebob|relicensed to CPL 1.0|
+|2009-01-22 15:16:24 -0600|unclebob|added tools for managing licenses|
+|2009-01-22 12:34:51 -0600|unclebob|Specify actor of script table after 'script' statement.|
+|2009-01-22 10:45:04 -0600|unclebob|format button on edit page|
+|2009-01-21 21:39:51 -0600|Darrin|uncomment other javascript tests|
+|2009-01-21 21:36:57 -0600|Darrin|add a format button to the edit page|
+|2009-01-21 12:01:39 -0600|unclebob|Merge branch 'master' of git://github.com/deanwampler/fitnesse into pomVersionFix|
+|2009-01-21 11:42:01 -0600|unclebob|Fix Wiki Import Watermark Bug|
+|2009-01-21 10:25:32 -0600|Dean Wampler|The version number is now embedded in pom.xml during a build.|
+|2009-01-20 11:40:18 -0600|unclebob|Added new Acceptance tests for comparators.|
+|2009-01-19 12:33:13 -0600|unclebob|Link back to test page from ErrorLog page|
+|2009-01-16 14:32:46 -0600|unclebob|Fixed GitCmSystem timing bug and enhanced documentation.|
+|2009-01-16 14:15:18 -0600|unclebob|Three versions of !style.|
+|2009-01-15 20:13:05 -0600|unclebob|Adjust testLastModifiedTime tolerance to 5S|
+|2009-01-15 17:48:37 -0600|unclebob|Eliminate timing issue with GitCmSystem|
+|2009-01-15 14:27:23 -0600|unclebob|added documentation for CM_SYSTEM|
+|2009-01-15 12:29:40 -0600|unclebob|Added GitCmSystem so that FitNesse plays nicely with git|
+|2009-01-15 09:59:31 -0600|unclebob|Got CmSystem stubs working.|
+|2009-01-14 11:40:15 -0600|unclebob|fixed broken acceptance tests with TestRunner summary counts|
+|2009-01-14 09:37:16 -0600|unclebob|tallied page counts in TestRunner verbose output|
+|2009-01-14 09:31:53 -0600|unclebob|added summary counts back to TestRunner verbose outout|
+|2009-01-13 17:08:35 -0600|unclebob|Bug: Silent failure if SlimServer did not start.|
+|2009-01-12 11:08:01 -0600|unclebob|changed manifest so that java -jar fitnesse.jar will work.  Also changed UserGuide.  Added 'code' style.|
+

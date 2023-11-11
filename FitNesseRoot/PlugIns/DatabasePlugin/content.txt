@@ -1,0 +1,91 @@
+This is a Wiki Page [[plugin][.FitNesse.PluginUsage]].  Follow the instructions in README.TXT very carefully.  They are listed below in case you'd like to know what you're getting yourself into before downloading.
+
+''Note:'' This plugin has only been tested on a very limited number of platforms with only one database.  Use at your own risk.
+
+[[download for 20040604][files/plugins/database/fitnesse_db_20040604.zip]]
+
+!3 !-FitNesse Database Plugin-!
+by Stephen Starkey
+
+!-This plugin provides a replacement to the standard file system back-end to FitNesse.  Instead of storing your Wiki pages in a standard hierarchical file system structure, they are stored in a database schema.  This makes searching, refactoring, etc. much faster, as databases are optimized for such things.-!
+
+Please read this file fully before executing any steps.  It contains forward references which, when executed out of order, will cause much disappointment in the reader.
+
+PACKAGE CONTENTS
+
+Included in this package are the following:
+
+|'''file'''                            |'''description'''                                                         |
+|README.txt                            |This file                                                                 |
+|plugins.properties                    |A sample properties file that causes !-FitNesse-! to load the plugin      |
+|run.sh                                |An alternative run script that loads plugin classpaths in a standard way  |
+|run.bat                               |An alternative run script that loads plugin classpaths in a standard way  |
+|plugins/fitnesse_db.plugin            |Used by the alternative run script to update the classpath                |
+|plugins/fitnesse_db.plugin.bat        |Used by the alternative run script to update the classpath                |
+|plugins/fitnesse_db/fitnesse_db.jar   |The library that provides the plugin                                      |
+|schema/fitnesse.sql                   |The schema that the plugin uses to store its data                         |
+
+KNOWN LIMITATIONS
+
+ * Virtual Wikis don't work.  This is a limitation in the architecture (serialization of !-WikiPages-! is required, and such serialization can not be done with pages that are database-backed).  Suggestions are very welcome as to how to overcome this limitation.
+ * The Updater doesn't work.  It does a force-cast to !-FileSystemPage, which of course DatabasePage is not.  New properties will not be propagated with future .JAR file updates.  Always start FitNesse with the -o switch.-!
+
+BEFORE INSTALLING
+
+ * A database server must be located and have the schema installed.  In MySQL, perform the following steps:
+  * Log on as root (mysql -u root)
+  * Type "source schema/fitnesse.sql"
+  * (optional) GRANT ALL PRIVILEGES ON fitnesse.* TO <user>@'localhost' IDENTIFIED BY <password>
+  * (optional) GRANT ALL PRIVILEGES ON fitnesse.* TO <user> IDENTIFIED BY <password>
+
+AFTER INSTALLING
+
+ * (optional) import an existing !-FitNesseRoot-!:
+  * !-Go to your FitNesse installation directory-!
+  * execute "java -classpath fitnesse.jar:fitnesse_db.jar:your_db_driver.jar !-com.xb.fitnesse.db.DatabaseImport FitNesseRoot-!"
+
+IF USING A WINDOWS SERVICE
+
+ * There is no way to make the Windows Service script extensible.  Follow the EASY INSTALLATION steps, and then do the following:
+  * Edit wrapper\fitnesse.conf
+    * Add new lines for each .JAR file (fitnesse_db.jar, database driver jar) below the first 2 wrapper.class.path.# lines
+    * Ensure that wrapper.app.parameter.#=-o exists somewhere (where # is some sequential number)
+      * !-The Updater class does not work with DatabasePages-!
+  * Restart the service
+
+EASY INSTALLATION
+
+ * Identify the location of your !-FitNesse-! installation.  We refer to this location as FITNESSE_ROOT
+ * Copy the following files into their given locations.  If a plugins.properties already exists, append its contents instead of replacing it.
+    plugins.properties                  -> FITNESSE_ROOT
+    plugins/fitnesse_db/fitnesse_db.jar -> FITNESSE_ROOT
+ * Download your favorite JDBC Driver and place it in FITNESSE_ROOT
+  * This plugin has been tested with MySQL (http://dev.mysql.com/downloads/connector/j/3.0.html)
+ * Edit your run script(s):
+  * Add fitnesse_db.jar and your JDBC driver to the classpath
+ * Edit plugins.properties (presume I have prefixed property names with com.xb.fitnesse.db):
+  * driver_classes      - the classes that need to be loaded into the classloader for the driver to work
+  * connect_string      - the JDBC connect string required to connect to your database
+  * maxconn             - the maximum number of connections to allow in the !-ConnectionPool-!
+  * username (optional) - username to specify for the database connection
+  * password (optional) - the user's password.  Leave this property blank for an empty password (do NOT comment out in this case!)
+  * If you wish not to specify credentials at all, simply comment out these properties.
+
+EXTENSIBLE INSTALLATION
+
+ * Identify the location of your !-FitNesse-! installation.  We refer to this location as FITNESSE_ROOT
+  * NOTE: this process will remove all existing plugins that don't use this plugin structure.
+  * Copy the entire contents of this package, file structure intact, into FITNESSE_ROOT
+    * If you have an existing plugins.properties, simply append its contents instead of replacing it.
+ * Download your favorite JDBC Driver and place it in FITNESSE_ROOT
+  * This plugin has been tested with MySQL (http://dev.mysql.com/downloads/connector/j/3.0.html)
+ * Edit plugins.properties (presume I have prefixed property names with com.xb.fitnesse.db):
+  * driver_classes      - the classes that need to be loaded into the classloader for the driver to work
+  * connect_string      - the JDBC connect string required to connect to your database
+  * maxconn             - the maximum number of connections to allow in the !-ConnectionPool-!
+  * username (optional) - username to specify for the database connection
+  * password (optional) - the user's password.  Leave this property blank for an empty password (do NOT comment out in this case!)
+  * If you wish not to specify credentials at all, simply comment out these properties.
+ * Create a "plugin" for your database driver:
+  * In the plugins directory create a .plugin and .plugin_bat file just like fitnesse_db.plugin, etc
+  * Change the directory structure to add the database driver to the classpath instead

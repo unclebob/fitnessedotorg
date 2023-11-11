@@ -1,0 +1,13 @@
+!3 Simulate some events, and see them in the log
+
+|!-HomeGuardFixtures.Control-!|
+|arm system|
+|disarm system|
+|arm system|
+
+
+!|HomeGuardFixtures.EventLogOutput|
+|sequence number|event|parameter|
+|1 |armed||
+|2 |disarmed||
+|3 |armed||

@@ -1,0 +1,1 @@
+This uses a very simple approach of counting each new and subtracting each delete and reporting when there is an imbalance in memory usage.

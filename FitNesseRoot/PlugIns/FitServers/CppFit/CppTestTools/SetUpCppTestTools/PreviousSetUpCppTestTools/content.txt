@@ -1,0 +1,66 @@
+!*> !3 Define CPP_TEST_TOOLS environment variable
+Set up the environment variable CPP_TEST_TOOLS to point to where you will install !-CppTestTools-!, I'll use !-c:/tools/CppTestTools-! in this example.  Make sure you use forward slashes in the path.  Windows does not care but gcc does.
+*!!*> !3 Download the latest
+For Micrsoft Visual Studio VC++6 (Let VS.NET upgrade the workspace to a solution)
+http://files/CppTestTools/CppTestTools-ms-200602111320.zip
+
+For gcc 
+http://files/CppTestTools/CppTestTools-gcc-200602131550.zip
+
+*!!*> !3 Unzip and Build
+Unzip and install the tools to a location such as c:/tools
+
+!-CppTestTools includes-! 
+ * !-UnitTestHarness-!
+ * !-CppFit-!
+ * !-NewClass.sh A shell script to create a ^NewClass-!
+
+Build the tools and run the unit tests either through [[gcc][^GccBuild]] or [[visual C++][^MsBuild]]
+
+The unit tests will report something like this
+{{{
+..................................................
+.............................
+OK (79 tests, 78 ran, 155 checks, 1 ignored, 0 filtered out)
+No leaks detected
+}}}
+If you have memory leaks look at this ^MemoryLeaks
+*!!*> !3 Install the !-NewClass-! shell script
+If you use linux, unix, cygwin or some unix emulator you can use the !-NewClass-! script.
+
+!-The InstallScripts.sh script will create a couple links in /usr/local/bin.  Run InstallScripts.sh by copying and pasting this command into a cygwin command window-!
+{{{
+   $CPP_TEST_TOOLS/CppSourceTemplates/InstallScripts.sh
+}}}
+
+!3 Note for UNIX installations
+  There are \r's in these shell scripts.  bash is not happy about them at least on OSX.  If you have trouble you can clear out the \r's with these commands.
+{{{
+perl -pi~ -e 's/\r\n?/\n/g InstallScripts.sh
+perl -pi~ -e 's/\r\n?/\n/g NewClass.sh
+perl -pi~ -e 's/\r\n?/\n/g NewInterface.sh
+perl -pi~ -e 's/\r\n?/\n/g NewCModule.sh
+perl -pi~ -e 's/\r\n?/\n/g GenerateSrcFiles.sh
+}}}
+*!!*> !3 Download the example Microsoft project
+For Micrsoft Visual Studio VC++6 (Let VS.NET upgrade the workspace to a solution)
+
+A microsoft example project
+http://files/CppTestTools/HomeGuard-ms-200602111223.zip
+
+Visual Studio Starter Project
+http://files/CppTestTools/VSStarterProject.zip
+
+*!!*> !3 Download the example gcc project
+A gcc example project
+http://files/CppTestTools/HomeGuard-gcc-200602110939.zip
+
+A gcc starter unit test only project
+http://files/CppTestTools/StarterUnitTestProject-gcc-200602111320.zip
+
+http://files/CppTestTools/HomeGuardTests20060305.zip
+*!!*> !3 !-Download the FitNesse pages for the example project-!
+
+!-HomeGuard FitNesse pages - unzip these into your FitNesseRoot and add a link on your FrontPage-!
+http://files/CppTestTools/HomeGuardTests20060305.zip
+*!

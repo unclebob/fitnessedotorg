@@ -1,0 +1,25 @@
+If you do these three step, you will be runing unit tests and fitnesse tests in C++ in no time.
+
+!3 Install !-FitNesse with CppTestTools integrated-!
+Unzip the fitnesse/CppTestTools bundle into some directory like d:/tools/fitnesse
+
+Acceptance test:
+    * double click d:/tools/fitnesse/run.bat
+    * open a browser
+    * navigate to http://localhost
+If port 80 is in use,
+    * edit run.bat and add "-p 81" to the fitnesse command line to specify port 81 (you choose the port)
+    * Then navigate to http://localhost:81
+
+!3 Build !-CppTestTools-! and sample projects
+Follow the directions on the !-FrontPage of the just downloaded FitNesse installation.-!
+
+!*> If you want to install cygwin ...
+http://www.cygwin.com/
+
+The standard install plus ''Devel'' package. You have to change ''Devel'' from ''default'' to ''install''.  This is pretty big and takes a while to download.  This is a unix command shell for windows and very useful.  It is used in Object Mentor courses.  If you are prepping for one of our courses, and you wait until the day of the class, it won't be pretty to have a class full of people simultaneously downloading cygwin.
+
+Acceptance test: 
+ * open a cygwin window. 
+ * enter commands make and gcc from a cygwin prompt and see an appropriate error.
+*!

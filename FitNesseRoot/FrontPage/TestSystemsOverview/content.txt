@@ -1,0 +1,24 @@
+#fitnesse
+When you decide to use FitNesse, there are multiple options for how to connect FitNesse to your system under test.  Each of these systems has their merits.
+
+'''This page is under construction.'''
+
+|'''Language'''|'''Fit'''        |'''Slim'''       |'''!-FitLibrary-!'''|
+|Java          |Yes (built-in)   |Yes (built in)   |Yes                 |
+|.Net          |Yes(!-FitSharp-!)|Yes(!-FitSharp-!)|Yes(!-FitSharp-!)   |
+|Python        |Yes              |Yes              |No                  |
+|Ruby          |Yes              |Yes              |No                  |
+|C             |No               |Yes              |No                  |
+|PHP           |Yes              |Yes              |No                  |
+|!-JavaScript-!|No               |Yes              |No                  |
+
+These variations can be found on the [[Downloads][.FrontPage.FitNesseDevelopment.DownLoad]] page.
+
+|'''Feature'''         |'''Fit'''        |'''Slim'''       |'''!-FitLibrary-!'''|'''!-FitSharp-!'''             |
+|In Active Development |No               |Yes              |Yes                 |Yes                            |
+|Column Table Type     |!-ColumnFixture-!|!-DecisionTable-!|!-ColumnFixture-!   |!-ColumnFixture/DecisionTable-!|
+|Row Fixture Table Type|!-RowFixture-!   |!-QueryTable-!   |                    |!-RowFixture/QueryTable-!      |
+|Reusable Script Blocks|No               |Scenarios        |Predefined Actions  |Scenarios                      |
+|Direct Object Access  |No               |System Under Test|!-DomainObject-!    |                               |
+
+

@@ -1,0 +1,19 @@
+ * '''Requires Java 5.'''
+ * [[!-WikiImport-!][.FitNesse.WikiImport]]:
+  * Only modified pages are updated
+  * Orphaned pages are deleted
+  * Edit button removed, Edit Locally, Edit Remotely buttons added
+  * Automatic Update option
+  * [[!-SymbolicPages-!][.FitNesse.SymbolicLinks]] are not included in imports
+ * [[Symbolic Links to external directories][.FitNesse.SymbolicLinks]]
+ * Fixed [[!-FitServer-!][.FitNesse.FitServer]] Classpath bug discussed on fitnesse yahoo group.
+ * Support for [[!-FitLibrary's-!][http://fitlibrary.sourceforge.net/]] SuiteFixture
+ * Applied Joel Shprentz's fix for test execution threading issue on Solaris
+ * Applied Randy Coulman's fix for for missing exceptions.
+ * Minor bug fix to the Anchor widget
+ * Fixed bug in files section where directories with spaces in the names caused problems.
+ * Rafactoring: made the reference refactoring optional for the Rename and Move refactorings.
+ * The last release continaing [[!-VirtualWiki-!][.FitNesse.MarkupVirtualWiki]]
+
+
+!release 20060719

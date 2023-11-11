@@ -1,0 +1,324 @@
+!release 20140201
+
+!3 FitNesse Release Notes 2014/02/01
+!note Uncle Bob Consulting LLC.
+
+!note !style_red(Requires Java 1.6)
+
+!4 Major Changes since [[20131110][FitNesseRelease20131110]]:
+
+!2 2014-02-01
+ * '''Files outside the http://files section can no longer be accessed!'''
+ * Updated bootstrap theme to bootstrap 3.
+ * Added hooks to add custom test systems.
+ * Pages can now be defined in a .TemplateLibrary. You can add your own page scaffolding.
+ * java.util.logging is now used for logging, instead of System.out/err.
+ * Support for more content types (in particular image types).
+ * Cleanup: removed packages fitnesse.runner, fitnesse.schedule.
+ * Refactoring: the code is a more modular than before. This makes it easier to integrate !-FitNesse-! components in other applications.
+ * Make Fit test runner no longer dependent on the wiki running: now the Fit test system starts it's own "socket catcher".
+ * The jUnit test running is starting a test runner by itself. It's no longer using !-FitNesseMain-!.
+ * Slim server can be kept running after test execution (-d option).
+ * Issues fixed:
+   * Unicode issues fixed.
+   * Stability fixes for Slim.
+   * Slim tables starting with "comment:" are considered comment tables.
+   * Bug in Fit that caused flow mode for !-FitLibrary's-! !-DoFixture-! to break.
+   * Bug where external HTML page suites were not displayed.
+   * Hash map rendering in rich text editor.
+
+For a complete list of closed issues and merged pull requests see https://github.com/unclebob/fitnesse/issues?direction=desc&milestone=4&page=1&sort=updated&state=closed.
+
+!4 Github ids of Contributors to this release:
+
+ * Arjan Molenaar
+ * Arnout Engelen
+ * Barre Dijkstra
+ * Daniel Woodward
+ * Mark Hopkins
+ * Nicole Rauch
+ * Serge Zukov
+
+!meta Thanks to all of you!
+
+!3 Git History
+
+!|2014-02-01|Arjan Molenaar|Updated release notes.|
+|2014-01-25|Arjan Molenaar|Revive JUnitHelper class.|
+|2014-01-25|Arjan Molenaar|Make FitNesseSuite.initContext() static.|
+|2014-01-22|Arjan Molenaar|Remove throws classes that are not actually thrown.|
+|2014-01-22|Arjan Molenaar|Fixed nasty timing bug in unit tests.|
+|2014-01-22|Arjan Molenaar|Merge branch 'master' of github.com:unclebob/fitnesse|
+|2014-01-22|Arjan Molenaar|Merge pull request #395 from raboof/contextInitialization|
+|2014-01-22|Arjan Molenaar|Merge pull request #396 from markhop/building_on_windows|
+|2014-01-21|Arnout Engelen|Less public global defaults for configuration|
+|2014-01-21|Mark Hopkins|Fix build on windows by using native file separator|
+|2014-01-21|Arnout Engelen|Push arguments into ContextConfigurator directly|
+|2014-01-21|Arnout Engelen|Merge FitNesseUtil.Builder and ContextConfigurator|
+|2014-01-21|Arnout Engelen|Re-use ContextConfigurator's private properties, Builder-style|
+|2014-01-21|Arnout Engelen|Limit use of FitNesseContext.Builder|
+|2014-01-21|Arnout Engelen|Merge branch 'master' into contextInitialization|
+|2014-01-21|Arnout Engelen|Process options/properties by updating the context|
+|2014-01-21|Arnout Engelen|Put configuration defaults in one place|
+|2014-01-20|Arnout Engelen|initialize with a configurator|
+|2014-01-18|Arjan Molenaar|Add fitNesseRoot property to FitnesseDir annotation. Fixes #229|
+|2014-01-18|Arjan Molenaar|Fix method name|
+|2014-01-18|Arjan Molenaar|Cleanup in FitNesseSuite.|
+|2014-01-18|Arjan Molenaar|Cleanup: remove now unused code.|
+|2014-01-18|Arjan Molenaar|Move WikiPageDescriptor to test package.|
+|2014-01-18|Arjan Molenaar|Created WikiPageIdentity. This class takes over the responsibility of identifying pages for grouping in a single suite.|
+|2014-01-18|Arjan Molenaar|Set inProcess and RemoteDebug properties on test runner.|
+|2014-01-18|Arjan Molenaar|Use delegate isDebug() for ClientBuider.|
+|2014-01-18|Arjan Molenaar|Remove instance variable from PagesByTestSystem.|
+|2014-01-18|Arjan Molenaar|Deal with separate inProcess property, instead of modifying the test runner name.|
+|2014-01-17|Arjan Molenaar|Make ClientBuilder.descriptor private.|
+|2014-01-17|Arjan Molenaar|Move all command construction logic from Descriptor to ClientBuilder.|
+|2014-01-16|Arjan Molenaar|Descriptor needs to loose weight. Shifted some code around.|
+|2014-01-13|Arjan Molenaar|Updated release notes.|
+|2014-01-13|Arjan Molenaar|Merge pull request #387 from amolenaar/junit-testrunner|
+|2014-01-13|Arjan Molenaar|Merge pull request #386 from amolenaar/import-traverser|
+|2014-01-13|Arjan Molenaar|Merge pull request #388 from raboof/query_table|
+|2014-01-13|Arnout Engelen|Fix query table example|
+|2014-01-12|Arjan Molenaar|Comment tables can also start with “comment:”.|
+|2014-01-12|Arjan Molenaar|@Port annotation for JUnit runner is deprecated.|
+|2014-01-12|Arjan Molenaar|Update JUnit runner documentation.|
+|2014-01-12|Arjan Molenaar|Reorganize FitNesseSuite for readability.|
+|2014-01-12|Arjan Molenaar|Can set config file for JUnit runner.|
+|2014-01-12|Arjan Molenaar|Use ContextConfigurator in FitNesseSuite.|
+|2014-01-12|Arjan Molenaar|Move property file loading to ConfigurationParameter class. Properties creators get parent properties.|
+|2014-01-03|Arjan Molenaar|Let FitNesseSuite execute MulitpleTestRunner directly.|
+|2014-01-12|Arjan Molenaar|Fix JUnit dependency. Now proper messages are displayed in IntelliJ|
+|2014-01-11|Arjan Molenaar|Use TreeMaps for Wiki page properties.|
+|2014-01-11|Arjan Molenaar|Avoid NullPointer exceptions when sending invalid page name|
+|2014-01-11|Arjan Molenaar|Add a default TemplateLibrary to the distro.|
+|2014-01-11|Arjan Molenaar|Rename WikiPageProperties.isImported to isImportedSubWiki.|
+|2014-01-11|Arjan Molenaar|Remove virtual page css.|
+|2014-01-11|Arjan Molenaar|Fix title on import page.|
+|2014-01-11|Arjan Molenaar|Remove TestEventListener and all related code.|
+|2014-01-11|Arjan Molenaar|Move ImportError to traverser class.|
+|2014-01-11|Arjan Molenaar|Move the actual importing logic for WikiImportingResponder to WIkiImportingTraverser|
+|2014-01-11|Arjan Molenaar|Fix exception when suite is run without test pages.|
+|2014-01-10|Arjan Molenaar|Code cleanup in wiki importer code.|
+|2014-01-09|Arjan Molenaar|Move content filter to a filter.|
+|2014-01-09|Arjan Molenaar|Filters should be responder instances.|
+|2014-01-06|Arjan Molenaar|Fix issue where multiple page types could be set when creating a new page.|
+|2014-01-06|Arjan Molenaar|Add Filters to ResponderFactory.|
+|2014-01-06|Arjan Molenaar|Make CustomComparatorRegistory no longer static.|
+|2014-01-06|Arjan Molenaar|Remove static table type map from SlimTableFactory.|
+|2014-01-06|Arjan Molenaar|Make test system factory configurable in FitNesseContext.|
+|2014-01-06|Arjan Molenaar|Use ComponentFactory to create plugin components.|
+|2014-01-06|Arjan Molenaar|Scenario tests should not extend SlimTestContext.|
+|2014-01-06|Arjan Molenaar|Merge pull request #385 from amolenaar/arguments|
+|2014-01-05|Arjan Molenaar|Cleanup|
+|2014-01-05|Arjan Molenaar|Merge pull request #377 from raboof/keep_slim_service_running|
+|2014-01-03|Arjan Molenaar|Merge pull request #379 from NicoleRauch/master|
+|2014-01-03|Arjan Molenaar|Merge pull request #376 from raboof/kill_stuck_slim|
+|2014-01-02|Arjan Molenaar|Merge pull request #384 from amolenaar/fit-modular|
+|2014-01-02|Arjan Molenaar|Merge branch 'master' into fit-modular|
+|2014-01-02|Arjan Molenaar|Put test classes in their own directory.|
+|2014-01-02|Arjan Molenaar|Remove unneeded sleep times in test.|
+|2014-01-01|Arjan Molenaar|The big cleanup: remove all code not needed for Fit to function.|
+|2014-01-01|Arjan Molenaar|Let FitClient spin up its own server.|
+|2013-12-31|Arjan Molenaar|Move FitClient builder out of FitTestSystem.|
+|2013-12-30|Arjan Molenaar|Provide ticketNumber from CommandRunningFitClient;|
+|2013-12-30|Arjan Molenaar|Make FitClient a parameter instead of instance variable for CommandRunningStrategy.|
+|2013-12-30|Arjan Molenaar|Move host detection back into CommandRunningFitClient.|
+|2013-12-30|Arjan Molenaar|Leave the command runner as property of CommandRunningStrategy.|
+|2013-12-30|Arjan Molenaar|Move parameters from CommandRunningStrategy.init() to the constructors.|
+|2013-12-30|Arjan Molenaar|Added FitClient.addFitClientListener.|
+|2013-12-29|Arjan Molenaar|Cleanup and added notifiers for future expansion.|
+|2013-12-29|Arjan Molenaar|Move all Fit specific responder logic to fitnesse.testsystems.fit.|
+|2014-01-01|Arjan Molenaar|Record also process closing errors in Slim service.|
+|2013-12-29|Arjan Molenaar|Apply “bad table” message to table in HtmlSlimTestSystem.|
+|2013-12-29|Arjan Molenaar|Removed SlimTestSystem.exceptionToString().|
+|2013-12-29|Arjan Molenaar|Clean up JUnitHelper interface.|
+|2013-12-29|Arjan Molenaar|Remove TestHelper, move remaining bits to JUnitHelper.|
+|2013-12-29|Arjan Molenaar|Move command url construction to separate class.|
+|2013-12-29|Arjan Molenaar|Updated documentation for new configuration style.|
+|2013-12-28|Arjan Molenaar|Move default config file property to ContextConfigurator.|
+|2013-12-28|Arjan Molenaar|Change ConfigurationParameter to an enum.|
+|2013-12-28|Arjan Molenaar|Move all configuration parameter constants to one class.|
+|2013-12-16|Arjan Molenaar|Clean up arguments class.|
+|2013-12-16|Arjan Molenaar|Remove conditional statements from FItNesseContext|
+|2013-12-28|Arjan Molenaar|Let SuiteHistoryFormatter use timer info from TestXmlFormatter.|
+|2013-12-28|Arjan Molenaar|Merge branch 'formatters'|
+|2013-12-25|Arjan Molenaar|Print empty-page message from formatter, instead of responder.|
+|2013-12-25|Arjan Molenaar|Add default implementations to BaseFormatter.|
+|2013-12-25|Arjan Molenaar|Move all history/xml related formatter code in one package.|
+|2013-12-24|Arjan Molenaar|Merge SuiteHistoryFormatter and SuiteExecutionReportFormatter.|
+|2013-12-24|Arjan Molenaar|Remove CachingSuiteXmlFormatter.|
+|2013-12-24|Arjan Molenaar|New Suite formatter: SuiteXmlReformatter.|
+|2013-12-24|Arjan Molenaar|Make SuireExecutionReportFormatter.suiteExecutionReport private.|
+|2013-12-24|Arjan Molenaar|Add todo’s for suite xml formatter.|
+|2013-12-24|Arjan Molenaar|clean up suiteHistoryXML.vm|
+|2013-12-24|Arjan Molenaar|Rename XmlFormatter to TestXmlFormatter.|
+|2013-12-24|Arjan Molenaar|Small cleanup on TestFormatterTest|
+|2013-12-24|Arjan Molenaar|Remove unused code form TestExecutionReport.|
+|2013-12-19|Arjan Molenaar|Do not print nav header.|
+|2013-12-16|Arjan Molenaar|Made *ExecutionReport attributes private.|
+|2013-12-16|Arjan Molenaar|Make TestExecutionReport.results private.|
+|2013-12-14|Nicole Rauch|Added decimal separator i18n support to the remaining unit tests (where required).|
+|2013-12-13|Arjan Molenaar|Remove long ignored test|
+|2013-12-13|Arjan Molenaar|Make rootPath and rootDirectoryName private|
+|2013-12-13|Arjan Molenaar|User context.getRootPagePath() in wiki updater.|
+|2013-12-12|Arjan Molenaar|User context.getRootPagePath() in FileResponderTest.|
+|2013-12-12|Arjan Molenaar|use context.getRootPagePath() in PageFactory.|
+|2013-12-12|Arjan Molenaar|Can now configure all of FitNesse through properties.|
+|2013-12-11|Arjan Molenaar|Moved context creation to ContextConfigurator.|
+|2013-12-10|Arjan Molenaar|Let PluginLoader raise it’s own exception: PluginException.|
+|2013-12-10|Daniel Woodward|Added Thomas Letzkus’s improvement to the Failure Navigator to do horizontal scrolling in addition to vertical to get to the failure.|
+|2013-12-10|Arnout Engelen|Add an option to run slim as a 'daemon': keep running indefinitely|
+|2013-12-09|Arjan Molenaar|Merge pull request #376 from raboof/kill_stuck_slim|
+|2013-12-09|Arnout Engelen|Don't try to get the exit code when the process is not yet dead|
+|2013-12-09|Arnout Engelen|Use more common for loop pattern|
+|2013-12-09|Arjan Molenaar|Set theme to bootstrap for development.|
+|2013-12-09|Arjan Molenaar|Merge branch 'files-sandbox', #374.|
+|2013-12-09|Arjan Molenaar|Merge pull request #373 from barredijkstra/i18n-unittests|
+|2013-12-09|Barre Dijkstra|Removed redundant imports|
+|2013-12-09|Barre Dijkstra|Added decimal separator i18n support to the SuiteHtmlFormatterTest|
+|2013-12-09|Arjan Molenaar|Merge pull request #372 from sergebug/master|
+|2013-12-06|Serge Zukov|The "All" target should include acceptance_tests.|
+|2013-12-06|Serge Zukov|Resolved TestImportingUnicodeCharacters acceptance test failure on Windows. MemoryFileSystem did not use UTF-8 as charset.|
+|2013-12-06|Arjan Molenaar|RootPath should be the full page name|
+|2013-12-06|Arjan Molenaar|Removed PageHistoryFormatter.|
+|2013-12-06|Arjan Molenaar|Move static file generation helpers to TestResponder. Removed getPageForHistory.|
+|2013-12-05|Arjan Molenaar|Use PageHistoryFormatter as a composite of SuiteHistoryFormatter.|
+|2013-12-05|Arjan Molenaar|Make BaseFormatter.page private final.|
+|2013-12-02|Arjan Molenaar|Do no longer call Formatter.close() from Formatter.errorOccurred().|
+|2013-12-01|Arjan Molenaar|Can not upload files outside files section.|
+|2013-12-01|Arjan Molenaar|Can no longer create directories outside files section.|
+|2013-12-01|Arjan Molenaar|Check path for to-be deleted files.|
+|2013-12-01|Arjan Molenaar|Ensure files can not be renamed outside files section.|
+|2013-12-01|Arjan Molenaar|Ensure file listing outside files/ section are not possible.|
+|2013-12-06|Arjan Molenaar|Was a little to fast. Need to check unit tests first.|
+|2013-12-06|Arjan Molenaar|Fix layout issues in suite history page.|
+|2013-12-06|Arjan Molenaar|Make test execution report layout more in line with test execution.|
+|2013-12-05|Serge Zukov|Closed scanner|
+|2013-12-04|Arjan Molenaar|Register an exception if query table gets invalid input.|
+|2013-12-04|Arjan Molenaar|WikiPageUtil.setPageContent() does not need to throw Exception.|
+|2013-12-04|Arjan Molenaar|Restore fixture used on QueryTable example page.|
+|2013-12-01|Arjan Molenaar|Can not upload files outside files section.|
+|2013-12-01|Arjan Molenaar|Can no longer create directories outside files section.|
+|2013-12-01|Arjan Molenaar|Check path for to-be deleted files.|
+|2013-12-01|Arjan Molenaar|Ensure files can not be renamed outside files section.|
+|2013-12-01|Arjan Molenaar|Ensure file listing outside files/ section are not possible.|
+|2013-11-29|Arjan Molenaar|Improve encapsulation for HtmlTag.|
+|2013-11-29|Arjan Molenaar|Remove divs from rendered content.|
+|2013-11-29|Arjan Molenaar|Update release notes.|
+|2013-11-29|Arjan Molenaar|Update plugin usage documentation.|
+|2013-11-28|Arjan Molenaar|Command line properties take precedence over properties configured in the config file.|
+|2013-11-28|Arjan Molenaar|Add TestSystem example to plugins.properties|
+|2013-11-28|Arjan Molenaar|Merge branch 'add-test-systems'|
+|2013-11-28|Arjan Molenaar|Replace constant by variable in SetUp.|
+|2013-11-28|Arjan Molenaar|Add acceptance test for adding custom test systems.|
+|2013-11-28|Arjan Molenaar|Little cleanup in FitNesseMain.|
+|2013-11-28|Arjan Molenaar|Merge pull request #370 from sergebug/master|
+|2013-11-28|Arjan Molenaar|Merge branch 'master' into add-test-systems|
+|2013-11-28|Arjan Molenaar|Merge branch 'fit-revert': reverts Fit changes from #281.|
+|2013-11-27|Serge Zukov|FitNesse used text/plain as the content type for images.|
+|2013-11-27|Arjan Molenaar|Fixed 368: External suite pages not working.|
+|2013-11-27|Arjan Molenaar|Log failed calls to page responders.|
+|2013-11-24|Arjan Molenaar|Make field in Arguments class final.|
+|2013-11-24|Arjan Molenaar|Remove unused method.|
+|2013-11-24|Arjan Molenaar|Hook up test systems loading to main app.|
+|2013-11-24|Arjan Molenaar|Generalised common key:className code.|
+|2013-11-24|Arjan Molenaar|Can load test systems via plugins loader.|
+|2013-11-24|Arjan Molenaar|Merge branch 'master' into HEAD|
+|2013-11-23|Arjan Molenaar|Make page order resolving logic somewhat more functional.|
+|2013-11-24|Arjan Molenaar|Fix custom comparator test.|
+|2013-11-23|Arjan Molenaar|Let PagesByTestSystem and the surrounder class work with just wiki pages.|
+|2013-11-23|Arjan Molenaar|Externalise creation of Descriptor outside of PagesByTestSystem algorithm.|
+|2013-11-23|Arjan Molenaar|Little cleanup in ClassPathBuilder.|
+|2013-11-23|Arjan Molenaar|Move page-by-test-system ordering to a separate class.|
+|2013-11-22|Arjan Molenaar|Explicitly set TestingTracker on MultipleTestsRunner.|
+|2013-11-22|Arjan Molenaar|Updated unit tests for MultipleTestsRunner.|
+|2013-11-22|Arjan Molenaar|Inject TestSystemFactory in MultipleTestRunner.|
+|2013-11-22|Arjan Molenaar|Move test system creation to separate factory. Clean up TestSystemFactory interface.|
+|2013-11-21|Arjan Molenaar|Remove dependency on FitNesseContext for FitTestSystem.|
+|2013-11-21|Arjan Molenaar|Get rid of fastTest property in TestSystemGroup.|
+|2013-11-21|Arjan Molenaar|Revert "Merge pull request #281 from MartinGijsen/master"|
+|2013-11-21|Arjan Molenaar|Update restful service docs. Fixes #352.|
+|2013-11-20|Arjan Molenaar|Buttons should be properly aligned.|
+|2013-11-20|Arjan Molenaar|Merge branch 'bootstrap3'|
+|2013-11-20|Arjan Molenaar|Merge branch 'separate-tests'|
+|2013-11-20|Arjan Molenaar|Merge branch 'autumn-cleanup'|
+|2013-11-20|Arjan Molenaar|Make Failure navigator a lot more fancy for bootstrap.|
+|2013-11-20|Arjan Molenaar|Update default progress bar and test summary style.|
+|2013-11-20|Arjan Molenaar|Cleaned up some styles. Make edit page look better.|
+|2013-11-20|Arjan Molenaar|Fix styling for simple forms.|
+|2013-11-20|Arjan Molenaar|Fix breadcrumbs for DeletePage responder.|
+|2013-11-20|Arjan Molenaar|Updated styles for test results (progress bar and test summary).|
+|2013-11-20|Arjan Molenaar|Update menu|
+|2013-11-20|Arjan Molenaar|Fix #362: Provide Add button in bootstrap theme in case TemplateLibrary is absent.|
+|2013-11-20|Arjan Molenaar|Fix #364: hash table rendering in rich text editor.|
+|2013-11-18|Arjan Molenaar|Removed unused Slim test support classes.|
+|2013-11-18|Arjan Molenaar|Clean up and ignore test-classes directory.|
+|2013-11-18|Arjan Molenaar|Moved test support classes to test/|
+|2013-11-18|Arjan Molenaar|Move wikitext.test to wikitext.parser.|
+|2013-11-18|Arjan Molenaar|Move test files to test package.|
+|2013-11-18|Arjan Molenaar|Move pom.xml template to extra folder|
+|2013-11-18|Arjan Molenaar|Removed config.|
+|2013-11-18|Arjan Molenaar|Remove testability script.|
+|2013-11-18|Arjan Molenaar|Remove IzPack installer config.|
+|2013-11-18|Arjan Molenaar|Remove Crap4J stuff.|
+|2013-11-18|Arjan Molenaar|Remove .Net note from README.|
+|2013-11-18|Arjan Molenaar|Remove unused package extra/release.|
+|2013-11-18|Arjan Molenaar|Move Ant tasks.properties to src/|
+|2013-11-18|Arjan Molenaar|Remove obsolete fit/slim server tests.|
+|2013-11-18|Arjan Molenaar|Remove .Net binaries.|
+|2013-11-18|Arjan Molenaar|Remove .Net specific pages from UserGuide.|
+|2013-11-17|Arjan Molenaar|Remove fitnesse.runner package and accompanying responder.|
+|2013-11-17|Arjan Molenaar|Remove package fitnesse.schedule.|
+|2013-11-17|Arjan Molenaar|Move class path magic to PluginsClassLoader|
+|2013-11-17|Arjan Molenaar|Simplify LogData class.|
+|2013-11-15|Arjan Molenaar|Remove license manager code.|
+|2013-11-15|Arjan Molenaar|Move Trivia game example to eg package.|
+|2013-11-15|Arjan Molenaar|Update templates to accommodate for new bootstrap version.|
+|2013-11-15|Arjan Molenaar|Update bootstrap theme to v3.|
+|2013-11-13|Arjan Molenaar|Merge branch 'java-logging'|
+|2013-11-12|Arjan Molenaar|Merge branch 'template-page'|
+|2013-11-12|Arjan Molenaar|Merge pull request #356 from sergebug/master|
+|2013-11-07|Serge Zukov|Merge branch 'master' of https://github.com/sergebug/fitnesse.git|
+|2013-11-07|Serge Zukov|Unit test expected unix-like file separator "/" which cause failure in windows. Used File.pathSeparator to make tests "universal".|
+|2013-11-07|Serge Zukov|used pathSeparator instead of separator. Fixed now.|
+|2013-11-07|Serge Zukov|Unit test expected unix-like file separator "/" which cause failure in windows. Used File.pathSeparator to make tests "universal".|
+|2013-11-07|Serge Zukov|Merge branch 'master' of https://github.com/sergebug/fitnesse.git|
+|2013-11-07|Serge Zukov|MemoryFileSystem used unix-like path separator. This was causing fitnesse.wiki.fs.FileSystemPageFactoryTest.DirectoryOfHtmlFilesIsExternalSuitePageChild failure on Windows|
+|2013-11-05|Serge Zukov|Merge branch 'master' of https://github.com/unclebob/fitnesse.git|
+|2013-10-28|Serge Zukov|Merge remote-tracking branch 'upstream/master'|
+|2013-10-15|Serge Zukov|Test was failing on Windows due to the /r/n line feeds.|
+|2013-10-11|Arjan Molenaar|Replace stderr/printStackTrace by log statements.|
+|2013-10-11|Arjan Molenaar|Merge branch 'master' into java-logging|
+|2013-09-23|Arjan Molenaar|Do not log class name.|
+|2013-09-23|Arjan Molenaar|Use class name for logger, instead of subsystem name. Seems like everybody does it this way.|
+|2013-09-21|Arjan Molenaar|Few more places where e.printStackTrace can be replaced by logging.|
+|2013-09-21|Arjan Molenaar|add -v option to usage message|
+|2013-09-21|Arjan Molenaar|Clean up page creator class|
+|2013-09-21|Arjan Molenaar|Remove e.printStackTrace from fitnesse.testsystems|
+|2013-09-21|Arjan Molenaar|Remove e.printStackTrace from fitnesse.testrunner|
+|2013-09-21|Arjan Molenaar|Remove e.printStackTrace from fitnesse.responders|
+|2013-09-21|Arjan Molenaar|Remove e.printStackTrace from fitnesse.reporting|
+|2013-09-21|Arjan Molenaar|Remove unneeded throws definition from fitnesse.authentication.SecureOperation.|
+|2013-09-21|Arjan Molenaar|Remove e.printStackTrace from fitnesse package|
+|2013-09-21|Arjan Molenaar|Remove unneeded catch clauses from fitnesse.wikitext package.|
+|2013-09-20|Arjan Molenaar|Use Logger where System.{out|err} was used. Except for usage messages.|
+|2013-09-20|Arjan Molenaar|Use Ant logger for Ant Tasks.|
+|2013-09-20|Arjan Molenaar|Fix FitNessMain unit test. Stuff is logged on stderr now.|
+|2013-09-20|Arjan Molenaar|Added comment for logger|
+|2013-09-20|Arjan Molenaar|Print stack traces for log messages warning and up.|
+|2013-09-20|Arjan Molenaar|Use logger for responders|
+|2013-09-20|Arjan Molenaar|Use logger for wiki components, instead of System.err and e.printStackTrace()|
+|2013-09-20|Arjan Molenaar|Let updater use logger instead of System.err|
+|2013-09-20|Arjan Molenaar|Let FitNesse main class use logger instead of System.err|
+|2013-09-20|Arjan Molenaar|Update logger format|
+|2013-09-19|Arjan Molenaar|Only add log level for > INFO messages.|
+|2013-09-19|Arjan Molenaar|Add -v option. Allows for debug logging|
+|2013-09-19|Arjan Molenaar|Copy logging properties as part of compile step.|
+|2013-09-19|Arjan Molenaar|Move Arguments to fitnesseMain|
+|2013-09-19|Arjan Molenaar|Provide simple log formatter.|
+|2013-09-19|Arjan Molenaar|Add logging in FitNesseMain.|
+|2013-07-10|Arjan Molenaar|Use Java logging in main classes, instead of stdout.|
+|2013-09-13|Arjan Molenaar|remove unused variable.|
+|2013-09-13|Arjan Molenaar|Also set page properties same as template page.|
+|2012-12-12|Arjan Molenaar|Add default page templates|
+|2012-12-12|Arjan Molenaar|Look in TemplateLibrary for new page templates|

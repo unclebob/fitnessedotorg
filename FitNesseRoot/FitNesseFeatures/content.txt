@@ -1,0 +1,12 @@
+!2 !-FitNesse-! is ''the'' acceptance test wiki.
+!3 !-FitNesse-! is an easy to use wiki web server
+The wiki syntax in !-FitNesse-! is minimalistic and helps you concentrate on the content. It has a rich-text editor for those not really into the wiki markup. The rich-text editor has extra features to support table creation and modification, something you'll love when creating test tables in !-FitNesse-!.
+
+!3 Easy to set up: just download the application (a Java jar file) and start it.
+!-FitNesse-! comes as an all-on-one package. Starting !-FitNesse-! is as simple as starting the Java jar file. Wiki pages are stored as files, so there is no hassle with databases. !-FitNesse-! can be run on your machine or on a server. The http://fitnesse.org website is running !-FitNesse-!.
+
+!3 Specifications/requirements can be used as test input
+Since !-FitNesse-! is a wiki, it's not in the way when you reason about requirements for your (software) project. !-FitNesse-! allows you to validate those requirements with the actual software implementation. If your project is written in Java, it's a piece of cake. However !-FitNesse-! plays well with [[every language and environment][PlugIns]].
+
+!3 The major languages are supported
+Yes! Whether your project is written in Java, Python or C#, !-FitNesse-! can be hooked in and you can automate the test process. See the PlugIns page for impementations.

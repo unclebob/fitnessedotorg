@@ -1,0 +1,208 @@
+!release 20160515
+
+!3 FitNesse Release Notes 2016/05/15
+!note Uncle Bob Consulting LLC.
+
+!note !style_red(Requires Java 1.7)
+
+!4 Major Changes since [[20151230][FitNesseRelease20151230]]:
+
+ * FitNesse requires Java 7 now ([[#872][https://github.com/unclebob/fitnesse/issues/872]], [[#877][https://github.com/unclebob/fitnesse/issues/877]])
+ * New autocomplete feature for the "move page" page ([[#867][https://github.com/unclebob/fitnesse/issues/867]])
+ * Name the link to execution log simply "Execution Log" ([[#851][https://github.com/unclebob/fitnesse/issues/851]])
+ * Dynamically add fitnesse jartoclasspath ([[#862][https://github.com/unclebob/fitnesse/issues/862]], [[#866][https://github.com/unclebob/fitnesse/issues/866]])
+ * Searching for tags across Symbolic links ([[#488][https://github.com/unclebob/fitnesse/issues/488]], [[#888][https://github.com/unclebob/fitnesse/issues/888]])
+ * Add support for table-in-table editing in rich text editor ([[#669][https://github.com/unclebob/fitnesse/issues/669]], [[#885][https://github.com/unclebob/fitnesse/issues/885]])
+ * ''!-@SystemUnderTest-!'' now accepts method calls from subclasses ([[#907][https://github.com/unclebob/fitnesse/issues/907]])
+ * Disallow uploading to folder ''files/fitnesse'' ([[#889][https://github.com/unclebob/fitnesse/issues/889]])
+ * Avoid infinite cycles when using symlinks ([[#888][https://github.com/unclebob/fitnesse/issues/888]])
+ * (Slim) Deal with escaping content in hash table ([[#886][https://github.com/unclebob/fitnesse/issues/886]])
+ * Properly handle symbol assignment in first column of a query table ([[#914][https://github.com/unclebob/fitnesse/issues/914]])
+ * Issues fixed:
+   * !-CompareVersions-! responder is not escaping output properly ([[#861][https://github.com/unclebob/fitnesse/issues/861]], [[#869][https://github.com/unclebob/fitnesse/issues/869]])
+   * Improve code by honoring ''InterruptedException'' ([[#874][https://github.com/unclebob/fitnesse/issues/874]])
+   * FitNesse stops again when calling /?shutdown ([[#875][https://github.com/unclebob/fitnesse/issues/875]])
+   * Fixed: Running suites does not show the tests summaries ([[#876][https://github.com/unclebob/fitnesse/issues/876]])
+   * Fix escaping of HTML in Slim hash tables ([[#878][https://github.com/unclebob/fitnesse/issues/878]])
+   * Fix class loading for FitNesse resources ([[#880][https://github.com/unclebob/fitnesse/issues/880]])
+   * Change json content type from ''text/json'' to ''applicatioin/json'' ([[#891][https://github.com/unclebob/fitnesse/issues/891]])
+   * JUnit runner now plays nice with Gradle ([[#909][https://github.com/unclebob/fitnesse/issues/909]])
+   
+
+!4 Github ids of Contributors to this release:
+
+ * Alex de Kruijff
+ * Alexander Orlov
+ * Anis Ben Hamidene
+ * Arjan Molenaar
+ * Gert-Jan van der Heiden
+ * Gordon Meiser
+ * Hans Joachim Desserud
+ * Jakub Goszczurny
+ * Luca Favatella
+ * !-LudovicVa-!
+ * sgo
+ * six42
+ * the-noob
+
+!meta Thanks to all of you!
+
+!3 Git History
+
+!|2016-05-15|Arjan Molenaar|Update release notes.|
+|2016-05-15|Arjan Molenaar|Merge pull request #914 from szczurmys/master|
+|2016-05-15|Arjan Molenaar|Merge pull request #912 from the-noob/master|
+|2016-05-13|Jakub Goszczurny|Ignore symbol assignment in QueryTable.scoreMatch(...).|
+|2016-05-06|the-noob|Improved formatting for ScriptTable|
+|2016-04-27|Arjan Molenaar|Update release notes.|
+|2016-04-25|Arjan Molenaar|Make wiki formatter work with nested tables. Fixes #887.|
+|2016-04-25|Arjan Molenaar|Hash table is a Map<String, String>.|
+|2016-04-25|Arjan Molenaar|Merge pull request #909 from sgo/issue-908|
+|2016-04-25|sgo|refactored JUnitRunNotifierResultsListener.testComplete to fire test finished once at the end instead of for every branch of the if-else structure.|
+|2016-04-23|sgo|JUnit run notifier will fire test finished as well after test failures as some result listeners expect this behavior.|
+|2016-04-23|Arjan Molenaar|Remove duplicates: expandPrefix in WikiWord and WikiWordReference.|
+|2016-04-23|Arjan Molenaar|Remove duplicate code in QueryTable/SubQueryTable.|
+|2016-04-23|Arjan Molenaar|Perform `Explicit type can be repalced with <>` refactoring on project.|
+|2016-04-22|Arjan Molenaar|Merge branch 'LudovicVa-master'|
+|2016-04-14|Arjan Molenaar|Add an example for using SlimTableFactory.addAlias().|
+|2016-04-14|Arjan Molenaar|Boyscouting; improve code with Java 7 syntax.|
+|2016-04-13|Arjan Molenaar|Merge pull request #907 from GJatKvK/master|
+|2016-04-12|Gert-Jan van der Heiden|SystemUnderTest now accepts method calls from subclass.|
+|2016-04-06|Arjan Molenaar|Merge pull request #905 from hansjoachim/sonarqube-java-7|
+|2016-04-06|Arjan Molenaar|Merge pull request #904 from hansjoachim/warnings|
+|2016-04-03|Hans Joachim Desserud|Tells SonarQube the project uses Java7|
+|2016-04-03|Hans Joachim Desserud|Since the iterator contains Strings, use more explicit type|
+|2016-04-03|Hans Joachim Desserud|Merge remote-tracking branch 'origin/master' into warnings|
+|2016-04-01|Arjan Molenaar|remove redundant credentials|
+|2016-03-30|Arjan Molenaar|Give ChunkedResponse a proper close() method, do now swallow exceptions.|
+|2016-03-30|Arjan Molenaar|Merge pull request #889 from amolenaar/files-fitnesse-upload|
+|2016-03-29|Arjan Molenaar|Extends Closeable, instead of implementing close ourselves.|
+|2016-03-25|Arjan Molenaar|Update release notes|
+|2016-03-22|Arjan Molenaar|Add editorconfig file. See http://editorconfig.org|
+|2016-03-18|Hans Joachim Desserud|Add missing Override annotations|
+|2016-03-18|Hans Joachim Desserud|Remove redundant casting|
+|2016-03-18|Hans Joachim Desserud|Use StringBuilder.append instead of concatenating Strings for all Strings in this method|
+|2016-03-18|Hans Joachim Desserud|Convert fields to local variables where possible|
+|2016-03-18|Hans Joachim Desserud|Remove unused imports|
+|2016-03-20|Arjan Molenaar|Merge pull request #896 from akruijff/master|
+|2016-03-20|Arjan Molenaar|Reduce log message when data could not be sent to FINE.|
+|2016-03-20|Alex de Kruijff|Remove unnecessary code from SlimTestSystem|
+|2016-03-19|Arjan Molenaar|Merge pull request #888 from amolenaar/symlink-cycles|
+|2016-03-19|Arjan Molenaar|Merge pull request #886 from amolenaar/htmlutil-cleanup|
+|2016-03-19|Arjan Molenaar|Merge pull request #894 from lucafavatella/wiki-slim-formatting|
+|2016-03-19|Arjan Molenaar|Merge pull request #893 from lucafavatella/wiki-typo|
+|2016-03-19|Luca Favatella|Revert spurious strike-through in slim protocol page|
+|2016-03-18|Luca Favatella|Fix typo|
+|2016-03-18|Arjan Molenaar|Merge pull request #890 from lucafavatella/wiki-formatting|
+|2016-03-17|Arjan Molenaar|Fix content-type in tests.|
+|2016-03-17|Arjan Molenaar|Merge pull request #891 from nitrok/json-content-type|
+|2016-03-17|Alexander Orlov|Change json content type from text/json to applicatioin/json|
+|2016-03-17|Luca Favatella|Fix formatting|
+|2016-03-16|Luca Favatella|Fix formatting|
+|2016-03-15|Arjan Molenaar|Disallow uploading to files/fitnesse.|
+|2016-03-15|Arjan Molenaar|Break cycles created by Symlinks.|
+|2016-03-10|Arjan Molenaar|Fix escaping for nested tables in hash table.|
+|2016-03-10|Arjan Molenaar|Merge pull request #885 from amolenaar/inline-tables|
+|2016-03-10|Arjan Molenaar|Updated documentation for Maven plugins. Fixes #865.|
+|2016-03-10|Arjan Molenaar|Add fitnesse debug bookmark back to documentation. Fixed #873.|
+|2016-03-08|Arjan Molenaar|Update release notes.|
+|2016-03-08|Arjan Molenaar|Escape and unescape hash table contents.|
+|2016-03-08|Arjan Molenaar|Clean up MapConverter.|
+|2016-03-08|Arjan Molenaar|Clean up fitnesse.html.HtmlUtil.|
+|2016-03-07|Arjan Molenaar|Use class' class loader instead of the system one.|
+|2016-03-07|LudovicVa|addAlias|
+|2016-03-06|Arjan Molenaar|Fix scrolling of edit page.|
+|2016-03-06|Arjan Molenaar|Just do column spanning after all parsing is done.|
+|2016-03-05|Arjan Molenaar|Fix column spanning for nested tables.|
+|2016-03-05|Arjan Molenaar|Can now actually add nested tables.|
+|2016-03-05|Arjan Molenaar|Change single switch to if statement.|
+|2016-03-05|Arjan Molenaar|Render nested content properly.|
+|2016-03-05|Arjan Molenaar|Move wikitext processing to separate file.|
+|2016-03-05|Arjan Molenaar|More thoroughly escaping of generated javascript fragments.|
+|2016-03-04|LudovicVa|Add defaultTableType method|
+|2016-03-04|Arjan Molenaar|reformat code.|
+|2016-02-29|Arjan Molenaar|Update travis conf to build Java 7 again.|
+|2016-02-29|Arjan Molenaar|Merge pull request #877 from benhamidene/back2java7|
+|2016-02-29|Arjan Molenaar|Add description to acceptance_tests target.|
+|2016-02-29|Arjan Molenaar|remove unused variable from SlimResponder|
+|2016-02-29|Arjan Molenaar|Clean up CSS a little.|
+|2016-02-22|Anis Ben Hamidene|Resetting min. Java version needed to 1.7|
+|2016-02-16|Arjan Molenaar|Remove unused variable in javascript|
+|2016-02-16|Arjan Molenaar|Make more fields final.|
+|2016-02-15|Arjan Molenaar|Cleanup, organize imports.|
+|2016-02-15|Arjan Molenaar|Move directory creation out of FitNesse class into FitNesseMain.|
+|2016-02-15|Arjan Molenaar|Move message about already used port number to FitNessMain.|
+|2016-02-15|Arjan Molenaar|Merge pull request #872 from amolenaar/java8|
+|2016-02-15|Arjan Molenaar|Create server threads as daemon threads and explicitly close execution pool.|
+|2016-02-15|Arjan Molenaar|Merge pull request #874 from amolenaar/interrupted-exception|
+|2016-02-15|Arjan Molenaar|Merge pull request #870 from amolenaar/bootstrap-3.3.6|
+|2016-02-14|Arjan Molenaar|Handle slim version mismatch as typed exception.|
+|2016-02-14|Arjan Molenaar|SocketService: Set interrupted state on InterruptedException|
+|2016-02-14|Arjan Molenaar|Remove catch in wait fixture.|
+|2016-02-14|Arjan Molenaar|FitClient: propagate interrupted exception.|
+|2016-02-14|Arjan Molenaar|CommandRunner: set interrupt state on InterruptedException.|
+|2016-02-14|Arjan Molenaar|StreamReader: Throw InterruptedIOException when read is interrupted.|
+|2016-02-14|Arjan Molenaar|FileUtil: do not wait until file is deleted.|
+|2016-02-14|Arjan Molenaar|Do not throw RuntimeException from ClassPath class.|
+|2016-02-14|Arjan Molenaar|Fix issues denoted by SonarQube|
+|2016-02-13|Arjan Molenaar|Documentation updates: !contents|
+|2016-02-13|Arjan Molenaar|Fix vertical offset when jumping through test results.|
+|2016-02-13|Arjan Molenaar|Simplify SSL config in FitNesseContext.|
+|2016-02-12|Arjan Molenaar|Tweak #867 a little to make it look up all pages, and only for the move refactoring.|
+|2016-02-12|Arjan Molenaar|Merge pull request #867 from gmeiser/master|
+|2016-02-12|Arjan Molenaar|Merge pull request #869 from amolenaar/fix/861|
+|2016-02-12|Arjan Molenaar|Merge branch 'jar-lookup'|
+|2016-02-12|Arjan Molenaar|Remove Glyphicons.|
+|2016-02-12|Arjan Molenaar|Move bootstrap templates to general templates folder where possible.|
+|2016-02-11|Arjan Molenaar|Use history.back() instead of '#' hash to close popup.|
+|2016-02-11|Arjan Molenaar|Reset logo size, adjust margin instead.|
+|2016-02-11|Arjan Molenaar|Really center popups.|
+|2016-02-10|Arjan Molenaar|Enhance interaction for modal-dialog.|
+|2016-02-10|Arjan Molenaar|Use general modal-dialog classes for keyboard shortcut dialog.|
+|2016-02-10|Arjan Molenaar|Small stylesheet updates focusing on Bootstrap.|
+|2016-02-08|Arjan Molenaar|Remove empty lines in acceptance test page footer|
+|2016-02-07|Arjan Molenaar|Display fitnesse logo slightly smaller, so it aligns nicely with the left margin.|
+|2016-02-07|Arjan Molenaar|Fix footer at bottom of window.|
+|2016-02-06|Arjan Molenaar|Update Bootstrap 3.3.6.|
+|2016-02-06|Arjan Molenaar|Fix nabber for versions comparer bootstrap theme.|
+|2016-02-06|Arjan Molenaar|Escape lines in versionsComparer.|
+|2016-02-05|Arjan Molenaar|Remove unused javascript file textinputs_jquery.js|
+|2016-02-05|Arjan Molenaar|remove unused html file.|
+|2016-02-05|Arjan Molenaar|Wysiwyg editor initialises a single editor window.|
+|2016-02-03|Arjan Molenaar|Upgrade commons-collections to latest version.|
+|2016-02-01|Gordon Meiser|implemented an autocomplete feature for the "move page" (version 2)|
+|2016-01-31|Arjan Molenaar|Decode URL path|
+|2016-01-31|Arjan Molenaar|Clean up classpath in acceptance suite.|
+|2016-01-31|Arjan Molenaar|Move Jar lookup logic in ClassPath class.|
+|2016-01-31|Arjan Molenaar|Pass ClassPath around, instead of String|
+|2016-01-31|Arjan Molenaar|Make jar file lookup smarter by performing a class lookup for the test runner.|
+|2016-01-31|Arjan Molenaar|Add check to dynamically detect fitnesse.jar location.|
+|2016-01-27|Arjan Molenaar|boyscouting: clean code in Javascript, slim client and zip file version controller.|
+|2016-01-27|Arjan Molenaar|Fix variable resolution for non-wikitext pages.|
+|2016-01-26|Arjan Molenaar|Move wikitext detection for SymbolicPage in one place.|
+|2016-01-19|Arjan Molenaar|Update Travis-ci config.|
+|2016-01-19|Arjan Molenaar|Upgrade Ant to 1.9.6.|
+|2016-01-19|Arjan Molenaar|Update JSON dependency to 20151123.|
+|2016-01-19|Arjan Molenaar|Bump minimal Java version to 8.|
+|2016-01-19|Arjan Molenaar|Replace tabs by spaces in build.xml.|
+|2016-01-19|Arjan Molenaar|Add unit test for Disgracer class.|
+|2016-01-19|Arjan Molenaar|Add extra logging in expediter.|
+|2016-01-10|Arjan Molenaar|Merge pull request #857 from six42/library|
+|2016-01-10|Arjan Molenaar|Merge pull request #851 from amolenaar/execution-log|
+|2016-01-10|Arjan Molenaar|Base StackTraceEnricher tests on apache commons, that's more stable that the JDK.|
+|2016-01-10|Arjan Molenaar|Merge pull request #835 from hansjoachim/jdk9|
+|2016-01-06|six42|Add autocomplete to CodeMirror editor + Save via keyboard|
+|2016-01-04|six42|avoid duplicate testing|
+|2016-01-04|six42|don't delete lib on clean|
+|2016-01-03|six42|Duplicate of ScenarioLibrariesAreIncludedInTheCorrectOrder|
+|2016-01-03|six42|Library with constructor parameters|
+|2015-12-31|six42|Merge branch 'ShowResultPagesAsHTML' into library|
+|2015-12-31|six42|Moved classpath to the test system setup|
+|2015-12-30|six42|put quoted classpath back|
+|2015-12-30|six42|put quoted  classpath back|
+|2015-12-30|six42|puth classpath back|
+|2015-12-27|six42|Make negative tests more readable|
+|2015-12-23|Arjan Molenaar|Name the link to execution log simply "Execution Log" instead of "Tests Executed OK" or "Errors Occurred". Now at least you should get a hint on what this button is revealing.|
+|2015-11-25|Hans Joachim Desserud|Restrict parameter instead|
+|2015-11-21|Hans Joachim Desserud|Added comment in case someone get tempted to simplify this|
+|2015-11-21|Hans Joachim Desserud|Cast value before returning. Fixes FTBFS with JDK9 (#746)|

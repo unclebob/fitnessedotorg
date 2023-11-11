@@ -1,0 +1,19 @@
+!release 20081115
+
+!3 FitNesse Release Notes 11/15/2008
+!note Uncle Bob, Object Mentor, Inc.
+!3 Major New Release
+ * READ THE USER GUIDE.  LOTS HAS CHANGED!
+ * SLIM.  We've added a new ''Test System'' to complement FIT.  SLIM (Simple List Invocation Method) has a much smaller footprint on the SUT, and is much easier to port.  ''Slim Tables'' are similar to Fit tables except that all the parsing and processing is done inside FitNesse.  Slim Fixtures do not derive from any base classes.  See the User Guide.
+ * TEST_SYSTEM variable.  You can set this to 'fit' or 'slim'.  The default is 'fit'.  Setting this variable on a page causes that page, and all its children, to use the corresponding test system.  You can also give the test system an ''instance'' name (e.g. 'fit:a')  This will cause all pages with this test system to be run in a different process (JVM, .NET instance, etc.).  
+ * PAGE_NAME variable defaults to the name of the page on which it is used.
+ * PAGE_PATH variable defaults to the full path name of the page on which it is used.
+ * FITNESSE_PORT variable defaults to the port number of the current FitNesse instance.
+ * !style_xxx(some text) Displays the text using css class xxx.  e.g. !-!style_pass(Hello)-!
+ * RESTFUL Tests.  Adding &format=xml to the end of a ?test or ?suite URL causes the response to be in XML.  See user guide.
+ * !-&bang;, &dollar;, &bar-! will be replaced by the appropriate character.
+ * !-!<xxx>!-! Will render as literal but will escape HTML.  This allows you to display HTML.
+ * Some locale fixes.
+ * Configurable default text for new pages.
+
+

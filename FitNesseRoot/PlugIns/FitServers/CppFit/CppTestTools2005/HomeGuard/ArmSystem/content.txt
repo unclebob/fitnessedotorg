@@ -1,0 +1,19 @@
+When Home Guard is not armed, pressing the arm button arms the system.  Pressing it again disarms the system.
+
+|!-HomeGuardFixtures.CheckFrontPanel-!|
+|armed|visual alarm|siren|display|
+|off|off|off|READY|
+
+|!-HomeGuardFixtures.Control-!|
+|press arm button|
+
+|!-HomeGuardFixtures.CheckFrontPanel-!|
+|armed|visual alarm|siren|display|
+|on|off|off|ARMED|
+
+|!-HomeGuardFixtures.Control-!|
+|press arm button|
+
+|!-HomeGuardFixtures.CheckFrontPanel-!|
+|armed|visual alarm|siren|display|
+|off|off|off|READY|

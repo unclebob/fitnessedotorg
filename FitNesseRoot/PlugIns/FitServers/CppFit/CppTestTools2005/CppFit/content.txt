@@ -1,0 +1,4 @@
+!-Download the sample project, HomeGuard.zip, install it into some directory like c:/Projects/HomeGuard, build it.-!
+
+There are examples of each fixture type.  Here are the corresponding tests for !-HomeGuard-!
+

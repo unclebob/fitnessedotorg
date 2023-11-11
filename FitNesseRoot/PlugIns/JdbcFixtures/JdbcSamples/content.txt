@@ -1,0 +1,14 @@
+'''Note:''' Modify user, password and database in [[!-SetUp-!][^SetUp]]
+|[[!-SetUp-!][^SetUp]]|'' Connects to database. ''|
+|[[!-DefaultConnection-!][^DefaultConnection]]|''Establishes a database connection''|
+|[[Insert][^InsertSample]]|''Inserts data into table''|
+|[[Select][^SelectSample]]|''Validates a table or query''|
+|[[!-PrintTable-!][^PrintTable]]|''Prints a table or query in wiki format ''|
+|[[!-ScriptFixture-!][^ScriptFixture]]|''Runs scripts. Calls stored procedures. Uses bind variables and substitution variables''|
+|[[!-TearDown-!][^TearDown]]|''Disconnect from database ''|
+
+
+
+|Inheritance of [[Select][^SelectSample]] |
+|super-super class|[[!-RowFixture-!][.FitNesse.RowFixture]] provides the validation for a set of rows for a fixed number of columns.|
+|super class|[[!-HashMapFixture-!][.JdbcFixtures.SupportFixtures.HashMapFixture]] provides the validation for a set of rows for any number of columns|

@@ -1,0 +1,1 @@
+Some C++ runtime library implementations appear to leak.  I suspect is happening is that statics are being initialized, but not deleted.  To test this hypothesis run the unit tests with the "-r" switch.  This will run the test twice.   If the second run does not show memory leaks, it is likely that these are not deleted static.  They probably won't cause big problems. 

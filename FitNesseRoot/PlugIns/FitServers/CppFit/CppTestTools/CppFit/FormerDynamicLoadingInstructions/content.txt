@@ -1,0 +1,3 @@
+NOT CURRENTLY SUPPORTED
+
+!-When using Visual C++, fixtures are included in a DLL.  The AppFixtureMaker creates them, and is located in the DLL with the fixtures.  CppTestTools also provides FitServer.exe which is the main for the FitNesse Server.  Your application has to provide a bat file that sets the path, so that your DLLs can be found, and invokes the FitServer.  See HomeGuard/test for an example.  The COMMAND_PATTERN in your FitNesse tests must invoke that bat file.  The main page of the HomeGuard fitnesse pages has an example of the needed COMMAND_PATTERN-!

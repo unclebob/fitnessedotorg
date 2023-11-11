@@ -1,0 +1,21 @@
+!release 20081201
+
+!3 FitNesse Release Notes 12/01/2008
+!note Uncle Bob, Object Mentor, Inc.
+
+This is just a bug-fix release.  If you hare having trouble with any of the SLIM stuff, you should download this release.  The jar file should be sufficient, although some of the docs changed a bit.
+
+ * Added &debug flag to TestResponder url.  This forces the test to run ''inside'' the fitnesse process.  If you are running fitnesse in a debugger, you can breakpoint your fixtures.
+ * Symbols can be java properties or environment variables.  Symbols first, env variables second, java properties third.
+ * If the first cell of a script table is a symbol assignment ($V=) then the rest must be a function call.  The symbol is assigned the return value of the function.
+ * Fixed some bugs in Decision Table that misreported exceptions when the execute method was not present.
+ * Fixed bug in QueryTable that misreported when the query method returned null.
+ * Made unit tests more reliable. (Jaques Morel)
+
+!3 Subversion History
+!|385|12/1/08 12:00 AM|jacmorel||Make SuiteResponderTest and TestResponderTest more reliable using a random socket port instead of a fixed one.|
+|383|11/29/08 11:28 AM|robertmartin||A few fixes and patches.  Prepare for HTML parsing of Slim Tables.|
+|382|11/24/08 10:50 AM|robertmartin||Fix a few minor bugs in Slim having to do with variables.|
+|381|11/18/08 6:54 PM|robertmartin||If DecisionTable execute throws, it will be reported....|
+|380|11/18/08 6:15 AM|robertmartin||Fixed Exception reporting in Decision Table and Query Table.|
+|379|11/16/08 1:25 AM|robertmartin||Fixed dumb bug in TestRunner acceptance tests.|

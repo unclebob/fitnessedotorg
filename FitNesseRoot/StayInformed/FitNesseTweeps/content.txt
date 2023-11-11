@@ -1,0 +1,5 @@
+A number of users and maintainers of !-FitNesse-! are on Twitter.  Follow along. 
+
+|[[unclebobmartin][http://twitter.com/unclebobmartin]]|''Bob Martin, the creator and maintainer of !-FitNesse-!.''|
+|[[mike_stockdale][http://twitter.com/mike_stockdale]]|''Mike Stockdale, The creator and maintainer of FitSharp.''|
+|[[woodybrood][http://twitter.com/woodybrood]]|''Dan Woodward, user and occasional contributor.''|

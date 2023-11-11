@@ -1,0 +1,94 @@
+usage
+{{{
+NewClass ClassName
+}}}
+This script creates !-ClassName.h, ClassName.cpp, and ClassNameTest.cpp-! and modifies the makefile.  If you have a "DOTO =" in your makefile, the script will append a backslash newline ClassName.o ClassNameTest.o backslash newline, resulting in this 
+{{{
+<whatever was before DOTO>DOTO =\
+ ClassName.o ClassNameTest.o\
+<wahtever was after DOTO>
+}}}
+There are three template files that provide a basis for the newly created class.  A test class is created and the target class is of the form:
+!* !3 !-ClassName.h-!
+{{{
+#ifndef D_ClassName_h
+#define D_ClassName_h
+
+class ClassName
+{
+  public:
+    explicit ClassName();
+    virtual ~ClassName();
+
+  private:
+    ClassName(const ClassName&);
+    ClassName& operator=(const ClassName&);
+};
+
+#endif  // D_ClassName_h
+}}}
+----
+The constructor is declared ''explicit'' to prevent the complier from performing implicit conversions.  This actually has no effect for a default constructor.  It is tolerated by the compiler.  Later you may parameterize your constructor which may result in unwanted conversions.  Being that you are doing TDD you will want to test and document any intended conversion in your test cases.
+
+The destructor is declared virtual.  This is a safety precaution in case this class is used as a base class one day.  The programmer can delete the virtual keyword if the presence of a vtable is terrifying.
+
+A default constructor is declared to prevent the compiler from defining one automatically 
+
+The copy constructor and assignment operator are placed in the private area and not implemented in the cpp file.  This prevents the compiler from writing those functions for itself and some unsuspecting programmer from accidentally using them.  If you want a copy constructor and assignment operator, you can create then using TDD.
+*!
+!* !3 !-ClassName.cpp-!
+{{{
+#include "ClassName.h"
+
+ClassName::ClassName()
+{
+}
+
+ClassName::~ClassName()
+{
+}
+}}}
+----
+Empty constructor and destructor implementation are provided in the cpp file to encourage not inlining these definitions.  Those empty looking curley braces actuall will bring along some compiler provided baggage.  So to keep the foot print from bloating, we start with the implementations in teh cpp file.  You can always remove them if you want.
+*!
+!* !3 !-ClassNameTest.cpp-!
+{{{
+#include "UnitTestHarness/TestHarness.h"
+#include "ClassName.h"
+
+move_the_import // to make sure this file gets linked in
+IMPORT_TEST_GROUP(ClassName); 
+EXPORT_TEST_GROUP(ClassName);
+
+namespace 
+{
+  ClassName* aClassName;
+
+  void SetUp()
+  {
+    aClassName = new ClassName();
+  }
+  void TearDown()
+  {
+    delete aClassName;
+  }
+}
+
+TEST(ClassName, Create)
+{
+  ClassName aClassName;
+  FAIL("Making sure ClassNameTest is hooked in");
+}
+}}}
+----
+An skeletal test file is created.  All three files are expected to compile.  They new test fails so that you can confirm that the test has been installed.  If your tests are in a library, you will need to more the IMPORT_TEST_GROUP line to some file that is included by the file containing your test main.  
+
+!-The SetUp is called before the body of each TEST is executed.  TearDown is called after the body of each TEST is executed.  SetUp and TearDown are in an unnamed namespace to keep them out of the global namespace.  They are only visible in this file.-!
+
+The boiler plate test provides two techniques for instance creation: 
+ * from the heap with new and delete using !-SetUp and TearDown-!
+ * and autoamtic instantiation in the TEST method
+
+You will probably want to do one way or another.  
+
+*!

@@ -1,0 +1,45 @@
+!3 References to JDBC
+http://java.sun.com/j2se/1.4.2/docs/api/java/sql/DriverManager.html
+http://java.sun.com/j2se/1.4.2/docs/api/java/sql/Driver.html
+
+
+SetUp has already made a connection to the database. Let's start from scratch
+|Default Connection|
+|disconnect()|
+|true|
+
+DefaultConnection has 6 fields and 5 methods
+!|Comment|
+|user  |password|database|urlPrefix|urlSuffix|driver|connect()|disconnect()|isConnected()|commit()|selectUser()|
+|String|String  |String  |String   |String   |String|boolean  |boolean     |boolean      |boolean |String      |
+
+
+ * '''driver''' the class name of the jdbc driver. This is ''not'' the name of the jar file. Oracle provides '''!-oracle.jdbc.OracleDriver-!'''. !-MicroSoft provides-! '''com.microsoft.jdbc.sqlserver.SQLServerDriver'''.
+ * '''urlPrefix''' a database url of the form jdbc:subprotocol:subname the default is "jdbc:oracle:oci:@". The interpretation of this url is vendor specific.
+ * '''user''' -the database user on whose behalf the connection is being made
+ * '''password''' - the user's password 
+ * '''database''' - the name of the datbase
+ * '''urlSuffix''' - additional vendor specific parameters, for example portnumber.
+
+ * '''connect()''' establishes database connection. It returns a boolean status. connect() combines '''urlPrefix''','''database''' and  '''urlSuffix''' into a single string.
+!c !-DriverManager.getConnection (urlPrefix + database + urlSuffix,  user, password);-!
+ * '''disconnect()''' breaks database connection. It returns true if the disconnect worked.
+ * '''isConnected()''' returns the status of the database connection.
+ * '''commit()''' commits a transaction
+ * '''selectUser()''' gets the user from the connection
+
+!|Default Connection|
+|driver |urlPrefix|database|urlSuffix|
+|oracle.jdbc.OracleDriver|jdbc:oracle:oci:@|ORADESK|blank|
+
+|Default Connection|
+|user |password|connect()|
+|SCOTT|TIGER|true       |
+
+|Default Connection|
+|'''selectUser?'''|
+|SCOTT|
+
+|Default Connection|
+|isConnected()|
+|true|

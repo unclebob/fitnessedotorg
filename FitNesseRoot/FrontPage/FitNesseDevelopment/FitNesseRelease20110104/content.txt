@@ -1,0 +1,65 @@
+!release 20110104
+
+!3 FitNesse Release Notes 1/04/2011
+!note Uncle Bob Consulting LLC.
+
+!note !style_red(Requires Java 1.6)
+
+!4 Github ids of Contributors to this release:
+* Gregor Gramlich
+* Markus Gartner
+* Mike Stockdale
+* unclebob
+
+!meta Thanks to all of you!
+
+|!4 Since:                |[[20101101][FitNesseRelease20101101]]|
+|!4 Expected Release Date:|<none>     |!style_pass(RELEASED)    |
+|!4 Theme:                |New Parser                           |
+
+!3 Major Changes
+ * New Parser.  This should be much faster than previous parser and should allow much more flexibility for future changes.
+
+!3 Git History
+
+!|2011-01-04 08:44:35 -0600|unclebob       |housekeeping                                                                                                                           |
+|2011-01-04 08:37:39 -0600 |unclebob       |fixed ATs that turned yellow when constructors were no longer counted as asserts.                                                      |
+|2011-01-03 15:07:07 -0600 |unclebob       |Changed name of ParserTest to ParserTestHelper so that ant could build                                                                 |
+|2011-01-03 14:05:11 -0600 |unclebob       |Merge branch 'master' of https://github.com/jediwhale/fitnesse                                                                         |
+|2011-01-02 19:59:36 +0100 |Gregor Gramlich|Removed !see, because it crashed JUnitHelperExampleTest                                                                                |
+|2011-01-02 13:13:43 +0100 |Gregor Gramlich|Refactored the way that am object instance is fetched from the VariableStore Minor changes in handling null values, which are more cons|
+|2011-01-02 12:16:13 +0100 |Gregor Gramlich|Updated the Slim protocol to reflect the Slim V0.3 changes.                                                                            |
+|2011-01-01 15:13:03 +0100 |Gregor Gramlich|Added Slim test page for the usage of slim symbols that store instances as parameters.                                                 |
+|2011-01-01 14:45:59 +0100 |Gregor Gramlich|Added test for instances from Slim symbols as parameters for constructors                                                              |
+|2011-01-01 14:33:48 +0100 |Gregor Gramlich|Allow object instances stored in Slim symbols as parameters for method calls.                                                          |
+|2010-12-19 16:20:53 -0700 |Mike Stockdale |Merge branch 'master' of git://github.com/unclebob/fitnesse                                                                            |
+|2010-12-16 15:31:18 -0700 |Mike Stockdale |new parser alias anchor                                                                                                                |
+|2010-12-14 15:42:36 -0700 |Mike Stockdale |new parser whitespace > 1                                                                                                              |
+|2010-12-09 21:40:16 +0100 |Gregor Gramlich|Made the SlimHelperLibrary plugged in automatically                                                                                    |
+|2010-12-09 18:34:30 +0100 |Gregor Gramlich|Renamed SlimHelperLibrary methods                                                                                                      |
+|2010-12-08 20:45:21 -0600 |unclebob       |bumped slim protocol version to 0.3                                                                                                    |
+|2010-12-08 21:58:00 +0100 |Gregor Gramlich|Merge branch 'master' into instanceChaining                                                                                            |
+|2010-12-08 21:57:16 +0100 |Gregor Gramlich|removed unused import that caused compiler warning                                                                                     |
+|2010-12-08 21:52:33 +0100 |Gregor Gramlich|Added SlimHelperLibrary with Acceptance Test                                                                                           |
+|2010-12-07 20:09:31 -0700 |Mike Stockdale |Merge branch 'master' of git://github.com/unclebob/fitnesse                                                                            |
+|2010-12-07 20:08:30 -0700 |Mike Stockdale |new parser RC1 issues                                                                                                                  |
+|2010-12-06 22:51:27 +0100 |Gregor Gramlich|Implemented fixture chaining with instances                                                                                            |
+|2010-12-06 21:42:37 +0100 |Gregor Gramlich|Refactored, so that MethodExecutionResult keeps results as objects.                                                                    |
+|2010-12-05 20:33:29 +0100 |Gregor Gramlich|Fixture Chaining with instances stored in Slim variable                                                                                |
+|2010-12-05 19:55:36 +0100 |Gregor Gramlich|Merge remote branch 'upstream/master'                                                                                                  |
+|2010-12-04 22:48:17 -0600 |unclebob       |housekeeping                                                                                                                           |
+|2010-12-04 13:02:05 +0100 |Markus GÃ¤rtner|fixed bug which included TearDown in SuiteSetUp and SetUps in SuiteTearDown                                                            |
+|2010-11-27 19:47:43 -0600 |unclebob       |housekeeping                                                                                                                           |
+|2010-11-27 19:44:35 -0600 |unclebob       |Merge branch 'master' of https://github.com/MarkusGaertner/fitnessebacklogfixes                                                        |
+|2010-11-27 19:44:28 -0600 |unclebob       |housekeeping                                                                                                                           |
+|2010-11-27 21:06:13 +0100 |Markus GÃ¤rtner|Merge branch 'master' of github.com:MarkusGaertner/fitnessebacklogfixes                                                                |
+|2010-11-27 18:31:57 +0100 |Markus GÃ¤rtner|fixed a bug which Johannes Link mentioned for a combination of SuiteSetUp and SetUp within a test suite.                               |
+|2010-11-26 21:41:17 -0600 |unclebob       |6795427: Line breaks pass through in unescaped literals but are converted to <br/> in escaped literals                                 |
+|2010-11-26 16:46:02 -0600 |unclebob       |Tracker: 5261157.  Don't count fixture in test counts.                                                                                 |
+|2010-11-22 11:52:54 -0700 |Mike Stockdale |Merge branch 'master' of git://github.com/unclebob/fitnesse                                                                            |
+|2010-11-22 10:56:04 -0700 |Mike Stockdale |new parser refactor                                                                                                                    |
+|2010-11-12 16:36:35 -0700 |Mike Stockdale |new parser relative wikiword reference in include                                                                                      |
+|2010-11-09 16:05:50 -0700 |Mike Stockdale |new parser performance                                                                                                                 |
+|2010-11-08 18:34:48 -0700 |Mike Stockdale |new parser nesting priority                                                                                                            |
+|2010-11-01 12:52:29 -0500 |unclebob       |housekeeping                                                             |                                                             |
+

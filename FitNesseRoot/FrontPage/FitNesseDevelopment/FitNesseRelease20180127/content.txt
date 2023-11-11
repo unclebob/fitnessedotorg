@@ -1,0 +1,217 @@
+!release 20180127
+
+!3 FitNesse Release Notes 2018/01/27
+!note Uncle Bob Consulting LLC.
+
+!note !style_red(Requires Java 1.6)
+
+!4 Major Changes since [[20161106][FitNesseRelease20161106]]:
+
+ * Improve stability for non pipe based SUT connection ([[197][https://github.com/unclebob/fitnesse/pull/997]])
+ * Fix new style wiki pages for Windows (line ending) ([[1058][https://github.com/unclebob/fitnesse/pull/1058]])
+ * SLiM now better handles parameter types in fixture constructors ([[1024][https://github.com/unclebob/fitnesse/pull/1024]])
+ * New wiki element: [[''!-!headings-!''][UserGuide.FitNesseWiki.MarkupLanguageReference.MarkupHeadings]] ([[1025][https://github.com/unclebob/fitnesse/pull/1025]])
+ * Define table type now work for Script table ([[1029][https://github.com/unclebob/fitnesse/pull/1029]], [[1099][https://github.com/unclebob/fitnesse/pull/1099]])
+ * JUnit runner supports system property based ''excludeSuiteFilter'' annotation ([[1033][https://github.com/unclebob/fitnesse/pull/1033]])
+ * A SuiteQuery no longer runs test pages that are excluded ([[1079][https://github.com/unclebob/fitnesse/pull/1079]])
+ * Root file pages are now included in the default wiki content by default ([[1084][https://github.com/unclebob/fitnesse/pull/1084]])
+ * Table:Table now resizes when the last line contains more results than expected ([[1055][https://github.com/unclebob/fitnesse/pull/1055]])
+ * Various documentation updates
+ * Various small improvements
+
+!4 Github ids of Contributors to this release:
+
+ * Arjan Molenaar
+ * Christos Kontas
+ * Dean Aldinger
+ * Francisco Marin
+ * Fried Hoeben
+ * GGYE
+ * Greg Pedder
+ * Hans Joachim Desserud
+ * Jeroen Ruijgers
+ * Jürgen Dufner
+ * Kevin Poalses
+ * Koen Prins
+ * Nicole Rauch
+ * Samuel Chen
+ * Vivek Ganesan
+ * george-toma
+ * six42
+
+!meta Thanks to all of you!
+
+!3 Git History
+
+!|2018-01-13|Arjan Molenaar|Include all wiki files under version control|
+|2018-01-03|Arjan Molenaar|Merge pull request #1117 from amolenaar/java-9-classloader-take-2|
+|2018-01-03|Arjan Molenaar|Merge pull request #1105 from fhoeben/dontFailRunWhenTooManyTestsCompleted|
+|2018-01-02|Arjan Molenaar|Merge pull request #1118 from six42/port1_with_debug|
+|2018-01-02|Arjan Molenaar|Merge pull request #1103 from fhoeben/allowScenarioTableAccessViaScenarioContext|
+|2018-01-02|six42|Renamed page to better describe behavior|
+|2018-01-02|six42|Upgraded test class to removed depreciation|
+|2018-01-02|six42|Fixed #1059|
+|2018-01-01|six42|Speedup unit testing|
+|2018-01-01|six42|Allow text before the Slim Header Message|
+|2018-01-01|six42|The slim client process should be stopped if the startup didn't success|
+|2018-01-01|Arjan Molenaar|Merge pull request #1107 from NicoleRauch/suiteSpecIgnoresChildrenToo|
+|2018-01-01|Arjan Molenaar|Update release notes|
+|2018-01-01|Arjan Molenaar|Set context class loader for in-process FIT service to the plugin class loader|
+|2018-01-01|Arjan Molenaar|Set context class loader for in-process slim service to the plugin class loader|
+|2018-01-01|Arjan Molenaar|Pass class loader to in-process test systems|
+|2017-12-30|Arjan Molenaar|Move SSL parameter creation our of Ssl*SocketFactory|
+|2017-12-30|Arjan Molenaar|Add warning around use of ClassUtils|
+|2017-12-30|Arjan Molenaar|Keep FitNesse configuration extensible in JUnit runner|
+|2017-12-30|Arjan Molenaar|Merge pull request #5 from fhoeben/java-9-classloader-take-2|
+|2017-12-30|Arjan Molenaar|PluginsClassLoader only has static members|
+|2017-12-30|Arjan Molenaar|Do no longer change java.class.path with plugin path|
+|2017-12-30|Fried Hoeben|Rename pluginClassLoader to PluginClassLoaderFactory as it is not the classloader itself but delivers one|
+|2017-12-30|Fried Hoeben|Restructure plugins class loader|
+|2017-12-30|Fried Hoeben|Remove no longer valid todo|
+|2017-12-30|Fried Hoeben|Single return when getting classloader|
+|2017-12-30|Fried Hoeben|Ensure classloader used by default context configuration can be changed via ClassUtils|
+|2017-12-30|Fried Hoeben|Ensure classloader used by default can be changed via ClassUtils|
+|2017-12-29|Arjan Molenaar|Merge pull request #1116 from amolenaar/gradle-4|
+|2017-12-29|Arjan Molenaar|Build Java 9 on Travis|
+|2017-12-29|Arjan Molenaar|Remove set and map related queries from HybridDecisionTable|
+|2017-12-28|Arjan Molenaar|Update XML page serialization to avoid extra whitespace when run with Java 9|
+|2017-12-28|Arjan Molenaar|Clean up unused instantiation variables|
+|2017-12-28|Arjan Molenaar|Pass classloader as instance variable where possible|
+|2017-12-27|Arjan Molenaar|Use a dedicated classLoader for plugins, instead of (ab)using the system class loader|
+|2017-12-26|Arjan Molenaar|Move all calls to Class.forName to a central place|
+|2017-11-19|Arjan Molenaar|Upgrade Gradle to 4.3|
+|2017-12-20|Nicole Rauch|We want to configure the traversal of the page crawler, not the creation.|
+|2017-12-01|Nicole Rauch|In order to exclude skipped pages AND their children from a suite specification run, we made the PageCrawler (that is used by the SuiteSpecificationRunner) skip those pages.|
+|2017-12-01|Nicole Rauch|Minor cleanup (renamed variable etc.)|
+|2017-12-01|Nicole Rauch|Extracted the traversers into their own files.|
+|2017-12-01|Nicole Rauch|Pulled the TraversalListener out of the SearchReplaceResponder.|
+|2017-11-30|Nicole Rauch|Pulled the hidden ReferenceRenamingTraverser out of the ReferenceRenamer.|
+|2017-11-30|Nicole Rauch|Converted the last test that was also a TraversalListener.|
+|2017-11-30|Nicole Rauch|Unified all tests in this directory to use the HitCollector.|
+|2017-08-18|Nicole Rauch|Better reuse constructors across the same class.|
+|2017-08-18|Nicole Rauch|The TraverseDirective also was a TraversalListener. Now we have two classes.|
+|2017-08-18|Nicole Rauch|There is no need for an interface and an implementation that are both in the same directory.|
+|2017-08-18|Nicole Rauch|WikiPageFinder was a finder and a traverser at the same time. Now we have two classes for this.|
+|2017-08-18|Nicole Rauch|Even the test class served the double purpose of being a TraversalListener as well.|
+|2017-08-18|Nicole Rauch|No need to have a field here as the list is only being used inside one method.|
+|2017-08-18|Nicole Rauch|The SuiteSpecificationRunner was also a TraversalListener. Let's have two different objects for these different purposes.|
+|2017-12-02|Arjan Molenaar|Merge pull request #1108 from fhoeben/fixCachedInteractionTest|
+|2017-12-01|Fried Hoeben|Fix unit test that broke when fitnesse.slim.test.statementexecutorconsumer.TableTableIncFirstCol.doTable() was moved to its superclass|
+|2017-11-29|Fried Hoeben|Only fail test run if too few tests are executed, just log on too many|
+|2017-11-27|Arjan Molenaar|Merge pull request #1100 from fhoeben/allowTableTableAccessToSymbolAsObject|
+|2017-11-27|Fried Hoeben|Remove unneeded import|
+|2017-11-27|Fried Hoeben|Allow tables defined in other packages to see ScenarioTestContext class|
+|2017-11-27|Fried Hoeben|Allow custom scenario subclasses, and tables called in a "scenario's context" to access the scenario table|
+|2017-11-27|Arjan Molenaar|Merge pull request #1055 from GuillaumeEveillard/master|
+|2017-11-27|Arjan Molenaar|Merge pull request #1076 from anaplan-engineering/for-upstream|
+|2017-11-27|Arjan Molenaar|Merge pull request #1097 from NicoleRauch/html_reporting|
+|2017-11-27|Arjan Molenaar|Merge pull request #1101 from fhoeben/addPluginsPageToJar|
+|2017-11-27|Arjan Molenaar|Merge pull request #1003 from hansjoachim/warnings|
+|2017-11-27|Arjan Molenaar|Merge pull request #1079 from NicoleRauch/exclude_skipped_in_suite_query|
+|2017-11-27|Arjan Molenaar|Merge pull request #1084 from fhoeben/fix987|
+|2017-11-27|Arjan Molenaar|Merge pull request #1090 from daldinger/bugfix/20161106|
+|2017-11-27|Arjan Molenaar|Merge pull request #1096 from jdufner/bugfix/#1095_Tests_depend_on_Locale|
+|2017-11-20|Arjan Molenaar|Use only primitive type for testee|
+|2017-11-20|Fried Hoeben|Remove lowercase 'i' directories, which do not exists.|
+|2017-11-20|Jürgen Dufner|reset locale after tests|
+|2017-11-19|Arjan Molenaar|Add condif setting for gradle files|
+|2017-11-19|Arjan Molenaar|Clean up DefaultInteractionTest|
+|2017-11-19|Arjan Molenaar|Command runner should only commicate exit codes via callbacks|
+|2017-11-19|Arjan Molenaar|Increase timout for fit client tests|
+|2017-11-19|Arjan Molenaar|Improve test error messages|
+|2017-11-19|Arjan Molenaar|Make fit client tests more easely identifyable|
+|2017-11-19|Arjan Molenaar|Require full VM|
+|2017-11-17|Arjan Molenaar|Ignore testHistoryDirectory folder|
+|2017-11-17|Arjan Molenaar|Remove openjdk7 build|
+|2017-11-17|Arjan Molenaar|Merge pull request #1099 from fhoeben/decisionTableAndScriptSubclass|
+|2017-11-17|Arjan Molenaar|Merge pull request #1098 from fhoeben/ensureCommonsCollections322|
+|2017-11-17|Fried Hoeben|Fix casing of directory name|
+|2017-11-17|Fried Hoeben|Remove duplicate line|
+|2017-11-17|Fried Hoeben|Add Plugins page to packaged wiki content|
+|2017-11-17|Fried Hoeben|Add Plugins page to packaged wiki content|
+|2017-11-16|Fried Hoeben|Further code cleanup|
+|2017-11-16|Fried Hoeben|Allow subclasses access to statement executor|
+|2017-11-16|Fried Hoeben|Extract some methods and variables|
+|2017-11-16|Fried Hoeben|Create base class to help people implement tabletable which does own symbol handling|
+|2017-11-16|Fried Hoeben|Update sample TableTable to use new method to get actual object assigned to symbol|
+|2017-11-16|Fried Hoeben|Add test to show difference between getSymbol and getSymbolObject|
+|2017-11-16|Fried Hoeben|Fix broken link on page|
+|2017-11-16|Fried Hoeben|Fix page reference to current page name|
+|2017-11-16|Fried Hoeben|Allow TableTables access to actual symbol's, and not just to their String representation|
+|2017-11-16|Fried Hoeben|Remove defaultChildClass which no longer is needed|
+|2017-11-16|Fried Hoeben|All tests green|
+|2017-11-16|Fried Hoeben|First stab to fix issue|
+|2017-11-16|Fried Hoeben|Failing tests to show problem|
+|2017-11-16|Fried Hoeben|Ensure commons-lang 2.4 is not included as transitive dependency (from velocity)|
+|2017-11-16|Fried Hoeben|Ensure commons-collections 3.2.1 is not included as transitive dependency (from velocity)|
+|2017-11-15|Nicole Rauch|Adding run-time information to the Slim test context, in order to add it to the JUnit test reports.|
+|2017-08-18|Nicole Rauch|A SuiteQuery should not run test pages that are excluded, even if they match the query.|
+|2017-11-14|Arjan Molenaar|Fix openJDK build?|
+|2017-11-14|Arjan Molenaar|Merge pull request #1033 from fhoeben/filterImprovements|
+|2017-11-14|Arjan Molenaar|Merge pull request #1029 from amolenaar/define-script-table|
+|2017-11-14|Arjan Molenaar|Merge pull request #1025 from jdufner/feature/toc_of_page_headings|
+|2017-11-14|Arjan Molenaar|Merge pull request #1024 from george-toma/master|
+|2017-11-14|Arjan Molenaar|update ignore list|
+|2017-11-14|Arjan Molenaar|More verbose error logging for FitClientTest|
+|2017-01-17|Juergen Dufner|Implemented table of content of all page headings|
+|2017-11-05|Juergen Dufner|Fix #1095 Tests now explicitly set the Locale|
+|2017-11-05|Arjan Molenaar|Oracle JDK 7 is no longer present on Travis-CI|
+|2017-11-05|Arjan Molenaar|Move WikiSourcePage tests to right package|
+|2017-10-15|Arjan Molenaar|Move WikiSourcePage to fitnesse.wiki|
+|2017-10-15|Arjan Molenaar|Update deprecated PageData properties|
+|2017-10-15|Arjan Molenaar|Merge pull request #1088 from chy996633/master|
+|2017-10-15|Arjan Molenaar|Merge pull request #1061 from vivganes/patch-1|
+|2017-10-06|Dean Aldinger|Changed ThreadPoolExecutor to SynchronousQueue for direct handoff queuing strategy.|
+|2017-09-28|Samuel Chen|Correct a word|
+|2017-09-16|Fried Hoeben|Add root page to fileset, to fix #987|
+|2017-08-16|Kevin Poalses|Merge pull request #1 from anaplan-engineering/fixture-interaction-fix|
+|2017-08-15|Greg Pedder|Remove duplication|
+|2017-08-14|Francisco Marin|Merge branch 'master' into fixture-interaction-fix|
+|2017-08-11|Greg Pedder|Run fitnesse project formatter to ensure consistent conventions|
+|2017-07-27|Francisco Marin|Added test for InProcessSlimClientBuilder with an interaction|
+|2017-07-29|six42|Merge remote-tracking branch 'upstream/master'|
+|2017-06-26|Vivek Ganesan|Correct the typo in user guide home page|
+|2017-06-21|Arjan Molenaar|Merge pull request #1058 from amolenaar/frontmatter-crlf|
+|2017-06-20|Arjan Molenaar|Allow Front matters to work with windows line endings|
+|2017-06-20|Arjan Molenaar|Merge pull request #1053 from xakon/fix/date-fmt-tests|
+|2017-06-10|GGYE|Fix Table:Table resizing when the last line contains more results than expected|
+|2017-06-07|Christos Kontas|Fix localization failures regarding dates in tests|
+|2017-06-06|Christos Kontas|misc: remove double-entry from .gitignore|
+|2017-03-08|Greg Pedder|Use fixture interaction for in process slim execution|
+|2017-02-09|Fried Hoeben|Remove redundant public modifiers|
+|2017-02-09|Fried Hoeben|Allow system property to define exclude filter|
+|2017-01-10|Arjan Molenaar|Add config for bettercodehub.com|
+|2017-01-23|george-toma|SliM execute fixture constructor based on parameters types #966|
+|2017-01-23|Arjan Molenaar|Merge pull request #997 from amolenaar/pipe-encoding|
+|2017-01-16|george-toma|SliM execute fixture constructor based on parameters types #966|
+|2016-12-22|Hans Joachim Desserud|Prefer interface over concrete implementation in return and parameter types (ArrayList -> List). Simplified a couple of foreach loops so we don't need to keep track of the index|
+|2016-12-22|Hans Joachim Desserud|Replace tabs with spaces for indentation|
+|2016-12-22|Hans Joachim Desserud|Remove redundant interface modifiers. (Left a couple which seem to be implementation hints)|
+|2016-12-22|Hans Joachim Desserud|Sort modifiers|
+|2016-12-22|Hans Joachim Desserud|Use <> instead of explicit types for lists etc.|
+|2016-12-22|Hans Joachim Desserud|Add missing @Override|
+|2016-12-22|Hans Joachim Desserud|Remove unused imports|
+|2016-12-06|Arjan Molenaar|Merge pull request #998 from keetron/master|
+|2016-12-06|Koen Prins|Update content.txt|
+|2016-12-05|Arjan Molenaar|Add acceptance test that proves script tables can be used with Define Table Type|
+|2016-12-05|Arjan Molenaar|Fix fixture type and name, so it works well with Script tables|
+|2016-12-05|Arjan Molenaar|Check if script is top-level, instead of name|
+|2016-12-04|Arjan Molenaar|code cleanup in SlimTable.|
+|2016-12-04|Arjan Molenaar|Determine teardown from Table|
+|2016-12-04|Arjan Molenaar|Do not try to dynamically invent fixture names.|
+|2016-12-04|Arjan Molenaar|make scenario table methods private|
+|2016-12-04|Arjan Molenaar|fix typo DecisionTable.i[fs]SymbolAssignment|
+|2016-12-03|Arjan Molenaar|Scenario table default child class should not be static|
+|2016-12-04|Arjan Molenaar|Rename CommandRunner.getReader/Writer to what they are|
+|2016-12-04|Arjan Molenaar|Fix encoding for pipe based socket.|
+|2016-12-04|Arjan Molenaar|cleanup and comments|
+|2016-12-02|Arjan Molenaar|update release notes|
+|2016-12-01|Arjan Molenaar|Merge pull request #994 from salandur/issue_962|
+|2016-11-30|Jeroen Ruijgers|removed double more in WikiWord documentation|
+|2016-11-29|Arjan Molenaar|Remove duplicate code isSuiteSetUpOrTearDown()|
+|2016-11-29|Arjan Molenaar|File listing will not show hidden files and CVS files|
+|2016-09-12|six42|Merge branch 'unclebob/master'|
+|2016-08-24|six42|Merge pull request #6 from unclebob/master|
+|2016-08-05|six42|Revert "sync with unclebob master"|
+|2016-08-05|six42|Merge branch 'upstream/master'|
+|2016-08-04|six42|sync with unclebob master|

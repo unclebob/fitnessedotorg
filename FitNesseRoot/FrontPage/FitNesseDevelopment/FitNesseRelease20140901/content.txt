@@ -1,0 +1,163 @@
+!release 20140901
+
+!3 FitNesse Release Notes 2014/09/01
+!note Uncle Bob Consulting LLC.
+
+!note !style_red(Requires Java 1.6)
+
+!4 Major Changes since [[20140630][FitNesseRelease20140630]]:
+
+ * Code cleanup for FitNesse JUnit runner ([[487][https://github.com/unclebob/fitnesse/pull/487]]).
+ * Improved error message when included page does not exist (([[496][https://github.com/unclebob/fitnesse/pull/496]]).
+ * Slim script tables can now really be addressed with ''script:MyClass'' ([[500][https://github.com/unclebob/fitnesse/pull/500]]).
+ * Slim can deal with arbitrary length messages ([[504][https://github.com/unclebob/fitnesse/pull/504]])
+ * Plugin classes can support more elements (sub)types ([[506][https://github.com/unclebob/fitnesse/pull/506]])
+ * Make Scenario tables play nice with custom script table (sub)types ([[507][https://github.com/unclebob/fitnesse/pull/507]])
+ * Output parameters in a decision table have been made available in scenarios ([[510][https://github.com/unclebob/fitnesse/pull/510]]).
+ * Command pattern can contain quoted parameters (this helps at places where spaces are involved) ([[508][https://github.com/unclebob/fitnesse/pull/508]]).
+ * Via the property ''!-WikiPageFactories-!'' (plural) extra wiki page types can be supported ([[505][https://github.com/unclebob/fitnesse/pull/505]]).
+ * Code cleanup in the Wiki module ([[511][https://github.com/unclebob/fitnesse/pull/511]]).
+ * Issues fixed:
+   * Fixed issue when rendering stack traces on Windows with spaces in paths ([[510][https://github.com/unclebob/fitnesse/pull/510]]).
+   * Allow Scenarios with parameterised style but with empty parameter names ([[510][https://github.com/unclebob/fitnesse/pull/510]]).
+   * Fix handling and recording of errors in table definitions ([[510][https://github.com/unclebob/fitnesse/pull/510]]).
+
+!4 Github ids of Contributors to this release:
+
+ * Arjan Molenaar
+ * Arnout Engelen
+ * Fried Hoeben
+ * Serge Zukov
+ * Antoine Aumjaud
+ * six42
+ * Filipe (unknown)
+
+!meta Thanks to all of you!
+
+!3 Git History
+
+!|2014-09-01|Arjan Molenaar|Update heading in release notes.|
+|2014-08-31|Arjan Molenaar|Toggle failure navigator from javascript, not from java code. Simplified search query.|
+|2014-08-30|Arjan Molenaar|Remove a bit of dead code.|
+|2014-08-30|Arjan Molenaar|Remove disk file system interaction from SymbolicLinkResponderTest|
+|2014-08-30|Arjan Molenaar|Remove unused method.|
+|2014-08-30|Arjan Molenaar|Use correct directory for file section AT.|
+|2014-08-30|Arjan Molenaar|Use temp. directories for file system related tests.|
+|2014-08-30|Arjan Molenaar|Use jUnit's TemporaryFolder for update tests.|
+|2014-08-27|Arjan Molenaar|Added a short write-up on the application architecture of FitNesse.|
+|2014-08-27|Arjan Molenaar|Organise imports.|
+|2014-08-24|Arjan Molenaar|Update release notes.|
+|2014-08-24|Arjan Molenaar|Merge pull request #511 from amolenaar/drop-parsedpage|
+|2014-08-24|Arjan Molenaar|Merge pull request #510 from six42/master|
+|2014-08-24|six42|TestCase: SyntaxErrors are now counted in the TestSummary|
+|2014-08-24|six42| AcceptanceTest: Allow Scenarios with parameterized style but with empty parameter names|
+|2014-08-24|six42| Pass output parameters from a decision table to the implementing scenario|
+|2014-08-24|six42|TestCase: SyntaxErrors are now counted in the TestSummary|
+|2014-08-24|six42|AcceptanceTest: Allow Scenarios with parameterized style but with empty paramter names|
+|2014-08-23|six42|Merge remote-tracking branch 'upstream/master'|
+|2014-08-23|six42|Pass output parameters from a decision table to the implementing scenario|
+|2014-08-23|six42|SyntaxErrors are now counted in the TestSummary|
+|2014-08-23|six42|Allow Scenarios with parameterized style but with empty paramter names|
+|2014-08-23|six42|StackTraceEnricherTest fails under Windows if folder contains spaces|
+|2014-08-23|Arjan Molenaar|Merge pull request #508 from sergebug/master|
+|2014-08-23|Arjan Molenaar|Merge pull request #507 from fhoeben/ScenarioCreatesParentScriptClass|
+|2014-08-22|Arjan Molenaar|Add little note on ParsingPage.|
+|2014-08-22|Arjan Molenaar|Make variableSource a FitNesseContext property. Saves a lot of SystemVariableSource creations.|
+|2014-08-20|Arjan Molenaar|remove commented out code.|
+|2014-08-20|Arjan Molenaar|Remove cycle in page rendering and variable lookup.|
+|2014-08-20|Arjan Molenaar|Remove WikiPageUtil.makeHtml().|
+|2014-08-20|Arjan Molenaar|Simplify TestPage interface: drop getDecoratedData().|
+|2014-08-21|unknown|If command line token was wrapped in double quotes - strip those off. Unit test updated.|
+|2014-08-21|unknown|Restored to match original version from upstrea/master|
+|2014-08-21|unknown|Merge branch 'master' of https://github.com/unclebob/fitnesse.git|
+|2014-08-21|Fried Hoeben|Reduce code duplication (and make another method accessible for extension)|
+|2014-08-21|Arjan Molenaar|Fix typo found by @viderbit.|
+|2014-08-20|Fried Hoeben|Performance improvement by not using reflection to find constructor on each call|
+|2014-08-20|Fried Hoeben|Ensure scenarios invoked from scripts use the ScriptTable class of the calling script|
+|2014-08-19|Arjan Molenaar|Make BaseWikiPage more generic by accepting any parent page type.|
+|2014-08-18|Arjan Molenaar|Got completely rid of ParsedPage.|
+|2014-08-18|Arjan Molenaar|Remove one more dependency on ParsedPage.|
+|2014-08-18|Arjan Molenaar|Untie ParsedPage, step 1.|
+|2014-08-17|Arjan Molenaar|Updated documentation on plugins.|
+|2014-08-17|Arjan Molenaar|Plugins are now instantiated before their register functions are called. This way we can provide a ComponentFactory or Properties to it, for further configuration.|
+|2014-08-17|Arjan Molenaar|Renamed TestSystemFactoryRegistrar and WikiPageFactoryRegistrar to -Registry. This is in line with other registries in FitNesse.|
+|2014-08-17|Arjan Molenaar|Merge branch 'pagedata'|
+|2014-08-17|Arjan Molenaar|Merge pull request #504 from raboof/acceptLargeSlimMessages|
+|2014-08-17|Arjan Molenaar|Merge pull request #487 from fhoeben/SuiteRunnerExtensibility|
+|2014-08-16|Fried Hoeben|Fix compilation of tests with smaller code change|
+|2014-08-14|Fried Hoeben|Fix test|
+|2014-08-14|Fried Hoeben|Move my tests to correct directory|
+|2014-08-14|Fried Hoeben|Fix compilation of tests|
+|2014-08-14|Arjan Molenaar|Do not execute example tables in script table page.|
+|2014-08-14|Arjan Molenaar|Merge pull request #500 from antoine-aumjaud/features/FIT-ScriptTableFixSymbolParameter|
+|2014-08-14|Arjan Molenaar|Added target to generate dependencies graph.|
+|2014-08-13|Arjan Molenaar|Merge branch 'master' into pagedata|
+|2014-08-13|Arjan Molenaar|Move setting page properties to the appropriate page types.|
+|2014-08-12|Arjan Molenaar|Disconnect TestPage from WikiPage. We're crossing subsystem borders here.|
+|2014-08-11|Arjan Molenaar|Move render logic to BaseWikiPage so it can be shared between FilesystemPage and SymbolicPage.|
+|2014-08-07|Arjan Molenaar|Use FileSystemPage.path to determine where the content is. Do not rely on parent pages for correct paths.|
+|2014-08-07|Arjan Molenaar|Save responder can deal with empty commit information|
+|2014-08-07|Arjan Molenaar|Document WikiPage interface somewhat|
+|2014-08-07|Arjan Molenaar|User FITNESSE_ROOTPATH to determine root path for relative external page references.|
+|2014-08-06|Fried Hoeben|No longer use abstract class, but make real class more aptly named as 'Runner'. Furthermore introduce @Suite annotation as replacement for @Name|
+|2014-08-03|Fried Hoeben|Reference default root in context configurator instead of repeating it here|
+|2014-07-09|Arjan Molenaar|Fix snapshot deployment in build.|
+|2014-07-08|Arjan Molenaar|Make WikiPageFactory.makePage() consistent with support(). The page factory expects the path to the page, not to the parent of a page. This allows for pages that use a name in FitNesse different from the one on fs.|
+|2014-07-31|Arjan Molenaar|Fix IncludeTest: Expand/Collapse without All.|
+|2014-07-31|Arjan Molenaar|Merge pull request #496 from antoine-aumjaud/features/FIT-ChangeIncludePageColorInCaseOfError|
+|2014-07-30|Arjan Molenaar|No need to quote class path entries. Should address #498.|
+|2014-07-26|Arnout Engelen|Accept large instructions from the Slim client|
+|2014-07-25|Arnout Engelen|Allow for responses larger than 999999 characters|
+|2014-07-21|antoine-aumjaud|Change SLIM documentation about Script table|
+|2014-07-21|antoine-aumjaud|Display constructor parameter variables values|
+|2014-07-11|Serge Zukov|Partially rolled back changes to CommandRunner: process builder doesn't support properly classpath which starts with quotes but ends without like: "c:\program files\x\bin\file.dll";fixtures\testFixtures\another.dll Runtime supports it only via string. Arrays don't work.|
+|2014-07-11|Serge Zukov|client builder didn't support properly path with spaces in it.|
+|2014-07-08|Arjan Molenaar|Moved UpdateTestCase to tests.|
+|2014-07-08|Arjan Molenaar|Small cleanup in FileSystemPageFactory.|
+|2014-07-08|Arjan Molenaar|Update build scrips so local installations can be done.|
+|2014-07-08|antoine-aumjaud|Fix code|
+|2014-07-08|antoine-aumjaud|Improve rendering and tests|
+|2014-07-07|antoine-aumjaud|Change color of includes in error|
+|2014-07-07|Arjan Molenaar|Make PageCrawlerImpl constructor public.|
+|2014-07-06|Arjan Molenaar|Add WikiPageFactories config option, allow for adding arbitrary page types.|
+|2014-07-06|Arjan Molenaar|Remove wiki page reference from PageData.|
+|2014-07-05|Arjan Molenaar|Remove ReadOnlyPageData.getHtml().|
+|2014-07-05|Arjan Molenaar|Remove WikiPageDummy.setParent().|
+|2014-07-05|Arjan Molenaar|Remove use of WikiPageDummy from application.|
+|2014-07-05|Arjan Molenaar|Remove use of PageData.getWikiPage() from RecentChanges and SaveRecorder.|
+|2014-07-05|Arjan Molenaar|Merge pull request #495 from sergebug/master|
+|2014-07-05|Arjan Molenaar|Remove WikiPage.readOnlyData(). Just use getData().|
+|2014-07-05|Arjan Molenaar|Let symbolicPage return a default (empty) parsed page.|
+|2014-07-05|Arjan Molenaar|Move getHeaderPage and getFooterPage out of the WikiPage interface, into WikiPageUtil.|
+|2014-07-05|Arjan Molenaar|Build ref pages and class path via WikitextPage interface.|
+|2014-07-04|Arjan Molenaar|Get ParsedPage from WikiPage via special interface.|
+|2014-07-04|Arjan Molenaar|Move PageData.getXrefPages to WikiPage. Make TestPage a subtype of WikiPage. Needed the last change to make sure the page rendering does not distinguish between Wiki and Test pages|
+|2014-07-04|Serge Zukov|Resolved test failure in Windows.|
+|2014-07-04|Serge Zukov|file://// is ivalid in Windows :(|
+|2014-07-04|Serge Zukov|Merge branch 'master' of https://github.com/unclebob/fitnesse.git|
+|2014-07-04|Arjan Molenaar|Replace invocations of getDataVersion() with getVersion().|
+|2014-07-04|Arjan Molenaar|Implement WikiPage.getVersion(versionName). Will replace getDataVersion().|
+|2014-07-02|Arjan Molenaar|Replace getData().getHtml() train by just getHtml() for TestPage Attempting to move getHtml() and code to WikiPage.|
+|2014-07-02|Arjan Molenaar|Get Html directly from TestPage.|
+|2014-07-02|Arjan Molenaar|Remove duplicate runtime exception.|
+|2014-07-02|Arjan Molenaar|Replace getData().getHtml() train by just getHtml() Attempting to move getHtml() and code to WikiPage.|
+|2014-07-02|Arjan Molenaar|Add WikiPage.getHtml(). Should replace PageData.getHtml().|
+|2014-07-02|Arjan Molenaar|Update WikiPageFactory.makePage(), allow for a parent, make rootPath a File.|
+|2014-07-01|Arjan Molenaar|Get FileSystemPage.getFileSystemPath() return java.io.File.|
+|2014-07-01|Arjan Molenaar|Move creation of ExternalSuitePages to a dedicated factory.|
+|2014-07-01|Arjan Molenaar|Make BaseWikiPage fields private.|
+|2014-07-03|Arjan Molenaar|Only send output to testHistoryFormatter if there is one. Fixes #493.|
+|2014-06-28|Fried Hoeben|Move default values to base class, so people subclassing have to implement less|
+|2014-06-28|Fried Hoeben|More consistent naming|
+|2014-06-28|Fried Hoeben|Rename test class|
+|2014-06-28|Fried Hoeben|Extract base class for Runner, only configuration remains in FitNesseSuite|
+|2014-06-28|Fried Hoeben|Make all settings of runner configurable|
+|2014-06-28|Fried Hoeben|Remove unused parameter|
+|2014-06-27|Fried Hoeben|Allow subclasses to perform some initialization of their own before the Fitnesse context is created|
+|2014-06-27|Fried Hoeben|Allow FitNesseSuite to be subclassed to define new strategy to determine which tests to run|
+|2014-06-27|Fried Hoeben|Allow FitNesseSuite to be used to test single page (not just suites)|
+|2014-06-09|Serge Zukov|Merge branch 'master' of https://github.com/unclebob/fitnesse.git|
+|2014-06-04|Serge Zukov|Merge branch 'master' of https://github.com/unclebob/fitnesse.git|
+|2014-05-29|Serge Zukov|Merge branch 'master' of https://github.com/unclebob/fitnesse.git|
+|2014-05-26|Serge Zukov|Merge branch 'master' of https://github.com/unclebob/fitnesse.git|
+|2014-04-22|Serge Zukov|Merge branch 'master' of https://github.com/unclebob/fitnesse.git|

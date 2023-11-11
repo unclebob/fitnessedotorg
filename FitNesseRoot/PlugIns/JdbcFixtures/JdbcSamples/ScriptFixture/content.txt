@@ -1,0 +1,80 @@
+'''ScriptFixture''' executes a database script on [[!-DefaultConnection-!][.FitNesse.JdbcFixtures.JdbcSamples.DefaultConnection]]. 
+
+!|Comment|
+|EXECUTE|DBMS_BUFLEN|SUBST0 …|SUBST9|BIND1 …|BIND9 |line  |statement()|call()|bindVariableI()|bindI()|enableOracleOutput()|getOracleLine()|getOracleOutput()|
+|String |String     |String|String|String|String|String|String     |String|String         |String |String              |String         |String           |
+A single line script can be passed as arg[0]. 
+
+|Script Fixture|CREATE TABLE T ( NAME CHAR(25)     NULL)|
+|call?|
+|OK|
+
+'''Call?''' returns exceptions. 
+|Script Fixture|CREATE TABLE T ( NAME CHAR(25)     NULL)|
+|call?||
+|| '' This should fail, can't create the same table. ''|
+
+Clean Up
+|Script Fixture|DROP TABLE T|
+|call?|
+|OK|
+----
+A multiline script can be passed as a series of lines. A slash creates a statement.
+
+|Script Fixture|
+|line|call?|
+|CREATE TABLE T||
+|(||
+|  NAME CHAR(25)     NULL||
+|)||
+|/|OK|
+
+Clean Up
+|Script Fixture|
+|line|call?|
+|DROP TABLE T||
+|/|OK|
+----
+!3 Substitution
+'''Substitution Variables''' ( '''SUBST''N'' '''where ''N'' is 0-9) define strings that are simply 'pasted' into the statement. The database server is unaware of any Substitution Variables. There are no word boundaries defined, as this example shows. The server must recompile each row.
+
+|Script Fixture|CREATE TABLE PARMTEST ( PARM VARCHAR(25)     NULL)|
+|call?|
+|OK|
+
+Use '''Substitution Variables''' SUBST1 and SUBST2. '''statement?''' shows the string that is sent to the database server.
+|Script Fixture|insert into PARMTEST  values('SUBST1SUBST2')|
+|SUBST1|SUBST2|call?|statement?|
+|Hel  |lo World|OK||
+|Goodbye W|orld|OK||
+----
+!3 Bind
+'''Bind Variables''' ('''BIND''N'' '''where ''N'' is 1-9) define input/output variables. The server sees both the '''statement''' and the Bind Variables. 
+
+Bind Variables are useful as parameters for stored procedures.  The following fixture would call the stored procedure ''FINDNAME''. FINDNAME would take one input parameter and one output parameter.
+{{{ 
+|Script Fixture|CALL FINDDNAME(10,:out 1)|
+|call?|BIND1|
+|||
+}}}
+!3 Oracle-ism
+Oracle defines an alternative syntax to the standard jdbc syntax. '''BEGIN ... END;''' can include multiple calls to stored procedures. Oracle calls this an ''anonymous block''. Think of them as stored procedures that aren't stored :). It's easy to forget to include a BEGIN ... END; in a script. They are required if you are using bind variables.
+{{{
+|Script Fixture|BEGIN FINDDNAME(10,:out 1); END;|
+|call?|BIND1|
+|||
+}}}
+The script refers to a Bind Variable with a colon, an optional direction, and the number 1-9. The direction can be '''in''','''out''' or '''inout'''. '''in''' is assumed if no direction is provided.
+
+JDBC uses question marks, not colons and numbers. '''call?''' converts the references to Bind Variables to question marks. See the results in '''statement?'''.
+
+'''bindI?''' returns the bind variables starting with BIND1, then BIND2, etc.  
+|Script Fixture|begin SELECT PARM into :out 1 from  PARMTEST WHERE PARM LIKE :2; end; |
+|BIND2|call?|BIND1|bindI?|bindI?|statement?|
+|He%|OK||Hello World|He%||
+|Go%|OK||Goodbye World|Go%||
+
+!3 Clean Up
+|Script Fixture|DROP TABLE PARMTEST|
+|call?|
+|OK|

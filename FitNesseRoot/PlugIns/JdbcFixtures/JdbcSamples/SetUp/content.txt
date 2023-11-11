@@ -1,0 +1,7 @@
+|Import|
+|jdbcFixtures|
+
+|Default Connection|
+|user |password|database  |connect()|
+|scott|tiger   |ORADESK   |true        |
+

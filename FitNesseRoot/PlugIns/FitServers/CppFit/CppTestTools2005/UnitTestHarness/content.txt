@@ -1,0 +1,83 @@
+The unit test harness supplied with !-CppTestTools-! is based on Michael Feathers !-CppUnitLite-!.
+
+!-CppTestTools.UnitTestHarness-! supports these features
+
+!3 Command line switches
+ * ''-v'' verbose, print each test name as it runs
+ * ''-r#'' repeat the tests some number of times, default is one, default is # is not specified is 2
+ * ''-g group'' only run test whose group matches ''group'' 
+ * ''-n name'' only run test whose name matches ''name'' 
+
+!3 Test Macros
+ * TEST(''group'', ''name'') - define a test
+ * IGNORE_TEST(''group'', ''name'') - turn off the execution of a test
+ * IMPORT_TEST_GROUP(''group'') - Link in a test group from another library
+ * EXPORT_TEST_GROUP(''group'') - Export the name of a test group so it can be linked in from a library
+
+!3 Set up and tear down support
+ * !-Each test file defines SetUp and TearDown-!
+ * !-SetUp is called prior to each TEST body and TearDown is called after each test body-!
+
+!3 Assertion Macros
+The failure of one of these macros causes the current test to immediately exit
+ * CHECK(''boolean condition'') - checks any boolean result
+ * CHECK_EQUAL(''expected'', ''actual'') - checks for equality between entities using ==.  So if you have a class that supports operator==() you can use this macro to compare two instances.
+ * STRCMP_EQUAL(''expected'', ''actual'') - check const char* strings for equality using strcmp
+ * LONGS_EQUAL(''expected'', ''actual'') - Compares two numbers
+ * DOUBLES_EQUAL(''expected'', ''actual'', ''tolerance'') - Compares two doubles within some tolerance
+ * FAIL(text) - always fails
+
+!3 Memory leak detection
+ * A platform specific memory leak detection mechanism is provided.
+ * If a test fails and has allocated memory prior to the fail that is not cleaned up by !-TearDown-!, a memory leak is reported.  It is best to only chase memory leaks when other errors have been eliminated.
+ * Some code uses lazy initialization and appears to leak when it really does not (gcc stringstream for example).  For example some standard library calls allocate something and do not free it until after main (or never).  To find out if a memory leak is due to lazy initialization set the -r switch to run tests twice.  The signature of this situation is that the first run shows leaks and the second run shows no leaks.  When both runs show leaks, you have a leak to find.
+ * !-MemoryLeakWarning::TolerateLeaksInThisTest()-! will not report a leak in the calling test when the -t option is selected.  This is handy for ignoring the leaks that are not really leaks.  NOT for ignoring real leaks.
+ * ^VisualCppMemoryLeakDetection
+ * ^GccMemoryLeakDetection
+
+!3 Example Main
+{{{
+#include "UnitTestHarness/CommandLineTestRunner.h"
+
+int main(int ac, char** av)
+{
+  CommandLineTestRunner::RunAllTests(ac, av);
+  return 0;
+}
+
+IMPORT_TEST_GROUP(ClassName)
+}}}
+!3 Example Test
+{{{
+#include "UnitTestHarness/TestHarness.h"
+#include "ClassName.h"
+
+EXPORT_TEST_GROUP(ClassName)
+
+namespace 
+{
+  ClassName* aClassName;
+
+  void SetUp()
+  {
+    aClassName = new ClassName();
+  }
+  void TearDown()
+  {
+    delete aClassName;
+  }
+}
+
+TEST(ClassName, Create)
+{
+  CHECK(true);
+  CHECK_EQUALS(1,1);
+  LONGS_EQUAL(1,1);
+  DOUBLES_EQUAL(1.000, 1.001, .01);
+  STRCMP_EQUAL("hello", "hello");
+  FAIL("Making sure ClassNameTest is hooked in");
+}
+}}}
+!-SetUp and TearDown are located within the unnamed namespace.  This avoids global name pollution as SetUp and TearDown will only be visable within the current file.-!
+
+

@@ -1,0 +1,10 @@
+!fixture jdbcFixtures.DefaultConnection
+!fixture jdbcFixtures.Insert
+!fixture jdbcFixtures.Select
+!fixture jdbcFixtures.ScriptFixture
+!fixture jdbcFixtures.PrintTable
+!fixture jdbcFixtures.PatternFixture
+
+!contents
+
+!3 [[Download!][http://fitnesse.org/files/JDBCFixtures20041015.zip]]

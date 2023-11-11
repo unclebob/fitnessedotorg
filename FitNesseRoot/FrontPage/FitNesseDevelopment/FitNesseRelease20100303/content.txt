@@ -1,0 +1,125 @@
+!release 20100303
+
+!3 FitNesse Release Notes 03/03/2010
+!note Uncle Bob, Object Mentor, Inc.
+
+!note !style_red(Requires Java 1.6)
+
+!4 Contributors to this release:
+ * Andy Dassing
+ * Gregor Gramlich
+ * Konstantin Vlasenko
+ * Markus Gaertner
+ * Ole Christian Rynning
+ * Trevor Bender
+ * chellmuth
+ * gojko
+ * unclebob
+ * Lisa Crispin
+ * Rastislav Svoboda
+ * rr42volpe
+ * Piotr Bialas
+!meta Thanks to all of you!
+
+|!4 Since:                |[[20100103][FitNesseRelease20100103]]|
+|!4 Expected Release Date:|20100228    |!style_pass(RELEASED)   |
+|!4 Theme:                |Cleanup           |
+
+!3 Major Changes
+ * Search and Replace feature under the ''Refactoring'' button.  Can search for regular expressions and replace them down a hierarchy of pages.
+ * !-!define-! with square brackets
+ * SLIM_HOST variable to connect to remote SLIM instances.
+
+!3 Pivotal Stories
+
+!|bug    |Improper Java: Superfluous @Override Annotations     |
+|bug    |Nested tables via variables cause incorrect rendering|
+|bug    |Hidden First Row Bug.                                |
+|bug    |Chunking Lenghts included in XML format for tests    |
+|bug    |Scenario libraries not accessible to SetUp pages     |
+|bug    |Lisa's NPE when accessing variables from parent that are defined on child|
+|feature|SlimHost variable.                                   |
+|feature|add a noChunk REST parameter                         |
+|feature|Search & Replace                                     |
+|feature|Blank cell in query table should be ignored          |
+|feature|$$ in slim table evaluates to $                      |
+|feature|resultDate=latest in PageHistory|
+
+!3 Git History
+!|2010-03-02 16:30:13 -0600|unclebob             |Tracker:1941599, Added 'latest' to the 'resultDate' argument of PageHistory responder                                                                                     |
+|2010-03-02 15:11:39 -0600 |unclebob             |fix getFitNesseVersion issue in suite reports.                                                                                                                            |
+|2010-03-01 23:15:24 -0600 |unclebob             |Fixed Lisa's NPE bug with variables declared in parents to use variables declared in children.                                                                            |
+|2010-02-28 10:50:19 -0600 |unclebob             |Merge branch 'master' of git://github.com/MarkusGaertner/fitnessebacklogfixes                                                                                             |
+|2010-02-28 10:48:14 -0600 |unclebob             |Merge branch 'master' of git://github.com/velaskec/fitnesse                                                                                                               |
+|2010-02-27 23:58:08 +0100 |Markus Gaertner      |added bullet point for the search & replace function on the Special Wiki functions page                                                                                   |
+|2010-02-27 09:25:34 -0700 |Konstantin Vlasenko  |We need to make these things to show correctly resulted scenario and links on property page                                                                               |
+|2010-02-27 09:27:30 -0600 |unclebob             |merge                                                                                                                                                                     |
+|2010-02-27 09:12:42 -0600 |unclebob             |housekeeping                                                                                                                                                              |
+|2010-02-27 08:59:59 -0600 |unclebob             |Merge branch 'master' of git://github.com/MarkusGaertner/fitnessebacklogfixes                                                                                             |
+|2010-02-27 08:45:21 -0600 |unclebob             |finish merge                                                                                                                                                              |
+|2010-02-27 08:44:14 -0600 |unclebob             |housekeeping                                                                                                                                                              |
+|2010-02-27 08:24:26 -0600 |unclebob             |Merge branch 'master' of git://github.com/oc/fitnesse                                                                                                                     |
+|2010-02-27 08:16:37 -0600 |unclebob             |temporary fix for Lisa's NPE, awaiting results from Lisa and Gregor                                                                                                       |
+|2010-02-26 13:24:14 -0600 |unclebob             |Added Lisa's request for bang define with square brackets.                                                                                                                |
+|2010-02-26 10:20:56 -0500 |TrevorBender         |Merge branch 'master' of git://github.com/unclebob/fitnesse into integration                                                                                              |
+|2010-02-26 13:13:42 +0100 |Markus Gaertner      |added acceptance tests for the replacement responder                                                                                                                      |
+|2010-02-25 23:32:01 +0100 |Markus Gaertner      |moved SearchAndReplace feature to refactoring and added it to the according form responder                                                                                |
+|2010-02-25 13:03:16 -0700 |velaskec             |white-space:pre                                                                                                                                                           |
+|2010-02-25 17:07:12 +0100 |Markus Gaertner      |removed acceptance test for search & replace - need to rework this                                                                                                        |
+|2010-02-25 16:59:20 +0100 |Markus Gaertner      |added search & replace responder, wired together and added an acceptance test                                                                                             |
+|2010-02-25 15:29:33 +0100 |Markus Gaertner      |removed some .zip files from FitNesseRoot                                                                                                                                 |
+|2010-02-25 15:14:04 +0100 |Markus Gaertner      |replaced ContentWikiPageFinder with the RegularExpressionPageFinder                                                                                                       |
+|2010-02-25 14:39:28 +0100 |Markus Gaertner      |cleaned up SearchReplaceResponderTest to avoid .* pattern usage                                                                                                           |
+|2010-02-25 14:36:36 +0100 |Markus Gaertner      |some cleanup to avoid .* surrounding for pattern matches and got rid of some @override annotations                                                                        |
+|2010-02-24 15:13:11 -0600 |unclebob             |Tracker: 2471066, 5943 passed to slim gets interpreted as $                                                                                                               |
+|2010-02-24 05:47:57 -0600 |unclebob             |Tracker: 2463690, Blank cells in query tables are ignored                                                                                                                 |
+|2010-02-21 03:13:06 -0500 |TrevorBender         |Added PARENT_NAME and PARENT_PAGE variable                                                                                                                                |
+|2010-02-18 15:10:27 +0100 |Ole Christian Rynning|Content-Type of HTML output generated by JavaFormatter explicit utf-8                                                                                                     |
+|2010-02-17 06:22:51 -0600 |unclebob             |fixed yet another order dependency in TestLinearClassPath and incidentally sped up the test execution a bit.                                                              |
+|2010-02-16 16:37:30 -0600 |unclebob             |Fixed order dependency in TestLinearClassPath acceptance test.                                                                                                            |
+|2010-02-09 16:15:12 -0600 |unclebob             |Added resource to SearchAndReplaceResponder, and added a few more tests.                                                                                                  |
+|2010-02-08 21:39:53 +0100 |Markus Gaertner      |added regular expression wiki page finder and a content replacing search observer and wired them together in the search & replace responder. No user interface added, yet.|
+|2010-02-05 08:23:23 -0600 |unclebob             |rr42volpe's fix for Null Pointer Exception when JunitHelper is being used and tests take > 1 sec.                                                                         |
+|2010-02-03 22:03:07 +0100 |Gregor Gramlich      |Extracted Jsr223StatementExecutorTestBase                                                                                                                                 |
+|2010-02-03 20:59:46 +0100 |Gregor Gramlich      |Merge branch 'master' of git://github.com/unclebob/fitnesse.git                                                                                                           |
+|2010-02-03 08:59:48 -0600 |unclebob             |Fixed Rastislav Svoboda's cosmetic bugs.                                                                                                                                  |
+|2010-02-02 19:25:48 -0600 |unclebob             |Added Regular Exression Matching to Slim Tables using =~/regex/ syntax                                                                                                    |
+|2010-02-01 12:27:38 -0600 |unclebob             |2271689 Added SLIM_HOST variable to support remote slim instances.                                                                                                        |
+|2010-02-01 09:34:40 -0600 |unclebob             |2341320 Added nochunk argument to URL to turn off chunking                                                                                                                |
+|2010-02-01 08:59:47 -0600 |unclebob             |2265171 Scenario Libraries now accessible to SetUp pages                                                                                                                  |
+|2010-02-01 14:51:17 +0100 |Gregor Gramlich      |Standard implementations for portable method names for echo, delete                                                                                                       |
+|2010-01-30 23:31:53 +0100 |Gregor Gramlich      |Also test that HashWidget maps are converted for constructor arguments                                                                                                    |
+|2010-01-30 22:14:08 +0100 |Gregor Gramlich      |Merge branch 'master' of git://github.com/unclebob/fitnesse.git                                                                                                           |
+|2010-01-30 22:13:51 +0100 |Gregor Gramlich      |Changed method signature to return interface                                                                                                                              |
+|2010-01-29 15:40:46 -0600 |unclebob             |Begun refactoring WidgetBuilder towards more standard Parser/Builder pattern.  Got rid of nasty temporal coupling.                                                        |
+|2010-01-29 10:24:43 -0600 |unclebob             |fixed SlimTableFactory, added : to table                                                                                                                                  |
+|2010-01-28 15:22:11 -0600 |unclebob             |Merged Gregor's unit test for variable expression.                                                                                                                        |
+|2010-01-28 15:15:58 -0600 |unclebob             |Merge branch 'master' of git://github.com/ggramlich/fitnesse                                                                                                              |
+|2010-01-28 22:02:28 +0100 |Gregor Gramlich      |Added portable HashWidgetConversionTest                                                                                                                                   |
+|2010-01-28 21:57:40 +0100 |Gregor Gramlich      |Added test for variable expansion with variable from context                                                                                                              |
+|2010-01-27 00:54:21 -0600 |unclebob             |Merged Andy Dassing's fix for variable expansion.   Need new widget parser\!                                                                                              |
+|2010-01-27 00:49:16 -0600 |unclebob             |Merge branch 'master' of git://github.com/i-m-fit-r-u/fitnesse                                                                                                            |
+|2010-01-26 22:32:28 +0100 |Gregor Gramlich      |Merge commit 'AndyDassing/master'                                                                                                                                         |
+|2010-01-26 22:07:30 +0100 |Gregor Gramlich      |Merge branch 'master' of git://github.com/unclebob/fitnesse.git                                                                                                           |
+|2010-01-26 22:07:11 +0100 |Gregor Gramlich      |Merge branch 'gh-pages' of git://github.com/unclebob/fitnesse.git                                                                                                         |
+|2010-01-25 00:15:00 -0700 |unclebob             |github generated gh-pages branch                                                                                                                                          |
+|2010-01-25 01:05:59 -0600 |unclebob             |housekeeping                                                                                                                                                              |
+|2010-01-24 22:28:58 +0100 |Gregor Gramlich      |Extracted StatementExecutorTestBase                                                                                                                                       |
+|2010-01-24 12:51:42 -0500 |Andy Dassing         |Eclipse Galileo clean build options                                                                                                                                       |
+|2010-01-24 02:21:55 -0500 |Andy Dassing         |Altered variable explansion logic to accommodate nested tables and embedded newlines                                                                                      |
+|2010-01-22 14:24:11 -0700 |velaskec             |With this change we'll be able to connect to remote SLIM server. localhost will be used in case of undefined vatiable                                                     |
+|2010-01-17 17:50:08 -0600 |unclebob             |Fixed 2201530, Hidden First Row Bug.  Changed # to -                                                                                                                      |
+|2010-01-17 16:41:32 -0600 |unclebob             |Piotr Bialas found bug in SlimTable.Comparator.  Would not allow negative numbers in the comparators                                                                      |
+|2010-01-17 07:40:44 -0600 |unclebob             |housekeeping                                                                                                                                                              |
+|2010-01-17 10:22:25 +0100 |Gregor Gramlich      |Fixed superfluous @Override annotations, applied autoformat                                                                                                               |
+|2010-01-17 10:09:53 +0100 |Gregor Gramlich      |Re-extracted SlimServiceTestBase                                                                                                                                          |
+|2010-01-16 12:44:20 -0600 |unclebob             |housekeeping                                                                                                                                                              |
+|2010-01-16 09:27:59 -0600 |unclebob             |Merge branch 'master' of git://github.com/gojko/fitnesse                                                                                                                  |
+|2010-01-16 11:11:57 +0000 |gojko                |bugfix for junit runner summary html page; support for junit runner suite filters                                                                                         |
+|2010-01-16 10:10:52 +0000 |gojko                |Merge branch 'master' of git@github.com:unclebob/fitnesse                                                                                                                 |
+|2010-01-11 21:36:52 -0700 |chellmuth            |Fix typo in SliM protocol documentation.                                                                                                                                  |
+|2010-01-10 13:47:33 +0000 |gojko                |Clint Popetz fix: catching AssertionFailedError                                                                                                                           |
+|2010-01-06 08:45:56 -0600 |unclebob             |Added Library to SuiteWikiImportTests                                                                                                                                     |
+|2010-01-03 15:29:35 -0600 |unclebob             |housekeeping                                                                                                                                                              |
+
+

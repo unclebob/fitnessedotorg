@@ -1,0 +1,131 @@
+!release 20090513
+
+!3 FitNesse Release Notes 5/13/2009
+!note Uncle Bob, Object Mentor, Inc.
+
+!4 Contributors to this release:
+ * Clare !-McLennan-!
+ * Markus Gaertner
+ * Darrin Holst
+ * David Leonard
+ * Brett L. Schuchert
+ * Mike Stockdale
+ * Scott Frederick
+ * Ingo Feltes
+ * Gregor Gramlich
+
+
+!meta Thanks to all of you!
+
+|!4 Since:|[[20090321][FitNesseRelease20090321]]| 
+|!4 Expected Release Date:|20090501|!style_pass(RELEASED)|
+|!4 Theme:|Test History|
+
+!3 Changes
+ * Test History.  FitNesse now records the outcome of every test, and allows you to redisplay the results at any time. 
+ * GSSAPI/SPNEGO authentication.  
+ * Stop Test exception for Slim allows a slim fixture to stop the execution of the whole test page.
+ * Parametric Scenario Table reference in Decision Tables.
+ * 'Examples' suffix for suite pages.
+ * Junit-like Moving Progress bar for Suites.
+ 
+!3 Git History
+!|2009-05-12 15:11:06 -0500|unclebob|junk|
+|2009-05-12 14:55:21 -0500|unclebob|Merge branch 'master' of git://github.com/dleonard0/fitnesse|
+|2009-05-12 14:06:13 -0500|unclebob|Merge branch 'master' of git://github.com/darrinholst/fitnesse|
+|2009-05-12 14:00:01 -0500|unclebob|Merged Clare's changes|
+|2009-05-12 13:47:16 -0500|unclebob|Merged with Markus|
+|2009-05-12 13:42:12 -0500|unclebob|Update Updaters|
+|2009-05-12 09:04:45 -0500|unclebob|All Test History Acceptance Tests pass|
+|2009-05-11 20:28:22 -0500|unclebob|Test History is working.  Acceptance tests not finished yet.|
+|2009-05-11 13:46:17 -0600|David Leonard|Enable selective SPNEGO auth by page security|
+|2009-05-11 09:10:34 -0600|David Leonard|Add Main-Class manifest information to maven pom|
+|2009-05-11 09:09:27 -0600|David Leonard|Correct example jaas.conf in NegotiateAuthenticator javadoc|
+|2009-05-10 20:52:10 +0200|Markus Gaertner|fixed page history bug where directories where taken as possible test results|
+|2009-05-10 19:02:44 +0200|Markus Gaertner|removed meaningless number and replaced it by Calendar.DECEMBER|
+|2009-05-10 23:10:19 +1200|Clare|Added a remote_debug option for the test and suite filters, that will you to debug easily in any language.  See fitnesse/UserGu|
+|2009-02-20 16:31:13 -0700|David Leonard|Add an authenticator for GSSAPI/SPNEGO authentication.|
+|2009-02-20 16:29:14 -0700|David Leonard|Add Request#setCredentials() for authenticators|
+|2009-02-20 16:24:30 -0700|David Leonard|Fix the Base64 codec to work with binary data.|
+|2009-05-08 15:47:49 -0600|David Leonard|resolve ambiguity in test not handled by compiler|
+|2009-05-08 15:46:32 -0600|David Leonard|Add maven dependency for velocity 1.6.2|
+|2009-05-08 22:56:51 +1200|Clare|Added a 'top of the page' link to html output of each test in a suite. It should help navigating up and down long suite pages|
+|2009-05-08 19:27:56 +1200|Clare|Finished Stop test exceptions.  See page FitNesse.UserGuide.SliM.ExceptionHandling details on how to use this functionality.|
+|2009-05-07 21:21:20 +0200|Markus Gaertner|Merge branch 'master' of git://github.com/unclebob/fitnesse|
+|2009-05-06 16:19:23 -0500|unclebob|fixed rename bug.|
+|2009-05-06 15:26:36 -0500|unclebob|Added acceptance tests for Page History.  Breadcrumbs, etc.|
+|2009-05-05 19:21:56 +0200|Markus Gaertner|Merge branch 'master' of git://github.com/unclebob/fitnesse|
+|2009-05-04 16:00:45 -0500|unclebob|parametric scenario table reference for decision table|
+|2009-05-04 15:04:23 -0500|unclebob|Acceptance Tests for Test History|
+|2009-05-04 19:01:18 +0200|Markus Gaertner|Merge branch 'master' of git://github.com/unclebob/fitnesse|
+|2009-05-04 21:39:12 +1200|Clare|Throwing an exception with 'StopTest' in the name in java now stops the current test from executing.  Other tests in the suite |
+|2009-05-03 19:13:25 -0500|unclebob|PageHistoryResponder|
+|2009-04-30 21:24:28 +0200|Markus Gaertner|Merge branch 'master' of git://github.com/unclebob/fitnesse|
+|2009-04-29 17:56:36 -0500|unclebob|Clean up test history|
+|2009-04-25 23:05:39 +0200|Markus Gaertner|Merge branch 'master' of git://github.com/unclebob/fitnesse|
+|2009-04-25 11:31:20 -0500|unclebob|testHistory responder.|
+|2009-04-19 16:57:33 +0200|Markus Gaertner|finalized work on properties searcher|
+|2009-04-17 21:08:29 -0500|Darrin Holst|Merge branch 'master' of git@github.com:darrinholst/fitnesse|
+|2009-04-17 21:02:01 -0500|Darrin Holst|fix wiki formatter so that it works on tables that start with a !|
+|2009-04-17 21:02:01 -0500|Darrin Holst|fix wiki formatter so that it works on tables that start with a \!|
+|2009-04-17 19:39:14 +0200|Markus Gaertner|Merge branch 'master' of git://github.com/unclebob/fitnesse|
+|2009-04-17 16:43:24 +0200|Markus Gaertner|Merge branch 'master' of git://github.com/unclebob/fitnesse|
+|2009-04-17 16:43:24 +0200|Markus Gaertner|Merge branch 'master' of git://github.com/unclebob/fitnesse|
+|2009-04-16 16:21:31 -0500|unclebob|merge|
+|2009-04-16 16:01:46 -0500|unclebob|ever test writes XML record in file/testResults.  XML of scenario tables generated correctly.|
+|2009-04-16 18:36:22 +0200|Markus Gaertner|Merge branch 'master' of git://github.com/unclebob/fitnesse|
+|2009-04-15 20:38:31 -0500|unclebob|XML format written to testResults directory|
+|2009-04-15 18:32:14 -0500|Brett L. Schuchert|Added SetUp and TearDown pages back into the Footer. Used thread locals to "communicate" the top level entry page |
+|2009-04-15 11:19:44 -0500|Brett L. Schuchert|Updated build to use FITNESSE_TEST_PORT environment variable, if defined, or default to port 8080 as before.|
+|2009-04-15 16:48:08 +0200|Markus Gaertner|Merge branch 'master' of git://github.com/unclebob/fitnesse|
+|2009-04-15 09:27:14 -0500|Brett L. Schuchert|Pages ending with "Examples" now have their Suite property set.|
+|2009-04-14 18:01:20 -0500|Brett L. Schuchert|Basic cleanup. Removed warnings. Updated classpath for Eclipse users.|
+|2009-04-14 22:43:39 +0200|Markus Gaertner|incorporated first version of new search form for properties. Added the ability|
+|2009-04-14 22:27:11 +0200|Markus Gaertner|Merge branch 'master' of git://github.com/unclebob/fitnesse|
+|2009-04-13 14:05:27 -0500|unclebob|Added table to xml test results.|
+|2009-04-13 14:05:27 -0500|unclebob|Added table to xml test results.|
+|2009-04-13 12:34:40 +0200|Markus Gaertner|changed K<C3><B6>ln to unicode representation string to avoid warnings during|
+|2009-04-11 22:57:09 +0200|Markus Gaertner|Merge branch 'master' of git://github.com/unclebob/fitnesse|
+|2009-04-11 10:31:18 -0500|unclebob|Fixed race condition in stop button test|
+|2009-04-10 23:16:39 +0200|Markus Gaertner|removed svnkit from buildpath for eclipse|
+|2009-04-09 21:46:30 +0200|Markus Gaertner|added velocity library to classpath for eclipse|
+|2009-04-08 21:33:03 -0500|unclebob|Fix scenario bug in XML output and improve scenario table naming scheme.|
+|2009-04-08 07:42:37 -0500|unclebob|deleted svnkit.jar|
+|2009-04-07 17:26:30 -0500|unclebob|Merge branch 'master' of git://github.com/MarkusGaertner/fitnessebacklogfixes|
+|2009-04-07 17:25:04 -0500|unclebob|fixed conflicts|
+|2009-04-07 21:15:13 +0200|Markus Gaertner|Merge branch 'master' of git://github.com/unclebob/fitnesse|
+|2009-04-07 12:19:27 -0500|unclebob|minor edits|
+|2009-04-06 18:06:04 -0700|jediwhale|for windows users|
+|2009-04-06 18:46:54 +0200|Markus Gaertner|Merge branch 'master' of git://github.com/unclebob/fitnesse|
+|2009-04-06 22:09:02 +1200|Clare|Colour in status bar now shows how many tests are complete - matches junit|
+|2009-04-05 21:46:46 +0200|Markus Gaertner|fixed front page links after user guide refactoring|
+|2009-04-05 13:19:30 -0500|unclebob|fix and clean up TICKET_ID and SAVE_ID attributes that control merges of wiki pages.|
+|2009-04-04 14:15:33 -0500|unclebob|Cleanup and fix MultipleTestRunner|
+|2009-04-03 09:45:03 -0500|sfred|Updated Plugins page in UserGuide.|
+|2009-04-03 06:50:04 -0500|unclebob|Fix UTF-8 problems in Java slim|
+|2009-04-03 00:15:41 -0500|unclebob|Fixed invalid page error message|
+|2009-04-02 23:35:24 -0500|unclebob|Merged conflicts|
+|2009-04-02 22:21:37 -0500|unclebob|Fixed bug that swallowed exceptiosn thrown by fixture constructors in slim.|
+|2009-04-03 12:23:48 +1300|Clare McLennan|Main properties are now ordered so this file should not change until new functionality is added|
+|2009-04-03 11:58:03 +1300|Clare McLennan|Removed dates and frequently changing information from properties files, so fitnesse works better with SC systems|
+|2009-04-02 12:48:55 -0500|unclebob|Added status and tags elements to XML test results|
+|2009-03-31 19:52:21 -0500|unclebob|Fixed Slim Symbol bugs.  Can be blank or null.  Thanks Brett\!|
+|2009-03-31 18:54:54 +0800|unclebob|Velocity builds XML of TestResults and SuiteResults.|
+|2009-03-31 17:14:29 +0800|unclebob|fix some doc issues|
+|2009-03-28 23:13:52 +0800|unclebob|deleted old user guide files|
+|2009-03-31 07:25:17 -0500|unclebob|Decrap|
+|2009-03-31 05:54:54 -0500|unclebob|Velocity builds XML of TestResults and SuiteResults.|
+|2009-03-31 04:29:39 -0500|unclebob|merged Scott Frederick's revisioncontrol changes.|
+|2009-03-31 04:15:47 -0500|unclebob|Merge branch 'revisioncontrol'|
+|2009-03-31 04:14:29 -0500|unclebob|fix some doc issues|
+|2009-03-30 23:33:48 -0500|unclebob|Merge branch 'master' of git://github.com/liberty/fitnesse into revisioncontrol|
+|2009-03-30 22:24:40 -0500|sfred|Extracted revisioncontrol packages, to be implemented in a separate plugin. Refactored core components to make them more open t|
+|2009-03-30 00:10:21 -0500|unclebob|Added velocity to XmlFormatter|
+|2009-03-28 10:13:52 -0500|unclebob|deleted old user guide files|
+|2009-03-27 12:50:59 -0500|unclebob|revamped UserGuide|
+|2009-03-26 21:52:51 +1300|Clare|Added missing waitfixture required for TestResponderTest|
+|2009-03-25 21:44:35 -0500|unclebob|Merge Clare's progress bar|
+|2009-03-25 21:41:09 -0500|unclebob|added testResult template|
+|2009-03-23 00:23:53 +1300|Clare|Added junit-like moving progress bar to suites|
+|2009-03-21 13:07:08 -0500|unclebob|css patch by Ingo Feltes|
+

@@ -1,0 +1,13 @@
+ * Brand new, much improved, FitNesse documentation provided by .PatWelsh.  Thanks Pat!
+ * New test status indicators including a green/red bar.  
+  * These new visual aspects improve usability of tests and replace the old red and black error box.
+  * Next time you run a test keep your eyes on the upper right hand corner.  
+  * They provide a link to the ErrorLog for every test execution, even passing tests.
+  * Thanks go out to JbRainsberger for helping out on this one.
+ * Custom !-WikiWidgets-! are now plugabble.  .FitNesse.PluginUsage
+ * Spaces in filenames now work in the the files section
+ * New button linked to files section
+ * The files section has a button linked to the FrontPage.
+ * (java FIT) Friendly error message for !-ClassCastException-!
+ * (java FIT) Abiity to add friendly custom exceptions.  
+ * (.net FIT) Bug fixes and improvements.

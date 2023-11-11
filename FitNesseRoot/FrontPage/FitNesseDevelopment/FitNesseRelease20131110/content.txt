@@ -1,0 +1,633 @@
+!release 20131110
+
+!3 FitNesse Release Notes 2013/11/10
+!note Uncle Bob Consulting LLC.
+
+!note !style_red(Requires Java 1.6)
+
+!4 Major Changes since [[20130530][FitNesseRelease20130530]]:
+
+ * CMSystem functionality is removed. Now only the !-VersionsController-! interface can be used.
+ * Git version control and recent-changes support
+ * Page caching is removed. Changes on the file system are now directly reflected in the wiki
+ * Test and Page history can show/hide passed tests. This makes it easier to search for failed test runs.
+ * The "names" responder has new options: "Recursive", "!-LeafOnly-!", and "!-ShowTags-!" (needs documentation update!)
+ * Reduce space used by included pages on test page.
+ * Test system, Fit server and wiki code has been cleaned up.
+ * New command line option ''-f <config file>''. Loads a custom configuration properties file.
+ * Code cleanup: test system, wiki and reporting (formatters)
+ * Settings can be configured both on the command line and in the plugins.properties file
+ * Updated REST API parameter for "names" request
+ * Different styles for test, suite and static pages in !contents
+ * Issues fixed:
+   * HTML content is table cells is passed to the SUT as-is
+   * Sockets are not properly closed after Slim test execution
+   * !-StopTest-! behaviour changed in version 20130530. The old behaviour is in place again.
+   * Fixed issue where stylesheets were not properly loaded in Chrome.
+   * String arguments are not converted, even if a Converter is registered.
+   * Rich text editor improvements
+
+!4 Github ids of Contributors to this release:
+
+ * Arjan Molenaar
+ * Arnout Engelen
+ * Bjorn Beskow
+ * Dan Woodward
+ * Daniel Woodward
+ * Denis Koelewijn
+ * Fried Hoeben
+ * Jake Benilov
+ * Konstantin Baumann
+ * Kosta
+ * Martin Gijsen
+ * Mike Stockdale
+ * Robert C. Martin
+ * Serge Zukov
+ * Simon Frost
+ * Arjan Wulder
+ * Fried Hoeben
+ * Gregor Gramlich
+ * jaros
+ * jerger
+
+!meta Thanks to all of you!
+
+!3 Git History
+
+!|2013-11-10|Arjan Molenaar|Updated release version.|
+|2013-11-09|Arjan Molenaar|Fixed a bug that caused themeing to fail.|
+|2013-11-09|Arjan Molenaar|Fix release name in release notes.|
+|2013-11-06|Arjan Molenaar|Reduce duplication for SymbolicLinkResponder.|
+|2013-11-06|Arjan Molenaar|Make ResponderFactory.addResponder final, so constructor behaviour remains predictable.|
+|2013-11-03|Arjan Molenaar|Updated test case names|
+|2013-11-03|Arjan Molenaar|Update administration documentation.|
+|2013-11-03|Arjan Molenaar|Updated VersionsController documentation.|
+|2013-10-31|Arjan Molenaar|Add @Override's to SymbolicPage functions.|
+|2013-10-31|Arjan Molenaar|Let VersionsController.delete take a FileVersion, so author information can be provided.|
+|2013-10-31|Arjan Molenaar|VersionsController.rename should be passed a FileVersion for author and time information.|
+|2013-10-26|Arjan Molenaar|Merge pull request #354 from amolenaar/unify-versionscontroller|
+|2013-10-24|Arjan Molenaar|Remove unused pages|
+|2013-10-24|Arjan Molenaar|Merge pull request #353 from raboof/minorimprovements|
+|2013-10-24|Arjan Molenaar|Added javadoc to VersionsController interface.|
+|2013-10-24|Arjan Molenaar|Also set author for upload responder.|
+|2013-10-24|Arjan Molenaar|Create directory also via FileVersion object. Now we can pass author and the like.|
+|2013-10-24|Arjan Molenaar|Unify Git commit messages. Remove some dead code.|
+|2013-10-24|Arjan Molenaar|Remove string concatenation where file construction is required|
+|2013-10-24|Arjan Molenaar|Files section of the wiki is now using the same versions controller as the wiki pages do.|
+|2013-10-24|Arjan Molenaar|Make sure we close FileVersion streams.|
+|2013-10-24|Arjan Molenaar|FileSystem abstraction uses File's now.|
+|2013-10-24|Arjan Molenaar|Little cleanup in Import section.|
+|2013-10-16|Arjan Molenaar|Make sure all VersionsController methods deal with File and FileVersion's only.|
+|2013-10-20|Arjan Molenaar|Updated FileVersionController.addFile interface, so it can replace the VersionsController one at some point.|
+|2013-10-24|Arjan Molenaar|Fix shutdown responder test.|
+|2013-10-24|Arnout Engelen|Compare enum constants case-insensitively|
+|2013-10-17|Arjan Molenaar|Cleanup: Removed unused parameters|
+|2013-10-17|Arjan Molenaar|Cleanup: clean up boolean expression and simple return statements.|
+|2013-10-17|Arjan Molenaar|Cleanup: handle inspections made by IntelliJ: make variables local, remove unneeded semi-colons.|
+|2013-10-17|Arjan Molenaar|Fix comparing with empty string.|
+|2013-10-17|Arjan Molenaar|Rename WikiPagePath.clone() to WikiPagePath.copy(), since clone() is not conform standard.|
+|2013-10-17|Arjan Molenaar|Move thread running slim code to InProcessSlimClientBuilder.|
+|2013-10-17|Arjan Molenaar|String.format warning cleaned.|
+|2013-10-17|Arjan Molenaar|Start slim service thread from static synchronised method.|
+|2013-10-17|Arjan Molenaar|Synchronise on class.|
+|2013-10-17|Arjan Molenaar|Remove unused constructor.|
+|2013-10-17|Arjan Molenaar|No static DateFormat'er|
+|2013-10-17|Arjan Molenaar|Additional null checks when copying file.|
+|2013-10-17|Arjan Molenaar|Use StringBuilder instead of concatenating strings|
+|2013-10-17|Arjan Molenaar|Merge branch 'master' of github.com:unclebob/fitnesse|
+|2013-10-17|Arjan Molenaar|Merge pull request #349 from amolenaar/file-versionscontroller|
+|2013-10-17|Arjan Molenaar|Remove circular instantiation reference between Performat and SymbolProvider.|
+|2013-10-17|Arjan Molenaar|Remove unread fields from files.|
+|2013-10-17|Arjan Molenaar|Remove inefficient boxing of int.|
+|2013-10-17|Arjan Molenaar|Use WikiPagePath.clone(), remove unused method copy()|
+|2013-10-16|Arjan Molenaar|Merge pull request #350 from amolenaar/fix/350|
+|2013-10-16|Arjan Molenaar|Ensure testSystemStopped event is sent when an IO error occurs in SlimTestSystem.|
+|2013-10-16|Arjan Molenaar|Ensure testSystemStopped event is sent when an IO error occurs in FitTestSystem.|
+|2013-10-16|Arjan Molenaar|Avoid throwing null-pointers when close() is called on SuiteHistoryFormatter.|
+|2013-10-16|Arjan Molenaar|Let SlimCommandRunningClient throw IOException in case of a connection problem.|
+|2013-10-16|Arjan Molenaar|Add documentation to TestSystem interface.|
+|2013-10-15|Arjan Molenaar|Implement adding, renaming, deleting files and directories through a version controller interface|
+|2013-10-15|Arjan Molenaar|Use URLDecoder instead of encoding only spaces.|
+|2013-10-15|Arjan Molenaar|Make file rename and delete controllers work|
+|2013-10-15|Arjan Molenaar|Produce more fancy console output.|
+|2013-10-15|Arjan Molenaar|Execute Jasmine javascript tests via phantomjs (phantomjs should be available on the system).|
+|2013-10-13|Arjan Molenaar|Move Jasmine to the extra folder. #232|
+|2013-10-13|Arjan Molenaar|Changed tests in fitnesse/resources/javascript to Jasmine.|
+|2013-10-13|Arjan Molenaar|Moved all parser tests to Jasmine tests.|
+|2013-10-12|Arjan Molenaar|Merge pull request #348 from sergebug/master|
+|2013-10-11|Serge Zukov|removed white spaces caused by table formatting|
+|2013-10-11|Serge Zukov|Updated FitNesse acceptance tests to accept new styling|
+|2013-10-11|Arjan Molenaar|Update .gitignore.|
+|2013-10-11|Arjan Molenaar|Revert "Stop FitNesse via responder with an exception, instead of referring to a singleton FitNesse instance."|
+|2013-10-11|Arjan Molenaar|Merge pull request #346 from raboof/minorimprovements|
+|2013-10-11|Arjan Molenaar|Merge pull request #347 from amolenaar/no-static-fitnesse-instance|
+|2013-10-11|Arjan Molenaar|The FitNesse service no longer needs to be a static.|
+|2013-10-11|Arjan Molenaar|Changed Authentication tests to use the Authentication Setup instead of a method in the page driver.|
+|2013-10-10|Arjan Molenaar|Use FitNesseContext.fitNesse for testing in FitNesseUtil|
+|2013-10-10|Arjan Molenaar|FitNesseMain is using FitNesseContext.fitNesse.|
+|2013-10-10|Arjan Molenaar|Use FitNesseContext.fitNesse from acceptance tests.|
+|2013-10-10|Arjan Molenaar|Remove boolean parameter from FitNesse constructor. Use a "setter" for that.|
+|2013-10-09|Arjan Molenaar|Remove FitNesse.FITNESSE_INSTANCE. No need for a big global variable.|
+|2013-10-08|Arjan Molenaar|Remove FitNesseContext dependency from ParsingPage. Now fitnesse.wikitext is non-dependent on FitNesseContext.|
+|2013-10-07|Arjan Molenaar|Move FitNesse.VERSION to context.version.|
+|2013-10-07|Arjan Molenaar|Move variable tests to SystemVariableSource. Use this from FitNesseContext.|
+|2013-10-07|Arjan Molenaar|Merge VariableFinder and ParsingPage.|
+|2013-10-07|Arjan Molenaar|Move static methods from HtmlUtil to WikiPageUtil.|
+|2013-10-07|Arjan Molenaar|Remove unneeded condition from WikiPageResponder.|
+|2013-10-07|Arjan Molenaar|Propagate a variable source from the WikiPageFactory down to the parser.|
+|2013-10-07|Arjan Molenaar|Change constructor signature on PageData.|
+|2013-10-07|Arjan Molenaar|Tidy up Wiki page constructors. Symbolic links are defined through the PageFactory.|
+|2013-10-06|Arjan Molenaar|Mark methods implementing ReadOnlyPageData. Reformat few pieces of code.|
+|2013-10-06|Arjan Molenaar|Remove PagePointer class.|
+|2013-10-06|Arjan Molenaar|Remove ReadOnlyPageData.getClasspaths from the interface.|
+|2013-10-06|Arjan Molenaar|Remove PageOnlyPageData.getParsedPage() from interface.|
+|2013-10-06|Arjan Molenaar|Let ParsingPage take a VariableSource (e.g. FitNesseContext)|
+|2013-10-06|Arjan Molenaar|Reformat ParsingPage|
+|2013-10-04|Arjan Molenaar|Move symbol provider for variables to SymbolProvider class.|
+|2013-10-04|Arjan Molenaar|Little cleanup, make FitNesseExpediter attributes final where possible.|
+|2013-10-04|Arjan Molenaar|Stop FitNesse via responder with an exception, instead of referring to a singleton FitNesse instance.|
+|2013-10-04|Arjan Molenaar|Ensure we also set Server and Connection headers for error messages|
+|2013-10-03|Arjan Molenaar|FitNesseMain is no longer static.|
+|2013-10-04|Arjan Molenaar|Make SocketService attributes final where possible.|
+|2013-10-03|Arjan Molenaar|cleanup.|
+|2013-10-02|Arjan Molenaar|Find special variables in VariableFinder, not in ParsingPage.|
+|2013-10-02|Arjan Molenaar|Move updater logic from FitNesse to FitNesseMain.|
+|2013-10-02|Arjan Molenaar|Remove unneeded println().|
+|2013-10-11|Arjan Molenaar|Fix build. Ensure testSystemStopped is called only once (for Slim)|
+|2013-10-10|Serge Zukov|continued update to the unit tests|
+|2013-10-10|Arjan Molenaar|Ensure callbacks are called even in case of an exception.|
+|2013-10-10|Arnout Engelen|Include file name in error message when parsing XML fails|
+|2013-10-09|Arjan Molenaar|Remove tab index, so the order is default. Fixes #345.|
+|2013-10-08|Arjan Molenaar|Look for default config file relative to root path. Fixes #344.|
+|2013-10-07|Arnout Engelen|Warp connection exception in SlimException|
+|2013-10-07|Arnout Engelen|Better error message when configuration properties file cannot be found|
+|2013-10-07|Arnout Engelen|Don't wait indefinitely for Slim to start|
+|2013-10-07|Arnout Engelen|Be more defensive about closing SLiM CommandRunningClient|
+|2013-10-07|Arnout Engelen|Log the exception caught in TestResponder.doExecuteTests()|
+|2013-10-07|Arnout Engelen|Merge branch 'master' into minorimprovements|
+|2013-10-06|Arjan Molenaar|Update README: download locations|
+|2013-10-04|Arnout Engelen|Show usage information when invoking SlimService with invalid parameters|
+|2013-10-04|Arnout Engelen|Remove unused method|
+|2013-10-04|Arnout Engelen|Reduce scope of parameter values|
+|2013-10-04|Arnout Engelen|Remove spurious whitespace|
+|2013-10-04|Arnout Engelen|Format according to fitnesse formatting rules|
+|2013-10-04|Arnout Engelen|Bring back IntelliJ IDEA coding style configuration file, document it better.|
+|2013-10-04|Arjan Molenaar|Updated release notes. It's quite an impressive list.|
+|2013-10-03|Arjan Molenaar|Merge pull request #338 from ggramlich/unclebob|
+|2013-10-03|Arjan Molenaar|Merge pull request #336 from raboof/minorimprovements|
+|2013-10-03|Arjan Molenaar|Merge pull request #342 from denisko/connection-leak|
+|2013-10-02|Denis Koelewijn|call kill() to close socket after slim "bye"|
+|2013-10-02|Arjan Molenaar|Merge pull request #189 from amolenaar/slim-pool-size|
+|2013-10-02|Arjan Molenaar|Update documentation.|
+|2013-10-01|Arjan Molenaar|Use FitNesseContext in VariableFinder to|
+|2013-10-01|Arjan Molenaar|Also handle environment variables through FitNesseContext.getProperty()|
+|2013-10-01|Arjan Molenaar|Move Theme from FitNesseContext to PageFactory.|
+|2013-10-01|Arjan Molenaar|Deal with absence of properties well in FitNesseContext|
+|2013-10-01|Arnout Engelen|Add forgotten SocketFactory class :S|
+|2013-10-01|Arjan Molenaar|Move default new page content to the appropriate responder, removed from FitNesseContext.|
+|2013-10-01|Arjan Molenaar|Looking up properties from System context is a feature of FitNesseContext now.|
+|2013-10-01|Arjan Molenaar|Add properties to FitNesseContext.|
+|2013-10-01|Arnout Engelen|Don't treat SocketExceptions differently from other I/O errors|
+|2013-10-01|Arnout Engelen|Merge branch 'master' into minorimprovements|
+|2013-10-01|Arjan Molenaar|Reformat VariableFinder|
+|2013-09-30|Arjan Molenaar|Also assign property names for slim.host, slim.flags and manually.start.test.runner.on.debug (might need a somewhat more comprehensive name)|
+|2013-09-30|Arjan Molenaar|Can define pool size based on slim.pool.size property.|
+|2013-09-29|Arjan Molenaar|Move SlimClient to fitnesse.testsystems.slim.|
+|2013-09-27|Arjan Molenaar|Added few extra tests to nail down issue #267 (Nested table implementation doesn't encode < character to invalid XML produced).|
+|2013-09-25|Arjan Molenaar|Remove RecentChanges content. We're using the Git-based change list now. The file should remain here as part f the default set of wiki pages.|
+|2013-09-25|Arjan Molenaar|Use Git recent changes instead of the RecentChanges file.|
+|2013-09-25|Arjan Molenaar|Reduce properties for recent changes page.|
+|2013-09-24|gramlich|Fix for issue 337 String arguments are not converted, even if a Converter is registered.|
+|2013-09-23|Arjan Molenaar|Fix issue in ScriptTableTest|
+|2013-09-23|Arjan Molenaar|Merge pull request #330 from fhoeben/ScenarioAndScriptExtension|
+|2013-09-23|Arjan Molenaar|Merge pull request #322 from AIM360/Kosta/add_remote_debug_entry|
+|2013-09-23|Arjan Molenaar|Fix content escape test. Behaviour has changes in master branch|
+|2013-09-23|Arjan Molenaar|Merge remote-tracking branch 'fhoeben/ScenarioAndScriptExtension'|
+|2013-09-23|Fried Hoeben|Remove test that is no longer valid (because of change in HtmlTable that no longer escapes everything)|
+|2013-09-23|Fried Hoeben|Merge branch 'ScenarioAndScriptExtension'|
+|2013-09-23|Fried Hoeben|Merge commit 'c810e5fc18222256ad5c3ea3917bead37621e9e5'|
+|2013-09-23|Fried Hoeben|Merge commit '210fe88d2c72eb61027f1d1b62b7e4aa11ea308f'|
+|2013-09-23|Fried Hoeben|Merge commit 'fca82013a872f71cd62b72244278f924eb601508'|
+|2013-09-23|Fried Hoeben|Make tests a bit more informative if they fail (and correct method name)|
+|2013-09-20|Arnout Engelen|Include the port number in the exception message for socket binding errors|
+|2013-09-20|Arjan Molenaar|Merge pull request #306 from beskow/customComparator|
+|2013-09-20|Arjan Molenaar|Merge pull request #333 from benilovj/patch-2|
+|2013-09-20|Bjorn Beskow|Added support for Custom Comparators|
+|2013-09-20|Jake Benilov|bugfix: fix the "page creation" form on when a page cannot be found|
+|2013-09-19|Arjan Molenaar|Updated release notes.|
+|2013-09-19|Arjan Molenaar|Use wiki markup instead of HTML for the HTML escape test|
+|2013-09-18|Serge Zukov|Merge remote-tracking branch 'upstream/master'|
+|2013-09-18|Mike Stockdale|Merge pull request #326 from fhoeben/TodayExtension|
+|2013-09-18|Fried Hoeben|Facilitate overriding behavior or ScriptTable, for instance to create a version that does not escape HTML for showed values.|
+|2013-09-18|Fried Hoeben|Allow scenario subclasses to create scriptTable subclasses instead of ScriptTable instances.|
+|2013-09-18|Fried Hoeben|Allow ScenarioTable to be extended to allow input parameters to be defined differently|
+|2013-09-18|Arjan Molenaar|Merge pull request #328 from AIM360/Kosta/update_names_restapi|
+|2013-09-18|Kosta|updated REST API parameter for "names" request|
+|2013-09-18|Arjan Molenaar|Remove Null from showing up in on-load message|
+|2013-09-18|Arjan Molenaar|Added comment on ResponseExaminer fixture.|
+|2013-09-18|Kosta|replaced some more "&" with "&amp;" in 2 test tables|
+|2013-09-18|Fried Hoeben|Even easier subclass, if only the unit is different|
+|2013-09-18|Fried Hoeben|Allow extension of Today Symbol so that implementing a Symbol that uses a different unit for increments becomes easy|
+|2013-09-18|Arjan Molenaar|Let WikiTestPage use the provided PageData, instead of taking the (latest) from the wiki page.|
+|2013-09-18|Arjan Molenaar|Do not error if properties file is absent. Fixes #323.|
+|2013-09-17|Kosta|replace raw "&" by "&amp;" in wikiNav.vm files|
+|2013-09-17|Arjan Molenaar|Merge branch 'config-file'|
+|2013-09-17|Arjan Molenaar|Updated RestfulServices page.|
+|2013-09-17|Arjan Molenaar|Updated CommandLineArguments page. Removed CommandLineOptions page in favour of the Arguments page.|
+|2013-09-17|Arjan Molenaar|Merge pull request #315 from amolenaar/xml-formatter|
+|2013-09-17|Arjan Molenaar|Merge pull request #321 from fhoeben/master|
+|2013-09-17|Arjan Molenaar|Add acceptance test for HTML content processing.|
+|2013-09-17|Arjan Molenaar|Do not unescape HTML content in table cells.|
+|2013-09-16|Arjan Molenaar|Move SocketDealer stuff to FitTestSystem (was in FitNesseContext). It's not configurable anyway.|
+|2013-09-16|Arjan Molenaar|Ensure system properties overrule configured properties.|
+|2013-09-16|Arjan Molenaar|Remove unneeded dependency from fitnesse.http.RequestTest|
+|2013-09-16|Arjan Molenaar|Move ClassPathBuilder to fitnesse.wiki. Cleaning up fitnesse.components.|
+|2013-09-16|Arjan Molenaar|Move FormattedExpression from util to fitnesse.wikitext.parser. That's where it's used.|
+|2013-09-16|Arjan Molenaar|Move ArgumentsTests close to Arguments.|
+|2013-09-16|Arjan Molenaar|Cleanup imports.|
+|2013-09-16|Arjan Molenaar|Move all socketDealer stuff to fitnesse.testsystems.fit.|
+|2013-09-16|Arjan Molenaar|Move ComponentFactory to fitnesse.components. Split of PluginsLoader.|
+|2013-09-16|Arjan Molenaar|Define config file from command line.|
+|2013-09-16|Kosta|add "Remote Debug" entry to "Tools" menu|
+|2013-09-16|fhoeben|Ensure null actual does not cause NullPointerException|
+|2013-09-16|fhoeben|Test for behavior of RegEx when actual is null|
+|2013-09-16|Arjan Molenaar|Speed up HTML check by first comparing the first character.|
+|2013-09-16|Arjan Molenaar|Documentation update on HTML content.|
+|2013-09-16|Arjan Molenaar|Added styling that colours nested HTML according to test result.|
+|2013-09-15|Arjan Molenaar|Avoid escaping content if it the content looks a lot like HTML.|
+|2013-09-13|Arjan Molenaar|Throw exception if PagesRunInSuite sees interrupted tests|
+|2013-09-13|Arjan Molenaar|Add Descriptor.getTestSystemType(). Allows syntax like "slim:A"|
+|2013-09-13|Serge Zukov|Added CSS to style !contents output Pruned pages (as strike-through); Static pages as italic and Test Suites as bold|
+|2013-09-13|Arjan Molenaar|Merge pull request #276 from amolenaar/fix/276|
+|2013-09-13|Arjan Molenaar|Minor text update in OrderedQueryTable page.|
+|2013-09-13|Arjan Molenaar|Fix issue #276. Also count missing entries in ordered query table as failure.|
+|2013-09-13|Serge Zukov|Added classes to the !contents <a> tag so Static, Test, Suite, Linked or Pruned pages could be styled via CSS; Left original "!content -p" behavior intact.|
+|2013-09-11|Arjan Molenaar|Merge pull request #299 from beskow/upstream|
+|2013-09-11|Arjan Molenaar|Fix clashed between hamcrest-all and mockito-all. Fix #309.|
+|2013-09-11|Arjan Molenaar|Update release notes.|
+|2013-09-10|Arjan Molenaar|Merge pull request #318 from amolenaar/fix/318|
+|2013-09-11|Arjan Molenaar|Make ZipFileVersionsController be more explicit about the content that's saved.|
+|2013-09-09|Arjan Molenaar|Merge branch 'collapsibles'|
+|2013-09-08|Arjan Molenaar|Fix tests, they were actually asserting on invalid html.|
+|2013-09-07|Arjan Molenaar|Update wiki styling for collapsed content.|
+|2013-09-07|Arjan Molenaar|Only group scenario libraries if there's more than one.|
+|2013-09-07|Arjan Molenaar|Be smart where to place newlines when rendering test page content.|
+|2013-09-07|Arjan Molenaar|Fix error in less css.|
+|2013-09-07|Arjan Molenaar|Include command should also eat trailing new line.|
+|2013-09-07|Arjan Molenaar|Reduce padding on included pages in Bootstrap theme.|
+|2013-09-07|Arjan Molenaar|Remove additional newlines when including pages in test pages.|
+|2013-09-06|Arjan Molenaar|Remove trailing white space when parsing collapsible sections.|
+|2013-09-06|Arjan Molenaar|Cleanup: suiteExecutionReport and fitnesse.js.|
+|2013-09-06|Arjan Molenaar|Fix HTML syntax errors in pageHistory page.|
+|2013-09-06|Arjan Molenaar|Rework show/hide functionality. jQuery toggle is slow for large sets. Also the queries could be made faster.|
+|2013-09-06|Arjan Molenaar|Merge pull request #288 from sergebug/master|
+|2013-09-06|Arjan Molenaar|Make exit code in line with number of tests in error|
+|2013-09-06|Arjan Molenaar|Use page error count in XmlFormatter, same as suite formatters.|
+|2013-09-06|Arjan Molenaar|Remove unused method.|
+|2013-09-06|Arjan Molenaar|Increment test counter before executing the test.|
+|2013-09-06|Arjan Molenaar|Use Page counts for error reporting.|
+|2013-09-06|Arjan Molenaar|Count failed pages in XmlFormatter, similar is done for suite formatter.|
+|2013-09-06|Arjan Molenaar|Move page count functionality to parent class.|
+|2013-09-06|Arjan Molenaar|Make ExecutionReport.finalCounts private|
+|2013-09-06|Arjan Molenaar|Merge branch 'reporting'|
+|2013-09-05|Serge Zukov|Extracted Hide passed tests logic into separate javascript file.|
+|2013-09-03|Arjan Molenaar|Update styling of exceptions on Bootstrap theme.|
+|2013-09-03|Arjan Molenaar|Merge pull request #281 from MartinGijsen/master|
+|2013-09-03|Arjan Molenaar|Fix NameWikiPageResponder test: content should be committed.|
+|2013-09-03|Arjan Molenaar|Merge pull request #294 from Kosta-Github/Kosta/enhance_names_request|
+|2013-09-03|Arjan Molenaar|Merge pull request #297 from beskow/master|
+|2013-09-02|Arjan Molenaar|Move code from responders.run to testrunner package, removing package dependency|
+|2013-09-02|Arjan Molenaar|Clean up TestResponder and added addTestSystemListener to MultipleTestsRunner.|
+|2013-09-02|Arjan Molenaar|Clean up Stoppable interface.|
+|2013-09-02|Arjan Molenaar|Move CompositeFormatter and Stoppable interface to fitnesse.testrunner.|
+|2013-09-02|Arjan Molenaar|Remove dead code|
+|2013-09-02|Arjan Molenaar|Change setExecutionLogAndTrackingId() to setTrackingId(). TestRunner no longer has to maintain a composite log.|
+|2013-09-02|Arjan Molenaar|Move CompositeExecutionLog to fitnesse.reporting|
+|2013-09-02|Arjan Molenaar|Remove ResultsListener interface. Use TestSystemListener instead (in conjunction with TestRunnerListener and Closeable)|
+|2013-09-02|Arjan Molenaar|Replace ResultsListener by TestSystemListener for BaseFormatter, JUnit formatters, PrintTestFormatter and PageInProgressFormatter.|
+|2013-09-02|Arjan Molenaar|Let CompositeFormatter inherit from CompositeTestSystemListener.|
+|2013-09-02|Arjan Molenaar|Renamed ResultsListener.allTestingComplete() to close() (implement java.io.Closeable).|
+|2013-09-01|Arjan Molenaar|Let ResultsListener inherit from TestSystemListener.|
+|2013-09-01|Arjan Molenaar|Use Generic for TestSystemListener|
+|2013-09-01|Arjan Molenaar|Rename ResultsListener.newTestStarted() to testStarted().|
+|2013-09-01|Arjan Molenaar|Replace ResultsListener.errorOccurred() with testSystemStopped().|
+|2013-09-01|Arjan Molenaar|Simplify creation of formatters in TestResponder.|
+|2013-09-01|Arjan Molenaar|Cleanup: move finishWritingOutput code to InteractiveFormatter|
+|2013-09-01|Arjan Molenaar|Only propagate exceptions in Test runner to caller, don't call errorOccurred().|
+|2013-08-31|Arjan Molenaar|Remove unused method close() from InteractiveFormatter.|
+|2013-08-31|Arjan Molenaar|Remove time measurement info from ResultsListener.allTestingComplete().|
+|2013-08-30|Arjan Molenaar|Remove TimeMeasurement from ResultsListener.testComplete()|
+|2013-08-30|Arjan Molenaar|Add test page to TestSystemListener.testComplete().|
+|2013-08-30|Arjan Molenaar|Add DateAlteringClock.elapse(t)|
+|2013-08-30|Arjan Molenaar|Remove time measurement from ResultsListener.newTestStarted().|
+|2013-08-28|Arjan Molenaar|Added TestSystemListener.testStarted, to complement testComplete().|
+|2013-08-28|Arjan Molenaar|Add @Override to overridden methods in SuiteResponder.|
+|2013-08-28|Arjan Molenaar|Do now add exceptions to methods signature if not required.|
+|2013-08-28|Arjan Molenaar|Close visibility of event sending methods.|
+|2013-08-28|Arjan Molenaar|Fixed reference to formatters.|
+|2013-08-26|Arjan Molenaar|Clean up WikiPageActions.|
+|2013-08-26|Arjan Molenaar|Cleanup HtmlUtil class.|
+|2013-08-26|Arjan Molenaar|Move all templating logic to fitnesse.html.template.|
+|2013-08-26|Arjan Molenaar|Remove unused code: SuiteXmlFormatter|
+|2013-08-26|Arjan Molenaar|Move history related code to fitnesse.reporting.history. More code moved to fitnesse.reporting.|
+|2013-08-23|Arjan Molenaar|Provide an interface to obtain col/row information from an expectation. Loosens coupling from reporting to test system sub domains.|
+|2013-08-22|Arjan Molenaar|Moved supporting classes to fitnesse.reporting.|
+|2013-08-22|Arjan Molenaar|Move all formatters to fitnesse.reporting. It's a subdomain.|
+|2013-08-22|Arjan Molenaar|Let ResultsListener.errorOccurred() and TestSystemListener.errorOccurred() have the same signature.|
+|2013-08-22|Arjan Molenaar|Merge branch 'testsystemlistener' (#311)|
+|2013-08-20|Mike Stockdale|Merge pull request #308 from jediwhale/master|
+|2013-08-20|Mike Stockdale|comment only at start of line|
+|2013-08-19|Mike Stockdale|Merge branch 'master' of git://github.com/unclebob/fitnesse.git|
+|2013-08-16|Arjan Molenaar|Merge pull request #302 from awulder/junit|
+|2013-08-16|Arjan Molenaar|Make sure "obsolete" parameters keeps working.|
+|2013-08-15|Arjan Molenaar|Remove td/th border style from generic wiki page style sheet.|
+|2013-08-08|Arnout Engelen|Make the 'search' page more consistent with the 'properties' page|
+|2013-08-08|Arnout Engelen|Submit search form with GET instead of POST|
+|2013-08-07|Arjan Molenaar|Update travis config to perform a release build.|
+|2013-08-16|Arjan Molenaar|Merge pull request #301 from raboof/minorimprovements|
+|2013-08-15|Arjan Molenaar|Create fitnesse.testsystem.Instruction. Reduce external dependencies on testsystems package.|
+|2013-08-15|Arjan Molenaar|Create interface fitnesse.testsystem.Expectation, to be used in listener.|
+|2013-08-15|Arjan Molenaar|Create fitnesse.testsystem.ExceptionResult interface|
+|2013-08-15|Arjan Molenaar|Create interface for Assertion and TestResult.|
+|2013-08-15|Arjan Molenaar|Create an Assetion interface in fitnesse.testsystem.|
+|2013-08-15|Arjan Molenaar|Allow test systems to add listeners.|
+|2013-08-15|Arjan Molenaar|Remove td/th border style from generic wiki page style sheet.|
+|2013-08-13|Arjan Molenaar|Merge pull request #305 from raboof/searchlink|
+|2013-08-08|Arnout Engelen|Make the 'search' page more consistent with the 'properties' page|
+|2013-08-08|Arnout Engelen|Submit search form with GET instead of POST|
+|2013-08-07|Bjorn Beskow|Added tests for localized script table|
+|2013-08-07|Arjan Molenaar|Update travis config to perform a release build.|
+|2013-08-07|awulder|Fixed a little typo.|
+|2013-08-07|awulder|Major test class maintenance commit. Package junit.framework is deprecated. Refactored test classes according the 'new' style of writing tests with JUnit.|
+|2013-08-07|Arjan Molenaar|Add Travis build indicator to README.md.|
+|2013-07-12|Arjan Molenaar|Added unit tests on how to deal with variables.|
+|2013-07-12|Arjan Molenaar|Move slim port base calculation to one place.|
+|2013-07-12|Arjan Molenaar|Let SlimClientBuilder figure out "manual start" mode by itself. Requires Descriptor to tell if we're in debug mode.|
+|2013-08-07|Arjan Molenaar|Merge pull request #295 from Kosta-Github/Kosta/travis_ci_integration|
+|2013-08-07|Arnout Engelen|Minor code cleanup determining the responder for a request|
+|2013-08-07|Arnout Engelen|Merge branch 'master' of https://github.com/unclebob/fitnesse into minorimprovements|
+|2013-08-07|Dan Woodward|Merge pull request #300 from raboof/master|
+|2013-08-07|Arnout Engelen|Add 'check not' to the demo script table|
+|2013-08-07|Arnout Engelen|Document how to start the wiki locally|
+|2013-08-07|Bjorn Beskow|Simplify localized specializations of ScriptTable by introducing template methods for the relevant keywords|
+|2013-08-06|Bjorn Beskow|Fix for #296: ListConverter broken for empty lists|
+|2013-08-04|Kosta|Update .travis.yml|
+|2013-08-04|Kosta|initial checkin for travis config file|
+|2013-07-28|Arjan Molenaar|Merge pull request #293 from SimonHFrost/master|
+|2013-07-26|Simon Frost|Improve wording for two minute example when running first test|
+|2013-07-19|Konstantin Baumann|added unit tests for the enhanced "names" request|
+|2013-07-19|Konstantin Baumann|enhance "names" request with optional "Recursive", "LeafOnly", and "ShowTags" parameters|
+|2013-07-12|Serge Zukov|Added checkbox to hide passed tests in the test history and page history|
+|2013-07-12|Arjan Molenaar|Remove properties on ClientBuilder.|
+|2013-07-12|Arjan Molenaar|Create separate builders for in-process (fast-test) test client creation.|
+|2013-07-12|Arjan Molenaar|Updated documentation on VersionsController.|
+|2013-07-11|Arjan Molenaar|Cleanup in Response headers. Provide Last-Modified header as Date.|
+|2013-07-11|Arjan Molenaar|Add function for notModified response. Do not serve content with 304 status code.|
+|2013-07-11|Arjan Molenaar|Rename Response.setStandardHeaders() to Response.setContentHeaders()|
+|2013-07-10|Dan Woodward|Merge pull request #282 from sergebug/master|
+|2013-07-10|Arjan Molenaar|Quick fix to make style not break on Chrome. See #283|
+|2013-07-08|Martin Gijsen|using doTable i.s.o. doTables where possible|
+|2013-07-08|Robert C. Martin|small refactoring|
+|2013-07-06|Serge Zukov|GitFileVersionsController Test were failing on Windows|
+|2013-07-06|Martin Gijsen|Introduced parent class for Fixture named BaseFixture. This seems the best way to get a clean fixture (do dispatching) while also keeping the Fixture class backwards compatible.|
+|2013-07-06|Martin Gijsen|reintroduced public members of Fixture class for compatibility|
+|2013-07-04|Martin Gijsen|corrects indentation and removes a line of commented code|
+|2013-07-04|Martin Gijsen|separates dispatcher and fixture functionality of Fixture class|
+|2013-07-03|Arjan Molenaar|Merge branch 'testsystem'|
+|2013-07-03|Arjan Molenaar|Do not escape table content if the original content has not changed. See #274.|
+|2013-07-03|Arjan Molenaar|Clean up html- and query table|
+|2013-07-02|Arjan Molenaar|Merge branch 'master' into testsystem|
+|2013-07-02|Arjan Molenaar|Merge branch 'master' of github.com:unclebob/fitnesse|
+|2013-07-02|Arjan Molenaar|Merge pull request #279 from jaros/master|
+|2013-07-01|jaros|revert back changes|
+|2013-07-01|jaros|reset the stopTestCalled flag for new test pages|
+|2013-07-01|jaros|separate the test pages by different testSystems|
+|2013-06-30|Daniel Woodward|Added description of DisabledResponder to Plugins page.|
+|2013-06-30|Daniel Woodward|Added Unit Test|
+|2013-06-30|Daniel Woodward|Merge branch 'master' of https://github.com/unclebob/fitnesse|
+|2013-06-30|Arjan Molenaar|Organize all imports in fitnesse.testsystems.|
+|2013-06-30|Arjan Molenaar|Fix typo: interupted -> interrupted|
+|2013-06-30|Arjan Molenaar|Move SlimClientBuilder tests to it's own test class.|
+|2013-06-30|Arjan Molenaar|Removed test system name and test runner properties from TestSystemListener.testSystemStarted event. Use TestSystem.getName() to obtain this information.|
+|2013-06-27|Arjan Molenaar|Move all HTML parsing/generating code to HtmlSlimTestSystem. SlimTestSystem only cares about SlimTables.|
+|2013-06-29|Arjan Molenaar|Renamed TestPage to WikiTestPage. Extracted TestPage interface from that.|
+|2013-06-29|Arjan Molenaar|Move MultipleTestRunner and listener interface to test runner package.|
+|2013-06-29|Arjan Molenaar|Added package fitnesse.testrunner. Move Wiki dependent code from fitnesse.testsystems to this new package.|
+|2013-06-29|Arjan Molenaar|Make ExecutionLog an interface|
+|2013-06-29|Arjan Molenaar|Remove TestSystemListener.exceptionOccured(), it's superseded by testSystemStopped()|
+|2013-06-29|Arjan Molenaar|Clean up FitTestSystem, no more dependent on WikiPage.|
+|2013-06-29|Arjan Molenaar|Create a dedicated listener interface for FitClient.|
+|2013-06-29|Arjan Molenaar|Added TestSystemListener.testSystemStopped() event, denoting the test system stopped execution. The test systems are now responsible for closing their own subprocesses in case of an error.|
+|2013-06-29|Arjan Molenaar|Add TestSystem.getName(). Should return a unique name for the test system.|
+|2013-06-29|Arjan Molenaar|Clean up SlimTestSystemTest|
+|2013-06-28|Arjan Molenaar|Made MultipleTestsRunner tests more stable.|
+|2013-06-28|Arjan Molenaar|Move all execution log template code to the VM template.|
+|2013-06-28|Arjan Molenaar|Ensure directories exist before wiki content is unpacked.|
+|2013-06-28|Daniel Woodward|Merge branch 'master' of https://github.com/unclebob/fitnesse|
+|2013-06-28|Arjan Molenaar|ExecutionLog: remove dependency on WikiPage.|
+|2013-06-28|Arjan Molenaar|squash with "Little code cleanup in (CommandRunning)FitClient."|
+|2013-06-28|Arjan Molenaar|Move all Fit listener code in the responsible thread.|
+|2013-06-28|Arjan Molenaar|Little code cleanup in (CommandRunning)FitClient.|
+|2013-06-28|Arjan Molenaar|Simplify test case. Only test the intended|
+|2013-06-27|Arjan Molenaar|Clean up CommandRunner class|
+|2013-06-26|Arjan Molenaar|Little cleanup in ExecutionLog|
+|2013-06-26|Arjan Molenaar|Remove ExecutionLog dependency from SlimTestSystem.|
+|2013-06-26|Arjan Molenaar|Merge Descriptor tests in WikiPageDescriptorTest class.|
+|2013-06-26|Arjan Molenaar|make Descriptor an interface. The access points from a WIkiPage are in WikiPageDescriptor|
+|2013-06-26|Arjan Molenaar|Move the responsibility for extracting data from a WIkiPage to a Descriptor.|
+|2013-06-26|Arjan Molenaar|Move static fields back to Descriptor.|
+|2013-06-25|Arjan Molenaar|Make SlimClient interface in line with TestSystem interface.|
+|2013-06-25|Arjan Molenaar|Move version check to SlimClient. Drop SLIM_VERSION page variable.|
+|2013-06-25|Arjan Molenaar|Organize imports in MultipleTestsRunner.|
+|2013-06-25|Arjan Molenaar|Make SlimClient an interface. Move code to SlimCommandRunningClient.|
+|2013-06-25|Arjan Molenaar|No need to pass fastTest and ManualTest properties to SlimClient|
+|2013-06-25|Arjan Molenaar|Send TestSystem-Started signal from within TestSystem, instead of MultipleTestRunner.|
+|2013-06-25|Arjan Molenaar|Organized ClientBuilder tests. Cleaned up Descriptor.|
+|2013-06-24|Arjan Molenaar|Remove classPath property from Descriptor.|
+|2013-06-24|Arjan Molenaar|Drop Descriptor dependency on SlimClientBuilder|
+|2013-06-24|Arjan Molenaar|Change ClientBuilder to sport a fluent interface.|
+|2013-06-24|Arjan Molenaar|Let TestSystem start the client as well. This balances well with bye()/kill().|
+|2013-06-24|Arjan Molenaar|Sanitising: limit scope of classes.|
+|2013-06-24|Arjan Molenaar|Completely get rid of Descriptor dependency in FitTestSystem.|
+|2013-06-24|Arjan Molenaar|FitTestSystem takes classPath as constructor variable. No more need of Descriptor.|
+|2013-06-24|Arjan Molenaar|Set remoteDebug property on ClientBuilder.|
+|2013-06-22|Arjan Molenaar|Make TestSystem an interface.|
+|2013-06-23|Arjan Molenaar|Close testRunner from SlimClient, instead of test system.|
+|2013-06-22|Arjan Molenaar|CommandRunningFitClient only takes the testRunner now.|
+|2013-06-23|Arjan Molenaar|Moved test client construction logic to ClientBuilder class.|
+|2013-06-17|Arjan Molenaar|Make Descriptor a top-level class. Put the essence in a base class.|
+|2013-06-17|Arjan Molenaar|Added comments on fitnesse.runner package.|
+|2013-06-24|Arjan Molenaar|Fix issue where boostrap css was not created after clean.|
+|2013-06-20|Daniel Woodward|Merge branch 'master' of https://github.com/unclebob/fitnesse|
+|2013-06-19|Arjan Molenaar|Move focus to end of editPage.vm javascript.|
+|2013-06-19|Arjan Molenaar|Remove file unit_test_run. Got in by accident I think.|
+|2013-06-19|Arjan Molenaar|Merge branch 'wiki-reorg'|
+|2013-06-19|Arjan Molenaar|Merge branch 'master' of github.com:unclebob/fitnesse|
+|2013-06-17|Arjan Molenaar|Use constants in WikiImportProperty|
+|2013-06-17|Arjan Molenaar|Move importing related stuff that depends on responders to the responders package.|
+|2013-06-17|Arjan Molenaar|Move wiki page rendering tests to WikiImportingResponder tests.|
+|2013-06-17|Arjan Molenaar|Move SaveRecorder to fitnesse.responders.editing|
+|2013-06-17|Arjan Molenaar|remove file unit_test_run. No source file.|
+|2013-06-17|Arjan Molenaar|Remove unused interface fitnesse.components.PageReferencer|
+|2013-06-17|Arjan Molenaar|move refactoring to wiki.refactoring|
+|2013-06-17|Arjan Molenaar|move page finder to wiki.search|
+|2013-06-17|Arjan Molenaar|Move refactorings to fitnesse.refactoring. Cleans up fitnesse.components.|
+|2013-06-17|Arjan Molenaar|Move all PageFinder code in a separate page: fitnesse.pagefinder. Cleans up fitnesse.components.|
+|2013-06-16|Mike Stockdale|remove old test|
+|2013-06-15|Daniel Woodward|merge uncle bob master|
+|2013-06-14|Mike Stockdale|Merge pull request #268 from jerger/master|
+|2013-06-14|Arjan Molenaar|Remove TestSystem.Descriptor dependency on PageFactory.|
+|2013-06-13|Arjan Molenaar|Cleanup in PageCrawlerImpl|
+|2013-06-13|Arjan Molenaar|No need for PageCrawler.getAncestors() anymore.|
+|2013-06-13|Arjan Molenaar|Use callbacks for methods that traverse pages.|
+|2013-06-13|Arjan Molenaar|Merge PageBuidler with WikiPageUtil.|
+|2013-06-13|Arjan Molenaar|Rename PageCrawler.getAncestor*() methods, since the name is no longer matching.|
+|2013-06-12|Arjan Molenaar|organise imports|
+|2013-06-12|Arjan Molenaar|Move isRoot() from PageCrawler to WIkiPage. It's a page property.|
+|2013-06-12|Arjan Molenaar|Make all PageCrawler calls relative to the wiki page used to obtain the crawler.|
+|2013-06-12|Arjan Molenaar|Ensure the PageCrawler.getPage context is the same as the object the pageCrawler was taken from.|
+|2013-06-12|Arjan Molenaar|Ensure PageCrawler.isRoot()/getRoot()/traverse()/getAllUncles()/getAncestorsStartingWith() get the right context object.|
+|2013-06-12|Arjan Molenaar|Add PageCrawler.getAncestorsStartingWith()/getAncestorsOf() to PageCrawler interface.|
+|2013-06-12|Arjan Molenaar|Assert context for PageCrawler.getClosestInheritedPage()/getSiblingPage()|
+|2013-06-12|Arjan Molenaar|Ensure PageCrawler.pageExists()/getFullPathOfChild()/getFullPath()/getRelativeName() use same context page as the one page where it's created from.|
+|2013-06-12|Arjan Molenaar|Move getAncestor* methods to PageCrawlerImpl, since it's about traversing the page tree.|
+|2013-06-12|Arjan Molenaar|Remove unneeded inheritance from ClassPathBuilder|
+|2013-06-12|Arjan Molenaar|Add getClosestInheritedPage to PageCrawler interface.|
+|2013-06-12|Arjan Molenaar|Unify order of PageCrawlerImpl.getClosestInheritedPage with the rest of the methods.|
+|2013-06-11|Arjan Molenaar|Remove changeable state from PageCrawler. Removed setDeadEndStategy() from interface.|
+|2013-06-11|Arjan Molenaar|Separated PageBuilder from PageCrawler. PageBuilder is a separate class now.|
+|2013-06-11|Arjan Molenaar|Added PageBuilder interface. Use it wherever we can.|
+|2013-06-12|Daniel Woodward|Merge branch 'master' of https://github.com/unclebob/fitnesse|
+|2013-06-12|Arjan Molenaar|Merge branch 'nocachingpage'|
+|2013-06-11|Arjan Molenaar|Remove unwanted package dependency|
+|2013-06-11|Arjan Molenaar|Do not let Velocity create a velocity.log|
+|2013-06-11|Arjan Molenaar|Remove dependency loop by moving TemplateUtil to fitnesse.responders.editing.|
+|2013-06-10|Arjan Molenaar|Increase cache timeout to 5 minutes|
+|2013-06-10|Arjan Molenaar|Remove WikiPage.isOpenInNewWindow().|
+|2013-06-10|Arjan Molenaar|organise imports.|
+|2013-06-10|Arjan Molenaar|Clean up WikiPageActions after VirtualWiki is gone. Property localOrRemotePageName is gone.|
+|2013-06-10|Arjan Molenaar|Clean up cache code a little.|
+|2013-06-10|Arjan Molenaar|Remove ProxyPage. It's a left-over from VirtualWiki.|
+|2013-06-10|Arjan Molenaar|Added fixMe for SymbolicPageFactory|
+|2013-06-10|Arjan Molenaar|Move SymbolicPageFactory to fitnesse.wiki.fs|
+|2013-06-10|Arjan Molenaar|Merge branch 'master' into nocachingpage|
+|2013-06-10|Arjan Molenaar|Merge branch 'versionscontroller'|
+|2013-06-07|jerger|found the unittest and added test for the new feature.|
+|2013-06-06|jerger|Added the "!include -h SomePage" Feature in order to include the help-text of SomePage.|
+|2013-06-03|Arjan Molenaar|Use SoftReference, instead of WeakReference.|
+|2013-06-03|Arjan Molenaar|Use a concurrent Map for caching.|
+|2013-06-03|Arjan Molenaar|Merge branch 'master' of github.com:unclebob/fitnesse into nocachingpage|
+|2013-06-03|Arjan Molenaar|Merge branch 'master' of github.com:unclebob/fitnesse|
+|2013-05-31|Dan Woodward|Merge pull request #266 from benilovj/patch-1|
+|2013-06-01|Jake Benilov|Fix typo in README|
+|2013-05-22|Arjan Molenaar|Removed obsolete comment|
+|2013-05-20|Daniel Woodward|Merge branch 'master' of https://github.com/unclebob/fitnesse|
+|2013-05-18|Arjan Molenaar|Organised imports in fitnesse.wiki.fs.|
+|2013-05-18|Arjan Molenaar|Added plugins.properties comment on RecentChanges component.|
+|2013-05-18|Arjan Molenaar|Remove unused static variable.|
+|2013-05-18|Arjan Molenaar|FitNesse page FrontPage updated.|
+|2013-05-17|Arjan Molenaar|Ensure fail-safe Git recentChanges page.|
+|2013-05-17|Arjan Molenaar|Allow for RecentChanges file that can resolve references in page context.|
+|2013-05-17|Arjan Molenaar|Small code refactoring: use primitives whenever possible.|
+|2013-05-17|Arjan Molenaar|Add RecentChanges support to GetFileVersionsController.|
+|2013-05-17|Arjan Molenaar|Fix issue in WikiPageResponder. Now RecentChanges handler is picked.|
+|2013-05-17|Daniel Woodward|Merge branch 'master' of https://github.com/unclebob/fitnesse|
+|2013-05-17|Arjan Molenaar|Refactor WikiPageResponder.|
+|2013-05-17|Arjan Molenaar|Handle RecentChanges page as special "component".|
+|2013-05-17|Arjan Molenaar|Extracted RecentChanges interface from RecentChangesWikiPage|
+|2013-05-17|Arjan Molenaar|Changed static methods to instance methods for RecentChangesWikiPage|
+|2013-05-16|Arjan Molenaar|Move RecentChanges to fitnesse.wiki. Rename to RecentChangesWikiPage.|
+|2013-05-16|Arjan Molenaar|Add configuration option for RecentChanges class.|
+|2013-05-16|Arjan Molenaar|rename VERSIONS_CONTROLLER constant to VERSIONS_CONTROLLER_CLASS.|
+|2013-05-17|Arjan Molenaar|Merge branch 'master' into versionscontroller|
+|2013-05-16|Arjan Molenaar|Added file level cache.|
+|2013-05-16|Arjan Molenaar|Added a simple Cache implementation that replaces CachedPage functionality in a more generic way.|
+|2013-05-15|Arjan Molenaar|Updated few more deprecated JUnit class references.|
+|2013-05-15|Arjan Molenaar|Merge branch 'master' into nocachingpage|
+|2013-05-09|Daniel Woodward|Merge branch 'master' of https://github.com/unclebob/fitnesse|
+|2013-05-09|Daniel Woodward|Merge branch 'master' of https://github.com/unclebob/fitnesse|
+|2013-05-02|Daniel Woodward|Merge branch 'master' of https://github.com/unclebob/fitnesse|
+|2013-04-22|Arjan Molenaar|Remove CachingPage.|
+|2013-04-18|Arjan Molenaar|ExternalSuitePage and ExternalTestPage do no longer extend CachingPage.|
+|2013-04-18|Arjan Molenaar|Reformat ExternalTestPage|
+|2013-04-28|Arjan Molenaar|Update error text|
+|2013-04-28|Arjan Molenaar|Remove commented out code.|
+|2013-04-28|Arjan Molenaar|Cleanup on wiki importer page|
+|2013-04-24|Arjan Molenaar|code formatting|
+|2013-04-28|Arjan Molenaar|Store last modified date on Memory filesystem|
+|2013-04-24|Arjan Molenaar|Auto-commit in-memory pages.|
+|2013-04-24|Arjan Molenaar|Fix changes caused by not caching FileSystemPages|
+|2013-04-25|Daniel Woodward|Merge branch 'master' of https://github.com/unclebob/fitnesse|
+|2013-04-18|Arjan Molenaar|Inherit FileSystemPage from BaseWikiPage, not from CachingPage.|
+|2013-04-17|Arjan Molenaar|Move caching from CachingPage into ProxyPage|
+|2013-04-17|Arjan Molenaar|Use RecentChanges constant in RssResponder.|
+|2013-04-17|Arjan Molenaar|Merge branch 'master' into versionscontroller|
+|2013-04-16|Arjan Molenaar|Do not overwrite plugins.properties from unit tests.|
+|2013-04-16|Arjan Molenaar|Need jGit to execute acceptance tests.|
+|2013-04-16|Arjan Molenaar|Add tests for MemoryFileSystem|
+|2013-04-16|Arjan Molenaar|Fixed issue where to-be removed pages are cached.|
+|2013-04-16|Arjan Molenaar|Pimped plugins.properties.|
+|2013-04-16|Arjan Molenaar|Can retrieve versions from git history.|
+|2013-04-16|Arjan Molenaar|Fix acceptance tests for git - new page and save page|
+|2013-04-16|Arjan Molenaar|Add acceptance test for retrieving old versions of a file.|
+|2013-04-12|Daniel Woodward|Merge branch 'master' of https://github.com/unclebob/fitnesse|
+|2013-04-10|Daniel Woodward|Merge branch 'master' of https://github.com/unclebob/fitnesse|
+|2013-04-09|Daniel Woodward|Merge branch 'master' of https://github.com/unclebob/fitnesse|
+|2013-04-08|Arjan Molenaar|Merge branch 'master' into versionscontroller|
+|2013-04-06|Arjan Molenaar|Add comment on FileSystem (root) path|
+|2013-04-05|Arjan Molenaar|Add Git versionsController|
+|2013-04-05|Arjan Molenaar|Add VersionsController.delete()|
+|2013-04-05|Arjan Molenaar|Move VersionsControllerFixture to fitnesse.wiki.fs.|
+|2013-04-05|Arjan Molenaar|Remove move-page for zip controller.|
+|2013-04-05|Arjan Molenaar|Moved memory pages to fitnesse.wiki.mem. Moved SimpleFileVersionsController to fitnesse.wiki.fs|
+|2013-04-04|Arjan Molenaar|Add test for moving a page|
+|2013-04-04|Arjan Molenaar|Add acceptance tests for VersionsController (zip based)|
+|2013-04-04|Arjan Molenaar|Add dependency to jgit|
+|2013-04-04|Arjan Molenaar|Added requirements for Git file controller|
+|2013-04-04|Arjan Molenaar|Added acceptance test placeholders for ZipFIleController|
+|2013-03-21|Arjan Molenaar|Inject SymbolicPageFactory through the constructor.|
+|2013-03-21|Arjan Molenaar|Move symlink creation to a separate factory class|
+|2013-03-20|Arjan Molenaar|Cleanup|
+|2013-03-20|Arjan Molenaar|Removed cyclic dependency between factory and filesystem page.|
+|2013-03-20|Arjan Molenaar|squash with 2 commits back|
+|2013-03-20|Arjan Molenaar|Update .gitignore: ignore all zip files.|
+|2013-03-20|Arjan Molenaar|Move contents from fitnesse.wiki.zip to fitnesse.wiki.fs|
+|2013-03-20|Arjan Molenaar|Renamed package fitnesse.wiki.storage to fitnesse.wiki.fs|
+|2013-03-20|Arjan Molenaar|Fix version handling for ZipFIle- and Memory versions controller.|
+|2013-03-19|Arjan Molenaar|Remove NullVersionsController as standalone controller.|
+|2013-03-19|Arjan Molenaar|Return current version, instead of previous version.|
+|2013-03-19|Arjan Molenaar|Use one versions controller for FileSystemPage.|
+|2013-03-18|Arjan Molenaar|cleanup on WikiPageProperties|
+|2013-03-18|Arjan Molenaar|code cleanup|
+|2013-03-18|Arjan Molenaar|Move file storage logic to a separate class.|
+|2013-03-18|Arjan Molenaar|Change InMemoryPage to be a simple factory for FileSystemPage with memory store.|
+|2013-03-18|Arjan Molenaar|remove unneeded line|
+|2013-03-17|Arjan Molenaar|Moved FileSystem to fitnesse.wiki.storage|
+|2013-03-17|Arjan Molenaar|remove remaining File occurrences from FileSystemPage|
+|2013-03-17|Arjan Molenaar|Read content through FileSystem|
+|2013-03-17|Arjan Molenaar|Save page content through FileSystem instance|
+|2013-03-17|Arjan Molenaar|Fix ProxyPage unit test|
+|2013-03-13|Arjan Molenaar|Fix versions retrieval for ProxyPage again|
+|2013-03-11|Arjan Molenaar|Move Versions information from PageData to WikiPage|
+|2013-03-10|Arjan Molenaar|little cleanup|
+|2013-03-10|Arjan Molenaar|Can also set history depth via plugins.properties setting.|
+|2013-03-10|Arjan Molenaar|Clean up VersionsController interface: removed removeVersion() method.|
+|2013-03-10|Arjan Molenaar|VersionsController cleanup: remove prune()|
+|2013-03-10|Arjan Molenaar|Remove CmSystem stuff|
+|2013-03-09|Arjan Molenaar|Fix UpdateImplementationTest.shouldReplaceFitNesseRootWithDirectoryRoot()|
+|2013-03-09|Arjan Molenaar|* Take FileSystemPage properties from parent page * Data is actually saved on commit(), not before.|
+|2013-03-07|Arjan Molenaar|Remove redundant code.|
+|2013-03-07|Arjan Molenaar|Create child pages in FileSystemPage through factory.|
+|2013-03-06|Arjan Molenaar|Merged WikiPageFactory and PageRepository in one FileSystemPageFactory.|
+|2013-03-06|Arjan Molenaar|Removed unused methods.|
+|2013-03-06|Arjan Molenaar|Reformatting and deprecation annotations.|
+|2013-03-06|Arjan Molenaar|Remove CommittingPage from WikiPage class hierarchy.|
+|2013-03-06|Arjan Molenaar|small cleanup in FileSystemPageZipFileVersioningTest|
+|2013-03-05|Arjan Molenaar|Merged PageVersionPruner logic with ZipFileVersionController.|
+|2013-03-05|Arjan Molenaar|Load and use VersionsController from plugins.properties|
+|2013-03-05|Arjan Molenaar|Remove dead code from version controller|
+|2013-03-23|Daniel Woodward|Merge branch 'master' of https://github.com/unclebob/fitnesse|
+|2013-03-01|Daniel Woodward|Merge branch 'master' of https://github.com/unclebob/fitnesse into FitNesseDotOrgupdates|
+|2013-02-26|Arnout Engelen|Fix typo (makeExeptionMessage -> makeExceptionMessage)|
+|2013-02-20|Daniel Woodward|Merge branch 'master' of https://github.com/unclebob/fitnesse into FitNesseDotOrgupdates|
+|2013-02-03|Daniel Woodward|Moved the DisabledResponder into Fitnesse core.|

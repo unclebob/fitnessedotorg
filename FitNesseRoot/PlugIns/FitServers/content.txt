@@ -1,0 +1,16 @@
+!c !3 FitServers
+
+FitNesse started off as a a fancy wrapper for FIT.  FIT originally written in Java by WardCunningham, is the engine that actually runs your tests. There is an additional component called FitServer that allows FitNesse to interface with FIT.  FitNesse is not limited to running only Java tests.  Given an implementation of FIT and the corresponding FitServer, FitNesse can execute tests in any language.  Below is a list of all languages with FIT/FitServer implementations.
+
+'''Note:''' Slim is nowadays the preferred test system for FitNesse.
+
+ * Java - Included in the fitnesse.jar.
+ * [[.NET][.FitNesse.DotNet]] - Included in the standard FitNesse distribution.
+ * [[C++][>CppFit]] - C++ FIT and FitServer
+ * [[Delphi][>DelphiFit]] - Delphi FIT and FitServer
+ * [[Python][>PythonFit]] - Python FIT and FitServer
+ * [[Ruby][>RubyFit]] - Ruby FIT and FitServer
+ * [[Smalltalk][>SmalltalkFit]] - Visual Works Smalltalk FIT and FitServer
+ * [[Perl][>PerL]] - Perl FitServer
+
+

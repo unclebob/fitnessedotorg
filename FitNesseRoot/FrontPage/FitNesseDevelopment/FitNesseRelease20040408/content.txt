@@ -1,0 +1,180 @@
+ * FitClient/FitServer interface uses command line arguments instead of stdin
+ * a < _ < b syntax in any function cell. (i.e. quotient())
+ * Exception font size is now zero.
+ * Boolean Type Adapter now allows "yes" and "1" as well as "true".
+ * ? in ColumnFixture in addition to ()
+ * !table
+ * ErrorLog moved to root
+ * Move refactoring works
+ * Rename refactoring works
+ * !see
+ * !include works for absolute links accross virtual wiki
+ * Simple Authentication
+ * dotnet FitServer
+ * Numbers in Wiki Words
+ * Booleans can take YES or No
+ * Symbols field= and =method?
+ * null and blank
+----
+	From: 	  UncleBob@objectmentor.com
+	Subject: 	RE: [fitnesse] new release
+	Date: 	April 9, 2004 12:46:56 AM CDT
+	To: 	  fitnesse@yahoogroups.com
+	Reply-To: 	  fitnesse@yahoogroups.com
+
+Micah and I have been consulting at a client all week, and working on
+FitNesse each night, to get this release out.  I've added a bit more
+information about each of the changes below.  We'll get even better data up
+on fitnesse.org in the next few days.  
+
+We're very excited about this release.  This is the first time we've made
+changes directly to FIT.  We think we're on a good track with these changes,
+and we would love to hear your feedback.
+
+* FitClient/FitServer interface uses command line arguments 
+instead of stdin
+
+FitClient lives inside fitnesse and communicates with the external process
+that runs FIT tests.  While FitClient is all Java, FitServer is written in
+the target language.  The protocol between the two processes is socket
+based, and very simple.  When you run a test FitNesse runs the appropriate
+FitServer from the command line.  It passes three arguments over the command
+line.  These three arguments identify the host, socket, and test id number.
+FitServer then goes to that socket and requests the tests by their id.  
+
+We've gotten this working in Java, C# and C++.  Work is underway in Delphi
+as well.
+
+* a < _ < b syntax in any function cell. (i.e. quotient())
+
+Actually you can use any inequality in a cell.  The _ character represents
+the value returned from the fixture.  
+E.g. _<32 or _>=99 or even -4.9 <= _ <100.1
+
+For simple comparisons you can leave the _ off.  
+  <32 or >99.
+
+These comparisons only work for numeric values.  We haven't done anything
+for Strings yet, but the implications are obvious.  Substring matching,
+pattern matching, lexical order comparison, etc.  One step at a time.  
+
+* Exception font size is now zero.
+
+Meaning that you can probably read the exception text now.  We made it a bit
+bigger than before.
+
+* Boolean Type Adapter now allows "yes" and "1" as well as "true".
+
+Boolean values can now be specified as true, yes, YES, Y, +, or 1.  Anything
+else is false.
+
+* ? in ColumnFixture in addition to ()
+
+Telling business analysts to use () in column fixture was just too weird.
+We think valid? Is better than valid().  
+
+* !table
+
+Everybody grumbles when they have to put !- and -! Around the fixture names
+in their tables.  No more.  Instead use the following syntax:
+
+!|MyFixture|
+|a|b|c|d|
+|x....
+
+The entire table is escaped from any kind of widget processing.  The whole
+table becomes one big literal.
+
+* ErrorLog moved to root
+
+If you use virtual wiki, then you know that error logs don't work when tests
+fail.    Now they do.  We moved the ErrorLog location to the .ErrorLog page.
+The actual errorlog will be in a page named for the test that failed.
+
+* Move refactoring works
+* Rename refactoring works
+
+Self explanatory, but welcome.  These refactorings seem to work very well
+now.  Check out the acceptance tests for them too.
+
+* !see
+
+A newcomer.  You can create new test suites whose tests are not children of
+the suite.  You simply list each test page in a !see directive.  We thought
+this would be useful for folks who wanted to keep a list of all currently
+passing acceptance tests, or a page for all the acceptance tests in the
+current iteration. 
+
+* !include works for absolute links accross virtual wiki
+
+If you used virtual wiki you know that !include did not work across the
+virtual link.  Now it does -- at least for absolute references.
+
+* Simple Authentication
+
+You can turn on a single user authentication system.  One username, one
+password.  Anybody trying to use FitNesse must log in using them.
+
+* Numbers in Wiki Words
+
+OK, OK, OK...   IterationList20040408 is now a valid WikiWord.  
+
+* Symbols field= and =method?
+
+Have you ever written a fixture that needed to remember an output value and
+then feed it into an input in a different table?   If so, you probably used
+a little hashmap held in a static variable to bind the values to names.  You
+don't have to do that anymore.  Now, in a ColumnFixture, you can use
+variable= and =method() in the header.  The cell will contain the name of a
+symbol.  In the latter case the symbol will have the return value of the
+method associated with it.  In the former it will load the variable with the
+value associated with the symbol.  In the example below the key() method of
+the AddEmployee fixture returns an automatically generated key for the newly
+added database row.
+
+!|AddEmployee|
+|name     |date     |=key?     |
+|Bob      |today    |bobKey    |
+|Bill     |later    |billKey   |
+
+!|CheckEmployee|
+|key=    |name    |date    |
+|billKey |Bill    |later   |
+|bobKey  |Bob     |today   |
+
+* null and blank
+
+Have you ever wondered how to compare to a blank line, or a null?  Here's
+how.  Use the 'null' or 'blank' keywords.  Whenever these words appear in a
+cell they are converted to true null, or true empty string.  Thus:
+
+!|AddEmployee|
+|name    |date    |valid?   |
+|blank   |today   |false    |
+|null    |today   |false    |
+|Bob     |today   |true     |
+
+* All Tables Have Arguments.
+
+Have you ever wanted to pass an argument into a fixture?  I find this
+happens most often with RowFixtures.  I want to pass query arguments into
+them.  Now *every* fixture can take an unlimited number of arguments.  There
+is a new protected variable in Fixture named args.  It contains a String[]
+that contains the contents of the cells that immediately follow the name of
+the fixture.  Thus:
+
+!|FindAllEmployeesBornBefore|12/5/52|
+|name  |salary     |
+|Bob   |32768      |
+|Micah |65535      |
+
+
+In the Fixture the value of args[0] will be "12/5/52"
+
+That's about it.  Have fun with the new features.  Please let us know what
+you think and feel free to holler on this mailing list any time.
+
+Bob and Micah.
+
+
+

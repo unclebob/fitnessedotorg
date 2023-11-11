@@ -1,0 +1,15 @@
+This is a work in progress.  More details will be coming.  Let us know if we have any details wrong.
+
+Ward Cunningham starts Fit in Smalltalk
+Ward Cunningham brings Fit classic to Java
+Jim Shore ports Fit classic to .Net
+2004?: Uncle Bob starts FitNesse in Java with a fork of Fit classic Java
+David Chelimsky implements !-FitNesse.NET-! (don't know if this was a fork of Fit classic .NET or a port of FitNesse Java)
+Rick Mugridge creates a library of powerful new fixtures, !-FitLibrary-! Java.
+2005: Rick Mugridge and Ward Cunningham publish ''Fit for Developing Software: Framework for Integrated Tests''.
+2005: after seeing !-FitLibrary-! goodness in Java, Mike Stockdate starts implementing !-FitLibrary.NET-!
+2006: David and Mike Stockdale merge !-FitLibrary.NET-! into !-FitNesse.NET-!
+2007: seduced by the siren of dynamic typing, David leaves for the Ruby world and I become lead developer on !-FitNesse.NET-!
+2008: Uncle Bob introduces Slim Java
+2009: Mike Stockdale ports Slim to .NET, then decides to merge it with FitNesse.NET into a new codebase that I call fitSharp
+2010: Gojko donates his !-DbFit.NET-! code and Mike Stockdale merges it into fitSharp

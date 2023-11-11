@@ -1,0 +1,18 @@
+!release 20080812
+
+!3 FitNesse Release Notes 08/12/2008
+!note Dean Wampler, Object Mentor, Inc.
+!3 This release includes some enhancements.
+ * Preliminary support for revision control of page changes. There is Java code in place to support Subversion. It's not yet ready for public consumption, but a "production ready" release, with documentation, will be provided shortly. (I.e., hopefully within one week.) This support should make it straightforward to add CM support for other systems. Stay tuned.
+ * Upgraded to the latest fitlibrary.jar.
+
+This release also fixes numerous bugs identified since the 07/02/2008 release.
+
+ * A remote wiki import could raise a NullPointerException; now fixed.
+ * The remote vs. local editing links were refined.
+ * Fixed invalid handling of embedded '&' in URL's.
+ * Fixed miscellaneous ant build bugs.
+ * Fixed Linux threading problem that caused some spurious test failures.
+ * Fixed Java 5 vs. 6 issue with XML handling.
+ * Implemented miscellaneous minor UI refinements and bug fixes.
+ * Added back in the "basic" .NET support for running out of the box.

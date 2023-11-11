@@ -1,0 +1,126 @@
+!release 20100103
+
+!3 FitNesse Release Notes 1/03/2010
+!note Uncle Bob, Object Mentor, Inc.
+
+!note !style_red(Requires Java 1.6)
+
+!4 Contributors to this release:
+ * Aviv Ben-Yosef
+ * Jake Benilov
+ * Lars Vonk
+ * Markus Gaertner
+ * Gojko Adzic
+ * Mike Stockdale
+ * Marisa Seal
+ * Uncle Bob
+ 
+!meta Thanks to all of you!
+
+|!4 Since:                |[[20091121][FitNesseRelease20091121]]|
+|!4 Expected Release Date:|20091228    |!style_pass(RELEASED)   |
+|!4 Theme:                |Slim 0.1, BDD Style Tests.    |
+
+!3 Major Changes
+ * Parameterized Scenario Tables: The Cucumber Killer.
+ * Trinidad uses -c parameter for JUnit and Maven test runs.
+ * Slim Version Number Protection.  Running with old Slim version produces warning. 
+ * Page Load and Test Run Slowdowns fixed.  
+ * Can run nested Suites using !see.
+ * Plain Text Tables.  e.g. tables without using vertical strokes.
+ * Slim V0.1 Compatibility.
+ * Library table for Slim (v0.1)
+ * System Under Test fixture for Slim.  (v0.1)
+ * Sequential Arguments in Script Tables. 
+ * Pages can now be saved in HTML format.  FitNesse will still render and test them.  
+
+
+!3 Git History
+!|2010-01-03 15:29:35 -0600|unclebob       |housekeeping                                                                                                                                                                       |
+|2010-01-03 13:16:47 -0500 |marisaseal     |Updating ScriptTable page in FitNesse user guide to reference sequential argument processing.                                                                                      |
+|2010-01-03 12:24:57 -0500 |marisaseal     |Check Slim version matches current version and display message at the top of the test page if versions do not match.                                                               |
+|2010-01-01 15:02:43 -0600 |unclebob       |added yet another Library statement to one of the acceptance tests                                                                                                                 |
+|2010-01-01 12:21:06 -0600 |unclebob       |Two bugs.  1. Returning Null from a library fixture won't be misinterpreted as 'no actor'  2. Added missing Library statements to SetUp pages in Acceptance Tests.                 |
+|2009-12-28 12:32:10 -0600 |unclebob       |housekeeping                                                                                                                                                                       |
+|2009-12-28 12:21:58 -0600 |unclebob       |Merge branch 'master' of git://github.com/gojko/fitnesse                                                                                                                           |
+|2009-12-28 17:50:49 +0000 |gojko          |docs for the new junit integration                                                                                                                                                 |
+|2009-12-27 18:20:20 -0600 |unclebob       |housekeeping                                                                                                                                                                       |
+|2009-12-27 18:13:14 -0600 |unclebob       |Merge branch 'master' of http://github.com/gojko/fitnesse                                                                                                                          |
+|2009-12-27 23:24:33 +0000 |gojko          |Merge git@github.com:unclebob/fitnesse                                                                                                                                             |
+|2009-12-27 13:13:24 -0600 |unclebob       |Added Plain Text Tables to User Guide                                                                                                                                              |
+|2009-12-27 19:03:19 +0000 |gojko          |static issue for src/fitnesse/wiki/FileSystemPageZipFileVersioningTest.java resolved                                                                                               |
+|2009-12-22 14:47:23 -0600 |unclebob       |Deprecation message for TestRunners                                                                                                                                                |
+|2009-12-22 12:01:08 -0600 |unclebob       |housekeeping                                                                                                                                                                       |
+|2009-12-22 06:39:10 -0600 |unclebob       |Merge branch 'master' of git://github.com/rustbear/fitnesse                                                                                                                        |
+|2009-12-22 08:02:47 +0000 |gojko          |- nohistory flag in request avoids generating history files                                                                                                                        |
+|2009-12-22 07:34:44 +0000 |gojko          |bugfix, suite responder runs a fast test if given &debug                                                                                                                           |
+|2009-12-22 00:10:57 +0000 |gojko          |testhelper extracted                                                                                                                                                               |
+|2009-12-21 23:49:36 +0100 |rustbear       |added TestRunner password authentication (can be specified on the commandline with the -credentials flag)                                                                          |
+|2009-12-21 20:24:49 +0000 |gojko          |resolved racing condition on SocketService                                                                                                                                         |
+|2009-12-21 16:01:52 +0000 |gojko          |fitnesse suite support                                                                                                                                                             |
+|2009-12-21 15:59:51 +0000 |gojko          |fitnesse suite support                                                                                                                                                             |
+|2009-12-21 06:06:37 -0600 |unclebob       |Merge                                                                                                                                                                              |
+|2009-12-21 05:59:53 -0600 |unclebob       |housekeeping.  Pulled SetUp and TearDown out of PageFooter                                                                                                                         |
+|2009-12-21 10:28:37 +0100 |Lars Vonk      |merged with EDGE                                                                                                                                                                   |
+|2009-12-21 10:22:05 +0100 |Lars Vonk      |added acceptance test for setup link bug                                                                                                                                           |
+|2009-12-21 10:10:01 +0100 |Lars Vonk      |fixed broken SetUp link, removed some unused code a long the way                                                                                                                   |
+|2009-12-20 12:22:52 -0600 |unclebob       |1953867 Fixed Nested Suites using \!see                                                                                                                                            |
+|2009-12-20 10:10:26 +0100 |rustbear       |reduced some duplication in the test util class                                                                                                                                    |
+|2009-12-20 09:55:32 +0100 |Jake Benilov   |removed fitlibrary jar from eclipse build path                                                                                                                                     |
+|2009-12-20 05:08:10 +0000 |gojko          |first cut of new junit helper; works within junit but not with the suite                                                                                                           |
+|2009-12-16 20:50:14 -0600 |unclebob       |Change CSS style for tables constructed with Plain Text Widget                                                                                                                     |
+|2009-12-15 22:27:22 -0600 |unclebob       |Merged refactoring                                                                                                                                                                 |
+|2009-12-15 23:06:30 -0500 |marisaseal     |Refactored sequential argument processing code (includes Bob Martin's updates to getArgumentsStartingAt function). Corrected description of test method in related acceptance test.|
+|2009-12-15 11:02:12 -0600 |unclebob       |User Guide for Parameterized Scenarios.                                                                                                                                            |
+|2009-12-15 00:22:27 -0600 |unclebob       |Parameterized Scenario Tables, The Cucumber Killer                                                                                                                                 |
+|2009-12-14 08:22:04 -0600 |unclebob       |refactor ATs to use Library                                                                                                                                                        |
+|2009-12-13 13:22:32 -0600 |unclebob       |Merged lvonk's multipe SLIM actors.                                                                                                                                                |
+|2009-12-13 12:59:42 -0600 |unclebob       |housekeeping                                                                                                                                                                       |
+|2009-12-13 01:17:06 +0100 |Lars Vonk      |added acceptance tests, added userguide documentation                                                                                                                              |
+|2009-12-12 23:41:04 +0100 |Lars Vonk      |changed the order in which the method executors are run                                                                                                                            |
+|2009-12-09 23:10:57 +0100 |Lars Vonk      |renamed InstallTable to LibraryTable                                                                                                                                               |
+|2009-12-09 21:24:34 +0100 |Lars Vonk      |Merge branch 'master' of git://github.com/unclebob/fitnesse                                                                                                                        |
+|2009-12-09 21:24:16 +0100 |Lars Vonk      |added new files                                                                                                                                                                    |
+|2009-12-09 21:21:50 +0100 |Lars Vonk      |http://www.pivotaltracker.com/story/show/1893142 refactored the execution of methods to be a chain                                                                                 |
+|2009-12-09 11:10:12 -0600 |unclebob       |Unbundled Trinidad                                                                                                                                                                 |
+|2009-12-09 10:56:51 -0600 |unclebob       |housekeeping                                                                                                                                                                       |
+|2009-12-09 16:46:16 +0100 |Lars Vonk      |Merge branch 'master' of git://github.com/unclebob/fitnesse                                                                                                                        |
+|2009-12-09 08:42:51 -0600 |unclebob       |Merge branch 'master' of git://github.com/marisaseal/fitnesse                                                                                                                      |
+|2009-12-09 08:42:34 -0600 |unclebob       |actually deleted the fitlibrary.jar file...                                                                                                                                        |
+|2009-12-09 09:16:21 -0500 |marisaseal     |Sequential argument processing for method calls in Slim script tables invoked with the ";" suffix. Also fixed 2 failing unit tests.                                                |
+|2009-12-09 08:11:47 -0600 |unclebob       |Unbundled fitlibrary and FitLibraryTestEngine in Trinidad                                                                                                                          |
+|2009-12-09 14:29:06 +0100 |Lars Vonk      |http://www.pivotaltracker.com/story/show/1893142 Added InstallTable, refactored slim table testing, removed duplication in tests by extracting super class                         |
+|2009-12-08 20:19:45 -0600 |unclebob       |Plain Text Table Widget                                                                                                                                                            |
+|2009-12-08 12:13:08 -0600 |unclebob       |Preprocess page contents to remove all \r chars.  Fix #                         |tables                         |so that you can comment whole tables out.                         |
+|2009-12-07 11:20:01 -0600 |unclebob       |Added accpetance tests for hash widget                                                                                                                                             |
+|2009-12-07 15:05:13 +0100 |Lars Vonk      |added systemundertest to userguide                                                                                                                                                 |
+|2009-12-07 10:35:29 +0100 |Lars Vonk      |removed codecomplete from master                                                                                                                                                   |
+|2009-12-07 10:34:33 +0100 |Lars Vonk      |removed codecomplete from master                                                                                                                                                   |
+|2009-12-06 18:42:56 -0600 |unclebob       |housekeeping                                                                                                                                                                       |
+|2009-12-06 18:30:14 -0600 |unclebob       |housekeeping                                                                                                                                                                       |
+|2009-12-07 01:25:38 +0100 |Markus Gaertner|fixed TableTable bug with null return values and thrown exceptions                                                                                                                 |
+|2009-12-06 17:34:20 -0600 |unclebob       |Merge branch 'master' of git://github.com/jediwhale/fitnesse                                                                                                                       |
+|2009-12-06 16:15:22 +0100 |Lars Vonk      |fixed packaging issue with system under test, added acceptance test                                                                                                                |
+|2009-12-05 16:07:06 +0100 |Lars Vonk      |implemented SystemUnderTest functionality, if method is not on fixture slim will try to invoke it on a field annotated with @SystemUnderTest                                       |
+|2009-12-04 17:06:34 -0700 |jediwhale      |Merge branch 'master' into folders                                                                                                                                                 |
+|2009-12-04 17:05:01 -0700 |jediwhale      |grrr                                                                                                                                                                               |
+|2009-12-04 16:56:52 -0700 |jediwhale      |document external html pages                                                                                                                                                       |
+|2009-12-03 00:01:37 +0100 |Lars Vonk      |started implementing code completion                                                                                                                                               |
+|2009-12-01 09:34:34 -0600 |unclebob       |Merge branch 'master' of git://github.com/abyx/fitnesse                                                                                                                            |
+|2009-12-01 09:25:06 -0600 |unclebob       |Merge branch 'master' of git://github.com/lvonk/fitnesse                                                                                                                           |
+|2009-12-01 09:24:44 -0600 |unclebob       |added 'plus.png' to images just in case.                                                                                                                                           |
+|2009-12-01 00:21:17 +0100 |Lars Vonk      |moved tablefactory                                                                                                                                                                 |
+|2009-12-01 00:20:27 +0100 |Lars Vonk      |moved factory to slimTables package                                                                                                                                                |
+|2009-11-30 23:46:14 +0100 |Lars Vonk      |extracted tablefactory                                                                                                                                                             |
+|2009-11-30 23:45:43 +0100 |Lars Vonk      |fixed merge conflices                                                                                                                                                              |
+|2009-11-30 23:42:29 +0100 |Lars Vonk      |created slimtablefactory                                                                                                                                                           |
+|2009-11-30 22:51:47 +0200 |Aviv Ben-Yosef |Fixed a typo                                                                                                                                                                       |
+|2009-11-25 13:05:31 -0600 |unclebob       |Improved MockResponseSender tolerance to delays.                                                                                                                                   |
+|2009-11-25 09:20:06 -0600 |unclebob       |changed variable resolution.  Faster and less memory intensive.                                                                                                                    |
+|2009-11-25 06:16:32 -0600 |unclebob       |updated user guide to talk about hash widget conversion in java and ruby slim                                                                                                      |
+|2009-11-24 21:00:08 -0700 |jediwhale      |Merge branch 'master' into folders                                                                                                                                                 |
+|2009-11-24 20:46:30 -0700 |jediwhale      |external test only if has tables                                                                                                                                                   |
+|2009-11-21 16:23:43 +0100 |unclebob       |housekeeping                                                                                                                                                                       |
+|2009-11-21 15:19:18 +0100 |unclebob       |Edward Glowaki:  Added cmPreDelete to the CmSystem.                                                                                                                                |
+|2009-11-21 13:18:24 +0100 |unclebob       |Gael Falez: Added page to TestHistoryResponder, allows you to see history for suites instead of everything.  Makes things much faster.                                             |
+

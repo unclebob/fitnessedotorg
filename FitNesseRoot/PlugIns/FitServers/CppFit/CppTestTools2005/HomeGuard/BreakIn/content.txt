@@ -1,0 +1,16 @@
+!1 Break in detected
+
+!|HomeGuardFixtures.DefineSensors|
+|id|name |submit?|
+|1 |Paul's room|true|
+|2 |Porch |true|
+|3 |Front Door |true|
+|4 |Back Door |true|
+
+!|HomeGuardFixtures.TripSensor|
+|id|
+|1|
+
+|!-HomeGuardFixtures.CheckFrontPanel-!|
+|visual alarm|siren|display|
+|on|on|Paul's room|

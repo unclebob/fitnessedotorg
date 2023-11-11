@@ -1,0 +1,2 @@
+'''Command: '''!-d:/Projects/HomeGuard/test/HomeGuardAtRunnerBat.bat-!
+'''Exited with code: '''0----

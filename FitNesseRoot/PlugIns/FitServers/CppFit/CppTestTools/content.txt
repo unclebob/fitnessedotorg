@@ -1,0 +1,42 @@
+!-CppTestTools provides a unit test harness and an implementation of FIT for c++.  It also has a starter implementation for a concurrency library.  This library is used by the FitServer.  Implementations are provided for gcc and visual c++ v6.-!
+
+Actually !-CppTestTools-! is rather obsolete.  It has been broken into two pieces: [[CppUTest][www.cpputest.org]] and !-CppFit-!.  You can find the [[!-CppFit-! zip file here][http://fitnesse.org/files/CppTestTools/CppFit-2009-02-05-11-47.zip]].  The zip file is bundled with !-CppUTest-!.
+
+There are some instructions and examples in the zip file.  Much of what is here is probably close to right.  There is one intermittent unit test failure, associated with closing a socket I think.  if you find it let me know.
+
+!-james {at} renaissancesoftware.net-!
+
+
+!3 Installation and set up
+ * [[Download and Setup instructions][^SetUpCppTestTools]]
+ * ^VisualCppProjectSettings
+ * ^GccAndEclipseProjectSettings
+
+!3 !-NewClass and NewInterface scripts-!
+These shell scripts are provided.  For MS developers you will need cygwin or msys to use these scripts.
+ * ^NewClassScript
+ * ^NewInterfaceScript
+
+!3 Unit test harness
+ * ^UnitTestHarness
+
+!3 C++ version of FIT
+ * ^CppFit
+
+!3 Example Fitnesse tests
+ * ^HomeGuardTests
+
+!3 The unit test harness has been tested with
+ * cygwin/gcc
+ * VC6
+ * VS.NET
+ * Hitachi SH3
+ * Unit test harness works under Mac, but some of the tests needed for FIT fail
+
+!3 The !-CppFit-! been tested with
+ * cygwin/gcc
+ * VC6
+ * VS.NET
+
+
+

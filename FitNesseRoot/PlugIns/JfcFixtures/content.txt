@@ -1,0 +1,9 @@
+A set of Fixtures that wrap JfcUnit to test through Swing GUIs. Currently one Action-like fixture, and a base class for Row-like fixtures (for testing the content of, for example, JTables etc.).
+
+Code is currently only available from CVS. It isn't in the best shape, design-wise, but is already used in production at http://www.disy.net .
+
+If people show some interest, I might actually get motivated to provide a true distribution and some documentation... ;)
+
+http://sf.net/projects/jfcfixtures
+
+IljaPreuss

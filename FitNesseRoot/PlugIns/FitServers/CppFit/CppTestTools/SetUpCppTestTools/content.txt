@@ -1,0 +1,10 @@
+!-CppTestTools, and Example C and C++ Projects are contained in the installation zip file.-!
+
+In brief:
+!-Download fitnesse and get it working first, then download this zip, unzip it and look at the README.txt file.-!
+
+  * [[20091223 Release][http://fitnesse.org/files/CppTestTools/CppFit-2009-12-23-07-57.zip]]
+  * [[Release Notes][^ReleaseNotes200702161200]]
+
+
+If there are problems let James Grenning <james at grenning dot net> know about it.  Thanks, feedback welcome.

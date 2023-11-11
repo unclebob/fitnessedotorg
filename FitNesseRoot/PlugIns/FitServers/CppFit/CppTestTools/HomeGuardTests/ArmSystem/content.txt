@@ -1,0 +1,22 @@
+Arm and disarm the system
+
+|!-HomeGuardFixtures.CheckFrontPanel-!|
+|armed|visual alarm|siren|display|
+|off|off|off|READY|
+
+press the arm button
+
+|!-HomeGuardFixtures.Control-!|
+|arm system|
+
+|!-HomeGuardFixtures.CheckFrontPanel-!|
+|armed|visual alarm|siren|display|
+|on|off|off|ARMED|
+
+press the disarm button
+|!-HomeGuardFixtures.Control-!|
+|disarm system|
+
+|!-HomeGuardFixtures.CheckFrontPanel-!|
+|armed|visual alarm|siren|display|
+|off|off|off|READY|

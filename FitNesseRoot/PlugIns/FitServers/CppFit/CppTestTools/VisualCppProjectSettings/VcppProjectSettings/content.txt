@@ -1,0 +1,65 @@
+!2 Creating a new Workspace, Projects and Settings in VC++ V6
+
+!3 Create a new workspace
+ 1 Navigate ''File/new/Workspace/Blank Workspace''
+ 1 Select location and name
+
+!3 Create a new Win32 Console Applicaiton
+This project holds your main for unit testing 
+ 1 Navigate ''File/New/Project/Win32 Console Application''
+ 1 Select ''Add to current workspace'' 
+ 1 Name the project (maybe !-AllTestSuite, SomeProjectTestSuite-!)
+ 1 Select ''OK''
+ 1 Select ''An empty project''
+ 1 Select ''Finish''
+
+
+'''Replace default ''Project Settings/C/C++/General/Project Options:'' text with this text:'''
+!-
+/nologo /MDd /W3 /Gm /GR /GX /ZI /Od  /I "$(CPPUNIT_ROOT)" /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /FR"Debug/" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+-!
+
+'''Replace default ''Project Settings/Link/Project Options:'' text with this text:'''
+!-
+CppUnitLite.lib FitLib.lib VisualCpp.lib /nologo /subsystem:console /incremental:yes /debug /machine:I386  /pdbtype:sept /libpath:"$(CPPTEST_LIB)" 
+-!
+
+!3 Create a main function for running unit tests
+ 1 Navigate ''File/New/Files/C++ Source File
+ 1 Select ''Add to current workspace''
+ 1 Name the file (maybe main, !-TestMain, SomeProjectTestMain-!)
+ 1 Paste in this code
+
+{{{
+#include "CommandLineTestRunner.h"
+
+int main(int ac, char** av)
+{
+  CommandLineTestRunner::RunAllTests(ac, av);
+
+  return 0;
+}
+}}}
+
+Build and run.  You should get an OK with 0 tests run.
+
+!3 Create a new Win32 Static Library
+This project holds your application and test code
+ 1 Navigate ''File/New/Project/Win32 Static Library''
+ 1 Select ''Add to current workspace''
+ 1 Select ''Dependency of:''
+ 1 Select the console applicaiotn you created above 
+ 1 Name the project (maybe !-SomeProject, or SomeProjectLib-!)
+ 1 Select ''OK''
+
+'''Replace default ''Project Settings/C/C++/Project Options:'' with these:'''
+!-
+/nologo /MDd /W3 /Gm /GR /GX /ZI /Od /I "$(CPPFIT_ROOT)" /I "$(CPPUNIT_ROOT)" /I "$(CPP_PLATFORM_ROOT)" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /FR"Debug/" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+-!
+
+Add a test file.  You can do this with the !-NewTestableClass-! macro if you added that to your IDE.
+
+Build and run
+
+
+

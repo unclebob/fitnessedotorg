@@ -1,0 +1,6 @@
+!path fitnesse.jar
+!path fitjdbc.jar
+!path classes12.jar
+#path C:\J\JavaLib\jars\runtime12.jar
+#path J:\JavaLib\jars\nls_charset12.jar
+

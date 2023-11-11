@@ -1,0 +1,16 @@
+!* For Visual C++ V6
+Open the workspace file
+Build all
+The run executable
+*!!* For Visual Studio .Net
+Open the workspace, visual studio will convert the workspace and project files.
+Build all
+Run the executable
+*!
+
+2/18/2006 While building, I got an undefined symbol EAGAIN at line 152 of winsocket.cpp in the visualcpp project.  Adding 
+{{{
+#include <errno.h>
+}}}
+
+resolves the problem.  -- ''Mike Hill''

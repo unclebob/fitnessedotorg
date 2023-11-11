@@ -1,0 +1,72 @@
+!3 Build
+These instruction assume you are using cygwin, but should work for linux or unix.
+
+To set up cygwin, download and install it from www.cygwin.com.  Make sure the cygwin bin directory is in the windows path.
+
+From a cygwin prompt
+ * !-cd c:/tools/CppTestTools-!
+ * make all
+ * !-AllTests/AllTests.exe -r-!
+The -r switch makes the tests run twice.  The summary for the second run of the tests should show '''OK'''
+The first run shows some memory leaks, but we can disregard them.  The are due to library routines that do not cleanup after them selves immediately (if at all). 
+!3 Bonus
+ * !-NewClass.sh-! A shell script to create a new class (header, cpp and test file)
+To make !-NewClass-! from the cygwin prompt create a link to the !-NewClass-! shell script as follows
+ * cd c:/cygwin/bin
+ * ln -s  !-c:/tools/CppTestTools/CppSourceTemplates/NewClass.sh NewClass-!
+!3 Your Project Directory
+Create a directory to hold your project, for example !-c:Projects/eclipse/MyProject-!
+You will put your makefile and your source code into this directory
+
+!3 Your makefile
+Here is a simple makefile to serve as a starting point..
+{{{
+TARGET = TestMain
+
+LOADLIBS =\
+ -lUnitTestHarness\
+ -lGccPlatform\
+ -lstdc++ 
+
+LIBDIRS =\
+ -L$(CPP_TEST_TOOLS)/lib
+
+INCLUDE = -I$(CPP_TEST_TOOLS)
+
+CPPFLAGS = $(INCLUDE)
+
+.cpp.o : 
+	gcc -c $(CPPFLAGS) -o $@ $<
+
+DOTO = 
+
+test: $(TARGET)
+	./$(TARGET) 
+
+all: 	$(DOTO) $(TARGET) 
+
+
+$(TARGET): $(TARGET).o $(DOTO) 
+	$(CC) -o $(TARGET) $(LIBDIRS) $^ $(LOADLIBS)
+
+clean:	
+	rm -f *.o $(TARGET).exe
+
+}}}
+!3 Unit test main
+Create a !-TestMain.cpp-! and copy this code into it
+{{{
+#include "UnitTestHarness/CommandLineTestRunner.h"
+
+int main(int ac, char** av)
+{
+  CommandLineTestRunner::RunAllTests(ac, av);
+
+  return 0;
+}
+}}}
+Build it and see that you get this result
+ * make test
+
+OK (''etc'')
+

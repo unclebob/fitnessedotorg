@@ -1,0 +1,11 @@
+ * WhereUsed button
+ * email address are turned into links
+ * anchor links 
+ * bug fixes
+ * improved stability in test execution
+ * new TestRunner
+ * new Spreadsheet table conversion
+ * title search feature.  Search no longer uses regular expressions.
+ * https enabled in link widget
+ * plugin capability for authentication modules
+ * improvements for DotNet

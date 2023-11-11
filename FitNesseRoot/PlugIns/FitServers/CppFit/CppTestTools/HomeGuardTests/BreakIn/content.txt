@@ -1,0 +1,31 @@
+!define COMMAND_PATTERN {E:/Lancelot/Third_Party/cppFit/Projects/Cpp/HomeGuard/HomeGuardFitnesseServer/HomeGuardFitnesseServer.exe}-!
+!1 Break in detected
+
+When there is a break in, and the system is armed, the alarm is signaled and the police are called.
+
+|!-HomeGuardFixtures.CheckFrontPanel-!|
+|visual alarm|siren|display|
+|off|off|READY|
+
+!|HomeGuardFixtures.DefineSensors|
+|port|name |Type|submit?|reason?|
+|A1 |Paul's|window|true|none|
+|A2 |Porch |door|true|none|
+|A3 |Sump |waterlevel|true|none|
+|A4 |Attic|fire|true|none|
+
+!|HomeGuardFixtures.Control|
+|arm system|
+
+!|HomeGuardFixtures.TripSensor|
+|port|
+|A1|
+
+!|HomeGuardFixtures.CheckFrontPanel|
+|visual alarm|siren|display|
+|on|on|Paul's Window|
+
+!|HomeGuardFixtures.CheckPhoneLine|
+|last number dialed|
+|ThePoliceNumber|
+

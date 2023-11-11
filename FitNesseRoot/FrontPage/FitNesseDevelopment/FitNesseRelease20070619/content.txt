@@ -1,0 +1,10 @@
+ * '''Requires Java 5.'''
+ * This is primarily a bug-fix release.
+ * The ^ prefix for addressing sub pages is '''deprecated'''.
+ * The > prefix is now the standard for addressing sub pages.  
+ * The < prefix does a search up the hierarchy.  So <!-AncestorPage.TestData-! will search up from the current page until it finds a parent named !-AncestorPage-! and then it will go to !-TestData-! immmediately below !-AncestorPage-!.
+ * There is now an ant task for running tests.
+ * Take a look at the !-FixtureDecorator-!
+
+
+!release 20070619

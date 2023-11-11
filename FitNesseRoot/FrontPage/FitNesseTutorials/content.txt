@@ -1,0 +1,19 @@
+Over the years a number of excellent individuals have contributed tutorials that help folks understand how to use FitNesse in its various incarnations.  The list below is just a few of them.  
+
+''If you have a tutorial and want it listed here, please mention @fitnesse on Twitter.''
+
+|'''[[Slim][.FitNesse.UserGuide.SliM]]'''                                      |
+|Brett Schuchert            |http://schuchert.wikispaces.com/FitNesse.Tutorials|
+|Uncle Bob's Videos on Vimeo|http://fitnesse.org/FrontPage.VideoTutorials      |
+
+
+|'''Fit'''            |
+|Listings coming soon.|
+
+|'''FitLibrary'''     |
+|Listings coming soon.|
+
+|'''FitSharp'''       |
+|Listings coming soon.|
+
+

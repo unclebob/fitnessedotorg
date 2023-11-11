@@ -1,0 +1,197 @@
+!3 this is fixed in the latest version.
+If you have a method on a fixture that returns a value and changes the state of the fixture, or application, you may see some odd result: like a failed cell that shows that actual and expected are the same.
+
+here is info and a fix provided by Mark W.  I am not sure if there are related problems remaining.
+
+I have been evaluating the FitLib and Fitnesse (VC++ 6, from the 20050126 zip). As part of my evaluation, I created the 'eg.Division' example from Fitnesse. Once I got that working,  I wanted to know how many times the eg.Division interface was instantiated and how many times the test methods were called. I added another test 'half', and also added static counters for construction and for when 'quotient' or 'half' were called.
+
+Here are the results from the run as cut from the result page from Fitnesse. If you cannot readily see the html table, the errored responses for quotient were displaying quot_counts greater than expected.
+
+!-
+<table border="1" cellspacing="0">
+  <tbody>
+    <tr>
+      <td colspan="7">eg.Division</td>
+    </tr>
+    <tr>
+      <td>numerator</td>
+      <td>denominator</td>
+      <td>quotient?</td>
+      <td>half?</td>
+      <td>inst_counts?</td>
+      <td>quot_counts?</td>
+      <td>half_counts?</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>2</td>
+      <td bgcolor="#cfffcf">5</td>
+      <td bgcolor="#cfffcf">2.5</td>
+      <td bgcolor="#cfffcf">1</td>
+      <td bgcolor="#cfffcf">1</td>
+      <td bgcolor="#cfffcf">1</td>
+    </tr>
+    <tr>
+      <td>12.6</td>
+      <td>3</td>
+      <td bgcolor="#cfffcf">4.2</td>
+      <td bgcolor="#cfffcf">2.1</td>
+      <td bgcolor="#cfffcf">1</td>
+      <td bgcolor="#cfffcf">2</td>
+      <td bgcolor="#cfffcf">2</td>
+    </tr>
+    <tr>
+      <td>100</td>
+      <td>4</td>
+      <td bgcolor="#ffcfcf">25.0 <font color="#c08080" size="-1"><i>expected</i></font>
+      <hr>25 <font color="#c08080" size="-1"><i>actual</i></font></td>
+      <td bgcolor="#cfffcf">12.5</td>
+      <td bgcolor="#cfffcf">1</td>
+      <td bgcolor="#ffcfcf">3 <font color="#c08080" size="-1"><i>expected</i></font>
+      <hr>4 <font color="#c08080" size="-1"><i>actual</i></font></td>
+      <td bgcolor="#cfffcf">3</td>
+    </tr>
+    <tr>
+      <td>12.5</td>
+      <td>0</td>
+      <td bgcolor="#ffcfcf">error <font color="#c08080" size="-1"><i>expected</i></font>
+      <hr>1.#INF <font color="#c08080" size="-1"><i>actual</i></font></td>
+      <td bgcolor="#cfffcf">1<a
+ href="http://localhost/FitNesse.TwoMinuteExample?test#INF">.#INF</a>
+      </td>
+      <td bgcolor="#cfffcf">1</td>
+      <td bgcolor="#ffcfcf">4 <font color="#c08080" size="-1"><i>expected</i></font>
+      <hr>6 <font color="#c08080" size="-1"><i>actual</i></font></td>
+      <td bgcolor="#cfffcf">4</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<br>
+<span class="meta"></span><br>
+Here are the results after my corrections:<br>
+<br>
+<br>
+<table border="1" cellspacing="0">
+  <tbody>
+    <tr>
+      <td colspan="7">eg.Division</td>
+    </tr>
+    <tr>
+      <td>numerator</td>
+      <td>denominator</td>
+      <td>quotient?</td>
+      <td>half?</td>
+      <td>inst_counts?</td>
+      <td>quot_counts?</td>
+      <td>half_counts?</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>2</td>
+      <td bgcolor="#cfffcf">5</td>
+      <td bgcolor="#cfffcf">2.5</td>
+      <td bgcolor="#cfffcf">1</td>
+      <td bgcolor="#cfffcf">1</td>
+      <td bgcolor="#cfffcf">1</td>
+    </tr>
+    <tr>
+      <td>12.6</td>
+      <td>3</td>
+      <td bgcolor="#cfffcf">4.2</td>
+      <td bgcolor="#cfffcf">2.1</td>
+      <td bgcolor="#cfffcf">1</td>
+      <td bgcolor="#cfffcf">2</td>
+      <td bgcolor="#cfffcf">2</td>
+    </tr>
+    <tr>
+      <td>100</td>
+      <td>4</td>
+      <td bgcolor="#ffcfcf">25.0 <font color="#c08080" size="-1"><i>expected</i></font>
+      <hr>25 <font color="#c08080" size="-1"><i>actual</i></font></td>
+      <td bgcolor="#cfffcf">12.5</td>
+      <td bgcolor="#cfffcf">1</td>
+      <td bgcolor="#cfffcf">3</td>
+      <td bgcolor="#cfffcf">3</td>
+    </tr>
+    <tr>
+      <td>12.5</td>
+      <td>0</td>
+      <td bgcolor="#ffcfcf">error <font color="#c08080" size="-1"><i>expected</i></font>
+      <hr>1.#INF <font color="#c08080" size="-1"><i>actual</i></font></td>
+      <td bgcolor="#cfffcf">1<a
+ href="http://localhost/FitNesse.TwoMinuteExample?test#INF">.#INF</a>
+      </td>
+      <td bgcolor="#cfffcf">1</td>
+      <td bgcolor="#cfffcf">4</td>
+      <td bgcolor="#cfffcf">4</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+-!
+I'm not sure if my work-around is the sufficient, but the code I changed is in Fixture::check() -- it appeared to me that the adapter invoke() was being called twice on 'error' or on a miscompare, either through invoke() and through valueAsString() or from two valueAsString() calls.
+
+I've included my code changes below, where the old code is #if'ed out. 
+
+I really dont have enough context to know if this was an appropriate solution, nor do I have a good set of 
+
+Best-regards,
+Mark Winrock
+
+
+{{{
+
+
+void Fixture::check(ParsePtr cell, TypeAdapter *a) 
+{
+    if (a == 0) {
+        ignore(cell);
+        return;
+    }
+
+    string text = cell->text();
+    if (text == "") {
+        return;
+    }
+    if (text == "error") {
+        try {
+#if 0        
+            a->invoke();
+#else
+            // mawFindMe: I removed the invoke() because
+            // valueAsString() calls invoke().
+#endif
+            wrong(cell, a->valueAsString());
+        } catch (ResolutionException& e) {
+            handleException (cell, e);
+        } catch (exception&) {
+            right(cell);
+        }
+        return;
+    }
+    try {
+
+#if 0    
+        if (a->valueAsString() == text) {
+            right(cell);
+        } else {
+            wrong(cell, a->valueAsString());
+        }        
+
+#else
+        // mawFindMe: I changed this to only call valueAsString() once
+        string v = a->valueAsString();
+        if (v == text) {
+            right(cell);
+        } else {
+            wrong(cell, v);
+        }
+#endif
+    } catch (exception& e) {
+        handleException(cell, e);
+    }
+}
+
+
+}}}

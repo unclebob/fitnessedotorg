@@ -1,0 +1,17 @@
+ * Variables work in !path ([[test][.FitNesse.SuiteAcceptanceTests.SuiteWidgetTests.TestClasspathContainingVariable]])
+ * Variables work in links ([[test][.FitNesse.SuiteAcceptanceTests.SuiteWidgetTests.TestHttpLinkWithVariable]])
+ * Wiki Import Support Unicode ([[test][.FitNesse.SuiteAcceptanceTests.SuiteWikiImportTests.TestImportingUnicodeCharacters]])
+ * Rick Mugridge's !-FitLibrary-! is supported. Downloaded separately. .FitNesse.FitLibraryUserGuide
+  * Note that most classes have been moved from the ''fit'' package into the ''fitlibrary'' package.
+ * .NET !-TestRunner-! .FitNesse.DotNet.DotNetTestRunner
+ * Enhanced variable lookup so that if it can't find a variable defined on the current page or any ancestor pages FitNesse will look at system properties ([[test][.FitNesse.SuiteAcceptanceTests.SuiteWidgetTests.TestVariablesFromSystemProperties]]).
+ * Added -R switch to !-!contents-! widget to display all of the descendent hierarchy ([[test][.FitNesse.SuiteAcceptanceTests.SuiteWidgetTests.TestContentsWithRecursion]]).
+ * Added -seamless option to the !-!include-! widget. This allows you to include pages without the rendered wiki page informing the viewer of the include ([[test][.FitNesse.SuiteAcceptanceTests.SuiteWidgetTests.TestIncludeSeamless]]).
+ * Improved navigation, organizing left nav into blocks of test related actions (Test, Suite), other page related actions (Edit, Properties, etc) and navigation to other parts of the wiki.
+ * Page title is no longer a link.  It's been replaced by a !-WhereUsed-! link on the left navbar.
+
+Also, you may be interested to know that !-FitNesse-! is no longer hosted at sourceforge.  The CVS repository at sourceforge is far too slow for our continuous integration.  [[Object Mentor][http://objectmentor.com]] is hosting the sourcecode and releases can be downloaded at http://fitnesse.org/FitNesse.DownLoad.  Public CVS access is currently not available.
+
+!release 20050405
+----Replace /dotnet/fitnesse.key with [[the version in this zip file][/files/versions/fitnesse.20050405.dotnet.key.zip]]
+----

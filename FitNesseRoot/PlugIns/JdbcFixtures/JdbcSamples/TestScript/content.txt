@@ -1,0 +1,81 @@
+|Script Fixture|
+|line             |BIND1|BIND2 |BIND3|BIND4|statement?|checkBind()|
+|Begin            |||||||
+|:out 1  :=  :2;  |     |     |      ||||
+|:out 3  :=  :4;  |     |     |      ||||
+|end;|||||||
+|/||apple||orange|||
+
+|Script Fixture|
+|line             |BIND2 |statement?|
+|Begin            |apples     ||
+|:out 1  :=  :2;  |     |      |
+|end;|||
+|/|apples||
+
+
+|Script Fixture|
+|bindVariableI()|bindVariableI()|
+|||
+
+|Script Fixture|
+|line             |BIND1|BIND2 |BIND3|BIND4|statement?|checkBind()|
+|Begin            |blank|blank|blank|blank|||
+|:out 1  :=  :2;  |     |     |      ||||
+|:out 3  :=  :4;  |     |     |      ||||
+|end;|||||||
+|/|blank|apple|blank|orange|||
+
+
+
+
+!|Script Fixture|
+|line             |BIND1|BIND2|BIND3 |BIND4|
+|Begin            |apple|     |orange|     |
+|:out 2  :=  :1;  |     |     |      |     |
+|:out 4  :=  :3;  |     |     |      |     |
+|end;             |     |     |      |     |
+|/|                     |     |      |     |
+
+
+!|Script Fixture|
+|bindVariableI()|bindVariableI()|bindVariableI()|bindVariableI()|
+|||||
+
+!|Script Fixture|
+|BIND1|
+|oranges|
+||
+
+!|Script Fixture|
+|line|
+|begin null; end;|
+|/|
+
+!|Script Fixture|
+|bindVariableI()|bindVariableI()|
+|||
+
+|Script Fixture|
+|line             |
+|Begin            |
+|:out 1  :=  'this   that';        |
+| :out 2 := 'whatever';|
+|end;|
+|/|
+
+!|Script Fixture|
+|bindVariableI()|bindVariableI()|
+|||
+
+!|Script Fixture|
+|line             |statement?|
+|Begin            ||
+|:out 1  :=  'one';  |      |
+|:out 2  :=  'two';  |      |
+|end;||
+|/||
+
+!|Script Fixture|
+|bindVariableI()|bindVariableI()|
+|||

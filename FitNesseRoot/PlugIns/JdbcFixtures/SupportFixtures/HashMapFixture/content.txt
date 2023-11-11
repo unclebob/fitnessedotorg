@@ -1,0 +1,56 @@
+A '''!-RowFixture-!''' uses a !-TargetClass-! to define the columns in a table. '''!-HashMapFixture-!''' assumes the columns will be determined at runtime. 
+
+'''!-HashMapFixture-!''' does not provide a working query() (''well ... it just barely works'' :)). It should be overridden and return an array of !-HashMap-!. 
+The keys of the !-HashMap-! should correspond to the names of a column. 
+
+super class: [[!-RowFixture-!][.FitNesse.RowFixture]] '''!-RowFixture-!''' provides the validation for each row for a fixed number of columns.
+sub class: [[Select][.JdbcFixtures.JdbcSamples.SelectSample]] '''Select''' provides the validation of a database table on the [[!-DefaultConnection-!][.JdbcFixtures.JdbcSamples.DefaultConnection]]
+
+{{{
+    public Object[] query() throws Exception {
+        Vector rows = new Vector();
+        HashMap row1 = new HashMap();
+        java.util.Enumeration columns;
+        columns = propertyNames();
+        while(columns.hasMoreElements()){
+            row1.put(columns.nextElement(), "Some Value ...");
+        }
+        rows.add(row1);
+        
+        HashMap row2 = new HashMap();
+        columns = propertyNames();
+        while(columns.hasMoreElements()){
+            row2.put(columns.nextElement(), "Another Value ...");
+        }
+        rows.add(row2);
+        return rows.toArray();
+    }
+}}}
+
+A column will defaults to using a String.equals(). This can be overridden by registering a property as a different class.
+{{{
+class MyProperties extends HashMapFixture{
+    MyProperties(){  
+       propertyTypes.put("BirthDate", java.util.Date.class);
+    ... 
+}}}
+
+ 
+
+
+!|HashMap|
+|A|B|C|
+|Some Value ...|Some Value ...|Some Value ...|
+|Another Value ...|Another Value ...|Another Value ...|
+|Extra Value ...|Extra Value ...|Extra Value ...|
+
+!|HashMap|
+|B|C|
+|Some Value ...|Some Value ...|
+|Another Value ...|Another Value ...|
+
+!|HashMap|
+|H|I|J|
+
+
+

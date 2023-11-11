@@ -1,0 +1,8 @@
+There's not much new here.  There were a few small problems with the previous release that have been tidied up here.
+
+!3 New Feature:
+ * Unicode support.  Previosly FitNesse treated all text as ASCII.  Not any more.  This should make our friends in Iceland happy.
+!3 Fixes:
+ * Fixtures in the default package are working again
+ * Bug in security fixed.  Handling of new pages will not force uneeded login.
+ * "true" won't show up in page version names any longer.

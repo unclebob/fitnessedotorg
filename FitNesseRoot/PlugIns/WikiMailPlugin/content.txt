@@ -1,0 +1,32 @@
+!c !2 Wiki Mail
+!c Create new pages and append content to existing pages on your !-FitNesse-! site by sending email to it.
+!c by [[Micah Martin][.MicahMartin]]
+
+!3 Download
+[[wikimail.jar][http://fitnesse.org/files/plugins/wikimail/wikimail.jar]] - This is all you need to install wiki mail
+[[wikimail_src.zip][http://fitnesse.org/files/plugins/wikimail/wikimail_src.zip]] - The source code.
+
+
+!3 Installation
+ * '''PREREQUISITE:''' - A reasonable mail server is required.  This mail server must be able to execute programs upon receipt of an email to a particular address.  
+ * On your mail server build a shell script called '''wikimail.sh'' similar to this: 
+{{{#!/bin/sh
+
+CLASSPATH=wikimail.jar:fitnesse.jar
+OUTPUT=out.log
+ERROR=err.log
+java -cp $CLASSPATH com.objectmentor.wikimail.Postmaster <fitnesse host> <port> >> $OUTPUT 2>> $ERROR}}}
+ * Configure your web server to execute this script when an email is received at a particular address.  If you use sendmail as your server you would add the following line to the ''aliases'' file. {{{wikimail: |wikimail.sh}}}
+ * Try it out.  Write an email to wikimail@yourmailserver.com with a subject '''!-WikiMailTestPage-!'''.  If all goes well there will be a page named '''!-WikiMailTestPage-!''' in your !-FitNesse-! site.  If the page wasn't created, check the ''out.log'' and ''err.log'' files used in the shell script and also check the mailog for error messages.
+
+!3 Options
+{{{Usage: java com.objectmentor.wikimail.Postmaster [options] host port);
+       -a <username> <password>}}}
+ * Authentication.  If your FitNesse server requires authentication, you'll need to use the -a option.
+
+!3 Details
+When sending wikimail, use a [[!-WikiWord-!][.FitNesse.WikiWord]] as the subject of the email.  If the named page exists exists the content of the email will be append to the page.  If the page doens't exist then it will be created with the content of the email.
+
+If the subject is not a valid [[!-WikiWord-!][.FitNesse.WikiWord]], then a page will be created at '''!-WikiMail.BadSubject20041111123456-!''' that contains the content of the email.  This page can then be moved or renamed at a later time.
+
+!include .PluginsComments.WikiMail

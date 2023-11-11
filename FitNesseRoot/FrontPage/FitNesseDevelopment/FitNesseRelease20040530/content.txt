@@ -1,0 +1,17 @@
+|!3 Security|!3 Look and Feel|!3 Graceful Names|!3 Plugin Architecture|
+ 
+
+ * The biggest new feature is ''[[security][.FitNesse.SecurityDescription]]''.  It is now possible to create a set of users and passwords, and block access to certain pages. 
+ * You may notice the new look.  We've integrated !-FitNesse-! with CSS so you can [[customize][.FitNesse.CustomizingLookAndFeel]] your look and feel.
+ * There is a new [[plug-in][.FitNesse.PluginUsage]] architecture that you can use to change the way wiki pages are stored.  ''e.g. you could write a database back-end if you want.''
+ * The other major feature is ''[[graceful names][.FitNesse.GracefulName]]''.  This allows you to greatly improve the readability of your test tables.
+----
+Other changes include:
+ * You don't have to add your own Type Adapters anymore.  Just put a [[parse][.FitNesse.DataTypesInFixtures]] method in your objects. 
+ * Check out the [[Import][.FitNesse.GracefulName]] fixture.
+ * Create comment tables in your tests with the [[Comment][.FitNesse.CommentTables]] fixture.
+ * We fixed a bug that used to hang FIT if you used the wrong case in a fixture name.
+ * We've greatly improved the error messages in Fit (Special thanks to Rick Mugridge and Brian Marick)
+ * We fixed the bug that prevented literals from being used in ! tables.
+ * If you start !-FitNesse-! with an empty or non-existent fitnesseroot directory it will build a whole new root structure for you.
+ * You can use ! as well as ? and () for method names in column fixtures and row fixtures.

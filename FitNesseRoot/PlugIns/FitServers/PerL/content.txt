@@ -1,0 +1,54 @@
+!c !3 Perl FitServer
+
+Written by Michael Conners.
+
+!3 Downloads:
+http://files/fit/perl/perl-FitServer.tar.gz
+
+!3 Comments:
+The perl FitServer requires an installation of perl, FitNesse, and the 
+Test-C2FIT-0.01a perl module (http://search.cpan.org/~tjbyrne/Test-C2FIT-0.01a/)
+
+I installed the the files !-FitServer.pl-! and !-FitServer.pm-! in a perl directory located at the 
+same level as the dotnet directory on the fitserver . you should just be able to untar
+ the file !-perl-FitServer.tar.gz-! at that location. The tarfile contains the following
+
+!-perl/-!
+!-perl/FitServer.pl-!
+!-perl/FitServer.pm-!
+!-perl/README.txt-!
+!-perl/Test/-!
+!-perl/Test/C2FIT/-!
+!-perl/Test/C2FIT/eg/-!
+!-perl/Test/C2FIT/eg/ArithmeticColumnFixture.pm-!
+!-perl/Test/C2FIT/eg/ArithmeticFixture.pm-!
+
+This has only been tested on win xp and server 2003, Mac OS X 10.4 and linux, it has not been tried on any other 
+unix variant, but i would expect that it would work simply by editing the first line of !-FitServer.pl-! and 
+pointing to the path of your perl installation. On non MS platforms you may also be able to alter the 
+TEST_RUNNER variable specified below to only contain !-perl/FitServer.pl-! (Notice the 'forward slash'!)
+if you set exec bit on (for example !-'chmod +x perl/FitServer.pl'-!).
+
+
+The !-Test::C2FIT::eg::ArithmeticColumnFixture-! is now part of the tar file, these were actually part 
+of the Test::C2FIT distro
+
+I added the following to my wiki page.
+
+
+
+!define COMMAND_PATTERN {%m}
+!define TEST_RUNNER {perl perl\FitServer.pl}
+
+
+!|eg.ArithmeticColumnFixture|
+|x |y |plus() |times() |divide() |floating()|
+|2 |3 |5 |6 |0|0.6666667|
+|0 |0 |0 |0 |error |error|
+|0 |0 |0 |0 |||
+|200 |300 |500 |60000 |0|0.6666667|
+|2 |3 |5 |6 |0|0.6666667|
+|200 |3 |203 |600 |66|66.6666666666667|
+|2 |-3 |-1 |-6 |0|-0.6666667|
+
+and set it's properties to test and it worked fine.

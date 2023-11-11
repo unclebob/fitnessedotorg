@@ -1,0 +1,173 @@
+!release 20140623
+
+!3 FitNesse Release Notes 2014/06/23
+!note Uncle Bob Consulting LLC.
+
+!note !style_red(Requires Java 1.6)
+
+!4 Major Changes since [[20140418][FitNesseRelease20140418]]:
+
+ * Author information for !-GitVersionController-!.
+ * ''?suite'' and ''?test'' are now the same responder.
+ * More useful failure message for jUnit runner.
+ * Use String arrays for commands. This should avoid errors with spaces in path names.
+ * Improved matching for query tables.
+ * Plugins are now loaded relative to the FitNesse root path.
+ * SLIM can handle checks on Map's.
+ * Refactoring on wiki subsystem.
+ * Issues fixed:
+   * Support more than one level of symlinks.
+   * !-ErrorLog-! is written for tests ran with ''format=text'' or ''format=xml''.
+   * Rich Text Format horizontal scrollbar is missing.
+   * Failure navigator should only show in case of failures.
+
+For a complete list of closed issues and merged pull requests see https://github.com/unclebob/fitnesse/issues?milestone=6&state=closed.
+
+!4 Github ids of Contributors to this release:
+
+ * Antoine Aumjaud
+ * Arjan Molenaar
+ * Arnout Engelen
+ * Gregor Gramlich
+ * Markus Gärtner
+ * Serge Zukov
+ * Stanimir Stamenkov
+ * Yavor Nikolov
+ * antoine-aumjaud
+ * lldias
+ * six42
+
+!meta Thanks to all of you!
+
+!3 Git History
+
+!|2014-06-23|Arjan Molenaar|Fix release notes' date.|
+|2014-06-22|Arjan Molenaar|Merge pull request #463 from stanio/fileuris|
+|2014-06-22|Stanimir Stamenkov|Merge pull request #2 from amolenaar/stanio-uri|
+|2014-06-21|Arjan Molenaar|Add WikiPageUtil.resolveFileUri() to resolve file: URI's. As a fallback for non-hierarchical and authoritative uri's, try to resolve a file relative to the root path.|
+|2014-06-21|Stanimir Stamenkov|Merge pull request #1 from amolenaar/stanio-uri|
+|2014-06-21|Arjan Molenaar|Merge pull request #463 from stanio/fileuris|
+|2014-06-19|Arjan Molenaar|Update release notes.|
+|2014-06-19|Arjan Molenaar|Use getChildPage to implement hasChildPage (instead of addChildPage, which adds a new page).|
+|2014-06-19|Arjan Molenaar|Remove autoCommit property from FileSystemPage. It has only been used in tests.|
+|2014-06-19|Arjan Molenaar|Let FileSystemPage no longer depend on the other page types. The road to extensibility.|
+|2014-06-19|Arjan Molenaar|Clean up in FileSystemPage|
+|2014-06-19|Arjan Molenaar|move symbolicPageFactory to FileSystemPage.|
+|2014-06-19|Arjan Molenaar|Dismantle BaseWikiPage: get rid of methods getNormalChildren and getNormalChildPage. Technically speaking, the only pages that can have symlinks are FileSystemPages. So only those pages need to resolve symlinks.|
+|2014-06-18|Arjan Molenaar|Make it a real variable tool, working on a variable source.|
+|2014-06-18|Arjan Molenaar|Improve EnvironmentVariableTool to VariableTool: can do any sort of variable replacement now.|
+|2014-06-17|Arjan Molenaar|Collapse variable.|
+|2014-06-17|Arjan Molenaar|Small update in user guide.|
+|2014-06-17|Arjan Molenaar|Fix typo|
+|2014-06-17|Arjan Molenaar|Merge branch 'fix/398'. Should fix #398.|
+|2014-06-16|Arjan Molenaar|Merge pull request #472 from six42/master|
+|2014-06-14|six42|Merge remote-tracking branch 'upstream/master'|
+|2014-06-13|Arjan Molenaar|Add note on scenario parameters. Fixes #390.|
+|2014-06-13|Arjan Molenaar|Merge pull request #431 from amolenaar/commandrunneroutput|
+|2014-06-13|six42|Further explications to variables, expressions and symbols|
+|2014-06-12|Arjan Molenaar|Update release notes.|
+|2014-06-12|Arjan Molenaar|Few textual improvements in UserGuide.oneMinuteDescription.|
+|2014-06-12|Arjan Molenaar|Merge pull request #468 from ggramlich/normalize_params_xml|
+|2014-06-11|Arjan Molenaar|Let SuiteReformatter close the history formatter before doing the reformatting. Fixed #460.|
+|2014-06-11|Arjan Molenaar|Cleanup redundant method in TestResponder.|
+|2014-06-11|Arjan Molenaar|Deal with Test not run (ignore) messages accordingly.|
+|2014-06-11|Arjan Molenaar|Merge pull request #467 from antoine-aumjaud/features/FIT-TableTableChangeIgnoreBehavior|
+|2014-06-09|Arjan Molenaar|Invoke log publication from TestResponder.|
+|2014-06-09|Arjan Molenaar|Forward exception from test system stop event to execution log.|
+|2014-06-07|Arjan Molenaar|Provide callback interface for ExecutionLog.|
+|2014-06-08|Arjan Molenaar|Remove print lines from PageDriver|
+|2014-06-08|Arjan Molenaar|Add line endings to log.|
+|2014-06-07|Arjan Molenaar|Make TestSystemListener methods private to MultipleTestsRunner (using inner class).|
+|2014-06-07|Arjan Molenaar|Explicitly mark MultipleTestSystemFactory as override.|
+|2014-06-08|Arjan Molenaar|Remove dead code (TestHtmlFormatter)|
+|2014-06-08|Arjan Molenaar|Removed dangling debug line in suite xml file.|
+|2014-06-06|Gregor Gramlich|removed unnecessary argument that shadowed class attribute|
+|2014-06-06|Gregor Gramlich|In PageData.initializeAttributes() only set the attributes, without a value|
+|2014-06-06|Gregor Gramlich|New Test to show the difference between the way the default attributes are created with the constructor of PageData and when saved through SavePropertiesResponder|
+|2014-06-06|Gregor Gramlich|moved method setOrRemoveAttribute from SaveResponder and SavePropertiesResponder to PageData fixed some warnings|
+|2014-06-06|Gregor Gramlich|standardize HelpText and Suites attribute handling in SavePropertiesResponder and SaveResponder|
+|2014-06-06|Arjan Molenaar|Write output to an interface.|
+|2014-06-06|Arjan Molenaar|CommandRunner reads output per line.|
+|2014-06-06|antoine-aumjaud|Improve code|
+|2014-06-06|antoine-aumjaud|Format|
+|2014-06-05|Stanimir Stamenkov|Support "file:" links with no authority specified (Issue #244)|
+|2014-06-05|antoine-aumjaud|Change ignore behavior, as other code, replace the existing content by the message|
+|2014-06-05|Arjan Molenaar|Merge pull request #465 from lldias/gitfixes|
+|2014-06-03|lldias|[git] sets the author of the commit operation (when available)|
+|2014-06-03|lldias|[git] fix for IndexOutOfBoundsException when viewing RecentChanges|
+|2014-06-02|Arjan Molenaar|Merge pull request #458 from amolenaar/junit|
+|2014-06-02|Arjan Molenaar|Merge pull request #462 from stanio/master|
+|2014-06-01|Stanimir Stamenkov|Don't encode source text to bytes and have the parser decode it back|
+|2014-06-01|Stanimir Stamenkov|Drop unnecessary Document parameter where Element parameter also given|
+|2014-06-01|Stanimir Stamenkov|Simplify getElementText() - employ Element.getTextContent()|
+|2014-06-01|Stanimir Stamenkov|Remove duplicate method|
+|2014-05-28|Arjan Molenaar|Show error messages in JUnit result.|
+|2014-05-27|Arjan Molenaar|Remove unused class fitnesse.junit.JUnitXMLTestListener.|
+|2014-05-26|Arjan Molenaar|Merge pull request #457 from antoine-aumjaud/features/FIT-Log_output_v2|
+|2014-05-26|Arjan Molenaar|Can now check maps returned from fixture. Fixes #442.|
+|2014-05-26|Arjan Molenaar|Move hash testing to it's own fixture.|
+|2014-05-23|antoine-aumjaud|Add a log in std output for backward compatibility with jenkins plungin|
+|2014-05-22|Arjan Molenaar|Clean up wysiwyg code.|
+|2014-05-22|Arjan Molenaar|Allow edit page to scroll. This would help when edit box is resized unintended.|
+|2014-05-21|Arjan Molenaar|When explicitly executing a test or suite marked as "pruned", it will be executed. Previously only explicitly calling "test" on a test case would execute, a suite wouldn't.|
+|2014-05-16|Arjan Molenaar|Remove finalErrorCount field from BaseFormatter. Now a special test system listener is added when executing from command line.|
+|2014-05-15|Arjan Molenaar|Make FitNesseMain.launch private.|
+|2014-05-14|Arjan Molenaar|cleanup: syntax.|
+|2014-05-14|Arjan Molenaar|Remove SuiteResponder. Everything is handled by TestResponder now.|
+|2014-05-14|Arjan Molenaar|Remove tables code from testResults. It's not populated any way.|
+|2014-05-14|Arjan Molenaar|Remove complexity from piece of PageCrawler code.|
+|2014-05-14|Arjan Molenaar|Merge test responder and suite responder code.|
+|2014-05-21|Arjan Molenaar|Merge pull request #455 from antoine-aumjaud/features/FIT-DOC-CommandLineOption|
+|2014-05-20|Antoine Aumjaud|Fix merge issue|
+|2014-05-20|Antoine Aumjaud|Fix description of -o fitnesse command line arg|
+|2014-05-18|Arjan Molenaar|Merge pull request #451 from antoine-aumjaud/features/FIT-DOC-FixBehaviorMessage|
+|2014-05-18|Arjan Molenaar|Merge pull request #450 from antoine-aumjaud/features/FIT-DOC-FixCompileError|
+|2014-05-18|Arjan Molenaar|Merge pull request #447 from javornikolov/fix-fixture-get-args-for-table-formatting|
+|2014-05-18|Arjan Molenaar|Clean up.|
+|2014-05-18|Arjan Molenaar|Page path should be preserved when traversing symlinks.|
+|2014-05-18|Arjan Molenaar|Avoid null pointer exception on errors in symlink path.|
+|2014-05-18|Arjan Molenaar|Fix error when linked page does on exist when creating the link|
+|2014-05-13|Antoine Aumjaud|Fix documentation issues about TableTable in userguide|
+|2014-05-13|Antoine Aumjaud|Fix compilation error|
+|2014-05-13|Arjan Molenaar|Remove setters from TestSummary again.|
+|2014-05-13|Arjan Molenaar|Make TestSummary member fields private.|
+|2014-05-12|Arjan Molenaar|Only write Suite history results for Suite pages. This will prevent calling them for Test pages.|
+|2014-05-11|Arjan Molenaar|Fix unintended showing of failure navigator in bootstrap theme. Fixes #448.|
+|2014-05-11|Arjan Molenaar|Small improvement to symlink responder.|
+|2014-05-11|Arjan Molenaar|Fix upload responder test for java 7|
+|2014-05-11|Arjan Molenaar|fix some error message. They can no longer contain html markup.|
+|2014-05-11|Arjan Molenaar|Remove unused properties file.|
+|2014-05-11|Arjan Molenaar|Escape content in templates.|
+|2014-05-11|Arjan Molenaar|Do properly handle null values in Escape directive.|
+|2014-05-11|Arjan Molenaar|Provide a decent error message if test system does not exist.|
+|2014-05-07|Arjan Molenaar|Simplify duplicate file handling in UploadResponder. This prevents an infinite loop when files start with invalid characters, such as \0.|
+|2014-05-06|Arjan Molenaar|Merge pull request #220 from amolenaar/plugins-from-root|
+|2014-05-06|Yavor Nikolov|Fixture.getArgsFor table fix: don't do unformat Unformat is corrupting text with < and > when comes from !- -! block|
+|2014-05-06|Yavor Nikolov|Refactor Fixture.testFixtureArguments|
+|2014-05-05|Arjan Molenaar|Remove ToDo and JunkParent page.|
+|2014-05-05|Arjan Molenaar|Renamed AdministeringFitnesse to AdministeringFitNesse.|
+|2014-05-05|Arjan Molenaar|Merge pull request #439 from six42/master|
+|2014-05-05|Arjan Molenaar|Add JDK configurations to build against.|
+|2014-05-05|Arjan Molenaar|Merge pull request #445 from javornikolov/image-parser-options-output-ordering|
+|2014-05-05|Arjan Molenaar|Merge pull request #444 from javornikolov/page-lists-setup-tear-down-tests-fix|
+|2014-05-05|Arjan Molenaar|Merge pull request #443 from javornikolov/fix-packet-responder-test-json-asserts|
+|2014-05-05|Yavor Nikolov|Image parser: sort options by their keys This ensures deterministic output:     style="border:1px solid black;margin:5px 5px 5px 5px" and not allowing the alternative:     style="margin:5px 5px 5px 5px;border:1px solid black"|
+|2014-05-05|Yavor Nikolov|Fix PageListSetUpTearDownSurrounderTest Assert that pages are surrounded by suite setup/teardown without expecting pre-defined ordering of all pages (since the latter is not guaranteed)|
+|2014-05-05|Yavor Nikolov|Fix json asserts in PacketResponderTest By definition json attributes are unordered so simple toString comparison is not deterministic.|
+|2014-05-05|Arjan Molenaar|Use StringBuilder append instead of String concatenation.|
+|2014-04-27|six42|Add Full Reference Guide and extra links to the Quick Reference Guide|
+|2014-04-27|six42|Merge pull request #1 from unclebob/master|
+|2014-04-23|Arjan Molenaar|Merge pull request #437 from amolenaar/commandline|
+|2014-04-23|Arjan Molenaar|Merge pull request #438 from sergebug/master|
+|2014-04-23|Arjan Molenaar|Load plugins from the plugins directory relative to the rootPath (-d)|
+|2014-04-22|Serge Zukov|autoUpdate by default was set to false. Due to this remote WIKI import was always removing auto-import attribute during test execution. Changed default value to true.|
+|2014-04-21|Arjan Molenaar|Cleanup, for consistency.|
+|2014-04-21|Arjan Molenaar|Use String[] for command lines. This makes it more predictable how the system will start.|
+|2014-04-21|Arjan Molenaar|Fixed JUnit issue in IntelliJ. Order is different from command line runner.|
+|2014-04-21|Arjan Molenaar|Merge pull request #436 from raboof/query_table|
+|2014-04-19|Markus Gärtner|reformatted for unix|
+|2014-04-19|Arnout Engelen|Improve matching invalid rows in query tables #380|
+|2014-04-18|Arnout Engelen|Failing unit test for query table matching #380|
+|2014-04-18|Arnout Engelen|Merge branch 'master' into query_table|
+|2014-03-22|Arjan Molenaar|Check if directory exists, before creating it.|
+|2014-01-13|Arnout Engelen|Show a situation where the decision table has 'invalid' and 'missing' rows|

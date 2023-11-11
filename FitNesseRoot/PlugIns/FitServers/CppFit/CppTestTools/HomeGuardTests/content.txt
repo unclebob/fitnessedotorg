@@ -1,0 +1,29 @@
+!3 Cpp Fit Example
+!-Download the latest HomeGuard.zip for your platform.-!
+
+!*> !3 Tell !-FitNesse-! how to find your project
+''This comand tells fitness how to start the application to test''
+Different COMMAND_PATTERNs are needed based on the development environment.  !-Assuming that the HomeGuard project is in c:/Projects/Cpp/HomeGuard these command patterns are used.-!  Only one should be enabled at a time.  Remove the ! from the one not needed.  Adjust the paths as needed.
+
+For Visual C++ use this !define COMMAND_PATTERN.  Also make sure the path is set correctly in !-HomeGuardAtRunner.bat-!
+!define COMMAND_PATTERN {C:/SourceNode/fitnesse/CppTestToolsProjects/Cpp/HomeGuard/test/HomeGuardAtRunner.bat}
+
+For gcc use this !define COMMAND_PATTERN
+!define COMMAND_PATTERN {C:/Projects/Cpp/HomeGuard/HomeGuardFitnesseServer/HomeGuardFitnesseServer.exe}
+*!!* !3 Home Guard is a home security system
+
+Home Guard has a front panel with these capabilities
+ * Segmented display, that can display a message
+ * An arm/disarm button
+ * Numeric keypad with # and *
+ * An audible alarm
+ * A visual alarm
+ * It has a phone line to call the police and fire department
+ * Home guard has a network interface that can be used by a PC to configure the system
+
+Home guard has binary sensor inputs
+
+Here are the stories and tests that define home guard requirements.  !-ArmSystem, BreakIn, and PowerOn-! should pass, the others have failures.
+
+!contents
+*!

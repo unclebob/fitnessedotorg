@@ -1,0 +1,46 @@
+ * '''Setup''': Create a table ''NUMBERS''. 
+|Script Fixture|CREATE TABLE NUMBERS ( VALUE INT )|
+|call?|
+|OK|
+
+----
+The [[Insert][InsertSample]] Fixture uses 2 or 3 parameters.
+ * args[0] for the name of a table.
+ * args[1] is the number of columns.
+ * args[2] is ''APPEND''
+The second line defines the names of the columns.
+
+|Insert|NUMBERS|1|
+|VALUE|
+|10|
+|20|
+|30|
+
+|Insert|NUMBERS|1|APPEND|
+|VALUE|
+|40|
+|50|
+|60|
+
+We can use Select to validate the table.
+|Select|NUMBERS|
+|VALUE|
+|10|
+|20|
+|30|
+|40|
+|50|
+|60|
+
+Or we can use a Script to validate the table.
+|Script Fixture|begin Select count(*), sum(value) into :out 1, :out 2 from numbers; end;|
+|call?|BIND1|BIND2|statement?|
+||6|210||
+
+----
+ * '''Tear Down''': Drop table ''NUMBERS''
+Clean up
+|Script Fixture|DROP TABLE NUMBERS|
+|call?|
+||
+ 

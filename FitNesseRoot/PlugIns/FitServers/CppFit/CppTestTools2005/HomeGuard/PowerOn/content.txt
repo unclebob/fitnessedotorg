@@ -1,0 +1,10 @@
+When Home Guard initializes itself it is in the following state
+
+|!-HomeGuardFixtures.CheckFrontPanel-!|
+|armed|visual alarm|siren|display|
+|off|off|off|READY|
+
+|!-HomeGuardFixtures.CheckPhoneLine-!|
+|last number dialed|
+|NONE|
+

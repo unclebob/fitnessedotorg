@@ -1,0 +1,316 @@
+!release 20150226
+
+!3 FitNesse Release Notes 2015/02/26
+!note Uncle Bob Consulting LLC.
+
+!note !style_red(Requires Java 1.6)
+
+!4 Major Changes since [[20150114][FitNesseRelease20150114]]:
+
+ * Fixed lot's of code style issues 
+ * Table coloring for Slim tables 
+ * Improved extensibility of Slim tables 
+ * Allow graceful names for Slim decision table output columns, when used in conjunction with scenario tables 
+ * Image support for rich text editor 
+ * Hash table editing support for rich text editor 
+ * Rich editor icons are now SVG images 
+ * Improved Slim Converters 
+ * Test execution log is stored in page history. It's no longer stored in !-ErrorLogs-! pages 
+ * ''?suite'' and ''?test'' responders can now automatically clean up the test history 
+ * Added JUnit output format for suite runs: ''?suite&format=junit'' 
+ * Issues fixed:
+   * Fixed errors that occurred when a different XML !-TransformerFactory-! was loaded 
+   * Fixed failure navigator in test history pages 
+   * Empty ''suiteFilter'' argument on ''?suite'' responder will be ignored 
+   * Test/Suite button is search results works from sub-wiki's
+   * Allow Symlink rename/replace on existing Symlink 
+   * Prevent port conflicts for Slim runner when run in-process 
+
+For a complete list of closed issues and merged pull requests see https://github.com/unclebob/fitnesse/issues?milestone=10&state=closed.
+
+!4 Github ids of Contributors to this release:
+
+ * Arjan Molenaar
+ * Brian Davis
+ * Denis Koelewijn
+ * Fried Hoeben
+ * Hans Joachim Desserud
+ * Konstantin Vlasenko
+ * Linquize
+ * Mark Hopkins
+ * Matt Warhaftig
+ * Serge Zukov
+ * Stefan Hendriks
+ * Antoine Aumjaud
+ * Matt Warhaftig
+ * @reprive
+ * @six42
+
+!meta Thanks to all of you!
+
+!3 Git History
+
+!|2015-02-26|Arjan Molenaar|Fix version in release notes.|
+|2015-02-26|Arjan Molenaar|Fix typo.|
+|2015-02-26|Arjan Molenaar|Merge pull request #650 from markhop/docs-update|
+|2015-02-26|Arjan Molenaar|Merge pull request #651 from reprive/master|
+|2015-02-25|Mark Hopkins|Correct links between pages and display of images|
+|2015-02-25|reprive|Made constructor for MemoryVersionsController public|
+|2015-02-23|Arjan Molenaar|Update release notes.|
+|2015-02-23|Arjan Molenaar|Merge pull request #642 from sergebug/master|
+|2015-02-23|Arjan Molenaar|organise code.|
+|2015-02-23|Arjan Molenaar|Move Slim specifics out of StreamReader into a separate SlimStreamReader.|
+|2015-02-23|Arjan Molenaar|Merge pull request #649 from six42/ssl|
+|2015-02-23|Arjan Molenaar|Merge pull request #646 from hansjoachim/issues|
+|2015-02-23|six42|removed compiler warning for class X500Name|
+|2015-02-23|six42|Merge branch 'master' of https://github.com/unclebob/fitnesse into ssl|
+|2015-02-22|Arjan Molenaar|Remove redundant interface|
+|2015-02-22|Arjan Molenaar|Remove last occurrences of Serializable.|
+|2015-02-22|Arjan Molenaar|Small code improvements|
+|2015-02-22|Arjan Molenaar|Kill cyclic dependencies by moving Expression from fitnesse.util to fitnesse.wikitext.parser.|
+|2015-02-22|Arjan Molenaar|Simplify percentage calculation.|
+|2015-02-22|Arjan Molenaar|Remove more Serializable interfaces|
+|2015-02-22|Arjan Molenaar|Remove unused variables.|
+|2015-02-22|Arjan Molenaar|Use StringBuilder and avoid toString() where possible.|
+|2015-02-22|Arjan Molenaar|WikiPage should not implement Serializable.|
+|2015-02-22|Arjan Molenaar|changed public static final fields to package private where possible.|
+|2015-02-22|Arjan Molenaar|Ensure in/output streams are closed|
+|2015-02-22|six42|Merge pull request #4 from bad49/master|
+|2015-02-22|Arjan Molenaar|Throw SlimError instead of RuntimeException.|
+|2015-02-21|Arjan Molenaar|Add hashCode to ExecutionReport.|
+|2015-02-21|Arjan Molenaar|Make SlimError a RuntimeException. Errors are supposed to be unrecoverable.|
+|2015-02-21|Hans Joachim Desserud|As long as FitNesseSuite doesn't contain an overriding implemenation, this ends up calling the superclass anyway. Fix use of deprecated class|
+|2015-02-21|Hans Joachim Desserud|Replace use of String.indexOf with String.contains|
+|2015-02-21|Hans Joachim Desserud|Indentation: use 2 spaces instead of tab|
+|2015-02-21|Hans Joachim Desserud|Used empty string instead of constructor|
+|2015-02-21|Hans Joachim Desserud|Unnecessary toString() ++|
+|2015-02-21|Hans Joachim Desserud|Specifiy array size when using toArray() so it doesn't need to spend time looking it up|
+|2015-02-21|Hans Joachim Desserud|Remove unnecessary imports which have shown up the last week|
+|2015-02-20|Arjan Molenaar|update release notes.|
+|2015-02-20|Arjan Molenaar|Update documentation for log file config and test history.|
+|2015-02-20|Arjan Molenaar|Merge pull request #645 from hansjoachim/issues|
+|2015-02-20|Hans Joachim Desserud|Reapply fixes to PluginsLoader which have moved in the meantime|
+|2015-02-20|Hans Joachim Desserud|Merge latest changes from master|
+|2015-02-19|Serge Zukov|Merge branch 'master' of https://github.com/unclebob/fitnesse.git|
+|2015-02-19|Serge Zukov|A very simple version of jUnit formatter. Mostly based on the XmlSuiteReFormatter. Content could be adjusted via velosity suiteJunit.vm template.|
+|2015-02-19|Arjan Molenaar|Merge pull request #617 from fhoeben/PluginsWithoutProperties|
+|2015-02-19|Arjan Molenaar|Do not creash if content.txt is missing.|
+|2015-02-19|Arjan Molenaar|Merge pull request #627 from amolenaar/test-history|
+|2015-02-19|Arjan Molenaar|Add content to Administration section of the user guide|
+|2015-02-19|Arjan Molenaar|Merge pull request #636 from amolenaar/purge-history|
+|2015-02-19|Arjan Molenaar|Ensure SUT logging does not get lost: log to console if ran with nohistory option.|
+|2015-02-19|Arjan Molenaar|Remove empty page from acceptance suite.|
+|2015-02-19|Arjan Molenaar|Provide acceptance test for history purging from suite responder.|
+|2015-02-19|Arjan Molenaar|Updated release notes|
+|2015-02-19|Arjan Molenaar|Merge pull request #635 from mwarhaftig/issue633|
+|2015-02-19|Arjan Molenaar|Test/suite link should contain absolute page path. This was a relative path. Fixes #581.|
+|2015-02-19|Arjan Molenaar|Update documentation. Provide message in absence of execution log content.|
+|2015-02-19|Arjan Molenaar|Merge pull request #639 from mwarhaftig/issue610|
+|2015-02-18|mwarhaftig|Issue #610 - Allow Sym Link rename/replace on existing Sym Link.|
+|2015-02-16|Hans Joachim Desserud|Modifiers in expected order|
+|2015-02-16|mwarhaftig|Issue #633 - Removed unnecessary table coloring reflection logic.|
+|2015-02-16|Fried Hoeben|Oops, that was not the best description|
+|2015-02-16|Fried Hoeben|Make LegacyWrapper benefit from base class and log|
+|2015-02-16|Fried Hoeben|Give all feature factories easy access to a LOG|
+|2015-02-16|Fried Hoeben|Rename method to better reflect its work|
+|2015-02-16|Fried Hoeben|Move logic to create wrappers for legacy plugins to PropertyBasedPFF|
+|2015-02-16|Fried Hoeben|Merge pull request #1 from amolenaar/fhoeben-PluginsWithoutProperties|
+|2015-02-16|Hans Joachim Desserud|Loggers should be private static final|
+|2015-02-16|Hans Joachim Desserud|Modifiers in expected order|
+|2015-02-16|Hans Joachim Desserud|Indentation|
+|2015-02-16|Hans Joachim Desserud|Remove unused loggers|
+|2015-02-16|Hans Joachim Desserud|Fix raw type usage|
+|2015-02-16|Hans Joachim Desserud|Fix raw type usage based on Mockito Answer examples.|
+|2015-02-16|Hans Joachim Desserud|Fix unused variables|
+|2015-02-16|Hans Joachim Desserud|Fix raw type usage|
+|2015-02-16|Arjan Molenaar|Remove dependency on sun.reflect classes in tests.|
+|2015-02-16|bad49|Added documentation on ssl client auth|
+|2015-02-16|Arjan Molenaar|Merge pull request #637 from ngti/javadoc-cleanup|
+|2015-02-16|Denis Koelewijn|Merge branch 'master' into javadoc-cleanup|
+|2015-02-16|Denis Koelewijn|javadoc cleanup|
+|2015-02-15|Arjan Molenaar|Use the classic plugin interface. Simplify plugin loading by wrapping old plugins in our new interface.|
+|2015-02-15|mwarhaftig|Issue 633 - No class instantiation in ColoredSlimTable and added test cases.|
+|2015-02-15|Arjan Molenaar|Merge pull request #634 from hansjoachim/otherissues|
+|2015-02-15|Arjan Molenaar|Merge pull request #632 from hansjoachim/warnings|
+|2015-02-15|Arjan Molenaar|Merge pull request #628 from hansjoachim/issues|
+|2015-02-14|Hans Joachim Desserud|Replace concrete classes with interfaces|
+|2015-02-14|bad49|Merged master fixed conflict.|
+|2015-02-14|Hans Joachim Desserud|More array designators moved from the variable to the type. Also some Override annotations|
+|2015-02-14|Hans Joachim Desserud|Unused field|
+|2015-02-14|Hans Joachim Desserud|Move array designator from variable to type|
+|2015-02-14|six42|made path strings OS independent|
+|2015-02-14|six42|removed reference to obsolete class|
+|2015-02-13|Hans Joachim Desserud|Remove unused method|
+|2015-02-13|Hans Joachim Desserud|Doesn't assign to unused variabel|
+|2015-02-13|Hans Joachim Desserud|Return value is never used. Stop assigning it to a variable and switch to void|
+|2015-02-13|Hans Joachim Desserud|Doesn't assign to unused variabel|
+|2015-02-13|Hans Joachim Desserud|Doesn't assign to unused variabel|
+|2015-02-13|Hans Joachim Desserud|Doesn't assign to unused variabel|
+|2015-02-13|Hans Joachim Desserud|Unused and unneeded variabel|
+|2015-02-13|Hans Joachim Desserud|Doesn't need to be assigned to a variable|
+|2015-02-12|Hans Joachim Desserud|Foreach simplification|
+|2015-02-12|Hans Joachim Desserud|Switch from deprecated Junit assertions|
+|2015-02-12|Hans Joachim Desserud|Replace deprecated assertion|
+|2015-02-12|Hans Joachim Desserud|Remove more unnecessary suppresswarnings. And a couple of unused fields while I'm at it.|
+|2015-02-12|Hans Joachim Desserud|Simplify test setup a bit|
+|2015-02-12|Hans Joachim Desserud|Drop unnecessary suppressWarnings|
+|2015-02-13|Arjan Molenaar|Change SuiteHtmlFormatter to take a Writer, instead of subclassing.|
+|2015-02-13|Arjan Molenaar|Removed "Output Captured" finished state. Removed CompositeExecutionLog class.|
+|2015-02-12|bad49|got SSL clientAuth in place still needs testing and fixed some of the SSL tests to work on Mac|
+|2015-02-12|Arjan Molenaar|Update modal style. Fix issues with IE9 (#629).|
+|2015-02-12|Arjan Molenaar|Add some extra precautions when executing tests. Make sure the stopTestSystem signal is sent whenever the test system errors. Hopefully fixes #582 to some extend.|
+|2015-02-12|Arjan Molenaar|Make test history page in line with other pages (breadcrumbs, title)|
+|2015-02-12|Arjan Molenaar|Let SuiteResponder purge old test results.|
+|2015-02-11|Arjan Molenaar|Move TEST_RESULT_FILE_DATE_PATTERN to PageHistory class.|
+|2015-02-11|Arjan Molenaar|Extracted history purger logic from PurgeHistoryResponder.|
+|2015-02-11|Arjan Molenaar|Merge pull request #622 from amolenaar/hashtable|
+|2015-02-11|Hans Joachim Desserud|And another place where we can put the constants on the left side|
+|2015-02-11|Hans Joachim Desserud|Really put the constant on the left side|
+|2015-02-11|Hans Joachim Desserud|Use String.equalsIgnoreCase instead of converting to lower case. In some cases also place the constant on the lefthand side of the comparison. Skip manual null-check since it will also done by equalsIgnoreCase.|
+|2015-02-09|Hans Joachim Desserud|Follow naming conventions|
+|2015-02-08|Hans Joachim Desserud|Remove overriding methods which just call super|
+|2015-02-10|Fried Hoeben|In general PluginFeatureFactories will just use the classes in their own package, so they can just access them without reflection. Move the complexity of componentFactory to the one factory which is truly dynamic: the property-based one|
+|2015-02-10|Fried Hoeben|Indicate the the old-style of enabling properties is deprecated but instead a plugin should override the methods in PluginFeatureFactory instead|
+|2015-02-09|Arjan Molenaar|Merge pull request #625 from stefanhendriks/fix-bug/empty-suite-filter-should-ignore-suite-filter|
+|2015-02-09|Stefan Hendriks|Do not filter when suiteFilter argument is empty string|
+|2015-02-08|Arjan Molenaar|Merge pull request #621 from fhoeben/DynamicPortForInProcessServer|
+|2015-02-08|Arjan Molenaar|Merge pull request #619 from hansjoachim/imports|
+|2015-02-08|Arjan Molenaar|Merge pull request #613 from antoine-aumjaud/features/FIT-ConvertersImprovements|
+|2015-02-08|Arjan Molenaar|Merge pull request #620 from fhoeben/ScenariosAskParentForScriptType|
+|2015-02-08|Arjan Molenaar|Merge pull request #615 from konstantinvlasenko/master|
+|2015-02-08|Arjan Molenaar|Merge pull request #618 from hansjoachim/isEmpty|
+|2015-02-08|Fried Hoeben|Find a free port for in process server, and hang on to it (instead of releasing first and trying to re-acquire later)|
+|2015-02-08|Arjan Molenaar|Fully integrated hash table parsing in the RTE.|
+|2015-02-08|Arjan Molenaar|Little cleanup, only add comma to has table if there is actually data to add.|
+|2015-02-08|Fried Hoeben|Ensure we handle multiple decision tables with different script table subclasses|
+|2015-02-08|Fried Hoeben|Make decision tables using scenarios use the last used script table subclass, not script table. This removes the need to have a scenario table subclass just to use a different script table class from a decision table|
+|2015-02-07|Arjan Molenaar|Deal with empty rows in hash table.|
+|2015-02-07|Arjan Molenaar|Provide custom toolbar for hash tables.|
+|2015-02-07|Hans Joachim Desserud|Remove unused imports|
+|2015-02-07|Hans Joachim Desserud|Replace for-loop with foreach|
+|2015-02-07|Hans Joachim Desserud|Remove redundant casting|
+|2015-02-07|Hans Joachim Desserud|Removed duplicated if-check. Already taken care of by the while-loop|
+|2015-02-07|Hans Joachim Desserud|Flip ternary for clarification|
+|2015-02-07|Hans Joachim Desserud|Prefer isEmpty for checking emptiness|
+|2015-02-07|Fried Hoeben|Ensure PluginFeatureFactories can return collections containing subclasses of expected types Add unit tests of loading via ServiceLoader|
+|2015-02-07|Arjan Molenaar|Fix insertion of new hash table via RTE|
+|2015-02-07|Fried Hoeben|Also move 'plugin' finding and creation to PluginFeatureFactory|
+|2015-02-07|Arjan Molenaar|Fix hash table roundtrip. Added icon.|
+|2015-02-07|Arjan Molenaar|Hash tables show as real table in rich text editor|
+|2015-02-07|Fried Hoeben|Load plugins using serviceLoader instead of always editing plugins.properties|
+|2015-02-06|Konstantin Vlasenko|Merge branch 'master' of github.com:unclebob/fitnesse|
+|2015-02-06|Arjan Molenaar|Add acceptance test for execution log.|
+|2015-02-06|Arjan Molenaar|Make test-, suite- and execution log report look more alike.|
+|2015-02-06|Arjan Molenaar|Fixed typo in ScenarioLib_r_ariesOrderSuite|
+|2015-02-04|antoine-aumjaud|Improve converters: - fix NPE when value is null for all converters or when string is empty - create a generic array converter (works for all arrays), use underlying converter for elements - create a generic collections converter (works for all collections), use underlying converter for elements|
+|2015-02-05|Arjan Molenaar|Can link to execution log from page history.|
+|2015-02-05|Arjan Molenaar|Merge pull request #611 from linquize/img2|
+|2015-02-05|Arjan Molenaar|Remove creation of ErrorLogs pages, since this information is in the page history now.|
+|2015-02-04|Arjan Molenaar|Add exceptionLog responder, as replacement for the ErrorLogs.|
+|2015-02-04|Linquize|Insert Image: Add button to link to Manage files, so user can upload files|
+|2015-02-03|Arjan Molenaar|fix stdout/stderr|
+|2015-02-03|Arjan Molenaar|Read execution logs.|
+|2015-02-03|Arjan Molenaar|Fix history creation for single test execution.|
+|2015-02-03|Arjan Molenaar|Merge pull request #608 from ngti/javadoc-cleanup|
+|2015-02-02|Arjan Molenaar|Add execution log information to test results.|
+|2015-02-02|Arjan Molenaar|Execution log information is stored with suite history.|
+|2014-11-24|Denis Koelewijn|quick fix for javadoc errors in java8|
+|2015-02-01|Arjan Molenaar|Merge pull request #569 from mwarhaftig/master|
+|2015-02-01|Matt Warhaftig|Merge pull request #1 from amolenaar/mwarhaftig-master|
+|2015-02-01|Arjan Molenaar|Remove getTestSystem() from HtmlTranslator.|
+|2015-02-01|Arjan Molenaar|Catch Exception instead of Throwable for FitNesseRunner and ZipFileVersionsController.|
+|2015-01-31|mwarhaftig|Merge remote-tracking branch 'upstream/master'|
+|2015-01-31|mwarhaftig|Issue #558 - Added coloring.|
+|2015-01-31|Arjan Molenaar|Fixed more issues found by SonarQube|
+|2015-01-31|Arjan Molenaar|Merge pull request #607 from hansjoachim/upgrade|
+|2015-01-30|Hans Joachim Desserud|Upgraded jgit to latest version|
+|2015-01-30|Arjan Molenaar|Merge pull request #606 from linquize/img|
+|2015-01-31|Linquize|Remove the hyperlink "Open Modal"|
+|2015-01-31|Linquize|Move insert image dialog upper|
+|2015-01-31|Linquize|Make user thinks more selectable in insert image file list|
+|2015-01-30|Linquize|Fix insert image URL textbox overflow|
+|2015-01-30|Arjan Molenaar|Merge pull request #605 from fhoeben/ScenarioTableDoc|
+|2015-01-30|Linquize|Set insert image file list scroll bar to auto|
+|2015-01-30|Fried Hoeben|Add documentation on constructor arguments|
+|2015-01-30|Fried Hoeben|Add more extensive description for output columns|
+|2015-01-29|Arjan Molenaar|Merge pull request #597 from amolenaar/img|
+|2015-01-27|Arjan Molenaar|Fix security for files responder|
+|2015-01-27|Arjan Molenaar|Add / to directories in listing|
+|2015-01-26|Arjan Molenaar|Also add FitNesse manual pages to .gitignore.|
+|2015-01-26|Arjan Molenaar|Merge pull request #589 from linquize/gitignore|
+|2015-01-26|Arjan Molenaar|Merge pull request #595 from fhoeben/ScenarioGracefulOutput2|
+|2015-01-26|Arjan Molenaar|Merge pull request #592 from fhoeben/ScenarioOutputImprove|
+|2015-01-25|Arjan Molenaar|Support addition of urls|
+|2015-01-23|Arjan Molenaar|Lookup in files section works with breadcrumbs|
+|2015-01-26|Arjan Molenaar|Remove non-stardard xml factory attribute "indent-number", fixed exception. Fixes #598.|
+|2015-01-25|Arjan Molenaar|Do add directory slash suffix only in template.|
+|2015-01-20|Arjan Molenaar|Can insert images from selection dialog.|
+|2015-01-18|Arjan Molenaar|Pass on query parameters on redirect.|
+|2015-01-18|Arjan Molenaar|Let directory responder also output information as JSON.|
+|2015-01-18|Arjan Molenaar|Removed static factory method from files responder, so it can be accessed with the ?responder parameter.|
+|2014-12-22|Arjan Molenaar|Add image icon.|
+|2014-12-15|Arjan Molenaar|Can add image via simple prompt box.|
+|2014-12-08|Arjan Molenaar|Can render and parse images.|
+|2015-01-25|Fried Hoeben|Allow graceful names for output columns|
+|2015-01-24|six42|Adding Network Security|
+|2015-01-24|Arjan Molenaar|Fix file selection box position on files page|
+|2015-01-24|Fried Hoeben|Add test for multiple output parameters in decision table|
+|2015-01-24|Fried Hoeben|Extra unit test of scenario output handling in decision table|
+|2015-01-24|Fried Hoeben|More consistent handling of scenario in- and output parameters.|
+|2015-01-23|Arjan Molenaar|Merge pull request #566 from amolenaar/variableSource|
+|2015-01-23|Arjan Molenaar|Merge pull request #586 from linquize/const|
+|2015-01-23|Arjan Molenaar|Merge pull request #588 from hansjoachim/issues|
+|2015-01-21|Hans Joachim Desserud|More Overrrides|
+|2015-01-21|Hans Joachim Desserud|More @Override annotations|
+|2015-01-21|Hans Joachim Desserud|Use to type instead of filename to specify its an array|
+|2015-01-20|Hans Joachim Desserud|Use interface instead of specific class|
+|2015-01-20|Hans Joachim Desserud|Add missing @Overrides|
+|2015-01-20|Hans Joachim Desserud|Remove unnecessary semicolon|
+|2015-01-19|Linquize|Deploy .gitignore file of FitNesseRoot|
+|2015-01-18|Linquize|Add FitNesseRoot/.gitignore and move some entries into FitNesseRoot/.gitignore|
+|2015-01-18|Linquize|Use more the constant FitNesseUtil.base|
+|2015-01-17|Arjan Molenaar|Remove highlight on wysiwyg edit box.|
+|2015-01-17|Arjan Molenaar|Merge pull request #568 from amolenaar/wysiwygicons|
+|2015-01-17|Arjan Molenaar|Simplified code related to Failure navigator in default theme. Now it shows up on the history page. Fixes #579.|
+|2015-01-17|Arjan Molenaar|Fixed failure navigator in history page for bootstrap theme|
+|2015-01-17|Arjan Molenaar|Merge pull request #584 from hansjoachim/upgrades|
+|2015-01-17|Arjan Molenaar|Update Slim protocol documentation. Fixes #564.|
+|2015-01-17|Arjan Molenaar|Link to "root" page works again. Fixed #583.|
+|2015-01-17|Arjan Molenaar|Remove "throws Exception" Alias test cases.|
+|2015-01-15|Hans Joachim Desserud|Upgrade to ivy 2.4.0|
+|2015-01-15|Hans Joachim Desserud|Upgrade jgit and mockito to latest version|
+|2015-01-10|mwarhaftig|Merge remote-tracking branch 'upstream/master'|
+|2015-01-02|Arjan Molenaar|WikiTestPage no longer requires a VariableSource|
+|2015-01-02|Arjan Molenaar|Create one function for setting up a ParsingPage with the appropriate variable context.|
+|2015-01-01|mwarhaftig|Merge remote-tracking branch 'upstream/master'|
+|2014-12-29|Arjan Molenaar|Move UserVariableSource from ParsingPage to BaseWikiPage.|
+|2014-12-29|six42|Merge pull request #3 from unclebob/master|
+|2014-12-29|Arjan Molenaar|Simplified TestWikiPage page inclusion logic somewhat.|
+|2014-12-29|Arjan Molenaar|Cleanup: drop SourcePage's notion of parent pages.|
+|2014-12-29|Arjan Molenaar|Move the construction of variable sources and parent page handling to the wiki page, out of the ParsingPage.|
+|2014-12-28|Arjan Molenaar|Split Page- and NamedPageVariableSource. Construct composite in constructor.|
+|2014-12-28|Arjan Molenaar|Cache is no longer propagated to parent pages. Simplified caching as a result.|
+|2014-12-26|Arjan Molenaar|Move parent page looping ut of ParentPageVariableSource|
+|2014-12-26|Arjan Molenaar|Make special class that takes care of caching.|
+|2014-12-26|Arjan Molenaar|Moved parent page variable search in separate class.|
+|2014-12-26|Arjan Molenaar|Move variable search in separate VariableSources.|
+|2014-12-25|Arjan Molenaar|Simplify use of ParsingPage.|
+|2014-12-01|Arjan Molenaar|Provide request parameters to FitNesseContext.getRootPage().|
+|2014-12-01|Arjan Molenaar|Make Request class more type safe.|
+|2014-12-01|Arjan Molenaar|Remove FitNesseFixtureContext.root.|
+|2014-11-30|Arjan Molenaar|Remove FitNesseUtil.makeTestContext(WikiPage) completely.|
+|2014-11-30|Arjan Molenaar|Changed all but one FitNesseUtil.makeTestContext() to not pass in a root page as argument.|
+|2014-11-30|Arjan Molenaar|First steps towards removing FitNesseContext.root|
+|2014-11-29|Arjan Molenaar|Allow to configure WikiPageFactory via ContextConfigurator.|
+|2014-11-13|Arjan Molenaar|Provide variableSource through makePage method, not as a constructor argument for WikiPageFactories|
+|2014-10-26|Arjan Molenaar|Access root page via accessor: FixNesseContext.getRootPage().|
+|2014-12-14|mwarhaftig|Issue #558 - Added table coloring based on Slim & Fit Fixture class.|
+|2014-12-13|Arjan Molenaar|Changed wysiwyg editor toolbar to use SVG icons.|
+|2014-11-04|six42|Merge pull request #2 from unclebob/master|
+|2014-11-04|six42|Revert "Slim Query/Table Table: manage variables assignment in VariableStore"|
+|2014-11-04|six42|Revert "removed dead code"|
+|2014-11-04|six42|Revert "Sync again with unclebob/master"|
+|2014-11-04|six42|Sync again with unclebob/master|
+|2014-08-28|Cloud|workaround issue #514|
+|2014-08-28|Cloud|Merge branch 'master' of https://github.com/unclebob/fitnesse|
+|2013-05-15|Konstantin Vlasenko|misleading comment I believe we don't exclude symbolic links on symbolic pages.|

@@ -1,0 +1,47 @@
+!-<style type="text/css">
+#banner {
+  margin-top: 20px;
+  text-align: center;
+  background-color: #09293B;
+  border: 1px solid #031017;
+  padding: 120px 20px 80px;
+  border-radius: 8px;
+}
+#slogan {
+  margin: 1em 0;
+  color: white;
+}
+#quote {
+  color: white;
+  text-align: right;
+  padding-right: 90px;
+}
+#calltoaction {
+  margin:50px 0 30px;
+}
+</style>
+<div id="banner" class="container">
+<img src="files/fitnesse/images/fitnesse-logo-large.png" alt="FitNesse logo"/>
+<h3 id="slogan">The fully integrated standalone wiki and acceptance testing framework</h3>
+<div id="quote">Be-monster not thy feature, wer't my fitnesse<br/>
+-- Shakespeare, King Lear</div>
+<div id="calltoaction"><a href="FitNesseDownload" class="btn btn-lg btn-success">Download FitNesse</a></div>
+<h5 id="slogan">-!${FITNESSE_VERSION}!-</h5>
+</div>-!
+#!-<div style="text-align: center; margin: -40px -40px 0; background-color: #09293B ; padding: 120px 20px 80px">
+
+!-<div class="container"><div class="row"><div class="col-sm-4">-!
+!2 It's a Collaboration tool
+Since !-FitNesse-! is a [[wiki web server][http://wiki.org/wiki.cgi?WhatIsWiki]], it has a very low entry and learning curve, which makes it an excellent tool to collaborate with, for example, business stakeholders.
+[[Read more...][FitNesse.UserGuide.ProjectDeathByRequirements]]
+!-</div><div class="col-sm-4">-!
+!2 It's a Test tool
+The wiki pages created in !-FitNesse-! are run as tests. The specifications can be tested against the application itself, resulting in a roundtrip between specifications and implementation.
+[[Read more...][FitNesse.UserGuide.AcceptanceTests]]
+!-</div><div class="col-sm-4">-!
+!2 It's Open
+!-FitNesse-! is an open source project. The code base is not owned by any company. A lot of information is shared by the !-FitNesse-! community. It's extremely adaptable and is used in areas ranging from Web/GUI tests to testing electronic components.
+[[Read more...][StayInformed]]
+!-</div></div></div>-!
+
+

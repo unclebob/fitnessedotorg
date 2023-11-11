@@ -1,0 +1,4 @@
+* Enhanced variable lookup so that if it can't find a variable defined on the current page or any ancestor pages FitNesse will look at system properties ([[test][.FitNesse.SuiteAcceptanceTests.SuiteWidgetTests.TestVariablesFromSystemProperties]]).
+* Added -R switch to !-!contents-! widget to display all of the descendent hierarchy ([[test][.FitNesse.SuiteAcceptanceTests.SuiteWidgetTests.TestContentsWithRecursion]]).
+* Added --seamless option to the !-!include-! widget. This allows you to include pages without the rendered wiki page informing the viewer of the include ([[test][.FitNesse.SuiteAcceptanceTests.SuiteWidgetTests.TestIncludeSeamless]]).
+* Improved navigation, organizing left nav into blocks of test related actions (Test, Suite), other page related actions (Edit, Properties, etc) and navigation to other parts of the wiki.

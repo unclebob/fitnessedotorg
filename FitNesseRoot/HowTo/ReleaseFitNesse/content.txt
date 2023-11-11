@@ -1,0 +1,12 @@
+ 1 Get rid of any cruft on .FrontPage.
+ 1 Make sure all is committed: {{{git status}}}.
+ 1 Make sure all tests pass: {{{ant release}}}.
+ 1 Do a release to Maven Central: {{{ant publish -Dupload.user=John -Dupload.password=secret -Dpgp.password=secret}}}.
+ 1 Verify if ''fitnesse-standalone.jar'' works.  Make sure it runs. Run all acceptance tests.
+ 1 Tag the version and push it to origin: {{{git tag 20xxxxxx -m "release note"; git push --tags origin}}}.
+ 1 Log on to http://oss.sonatype.org and publish the release.
+ 1 Move the ''fitnesse-standalone.jar'' into the ''releases/20xxxxxx'' directory. 
+ 1 Add ''!release 20xxxxxx'' to the .FitNesseDownload page.  Also create a release page as for the other releases (.FrontPage.FitNesseDevelopment.FitNesseRelease20xxxxxx).
+ 1 Create list of contributors: {{{git log --pretty=format:"%an" --since="1/3/2010" | sort | uniq}}}.
+ 1 Add git log to Release page using: {{{git log --pretty=format:"|%ai|%an|%s|" --since="12/1/2008"}}}.
+ 1 Push the repository to fitnesse.org (prod should be configured to point to the fitnessedotorg git repo): {{{git push prod}}}.

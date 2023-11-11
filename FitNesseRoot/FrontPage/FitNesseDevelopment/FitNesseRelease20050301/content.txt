@@ -1,0 +1,25 @@
+ New Features: 
+ * Collapsable Sections http://fitnesse.org/FitNesse.MarkupCollapsableSection
+ * Large file support for files section.
+ * Virtual Wiki is deprecated
+ * Wiki Import http://fitnesse.org/FitNesse.WikiImport
+ * Symbolic Links http://fitnesse.org/FitNesse.SymbolicLinks
+ * Graceful shutdown. http://fitnesse.org/FitNesse.StartingAndStoppingFitNesse
+ * TestRunner improvements: http://fitnesse.org/FitNesse.CommandLineTestRunner
+  * Suite style HTML formatting for command line TestRunner
+  * XML formatting for command line TestRunner
+  * Dynamic modification of classpath when using command line TestRunner
+ * WikiPage hierachy changed again (not for the last time)
+ * Variables are no longer preprocessed... allowing http://fitnesse.org/FitNesse.ParameterizedIncludes
+ * Improved Files section layout.
+ * New execution status images
+
+Bug fixes:
+ * Files section bread crumb links fixed
+ * Better error handdling with chunking responders
+
+[[.NET FIT][http://docs.fitnesse.org/FitNesse.DotNet]]:
+ * Fixed whitespace consumption
+ * added cell handler to assert failures
+ * added cell handler to assert specific exceptions
+ * added support for cell handlers in row fixtures

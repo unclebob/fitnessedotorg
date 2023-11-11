@@ -1,0 +1,5 @@
+ * The project is hosted on on [[github][http://github.com/unclebob/fitnesse]]
+
+If you want to contribute you should create your own github account, and clone the !-FitNesse-! project.  Then you can make your changes and finally send a pull request to the !-FitNesse-! project owner.  There is a button on the github site that does that.
+
+If you have a patch that you would like to submit, or if you would like to become a regular submitter to !-FitNesse-!, then contact [[Uncle Bob Martin][mailto:unclebob@cleancoder.com]].   

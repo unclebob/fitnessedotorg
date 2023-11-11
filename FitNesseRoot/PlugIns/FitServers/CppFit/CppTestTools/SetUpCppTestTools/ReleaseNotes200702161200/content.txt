@@ -1,0 +1,11 @@
+This version has been designed and tested to be compatible with
+ * Mac OS X
+ * cygwin
+ * VS.net
+ * VC++ V6
+
+Problems fixed
+ * some of the concurrency tests failed on a dual core Mac DTSTTCPW stopped working on a dual core and the tests led to the problems
+ * Asking the Event if it isSignaled does not change the Events state
+ * Windows socket dll is cleaned up properly
+ * Friendly names works for fixture names

@@ -1,0 +1,196 @@
+!release 20140418
+
+!3 FitNesse Release Notes 2014/04/18
+!note Uncle Bob Consulting LLC.
+
+!note !style_red(Requires Java 1.6)
+
+!4 Major Changes since [[20140201][FitNesseRelease20140201]]:
+
+ * Introduced new logo.
+ * New table type for Slim: [[Dynamic Decision table][.FitNesse.UserGuide.WritingAcceptanceTests.SliM.DynamicDecisionTable]].
+ * Add ''script:'' prefix. Script tables can be defined as ''script:Fixture name''.
+ * Wiki server is no longer started when !-FitNesse-! is started with ''-c'' option.
+ * !-FitNesseRoot-! location can be changed in JUnit !-FitNesseSuite-! annotation.
+ * Comment columns for slim decision and query tables.
+ * Shortcut keys (press ''?'').
+ * Configurable [[Context root][.FitNesse.UserGuide.AdministeringFitNesse.ConfigurationFile]].
+ * Updated the .FitNesse.UserGuide structure.
+ * Improved Where Used feature in the Tools menu.
+ * ''JAVA_HOME'' variable is now used, if set, to find the java executable for java subprocesses.
+ * Properties ''slim.timeout'' and ''slim.debug.timeout'' can be used to configure timeouts (start up and finish) for SLIM test runs.
+ * The rich text editor is now an in-page editor (does not use an iframe anymore).
+ * Can auto-format on save when editing a page in plain text mode.
+ * Issues fixed:
+   * ''Add'' menu should only show templates ending on ''-Page.''
+   * Missing stylesheets added to JUnit test results.
+   * Fix representation issue with ignored field in SLim !-TableTable.-!
+
+For a complete list of closed issues and merged pull requests see https://github.com/unclebob/fitnesse/issues?milestone=5&state=closed.
+
+!4 Github ids of Contributors to this release:
+
+ * Andreas Leidig
+ * Arjan Molenaar
+ * Arnout Engelen
+ * Elier Delgado
+ * Gregor Gramlich
+ * Jon Ward
+ * Mark Hopkins
+ * Nicole Rauch
+ * Serge Zukov
+ * Gregor Gramlich
+ * mbarchfe (github id)
+ * roby (github id)
+
+!meta Thanks to all of you!
+
+!3 Git History
+
+!|2014-04-18|Arjan Molenaar|Update release notes.|
+|2014-04-16|Arjan Molenaar|Update documentation for SlimTables configutation item.|
+|2014-04-16|Arjan Molenaar|Make ScenarioTable a little more extendable.|
+|2014-04-16|Arjan Molenaar|Make methods protected in ScriptTable to improve reusability|
+|2014-04-16|Arjan Molenaar|One more clean up action in wikitext test|
+|2014-04-16|Arjan Molenaar|Update org.json version.|
+|2014-04-10|Arjan Molenaar|Merge pull request #433 from raboof/autoformat|
+|2014-04-09|Arnout Engelen|Automatically format the wikitext on save (#355)|
+|2014-04-08|Arjan Molenaar|Fix wysiwyg unit tests.|
+|2014-04-08|Arjan Molenaar|Merge branch 'master' into contenteditable|
+|2014-04-08|Arjan Molenaar|Update FitNesse straight css. Fix #247|
+|2014-04-07|Arjan Molenaar|Update release notes.|
+|2014-04-07|Arjan Molenaar|Fix issues with ignored fields in SliM TableTable|
+|2014-04-07|Arjan Molenaar|Merge branch 'fix/427'|
+|2014-04-07|Arjan Molenaar|Merge branch 'fix/351'|
+|2014-04-07|Arjan Molenaar|Add configurable timeout for start up and shutdown of SLIM system under test. Fixes #254.|
+|2014-04-07|Arjan Molenaar|Also copy extra stylesheet resources for JUnit tests. Fixes #285.|
+|2014-04-07|Arjan Molenaar|Fix unit tests again.|
+|2014-04-06|Arjan Molenaar|Add configurable timeout for running slim tests in debug mode.|
+|2014-04-06|Arjan Molenaar|Merge pull request #425 from sergebug/master|
+|2014-04-06|Arjan Molenaar|Add aria-haspopup to Add and Tools menu.|
+|2014-04-06|Arjan Molenaar|Check for StopTest exceptions thrown from constructor.|
+|2014-04-06|Arjan Molenaar|Update release notes|
+|2014-04-06|Arjan Molenaar|Collapsible section state uses padding now.|
+|2014-04-03|Arjan Molenaar|Update styling for content editable block.|
+|2014-04-06|Arjan Molenaar|Grow/shrink edit section on resize events.|
+|2014-04-06|Arjan Molenaar|Fix events. Should act on content editable frame only.|
+|2014-04-04|Arjan Molenaar|Reset meta style to default, since it messes up rich text editing.|
+|2014-04-04|Arjan Molenaar|Fix collapsible sections in wysiwyg editor|
+|2014-04-04|Arjan Molenaar|Change Collapsable to Collapsible.|
+|2014-04-04|Arjan Molenaar|include editor.css in editor and fix jshints in wikitext-spec.|
+|2014-04-02|Serge Zukov|javaExecutable did not support JAVA_HOME folders with space in it, for example "Program Files". Added wrapping into double quotes if space is present in JAVA_HOME.|
+|2014-04-02|Serge Zukov|Merge branch 'master' of https://github.com/unclebob/fitnesse.git|
+|2014-03-31|Arjan Molenaar|Remove some more of the iframe stuff.|
+|2014-03-28|Arjan Molenaar|Update release notes.|
+|2014-03-28|Arjan Molenaar|Only templates ending on -Page show up in Add menu. Fixes #426.|
+|2014-03-28|Arjan Molenaar|Set max height for Add menu in bootstrap theme.|
+|2014-03-27|Arjan Molenaar|Improve code quality for wysiwyg editor.|
+|2014-03-25|Arjan Molenaar|Merge pull request #422 from jonrward/respect-JAVA_HOME|
+|2014-03-24|Serge Zukov|Test was failing in Windows due to the search results order. Used contains instead of index.|
+|2014-03-24|Jon Ward|Fix unit tests broken by 93961744c|
+|2014-03-22|Arjan Molenaar|Remove css class error-nag-hidden. Use hidden instead.|
+|2014-03-22|Arjan Molenaar|Changed failure navigator to a bootstrap button panel.|
+|2014-03-21|Arjan Molenaar|Make meta style in line with bootstrap style.|
+|2014-03-21|Arjan Molenaar|Fix links on front page.|
+|2014-03-21|Arjan Molenaar|Use different font.|
+|2014-03-21|Arjan Molenaar|Update bootstrap theme to 3.1.1|
+|2014-03-21|Arjan Molenaar|Update Less to 1.7.0.|
+|2014-03-21|Arjan Molenaar|Use bootstrap panels style for collapsible sections|
+|2014-03-20|Arjan Molenaar|Updated Release notes.|
+|2014-03-20|Arjan Molenaar|Rename page PluginUsage to ConfigurationFile.|
+|2014-03-20|Arjan Molenaar|Merge pull request #419 from amolenaar/newuserguide|
+|2014-03-20|Arjan Molenaar|Fix links now GettingStarted content is on the first page.|
+|2014-03-20|Arjan Molenaar|Merge pull request #420 from amolenaar/whereused|
+|2014-03-20|Arjan Molenaar|Remove return value from PageFinder.search().|
+|2014-03-20|Arjan Molenaar|Remove unused page finders.|
+|2014-03-20|Arjan Molenaar|Also find pages with format PageName?property|
+|2014-03-19|Jon Ward|Update ReleaseNotes for JAVA_HOME change|
+|2014-03-19|Jon Ward|Respect the JAVA_HOME environment variable|
+|2014-03-19|Arjan Molenaar|WhereUsed function now also finds pages in aliases ([[tag][PageName]])|
+|2014-03-18|Arjan Molenaar|Remove capacity field from symbol class.|
+|2014-03-17|Arjan Molenaar|Moved GettingStarted stuff to top level.|
+|2014-03-17|Arjan Molenaar|Remove FitLibrary user guide pages.|
+|2014-03-17|Arjan Molenaar|Little cleanup in FixtureGallery content.|
+|2014-03-17|Arjan Molenaar|Content updates. Mainly fixed links.|
+|2014-03-17|Arjan Molenaar|Corrections, mainly in GettingStarted and Wiki section.|
+|2014-03-17|Arjan Molenaar|Treat FitNesse as a special word. It's not linked, unless a page called FitNesse exists.|
+|2014-03-16|Arjan Molenaar|Restructure user guide|
+|2014-03-17|Arjan Molenaar|Merge pull request #361 from amolenaar/context-root|
+|2014-03-17|Arjan Molenaar|Move page name from title to breadcrumb.|
+|2014-03-14|Arjan Molenaar|Whoops. Need to keep the tests working...|
+|2014-03-14|Arjan Molenaar|Add comment to plugins.properties.|
+|2014-03-14|Arjan Molenaar|Update release notes.|
+|2014-03-14|Arjan Molenaar|Update documentation|
+|2014-03-14|Arjan Molenaar|Update file rename and delete dialogs.|
+|2014-03-14|Arjan Molenaar|Fix acceptance tests for new context root code.|
+|2014-03-14|Arjan Molenaar|Fix context roots for all pages.|
+|2014-03-14|Arjan Molenaar|Fix file rename and deletion with context root.|
+|2014-03-13|Arjan Molenaar|Image links (and links to files/ content) works.|
+|2014-03-13|Arjan Molenaar|Fix redirects in other parts of bootstrap theme.|
+|2014-03-13|Arjan Molenaar|Fix context root in redirects from responders.|
+|2014-03-13|Arjan Molenaar|Redirect if context root is set, but trailing slash is missing.|
+|2014-03-13|Arjan Molenaar|Expose contextRoot to templates.|
+|2014-03-13|Arjan Molenaar|Can remove context root from requests|
+|2014-03-13|Arjan Molenaar|Add context-root to FitNesseContext.|
+|2014-03-14|Arjan Molenaar|Do not make ajax call for question.mark html.|
+|2014-03-12|Arjan Molenaar|Fix styling on small screens for bootstrap theme.|
+|2014-03-12|Arjan Molenaar|Fix versions navbar for bootstrap theme|
+|2014-03-12|Arjan Molenaar|Update page footer content|
+|2014-03-12|Arjan Molenaar|Updated style for bootstrap theme.|
+|2014-03-12|Arjan Molenaar|Update logo in "fitnesse_straight" theme.|
+|2014-03-11|Arjan Molenaar|Use new logo as favicon.|
+|2014-03-11|Arjan Molenaar|Remove obsolete images.|
+|2014-03-11|Arjan Molenaar|Update release notes.|
+|2014-03-11|Arjan Molenaar|Merge pull request #417 from ggramlich/dynamic_decision_table|
+|2014-03-10|Gregor Gramlich|Documentation for dynamic decision table|
+|2014-03-10|Gregor Gramlich|Merge remote-tracking branch 'origin/master' into dynamic_decision_table|
+|2014-03-10|Arjan Molenaar|Merge pull request #416 from elier/master|
+|2014-03-07|Elier Delgado|Adding new logo sources and images|
+|2014-03-06|Arjan Molenaar|Merge pull request #414 from amolenaar/script-colon-prefix|
+|2014-03-06|Arjan Molenaar|Merge pull request #405 from ggramlich/encoding_for_output_captured|
+|2014-03-06|Arjan Molenaar|Merge pull request #413 from sergebug/master|
+|2014-03-06|Arjan Molenaar|Support script: prefix.|
+|2014-03-02|Arjan Molenaar|Merge pull request #412 from NicoleRauch/master|
+|2014-03-02|Nicole Rauch|Java 7 returns localized error messages which causes two tests to fail (because they explicitly check parts of the error message). Adding the locale to the java command invocation fixes this.|
+|2014-03-01|Gregor Gramlich|Implemented DynamicDecisionTable (see https://www.pivotaltracker.com/story/show/2510237 )|
+|2014-03-01|Gregor Gramlich|extracted method in test to reduce duplication|
+|2014-03-01|Gregor Gramlich|extracted inner class DecisionTableCaller from DecisionTable|
+|2014-03-01|Gregor Gramlich|formatting|
+|2014-03-01|Gregor Gramlich|static import for VOID_TAG|
+|2014-03-01|Gregor Gramlich|changed makeDecisionTableAndBuildInstructions to a void method|
+|2014-03-01|Gregor Gramlich|inline instructions method|
+|2014-03-01|Gregor Gramlich|Make DecisionTableTest extend and use SlimTableTestSupport|
+|2014-02-27|Serge Zukov|Excluded tmp folder content.|
+|2014-02-27|Serge Zukov|testHistory page did not hide tests which passed last time.|
+|2014-02-27|Serge Zukov|removed orphan javascript reference; hide passed tests is currently inside fitnesse.js|
+|2014-02-24|Serge Zukov|Merge branch 'master' of https://github.com/unclebob/fitnesse.git|
+|2014-02-14|Arjan Molenaar|Fixed one more typo in wysiwyg code.|
+|2014-02-13|Arjan Molenaar|Clean up now unused pages.|
+|2014-02-13|Arjan Molenaar|Import tests can not depend on FitNesse server running.|
+|2014-02-11|Arjan Molenaar|No need to start a FitNesse server when command is provided on the command line.|
+|2014-02-13|Arjan Molenaar|Make a copy of the SlimTableFactory for every test system.|
+|2014-02-13|Arjan Molenaar|Rich text editor can now handle variables in hash tables.|
+|2014-02-13|Arjan Molenaar|Update rich text editor. Fixes #407.|
+|2014-02-11|Arjan Molenaar|Merge pull request #392 from robobario/master|
+|2014-02-11|Arjan Molenaar|Merge pull request #401 from mbarchfe/commentedcolumns|
+|2014-02-11|Arjan Molenaar|Merge pull request #406 from leider/master|
+|2014-02-11|Arjan Molenaar|Added hint for '?' functionality to page footer.|
+|2014-02-11|Arjan Molenaar|Fix spacing in execution log. Fixes #275.|
+|2014-02-11|Arjan Molenaar|Avoid error by expecting an Integer after execution of FitNesseMain.|
+|2014-02-11|Arjan Molenaar|Merge pull request #400 from markhop/shortcut_keys|
+|2014-02-10|Andreas Leidig|FitNesseSuite retrieves FitnesseDir also via system property|
+|2014-02-05|Arjan Molenaar|Fix custom comparator in scenario tables. Fixes #399.|
+|2014-02-10|gramlich|Use UTF-8 encoding for the captured Standard Output and Standard Error on the ErrorLogs ("Output Captured") Pages|
+|2014-02-09|mbarchfe|updated wiki pages with comment examples|
+|2014-02-05|Arjan Molenaar|Added Glob Custom comparator. Used for testing custom comparators.|
+|2014-02-05|Arjan Molenaar|Add INCLUDE_SCENARIO_LIBRARIES property. It allows for including Scenario libraries in third-party test systems or explicitly not include them in Slim test pages.|
+|2014-02-04|mbarchfe|comment column in decision table|
+|2014-02-04|mbarchfe|added comment columns for Query tables|
+|2014-01-29|Mark Hopkins|Updated UserGuide ShortcutKeys page to show new facility|
+|2014-01-29|Mark Hopkins|Ensure shortcut keys only fire on normal wiki page not edit page|
+|2014-01-29|Mark Hopkins|Get help modal working under straight theme|
+|2014-01-29|Mark Hopkins|Make / and s go different places for search|
+|2014-01-28|Mark Hopkins|Add keyboard shortcut help using ? key|
+|2014-01-28|Mark Hopkins|Implement shortcut keys using mousetrap library|
+|2014-01-18|roby|the slim service can be configured to have a statement timeout|
+|2013-12-09|Serge Zukov|Merge remote-tracking branch 'upstream/master'|

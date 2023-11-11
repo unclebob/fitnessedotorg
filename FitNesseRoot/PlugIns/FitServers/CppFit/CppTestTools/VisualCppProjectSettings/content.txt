@@ -1,0 +1,11 @@
+!* !3 Create Project Directories
+If you are creating a real application, rather than just playing you will need a project structure like this
+
+Application main
+Unit test main
+Fitnesse test main - (the dll approach is currently not supported)
+Application Library (one or more)
+
+*!!* !3 Project Settings
+!-Your application will need compatible settings with CppTestTools. If the settings provided in CppTestTools is not what you want for your project, then change the settings in the CppTestTools projects.  If you can live with CppTestTools settings, then change yours to match.-!
+*!

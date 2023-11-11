@@ -1,0 +1,23 @@
+!2 Contribute
+'''Share with the community.'''
+
+ * '''[[Backlog][https://github.com/unclebob/fitnesse]]:''' ''!-FitNesse-! project on github.  Issues and features are tracked there. ''
+ * '''[[!-Contributing to FitNesse-!][>ContributingToFitNesse]]:''' ''How to submit a patch, or become a FitNesse Contributor.''
+
+!2 Learn More
+'''Go beyond the basics.'''
+
+A great book to learn !-FitNesse-!:
+[[!img http://www.informit.com/ShowCover.aspx?isbn=9780321269348&type=f][http://www.informit.com/store/fit-for-developing-software-framework-for-integrated-9780321269348]]
+
+
+[[Gojko Adzic's][http://gojko.net]] free !-FitNesse-! book [[Test Driven .NET Development With !-FitNesse-!: Second Edition][http://gojko.net/fitnesse/book/]]
+
+!2 Miscellaneous
+'''The greater !-FitNesse-! community.'''
+
+ * '''!style_pass(Follow [[fitnesse][http://twitter.com/fitnesse]] on twitter!):''' ''Announcements.  News. Commits.  Comments.  Stay informed!''
+ * '''[[!-FitNesse-! Tweeps][>FitNesseTweeps]]:'''' 'Twitter users who make use of FitNesse or contribute to it.''
+ * '''[[History of !-FitNesse-!][FitNesseHistory]]:'''' 'An attempt at a history of FitNesse.''
+ * '''Bumper Sticker:'''   [[!img files/images/bumperSticker.gif][http://www.buildasign.com/SignReview.aspx?T=783572562F665049594C733D]]
+!meta Note, the '''Test''' and '''Suite''' buttons on this site have been disabled because search engines tend to invoke them and put my server under stress.  This site is actually created with FitNesse.

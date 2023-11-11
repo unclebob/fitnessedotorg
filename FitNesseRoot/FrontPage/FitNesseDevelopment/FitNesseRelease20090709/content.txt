@@ -1,0 +1,152 @@
+!release 20090709
+
+!3 FitNesse Release Notes 7/9/2009
+!note Uncle Bob, Object Mentor, Inc.
+
+!4 Contributors to this release:
+ * Darrin Holst
+ * John Paulett
+ * Justin Martin (!-LupusDei-!)
+ * Markus Gaertner
+ * Clare !-McClennan-!
+ * Gojko Adzic
+ * Robert Martin (unclebob) 
+
+!meta Thanks to all of you!
+
+|!4 Since:|[[20090513][FitNesseRelease20090513]]| 
+|!4 Expected Release Date:|20090701|!style_pass(RELEASED)|
+|!4 Theme:|Self Install|
+
+!3 Changes
+ * Self Install/Update.  From now on !-FitNesse-! will be released as a jar file.  When you first run a new version with !style_code(java -jar fitnesse.jar) it will install itself (or update itself) into the directory in which it is running.  No more zip files.  No more missing jar files.  No more moving pages into new installations.  !-FitNesse-! takes care of it's own environment for you.
+ * Add Child Page.  On every page you'll see a little ''Add Child'' link next to the title.  If you click it, it will prompt you for the name of a new page to add as a child to the one you are on.
+ * Trinidad is bundled with !-FitNesse-!.  See: !-http://fitnesse.info/trinidad-!
+ * Added &format=xml to !-TestHistory-! and !-PageHistory-!.  
+ * Wrote huge User Guide document about all RESTful URLs that drive !-FitNesse-!  
+ * Can compare two test results in ''Test History''.
+ * Added ''purge'' buttons to the ''Test History'' page.  
+ * Slim Tests are executed table by table instead of page by page.
+ * Can filter suites based on tags that should ''not'' be present (See REST document)
+ 
+!3 Git History
+!|2009-07-09 17:45:36 -0500|unclebob|Updated user guide for Test History Comparison|
+|2009-07-09 17:30:15 -0500|unclebob|Fixed bug that allowed you to compare suites.|
+|2009-07-09 16:46:59 -0500|unclebob|Merged the History Compare feature|
+|2009-07-09 16:37:24 -0500|unclebob|Changed Downloading and Installing instructions in user guide.|
+|2009-07-09 14:41:22 -0500|LupusDei|Cleaned up remainder of Compare History stuff, and merged with master, rdy to push|
+|2009-07-09 14:25:06 -0500|LupusDei|Merged with github master|
+|2009-07-09 14:17:39 -0500|LupusDei|Compare History changes being commited|
+|2009-07-09 14:16:21 -0500|LupusDei|Compare History feature added|
+|2009-07-08 12:53:56 -0500|unclebob|Fixed bug that turned off auto import when tests were run.|
+|2009-07-08 12:08:35 -0500|unclebob|Fixed bug that corrupted ?format=xml when running a test on an imported page.|
+|2009-07-07 17:31:26 -0500|unclebob|Documented RESTful services, and did a bunch of cleanup|
+|2009-07-02 15:47:26 -0500|unclebob|Get trinidad working with build.xml|
+|2009-07-02 15:26:33 -0500|unclebob|Merge branch 'master' of git://github.com/gojko/fitnesse|
+|2009-07-02 15:22:26 -0500|unclebob|Merge branch 'master' of git://github.com/darrinholst/fitnesse|
+|2009-07-02 15:02:51 -0500|unclebob|Merge branch 'master' of git://github.com/LupusDei/fitnesse|
+|2009-07-02 14:58:49 -0500|unclebob|Got all tests working in windows.|
+|2009-07-02 14:56:49 -0500|LupusDei|Added the format=XML option to the testHistory and pageHistory responders|
+|2009-07-02 10:03:17 -0500|LupusDei|merged|
+|2009-07-02 10:00:33 -0500|LupusDei|Trying to get updated version|
+|2009-06-30 15:42:24 -0500|unclebob|Refactor Updater|
+|2009-06-30 10:26:54 -0500|unclebob|Fixed FileUpdate bug in Unix.  Got getter test coverage|
+|2009-06-30 08:45:58 -0500|Darrin Holst|make textarea on edit page not wrap (lighthouse #49)|
+|2009-06-30 08:42:34 -0500|Darrin Holst|change junit.jar to junit-4.6.jar in eclipse classpath|
+|2009-06-29 10:40:34 -0500|unclebob|Merged with Installer|
+|2009-06-25 19:39:30 -0500|LupusDei|Merged|
+|2009-06-25 19:27:10 -0500|LupusDei|Got updater working.  FitNesse now self installs from jar file.|
+|2009-06-24 13:14:51 -0500|unclebob|mend|
+|2009-06-24 13:13:33 -0500|unclebob|upgraded to junit-4.6|
+|2009-06-24 10:03:11 -0500|unclebob|Added * and # comment to script tables.|
+|2009-06-23 14:53:55 -0500|unclebob|Cleaned up PurgeHistoryResponder|
+|2009-06-23 11:26:17 -0500|unclebob|Fixed Test History template so that acceptance tests are less fragile.|
+|2009-06-23 00:38:07 +0100|gojko|Integrated Trinidad 1.0.8|
+|2009-06-22 16:02:30 -0500|unclebob|merged Justin's purge buttons changes|
+|2009-06-22 15:48:37 -0500|unclebob|Added acceptance tests to ensure that history counts for suites are for tests not asserts.|
+|2009-06-22 15:18:25 -0500|LupusDei|Added a few more tests to PurgeHistoryResponder|
+|2009-06-22 13:47:10 -0500|LupusDei|updateFileList first commit|
+|2009-06-20 09:22:22 -0500|unclebob|Added XmlFormatter.WriterSource abstraction and HistoryWriterSource.  Feathers was right.|
+|2009-06-19 11:46:13 -0500|LupusDei|PurgeHistoryResponder and buttons on TestHistory.vm|
+|2009-06-19 09:42:41 -0500|unclebob|Cleaned up XmlFormatter with Michael|
+|2009-06-19 06:50:32 -0500|unclebob|Fixed stupid concurrency bug in Test History|
+|2009-06-19 05:12:04 -0500|unclebob|TestResponder cleanup|
+|2009-06-18 11:39:05 -0500|LupusDei|Commiting with purgehistoryReponder changes|
+|2009-06-18 11:34:58 -0500|LupusDei|adding purge history responder|
+|2009-06-18 04:56:05 -0500|unclebob|removed lsof from FitServerTest and replaced it with fitserverSentinel file check.|
+|2009-06-17 06:11:14 -0500|unclebob|Got CompositeFormatter working.  Fixed horrible concurrency interaction with JUnit.|
+|2009-06-15 04:27:49 -0500|unclebob|Merge branch 'master' of git://github.com/MarkusGaertner/fitnessebacklogfixes|
+|2009-06-15 04:25:17 -0500|unclebob|removed -h argument.  testResults will _always_ be written|
+|2009-06-13 02:09:14 +0200|Markus Gaertner|incorporated some code review comments from FindBugs and PMD|
+|2009-06-13 00:52:05 +0200|Markus Gaertner|refactored the page renaming and movement responder to use a common upper class|
+|2009-06-11 21:54:39 +0200|Markus Gaertner|inlined WidgetVisitor implementation into the classes they belong and moved the|
+|2009-06-11 21:37:11 +0200|Markus Gaertner|got rid of getSearchPattern() query method in TraversalListener since it was not|
+|2009-06-11 21:31:23 +0200|Markus Gaertner|some minor refactoring before trying to refactor towards pagefinder usage|
+|2009-06-11 21:28:24 +0200|Markus Gaertner|refactored if else construct to guard clause|
+|2009-06-11 21:26:19 +0200|Markus Gaertner|refactored out Iterator usage and made the used lists more type-safe|
+|2009-06-11 21:22:33 +0200|Markus Gaertner|refactored RenamePageResponder to avoid nested if's|
+|2009-06-11 21:14:43 +0200|Markus Gaertner|got rid of Iterator usage where a java5 loop is sufficient|
+|2009-06-11 21:12:22 +0200|Markus Gaertner|fixed some warnings in eclipse|
+|2009-06-08 23:32:21 +0200|Markus Gaertner|brought attributes search responder into the result responder hierarchy,|
+|2009-06-07 23:32:56 +0200|Markus Gaertner|brought SearchResponder and SearchPropertiesResponder in the same class|
+|2009-06-06 09:51:42 +0200|Markus Gaertner|removed an empty statement that does not seem to do anything|
+|2009-06-05 14:34:35 -0500|unclebob|merge with lupusdei|
+|2009-06-05 14:33:33 -0500|unclebob|housekeeping|
+|2009-06-05 14:23:16 -0500|LupusDei|Lighthouse #126  Fixed silent abortion of tests if there was two identical scenarios or tests|
+|2009-06-02 15:23:04 -0500|unclebob|Merge branch 'master' of git://github.com/LupusDei/fitnesse|
+|2009-06-02 15:19:49 -0500|LupusDei|LightHouse #125 Making TestHistory algorithm a bit more forgiving|
+|2009-06-02 14:06:39 -0500|unclebob|Fix bugs in ATs that prevented double loaded scenarios and caused silent failure.|
+|2009-06-01 22:57:32 -0500|unclebob|Merged Clare's Changes for Table by Table|
+|2009-06-01 22:35:03 -0500|unclebob|Merge branch 'master' of git://github.com/johnpaulett/fitnesse|
+|2009-06-01 22:31:22 -0500|unclebob|Merge branch 'master' of git://github.com/MarkusGaertner/fitnessebacklogfixes|
+|2009-06-01 17:26:54 -0500|unclebob|Merge add child refactoring|
+|2009-06-01 17:18:05 -0500|LupusDei|Refactor Add Child Page and write ATs|
+|2009-06-01 15:14:06 -0500|unclebob|Merge addChildPage fix|
+|2009-06-01 15:07:10 -0500|LupusDei|Add Child Page fix. And child count in name responder|
+|2009-06-01 14:46:48 -0500|LupusDei|Merge branch 'Updater'|
+|2009-06-01 13:57:17 -0500|LupusDei|addChildPage refactoring|
+|2009-05-31 21:21:41 +0200|Markus Gaertner|removed some review comments from FindBugs and PMD|
+|2009-05-31 20:14:09 +0200|Markus Gaertner|broke down some complexity by extracting functions from optional parameters|
+|2009-05-31 19:31:48 +0200|Markus Gaertner|added test case for crappy accept method in inner class of PageDriver and|
+|2009-05-31 18:22:07 +0200|Markus Gaertner|added composite page finder|
+|2009-05-30 21:54:36 +0200|Markus Gaertner|refactored out some page finders and renamed FitNesseTraversalListener to|
+|2009-05-30 16:40:52 +0200|Markus Gaertner|removed double class to UpdateTestCase|
+|2009-05-30 16:37:46 +0200|Markus Gaertner|extracted PageSearcher type out of execute search properties responder as a|
+|2009-05-30 13:14:30 +0200|Markus Gaertner|incorporated review comments from findbugs|
+|2009-05-30 12:19:15 +0200|Markus Gaertner|refactored ExecuteSearchPropertiesResponder to use Velocity for html page|
+|2009-05-29 12:52:02 -0500|LupusDei|Fixed AddChildPage to deal with invalid page names|
+|2009-05-28 21:18:11 -0500|John Paulett|Fixed typo in run.sh.|
+|2009-05-27 13:43:11 +1200|clare|Merged notSuiteFilter and renamed to excludeSuiteFilter. Now all tests run so I think it was a timing issue|
+|2009-05-27 13:28:02 +1200|clare|Slim test results table by table working but still have mysterious problem where the suite doesn't always finish.   Maybe just a timing bug as I think I see it elsewhere sometimes|
+|2009-05-27 13:27:16 +1200|clare|Slim test results table by table working but still have mysterious problem where the suite doesn't always finish.   Maybe just a timing bug as I think I see it elsewhere sometimes|
+|2009-05-26 16:42:24 -0500|LupusDei|Merge branch 'master' of git://github.com/unclebob/fitnesse into Updater|
+|2009-05-26 16:41:45 -0500|LupusDei|housekeeping|
+|2009-05-26 16:38:33 -0500|LupusDei|dropping head and footer pages|
+|2009-05-26 14:20:02 -0500|LupusDei|Still trying to get newest version|
+|2009-05-26 13:42:58 -0500|LupusDei|"Trying to get newest version"|
+|2009-05-25 21:12:46 +0200|Markus Gaertner|gave velocity refactoring of searchForm some final love and added the new|
+|2009-05-25 12:34:17 +1200|clare|Added 'notSuiteFilter' which allows you to run all tests in a suite except those with a given suite tag, see FitNesse.UserGuide.TestSuites.|
+|2009-05-25 12:34:00 +1200|clare|Added 'notSuiteFilter' which allows you to run all tests in a suite except those with a given suite tag, see FitNesse.UserGuide.TestSuites.|
+|2009-05-24 20:28:32 +0200|Markus Gaertner|refactored search form to be created by velocity|
+|2009-05-21 18:48:22 -0500|unclebob|LH #23 Add Child Page working.  Still needs ATs and some refactoring|
+|2009-05-21 17:47:54 -0500|unclebob|Merge branch 'master' into AddChildWindow|
+|2009-05-21 17:41:45 -0500|unclebob|Merge branch 'master' of git://github.com/LupusDei/fitnesse|
+|2009-05-21 17:39:15 -0500|LupusDei|LightHouse #23 the add child responder added|
+|2009-05-21 16:01:44 -0500|unclebob|Window for Add Child Page is working.  Waiting for responder.|
+|2009-05-21 11:38:34 +0200|Markus Gaertner|made template naming consistent and fixed UpdaterImplementation accordingly (was|
+|2009-05-21 10:33:04 +0200|Markus Gaertner|Merge branch 'master' of git://github.com/unclebob/fitnesse|
+|2009-05-20 17:38:05 -0500|unclebob|Merge branch 'master' of git://github.com/LupusDei/fitnesse|
+|2009-05-20 17:37:02 -0500|unclebob|housekeeping|
+|2009-05-20 16:39:17 -0500|LupusDei|LightHouse #121 made adding ScenarioLibraries automatic|
+|2009-05-20 17:44:08 +0200|Markus Gaertner|Merge branch 'master' of git://github.com/unclebob/fitnesse|
+|2009-05-19 23:22:01 +0200|Markus Gaertner|refactored NegotiateAuthenticatorTest to use getBytes() with encoding for|
+|2009-05-19 22:16:37 +0200|Markus Gaertner|added mockito to the classpath for eclipse|
+|2009-05-19 22:16:00 +0200|Markus Gaertner|moved GracefulNamerTest to the package where the GracefulNamer class went|
+|2009-05-19 15:06:36 -0500|unclebob|Merged from Lupusdei|
+|2009-05-19 15:00:32 -0500|unclebob|housekeeping|
+|2009-05-19 14:54:31 -0500|LupusDei|Beat the crap out of ResponseExaminer|
+|2009-05-18 11:47:13 -0500|unclebob|Added tests to NegotiateAuthenticator using Mockito.  Refactored a bit.|
+|2009-05-18 15:25:27 +1200|clare|Merge branch 'master' of git://github.com/unclebob/fitnesse|
+|2009-05-18 15:25:11 +1200|clare|Merged changes|
+|2009-05-18 15:02:27 +1200|clare|Can now specify a start test when running a suite, see FitNesse.UserGuide.TestSuites for documentation|
+|2009-05-15 15:11:55 -0500|unclebob|Increase TestRunnerTask memory to 200M|

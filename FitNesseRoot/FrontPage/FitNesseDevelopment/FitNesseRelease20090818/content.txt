@@ -1,0 +1,117 @@
+!release 20090818
+
+!3 FitNesse Release Notes 8/18/2009
+!note Uncle Bob, Object Mentor, Inc.
+
+!note !style_red(Requires Java 1.6)
+
+!4 Contributors to this release:
+ * Darrin Holst
+ * Gregor Gramlich
+ * Justin Martin (!-LupusDei-!)
+ * Markus Gaertner
+ * Tim Andersen
+ * unclebob
+ * Paul Franz
+ * Ilja Preuss
+
+!meta Thanks to all of you!
+
+|!4 Since:|[[20090709][FitNesseRelease20090709]]| 
+|!4 Expected Release Date:|20090813|!style_pass(RELEASED)|
+|!4 Theme:|Suite Specifcation Query|
+
+!3 Changes
+ * Fixed auto install to work better for some Windows machines.  <grin>
+ * Removed silly need to restart after install.
+ * Table by Table fuzzy-comparison of Test Histories.  Very cool!
+ * New flexible query language for the creation of suites.  Now you can define suites based regular expression matching of page names and page contents. 
+ * Dependency Injection framework for Slim Services. (Should make new Slim ports even easier)
+ * New CLASSPATH_PROPERTY variable to help with very long classpath strings.  
+ * Individual test histories created when suites are run.
+ * Suite results are compiled from history files.
+ * Fixed bugs and security holes.
+
+!3 Git History
+!|2009-08-18 16:10:16 -0500|unclebob|Update User Guide|
+|2009-08-18 14:30:43 -0500|unclebob|More acceptance tests to Slim|
+|2009-08-18 12:40:35 -0500|unclebob|housekeeping|
+|2009-08-17 16:37:13 -0500|unclebob|Refactored lots of acceptance tests to use Slim.|
+|2009-08-17 12:55:31 -0500|unclebob|fix inadvertent typo|
+|2009-08-17 12:48:51 -0500|unclebob|Merge branch 'master' of git://github.com/timander/fitnesse|
+|2009-08-17 12:46:00 -0500|unclebob|housekeeping|
+|2009-08-17 11:43:24 -0500|unclebob|Merge branch 'master' of git://github.com/ggramlich/fitnesse|
+|2009-08-17 11:42:47 -0500|unclebob|Refactoring Acceptance Tests.|
+|2009-08-16 14:21:59 -0500|Tim Andersen|fixed spelling errors|
+|2009-08-12 15:59:43 -0500|unclebob|Fixed #153, Duplicate Rows in OrderedQuery sometimes fails|
+|2009-08-12 14:32:51 -0500|unclebob|Fixed bug that threw exception if extra columns were in OrderedQuery table|
+|2009-08-12 21:17:32 +0200|Gregor Gramlich|Added abstract Jsr223Bridge and Jsr223StatementExecutor|
+|2009-08-12 20:56:35 +0200|Gregor Gramlich|Refactored Slim to use dependency injection with SlimFactory as IoC container|
+|2009-08-12 20:53:40 +0200|Gregor Gramlich|Cleaned up import|
+|2009-08-07 10:24:43 -0500|unclebob|decrap fixture method|
+|2009-08-07 08:30:33 +0200|Markus Gaertner|Merge branch 'master' of git://github.com/unclebob/fitnesse|
+|2009-08-06 18:37:01 -0500|unclebob|Fixed bug that was sensitive to order issues in different OS|
+|2009-08-06 15:44:25 -0500|unclebob|Merge branch 'master' of git://github.com/ggramlich/fitnesse|
+|2009-08-06 15:20:14 -0500|unclebob|Merged Suite Specifications|
+|2009-08-06 08:02:45 +0200|Markus Gaertner|Merge branch 'master' of git://github.com/unclebob/fitnesse|
+|2009-08-06 00:45:55 -0500|LupusDei|housekeeping|
+|2009-08-06 00:41:20 -0500|LupusDei|housekeeping|
+|2009-08-06 00:37:56 -0500|LupusDei|housekeeping|
+|2009-08-06 00:27:17 -0500|LupusDei|houskeeping|
+|2009-08-06 00:25:07 -0500|LupusDei|housekeeping|
+|2009-08-06 00:24:06 -0500|LupusDei|housekeeping|
+|2009-08-05 16:19:01 -0500|unclebob|Improve SuiteAuthentication Acceptance Tests.|
+|2009-08-05 15:52:52 -0500|LupusDei|Fixed the way suites are run such that each group of tests will be surrounded with appropriate setup and teardowns|
+|2009-08-05 15:50:19 -0500|LupusDei|Fixed the way suites are run such that each group of tests will be surrounded with appropriate setup and teardowns|
+|2009-08-05 12:10:40 -0500|LupusDei|Created method to surround page groups with SetUpTearDowns and finished SuiteSpecification|
+|2009-08-03 13:12:25 -0500|LupusDei|Merge branch 'master' of git://github.com/unclebob/fitnesse|
+|2009-08-03 13:11:09 -0500|LupusDei|Added SuiteSpecification matchfinder and runner, just need responder now|
+|2009-08-02 22:20:45 +0200|Markus Gaertner|started some effort to avoid repeats regarding some commonly used|
+|2009-08-02 20:39:20 +0200|Markus Gaertner|repaired accidentially broken acceptance test during rename operation|
+|2009-08-02 18:26:23 +0200|Markus Gaertner|Merge branch 'master' of git://github.com/ggramlich/fitnesse|
+|2009-08-02 17:26:27 +0200|Gregor Gramlich|Fixed date format for PageHistoryLineIsLinkToTestResult|
+|2009-08-02 16:31:30 +0200|Gregor Gramlich|added unit test for BooleanConverter|
+|2009-08-02 15:57:21 +0200|Gregor Gramlich|Fixed DateConverter|
+|2009-08-02 15:29:43 +0200|Gregor Gramlich|Created unit test for application of DateConverter|
+|2009-08-02 13:04:20 +0200|Gregor Gramlich|removed dummy.jar from .classpath file|
+|2009-07-30 21:25:04 +0200|Markus Gaertner|Merge branch 'master' of git://github.com/unclebob/fitnesse|
+|2009-07-30 13:57:55 -0500|unclebob|Paul Franz fix for FileNotFound problems on WinXP|
+|2009-07-30 12:04:01 -0500|unclebob|Ilja Preuss's COMMAND_PROPERTY feature.|
+|2009-07-30 07:58:06 +0200|Markus Gaertner|Merge branch 'master' of git://github.com/unclebob/fitnesse|
+|2009-07-29 16:14:04 -0500|unclebob|Suite History now shown as a set of links.|
+|2009-07-28 13:31:20 -0500|unclebob|XML for Suites is rendered from History Files|
+|2009-07-26 21:37:26 +0200|Markus Gaertner|started to introduce an enum type for PageTypes and incorporated it in some|
+|2009-07-25 20:17:15 +0200|Markus Gaertner|renamed SuiteFitAccetpanceTests to SuiteFitAcceptanceTests and checked|
+|2009-07-25 20:13:50 +0200|Markus Gaertner|removed dummy.jar from eclipse classpath after it got deleted in the repository|
+|2009-07-25 20:12:58 +0200|Markus Gaertner|added functionality to search for pruned pages as well as leaving these|
+|2009-07-25 11:14:17 +0200|Markus Gaertner|Merge branch 'master' of git://github.com/unclebob/fitnesse|
+|2009-07-24 18:33:52 -0500|unclebob|Merge branch 'master' of git://github.com/LupusDei/fitnesse|
+|2009-07-24 17:45:20 -0500|LupusDei|Final modifications to HistoryComparer|
+|2009-07-24 17:13:13 -0500|unclebob|Converted to 1.6|
+|2009-07-24 12:57:08 -0500|LupusDei|Merged with GitHub Master|
+|2009-07-24 12:54:06 -0500|LupusDei|Search Responder Form repaired|
+|2009-07-24 12:07:53 -0500|unclebob|Merged new Page History Comparator|
+|2009-07-24 10:35:55 -0500|LupusDei|Removed two very sneaky print statements|
+|2009-07-24 10:32:19 -0500|LupusDei|Added some more specific features to the comparer and cleaned it up|
+|2009-07-23 15:01:05 -0500|LupusDei|Refactored TableComparer|
+|2009-07-23 10:58:24 -0500|LupusDei|Finished fuzzy comparer, refactored code, added lots of tests.  HistoryComparer is now fully functional.|
+|2009-07-23 17:51:31 +0200|Markus Gaertner|Merge branch 'master' of git://github.com/unclebob/fitnesse|
+|2009-07-23 10:25:28 -0500|unclebob|Removed automatic exit after install.  Darrin's changes made it unecessary.|
+|2009-07-23 09:27:27 -0500|unclebob|Merge branch 'master' of git://github.com/darrinholst/fitnesse|
+|2009-07-23 09:26:42 -0500|unclebob|Refactor formatters in preparation for memory efficient suites|
+|2009-07-22 20:46:32 -0500|Darrin Holst|remove ant hack to include Test.class, the class was renamed|
+|2009-07-22 20:44:35 -0500|Darrin Holst|Merge branch 'master' of git://github.com/unclebob/fitnesse into unclebob/master|
+|2009-07-22 16:52:52 -0500|LupusDei|Comparer now works table by table, and best guest table matching.  Now Refactoring|
+|2009-07-22 19:39:34 +0200|Markus Gaertner|Merge branch 'master' of git://github.com/unclebob/fitnesse|
+|2009-07-22 11:36:03 -0500|unclebob|Changed fitnesse.trinidate.Test to TestDescriptor|
+|2009-07-21 17:48:09 -0500|Darrin Holst|include uncompressed dependencies in the final jar|
+|2009-07-21 22:23:40 +0200|Markus Gaertner|Merge branch 'master' of git://github.com/unclebob/fitnesse|
+|2009-07-20 16:46:52 -0500|unclebob|Suites create individual page histories|
+|2009-07-20 22:16:41 +0200|Markus Gaertner|removed unused import|
+|2009-07-17 16:07:29 -0500|unclebob|Lars Vonk's patches|
+|2009-07-17 11:17:08 -0500|unclebob|merged History Comparison enhancement, and Gregor's bug fix.|
+|2009-07-17 10:21:23 -0500|LupusDei|deleted test folders|
+|2009-07-17 10:16:34 -0500|LupusDei|table by table alignment now correctly set|
+|2009-07-17 10:14:13 -0500|unclebob|Secure the Add Child Responder|
+|2009-07-16 16:02:03 -0500|LupusDei|First step of compare tables complete|
+|2009-07-16 15:49:10 -0500|LupusDei|FitNesse symbol to string in outgoing slim tables error fixed, unfinised compare history|

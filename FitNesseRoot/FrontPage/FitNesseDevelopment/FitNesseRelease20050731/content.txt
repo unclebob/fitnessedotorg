@@ -1,0 +1,11 @@
+There's not much new in this release.  Due to the popularity of FIT and FitNesse at [[Agile 2005][http://agile2005.org/]], I felt it a good idea to include a few conveniences...
+
+ * [[!-FitLibrary-!][.FitNesse.FitLibraryUserGuide]] is included in the distribution and referenced with a !path in the root page.
+ * !-!path-! fitnesse.jar was added to the root page so the [[2 Minute Example][.FitNesse.TwoMinuteExample]] will work out of the box.
+
+There are a few other minor changes though I don't remember them all...
+ * improvements to the .NET FIT.
+ * expand all/collapse all for collapsable sections.
+ * [[content filter plugin][.FitNesse.PluginUsage]]
+
+!release 20050731

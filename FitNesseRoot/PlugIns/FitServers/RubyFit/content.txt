@@ -1,0 +1,29 @@
+!c !3 Ruby FIT
+
+Written by Giulio Piancastelli: 
+FitServer by .MicahMartin
+
+!3 Downloads:
+
+See the RubyForge FIT project at http://rubyforge.org/projects/fit/ and install RubyFIT as a gem in your Ruby environment. From the RubyFIT gem installation directory you can then reference the FitServer.rb script as it is shown in the Usage section below.
+
+(Older download, not the latest RubyFIT version, perhaps to be deleted from this page: http://files/fit/ruby/ruby.zip)
+
+!3 Comments:
+Ruby FIT... Awesome!  It is, however, a bare-bones implementation of FIT 1.1. It does not support many of the Fitnesse specific features.
+
+!3 Usage:
+Unzip ''ruby.zip'' into your fitnesse directory.
+Set the COMMAND_PATTERN like so:
+{{{!-!define COMMAND_PATTERN {ruby -I %p ruby/bin/FitServer.rb}-!}}}
+You can use an option -v to make FitServer verbose.
+
+!define COMMAND_PATTERN {ruby -I %p ruby/bin/FitServer.rb -v}
+
+!|eg.Division|
+|numerator|denominator|quotient()|
+|4|2|2|
+|9|3|3|
+|16|4|4|
+|25|5|5|
+|1|3|0.3333333|

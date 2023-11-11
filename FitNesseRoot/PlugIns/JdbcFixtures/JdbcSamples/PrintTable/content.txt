@@ -1,0 +1,21 @@
+Get Sample Data
+
+A '''PrintTable''' fixture will print a table from the '''DefaultConnection''' to standard error output. A box will appear after the the ''Test'' button is pressed. The box will say that an error has occured. 
+
+An error may, in fact, have happened. The table may not exist. The database connection may not be correct. The java library (jar files) may not be referenced correctly.
+
+The intended output should be the contents of a table or the results of a query. This output can be pasted into a Wiki Page. 
+
+!2 Syntax:
+!3 Parameters
+ 1 A fixture name, for example '''Select''' or '''Insert'''. 
+ 2 ''Table'' or '''SELECT . . .''' 
+!3 Columns
+ ''optional'' the names of columns from the table or query 
+
+|Print Table|Load Table|dept|
+|dname|deptno|loc|
+
+|Print Table|Load Table|dept|
+
+|Print Table|Check Table|select dname,deptno from dept|

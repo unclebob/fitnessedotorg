@@ -1,0 +1,132 @@
+!release 20111026
+
+!3 FitNesse Release Notes 10/26/2011
+!note Uncle Bob Consulting LLC.
+
+!note !style_red(Requires Java 1.6)
+
+!4 Github ids of Contributors to this release:
+* Clare McLennan 
+* Conrad Müller 
+* Dan Rollo 
+* Gojko Adzic 
+* Jake Benilov 
+* Jerome Lacoste 
+* John Zhu 
+* Konstantin Vlasenko 
+* Marco Paga 
+* Markus Gärtner 
+* Mike Stockdale 
+* Robert C. Martin 
+* Sean Freitag 
+* woodybrood 
+
+!meta Thanks to all of you!
+
+|!4 Since:                |[[20110104][FitNesseRelease20110104]]|
+|!4 Expected Release Date:|<none>     |!style_pass(RELEASED)    |
+
+!3 Major Changes
+ * Debugging overworked
+ * Updated documentation
+ * fixes for new parser: render lists, list whitespace optional, defines in call, anchor names are rendered with spaces
+ * changed "normal" pages to "static"
+ * define table types
+ * Test Suite overview
+ * Maven cleanup and JUnit upgrade
+ * new bindings for new slim runners
+ * fitnesse version may now get a suffix
+
+!3 Git History
+
+!|2011-10-24 23:19:27 +0200|Markus Gärtner|preparing next FitNesse release|
+|2011-10-23 23:52:53 +0200|Markus Gärtner|readded Clare's modifications|
+|2011-10-23 23:52:19 +0200|Markus Gärtner|killing slimRunner in case of a fastTest now to prevent hanging slim test threads when running unit tests|
+|2011-10-23 21:40:11 +0200|Markus Gärtner|marged changes for define table type changes from Clare|
+|2010-08-21 13:11:35 +1200|Clare|Changed the javascript debug link so it works even if you have run the test you wish to debug.|
+|2011-10-23 18:22:41 +0200|Markus Gärtner|backed out Clare's changes to have a green branch before incorporating them back in|
+|2011-07-13 13:45:40 +0200|Jerome Lacoste (f19)|Fix indentation|
+|2011-07-13 12:22:54 +0200|Jerome Lacoste (f19)|Allow fitnesse versions to have a suffix, e.g. 20100303_abc_1|
+|2011-07-12 10:05:29 +0200|Jerome Lacoste|Allow one to override the version number from the command line|
+|2011-10-23 11:51:40 +0200|Jake Benilov|removing git crud|
+|2011-10-22 21:49:44 +0200|Markus Gärtner|fixed acceptance tests when run from the ant script|
+|2011-10-22 21:22:29 +0200|Markus Gärtner|incorporated MAven changes also to the template version|
+|2011-10-17 22:16:36 +0200|Markus Gärtner|added junit 4.10 to the classpath correctly and added the jar actually|
+|2011-10-17 21:58:01 +0200|Markus Gärtner|added JUnit dependency to pom.xml.teplate as well|
+|2011-10-17 13:29:45 +0200|Conrad Müller|Better name for that integration test|
+|2011-10-17 07:45:35 +0200|Conrad Müller|Added an integration test for JavaFormatter|
+|2011-10-17 13:14:09 +0200|Conrad Müller|Updated JUnit version to 4.10|
+|2011-07-14 18:00:26 +0200|Conrad Müller|Add opening html tag to JUnit HTML output|
+|2011-07-14 17:48:12 +0200|Conrad Müller|Fix JUnit HTML output on non-UTF-8 platforms|
+|2011-07-20 14:41:10 +0200|Conrad Mueller|Added ExcludeSuiteFilter annotation to FitNesseSuite|
+|2011-10-17 13:29:45 +0200|Conrad Müller|Better name for that integration test|
+|2011-10-17 07:45:35 +0200|Conrad Müller|Added an integration test for JavaFormatter|
+|2011-10-17 13:14:09 +0200|Conrad Müller|Updated JUnit version to 4.10|
+|2011-08-27 15:53:44 -0500|Sean Freitag|Added ability to bind to a private field that is in the superclass of the target class|
+|2011-08-27 15:05:38 -0500|Sean Freitag|Added ability to create a binding around private fields|
+|2011-10-14 23:22:46 +0200|Markus Gärtner|changed mail address for questions|
+|2011-09-23 15:20:10 -0400|Dan Rollo| maven pom.xml cleanups:  * Remove unneeded default <groupId> tags.  * Add plugin <version> tags.  * Add explicit, platform independent UTF-8 file encoding via property: project.build.sourceEncoding  * Remove dependency on obsolete fitlibrary (the required classes are already in the source tree).  * Replace <system> dependency on json with the latest published json artifact.  * Remove unneeded ${basedir} from <sourceDirectory> tag value.|
+|2011-08-27 15:53:44 -0500|Sean Freitag|Added ability to bind to a private field that is in the superclass of the target class|
+|2011-08-27 15:05:38 -0500|Sean Freitag|Added ability to create a binding around private fields|
+|2011-07-25 15:06:45 +1200|Clare McLennan|Improved the help for define table fixture.|
+|2011-07-20 14:41:10 +0200|Conrad Mueller|Added ExcludeSuiteFilter annotation to FitNesseSuite|
+|2011-07-18 09:22:30 -0500|unclebob|Removed TestRunnerTask and all connections|
+|2011-07-14 18:00:26 +0200|Conrad Müller|Add opening html tag to JUnit HTML output|
+|2011-07-14 17:48:12 +0200|Conrad Müller|Fix JUnit HTML output on non-UTF-8 platforms|
+|2011-07-13 13:30:01 +0100|unclebob|delete cruft|
+|2011-07-13 13:26:28 +0100|unclebob|refactoring|
+|2011-07-13 13:45:40 +0200|Jerome Lacoste (f19)|Fix indentation|
+|2011-07-13 12:22:54 +0200|Jerome Lacoste (f19)|Allow fitnesse versions to have a suffix, e.g. 20100303_abc_1|
+|2011-07-12 10:05:29 +0200|Jerome Lacoste|Allow one to override the version number from the command line|
+|2011-07-11 14:32:13 +0200|Jerome Lacoste (f19)|Rename PathsCollector into PathsProvider, remove unecessary backward compatibility and simplify code|
+|2011-04-12 11:39:42 +0100|unknown|Configurable port added to JUnit suite runner.|
+|2011-04-07 14:54:23 +0200|Jerome Lacoste (f19)|#24 allow SymbolTypes to represent more than one paths. A new interface is added for those SymbolTypes that want to generate more than one paths|
+|2011-04-06 15:53:52 -0400|unclebob|Refactor Purge History|
+|2011-04-04 09:46:27 -0700|John Zhu|Set failedCount in SuiteExecutionReportFormatter.testComplete so that when run suite test from ant run suite test from ant it will return correct failed test count.|
+|2011-03-27 21:40:49 -0500|woodybrood|fix for problem where trying scenarios not defined as parameterized is too greedy and the wrong table is chosen.|
+|2011-03-27 21:38:21 -0500|woodybrood|fix for problem where trying scenarios not defined as parameterized is too greedy and the wrong table is chosen.|
+|2011-03-19 14:36:51 -0600|Mike Stockdale|parser multiple nested list|
+|2011-03-09 15:44:45 -0700|Mike Stockdale|parser more tests|
+|2011-03-07 11:32:03 -0800|unclebob|quick refactoring|
+|2011-03-05 17:24:00 -0700|Mike Stockdale|parser missing provider in component factory|
+|2011-03-03 17:03:29 -0700|Mike Stockdale|parser render variables inside preformat|
+|2011-03-03 13:52:53 -0700|Mike Stockdale|parser preserve variables in wiki translator|
+|2011-03-03 19:53:34 +0100|Marco Paga|Converters are managed by a registry|
+|2011-03-02 21:16:58 -0600|woodybrood|added a test for new braces style argumment usage.|
+|2011-03-02 16:29:19 -0600|woodybrood|Changed ScenarioTable to support argument references in scenarios to wrap argument in braces, such as @{argName}|
+|2011-03-02 10:55:25 -0600|woodybrood|Fix line inconsistency when last line ends with a table.|
+|2011-03-02 10:42:35 -0600|unclebob|Merge to push|
+|2011-03-01 22:25:33 -0600|woodybrood|Added example to the user guide for environment variable in SymbolicLinks|
+|2011-01-26 09:46:35 -0600|woodybrood|Changed the Symbolic Link to support environment variables. This allows reuse of information from another wiki.|
+|2011-02-17 15:12:07 +0100|Jerome Lacoste|13 fitnesse can hang while reporting issue in early termination.|
+|2011-02-17 07:12:05 -0700|Mike Stockdale|update slim protocol description|
+|2011-02-16 22:39:54 +0000|Gojko Adzic|configurable port in junit, fixes lisa crispin's problem|
+|2011-02-05 17:37:41 -0700|Mike Stockdale|parser empty variable reference|
+|2011-01-29 11:12:07 -0700|Mike Stockdale|parser italic terminated by end cell|
+|2011-01-20 16:55:11 -0700|Mike Stockdale|parser variable with literal whitespace in cell|
+|2011-01-18 20:46:43 +1300|Clare McLennan|Suite overview - which shows which tests of a suite have run and which passed and failed finished.|
+|2011-01-15 17:19:11 -0700|Mike Stockdale|parser preserve literal whitespace in cell|
+|2011-01-16 10:44:37 +1300|Clare McLennan|Added help about the "define table type fixture", and an acceptance test for the functionality.|
+|2011-01-15 23:22:41 +1300|Clare McLennan|Added "define table type" table type - allows people to define table type in advance so don't have to specify it in the test.|
+|2011-01-15 22:36:22 +1300|Clare McLennan|Renamed "normal" page to "static". Since atleast half the pages in many fitnesse wikis are actually tests, static seemsa better description for these not-runnable pages.|
+|2011-01-15 21:37:39 +1300|Clare McLennan|Renamed prune to skip in the UI, Renamed "normal" page to "static" in UI.   In all the systems I have seen most of the pages are tests, so 'normal' seems wrong (as well as not very informative)|
+|2011-01-15 20:46:06 +1300|Clare McLennan|Renamed the "prune" attribute (in the gui only) to "skip (recursive)". This should make it more obvious to people what the functionality does and hopefully more people will use it.|
+|2011-01-12 21:19:30 -0700|Mike Stockdale|parser handle non blank after today delta|
+|2011-01-12 14:27:52 +0300|Konstantin Vlasenko|move InProgress logic to the PageInProgressFormatter|
+|2011-01-11 14:29:26 +0300|Konstantin Vlasenko|use files/testProgress instead to monitor tests in progress|
+|2011-01-11 14:28:04 +0300|Konstantin Vlasenko|fix to prevent tests failure|
+|2011-01-11 13:36:25 +0300|Konstantin Vlasenko|version|
+|2011-01-08 21:25:09 -0700|Mike Stockdale|parser render list|
+|2011-01-08 17:44:57 -0700|Mike Stockdale|parser render nested list|
+|2011-01-08 16:20:29 -0700|Mike Stockdale|parser list whitespace optional|
+|2011-01-08 15:22:26 -0700|Mike Stockdale|parser define in cell|
+|2011-01-06 21:06:46 -0700|Mike Stockdale|parser render anchor name with space|
+|2011-01-06 12:16:12 -0600|unclebob|Fixed New Parser include -teardown not being hidden.|
+|2010-12-28 15:15:28 +0300|Konstantin Vlasenko|SLIM_PORT 0 for TestsInProgress to allow running this test simultaneously on several clients|
+|2010-12-27 18:47:41 +0300|Konstantin Vlasenko|fix: remove indication file on Test Stop|
+|2010-12-27 15:45:22 +0300|Konstantin Vlasenko|+FitNesse.TestsInProgress (you can see all yout tests are currently executing)|
+|2010-12-25 19:57:59 +0300|Konstantin Vlasenko|create lock file for test in progress|
+|2010-12-17 17:42:38 +0300|Builder|use free available port if SLIM_PORT (0)|
+|2010-09-22 15:36:26 +1200|Clare|Added a new way to debug slim, where developers manually kick off the slim process and fitnesse just connects to it.|
+|2010-09-20 14:26:39 +1200|Clare|Renamed "prune" to skip and moved to the "execution" box on the properties page.|
+|2010-08-21 13:11:35 +1200|Clare|Changed the javascript debug link so it works even if you have run the test you wish to debug.|

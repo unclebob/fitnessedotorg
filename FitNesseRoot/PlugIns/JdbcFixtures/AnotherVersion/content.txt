@@ -1,0 +1,41 @@
+The version posted at .JdbcFixtures was posted a few weeks before the 20041105 release of fitnesse. Unfortunately, those jdbc fixtures won't work with the 20041105 release. Here is a version (based on the code at .JdbcFixtures, but simplified a bit) updated to work w/ the current version of Fitnesse.
+
+[[Download][/files/JdbcFixturesForFitnesse20041105.zip]] (code and .jar)
+
+Here's a sample wiki page
+----
+!path fitnesse.jar
+!path lib/mm.mysql-2.0.11.jar
+!path lib/jdbcfixtures.jar
+
+|Import|
+|fitnesse.jdbc|
+
+|Jdbc Connection|
+|driver                 |url                                     |user|password|
+|org.gjt.mm.mysql.Driver|jdbc:mysql://localhost:3306/someDatabase|me  |secret  |
+
+|Delete|user|
+
+!|Select|user|
+|firstName|lastName|email|
+
+!|Insert|user|
+|firstName|lastName|email|gender|date_registered|
+|John|Doe|john@doe.com|M|2005-01-18 11:01:53|
+|Jane|Roe|jane@roe.com|F||
+
+!|Select  |user|
+|firstName|lastName|email|gender|date_registered|
+|John|Doe|john@doe.com|M||
+|Jane|Roe|jane@roe.com|F||
+
+!|Update  |user|
+|firstName|where|firstName|
+|Jonathan |     |John     |
+|Jennifer |     |Jane     |
+
+!|Select|user|
+|firstName|lastName|email|gender|date_registered|
+|Jonathan|Doe|john@doe.com|M||
+|Jennifer|Roe|jane@roe.com|F||
