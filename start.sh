@@ -10,5 +10,5 @@ if ! [ -f $JAR_FILE ]; then
   mv fitnesse-standalone.jar $JAR_FILE
 fi
 
-java -classpath classes:$JAR_FILE fitnesseMain.FitNesseMain -p 80
+java -classpath classes:$JAR_FILE fitnesseMain.FitNesseMain -p 8080
 
