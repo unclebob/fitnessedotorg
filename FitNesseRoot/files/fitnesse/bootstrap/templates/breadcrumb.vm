@@ -1,0 +1,11 @@
+<ol class="page-actions btn-group">
+ <li class="expandall btn btn-xs">Expand All</li>
+ <li class="collapseall btn btn-xs">Collapse All</li>
+</ol>
+
+<ol class="breadcrumb">
+#foreach($breadCrumb in $pageTitle.BreadCrumbs)
+ <li><a href="${contextRoot}#escape($breadCrumb.Link)">#escape($breadCrumb.Name)</a></li>
+#end
+ <li>#if($pageTitle.Link)<a href="${contextRoot}#escape($pageTitle.Link)">#escape($pageTitle.Title)</a>#else#escape($pageTitle.Title)#end#if($pageTitle.pageTags) #foreach($tag in $!pageTitle.pageTagsArray)<span class="tag">#escape($tag)</span>#end#end</li>
+</ol>

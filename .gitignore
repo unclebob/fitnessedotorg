@@ -13,6 +13,7 @@ passwordMap
 *.iml
 *.ipr
 *.iws
+fitnesse-standalone*.jar
 test-results
 FitNesseRoot/properties
 FitNesseRoot/updateDoNotCopyOverList
