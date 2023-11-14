@@ -22,7 +22,7 @@
 </style>
 <div id="banner" class="container">
 <img src="files/fitnesse/images/fitnesse-logo-large.png" alt="FitNesse logo"/>
-<h3 id="slogan">The fully integrated standalone wiki and acceptance testing framework HELLO</h3>
+<h3 id="slogan">The fully integrated standalone wiki and acceptance testing framework</h3>
 <div id="quote">Be-monster not thy feature, wer't my fitnesse<br/>
 -- Shakespeare, King Lear</div>
 <div id="calltoaction"><a href="FitNesseDownload" class="btn btn-lg btn-success">Download FitNesse</a></div>
