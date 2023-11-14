@@ -1,7 +1,10 @@
 #! /bin/sh
 
-VERSION=20230503
+VERSION=`cat VERSION`
+echo "Using FitNesse Version $VERSION."
+
 JAR_FILE=fitnesse-standalone-$VERSION.jar
+
 
 if ! [ -f $JAR_FILE ]; then
   echo "Downloading $JAR_FILE"
