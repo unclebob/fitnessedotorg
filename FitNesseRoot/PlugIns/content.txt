@@ -27,6 +27,7 @@
 |Coffee Script Slim                 |Mike Suarez                                    |https://github.com/limadelic/decaf              |                                                                                                                                                                    |
 |Power Shell Slim                   |Konstantin Vlasenko                            |https://github.com/konstantinvlasenko/PowerSlim |[[docs][http://vlasenko.org/powerslim/]]                                                                                                                            |
 |!-SmalltalkFit-!                   |Randy Coulman                                  |https://github.com/randycoulman/SmalltalkFit    |See README in the repository                                                                                                                                        |
+|test-slim for Perl                 |''by Greg Bacon''                              |https://github.com/gbacon/test-slim              |[[docs][https://github.com/gbacon/test-slim/blob/main/docs/index.md]] — supports Slim version 0.5                                                                  |
 
 !2 Dependency management !anchor depman
 |!meta Plugin or Accessory|!meta Author                                  |!meta URL                                           |!meta Docs                         |
